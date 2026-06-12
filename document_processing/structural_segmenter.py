@@ -1,14 +1,19 @@
 from dataclasses import replace
 
+from document_processing.config import DEFAULT_CHUNK_MAX_WORDS
 from document_processing.heading_detector import HeadingCandidate, detect_heading
 from document_processing.models import (
     DocumentSection,
     ParagraphChunk,
     StructuralAnalysis,
 )
+from document_processing.text_chunker import split_text_into_chunks
 
 
-def segment_structure(content: str) -> StructuralAnalysis:
+def segment_structure(
+    content: str,
+    max_chunk_words: int = DEFAULT_CHUNK_MAX_WORDS,
+) -> StructuralAnalysis:
     lines = content.splitlines()
     section_builders: list[_SectionBuilder] = []
     orphan_chunks: list[ParagraphChunk] = []
@@ -25,20 +30,24 @@ def segment_structure(content: str) -> StructuralAnalysis:
 
         text = " ".join(part.strip() for part in paragraph_buffer if part.strip())
         if text:
-            chunk_order += 1
             parent = section_stack[-1] if section_stack else None
-            chunk = ParagraphChunk(
-                chunk_id=f"chunk-{chunk_order}",
-                parent_section_id=parent.section_id if parent else None,
-                text=text,
-                order=chunk_order,
-                start_line=paragraph_start_line or end_line,
-                end_line=end_line,
-            )
-            if parent:
-                parent.chunks.append(chunk)
-            else:
-                orphan_chunks.append(chunk)
+            for piece in split_text_into_chunks(text, max_words=max_chunk_words):
+                chunk_order += 1
+                chunk = ParagraphChunk(
+                    chunk_id=f"chunk-{chunk_order}",
+                    parent_section_id=parent.section_id if parent else None,
+                    text=piece.text,
+                    order=chunk_order,
+                    start_line=paragraph_start_line or end_line,
+                    end_line=end_line,
+                    word_count=piece.word_count,
+                    character_count=len(piece.text),
+                    chunk_type=piece.chunk_type,
+                )
+                if parent:
+                    parent.chunks.append(chunk)
+                else:
+                    orphan_chunks.append(chunk)
 
         paragraph_buffer = []
         paragraph_start_line = None

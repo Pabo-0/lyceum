@@ -3,8 +3,8 @@
   "title": "Biologia celular: membranas y organelos",
   "source_path": "D:/PABLO/Lyceum Project/lyceum/test_documents/biologia_celular.txt",
   "source_extension": ".txt",
-  "created_at": "2026-06-12T19:50:04.395948+00:00",
-  "processing_status": "structured",
+  "created_at": "2026-06-12T19:56:00.315570+00:00",
+  "processing_status": "chunked",
   "character_count": 732,
   "word_count": 104,
   "paragraph_count": 9

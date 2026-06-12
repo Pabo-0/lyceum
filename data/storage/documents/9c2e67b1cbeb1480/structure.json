@@ -29,7 +29,10 @@
           "text": "El algebra lineal estudia vectores, matrices y transformaciones lineales. Un vector puede representar una posicion, una direccion o una lista ordenada de valores.",
           "order": 1,
           "start_line": 5,
-          "end_line": 5
+          "end_line": 5,
+          "word_count": 23,
+          "character_count": 162,
+          "chunk_type": "paragraph"
         }
       ]
     },
@@ -50,7 +53,10 @@
           "text": "Un vector tiene magnitud y direccion. En aprendizaje automatico, los vectores tambien pueden representar caracteristicas de objetos, textos o usuarios.",
           "order": 2,
           "start_line": 9,
-          "end_line": 9
+          "end_line": 9,
+          "word_count": 20,
+          "character_count": 151,
+          "chunk_type": "paragraph"
         }
       ]
     },
@@ -71,7 +77,10 @@
           "text": "Una matriz organiza numeros en filas y columnas. Las matrices permiten describir sistemas de ecuaciones y transformar vectores de un espacio a otro.",
           "order": 3,
           "start_line": 13,
-          "end_line": 13
+          "end_line": 13,
+          "word_count": 23,
+          "character_count": 148,
+          "chunk_type": "paragraph"
         }
       ]
     },
@@ -92,7 +101,10 @@
           "text": "Los espacios vectoriales permiten estudiar relaciones entre objetos mediante operaciones como suma, multiplicacion por escalares y combinaciones lineales.",
           "order": 4,
           "start_line": 17,
-          "end_line": 17
+          "end_line": 17,
+          "word_count": 18,
+          "character_count": 154,
+          "chunk_type": "paragraph"
         }
       ]
     },
@@ -113,7 +125,10 @@
           "text": "El tema central es que vectores y matrices funcionan como lenguaje comun para modelar datos y transformaciones.",
           "order": 5,
           "start_line": 21,
-          "end_line": 21
+          "end_line": 21,
+          "word_count": 17,
+          "character_count": 111,
+          "chunk_type": "paragraph"
         }
       ]
     }

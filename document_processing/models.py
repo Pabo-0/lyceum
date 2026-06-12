@@ -10,6 +10,9 @@ class ParagraphChunk:
     order: int
     start_line: int
     end_line: int
+    word_count: int
+    character_count: int
+    chunk_type: str
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

@@ -8,6 +8,7 @@ MVP inicial para convertir documentos educativos de texto en una estructura list
 - Fase 2: ingesta local con preservacion del contenido original.
 - Fase 3: normalizacion del texto.
 - Fase 4: segmentacion estructural en secciones, subsecciones y chunks.
+- Fase 5: chunking con limite de palabras por fragmento.
 
 ## Comandos utiles
 
@@ -15,7 +16,7 @@ MVP inicial para convertir documentos educativos de texto en una estructura list
 python scripts/ingest_test_documents.py
 python analysis/dev_dataset_report.py
 python analysis/structure_report.py
-python -B -m unittest tests.test_text_normalizer tests.test_structural_segmenter
+python -B -m unittest tests.test_text_normalizer tests.test_structural_segmenter tests.test_document_store tests.test_text_chunker
 ```
 
 Si Windows no reconoce `python`, puedes usar el Python incluido por Codex:

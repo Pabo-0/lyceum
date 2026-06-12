@@ -32,7 +32,7 @@ def ingest_file(path: Path, store: DocumentStore | None = None) -> StoredDocumen
         path,
         original_content,
         normalized_content,
-        processing_status="structured",
+        processing_status="chunked",
     )
     normalization_report = build_normalization_report(
         original_content,

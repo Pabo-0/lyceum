@@ -96,6 +96,7 @@ class DocumentStore:
     def save_index_entry(self, document: StoredDocument) -> None:
         index = self.load_index()
         document_id = document.metadata.document_id
+        source_path = document.metadata.source_path
         entry = {
             "document_id": document_id,
             "title": document.metadata.title,
@@ -107,7 +108,10 @@ class DocumentStore:
             "structure_path": (self.documents_dir / document_id / "structure.json").as_posix(),
         }
         without_current = [
-            item for item in index if item.get("document_id") != document_id
+            item
+            for item in index
+            if item.get("document_id") != document_id
+            and item.get("source_path") != source_path
         ]
         without_current.append(entry)
         self.save_all(without_current)

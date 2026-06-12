@@ -1,0 +1,79 @@
+{
+  "sections": [
+    {
+      "section_id": "section-1",
+      "parent_section_id": null,
+      "title": "Estrategias de aprendizaje autorregulado",
+      "level": 1,
+      "order": 1,
+      "heading_type": "markdown",
+      "numbering": null,
+      "start_line": 1,
+      "end_line": 1,
+      "chunks": []
+    },
+    {
+      "section_id": "section-2",
+      "parent_section_id": "section-1",
+      "title": "1. Planificacion",
+      "level": 2,
+      "order": 2,
+      "heading_type": "markdown",
+      "numbering": "1",
+      "start_line": 3,
+      "end_line": 5,
+      "chunks": [
+        {
+          "chunk_id": "chunk-1",
+          "parent_section_id": "section-2",
+          "text": "La planificacion del aprendizaje comienza cuando el estudiante identifica una meta concreta, revisa los recursos disponibles y decide una secuencia de acciones para avanzar. Esta etapa incluye reconocer conocimientos previos, anticipar dificultades, estimar el tiempo necesario y seleccionar estrategias de lectura, practica o explicacion. Cuando la planificacion es clara, el estudiante puede comparar su progreso con una intencion inicial y ajustar el esfuerzo antes de llegar al final de la actividad. En materiales educativos extensos, esta habilidad ayuda a dividir un tema grande en partes manejables, relacionar conceptos nuevos con conceptos conocidos y evitar que toda la informacion se procese como un bloque unico. La planificacion tambien permite detectar prerequisitos, ordenar actividades y construir una ruta de estudio mas estable.",
+          "order": 1,
+          "start_line": 5,
+          "end_line": 5,
+          "word_count": 120,
+          "character_count": 847,
+          "chunk_type": "split_paragraph"
+        },
+        {
+          "chunk_id": "chunk-2",
+          "parent_section_id": "section-2",
+          "text": "Si el texto es demasiado largo, conviene partirlo en fragmentos pequenos para conservar contexto sin saturar el analisis.",
+          "order": 2,
+          "start_line": 5,
+          "end_line": 5,
+          "word_count": 18,
+          "character_count": 121,
+          "chunk_type": "split_paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-3",
+      "parent_section_id": "section-1",
+      "title": "2. Monitoreo",
+      "level": 2,
+      "order": 3,
+      "heading_type": "markdown",
+      "numbering": "2",
+      "start_line": 7,
+      "end_line": 9,
+      "chunks": [
+        {
+          "chunk_id": "chunk-3",
+          "parent_section_id": "section-3",
+          "text": "El monitoreo ocurre durante la actividad. El estudiante observa si entiende, si puede explicar una idea con sus propias palabras y si los ejemplos resueltos realmente coinciden con el procedimiento estudiado.",
+          "order": 3,
+          "start_line": 9,
+          "end_line": 9,
+          "word_count": 31,
+          "character_count": 208,
+          "chunk_type": "paragraph"
+        }
+      ]
+    }
+  ],
+  "orphan_chunks": [],
+  "section_count": 3,
+  "subsection_count": 2,
+  "chunk_count": 3
+}

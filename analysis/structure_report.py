@@ -37,7 +37,11 @@ def main() -> int:
             for chunk in section["chunks"]:
                 preview = chunk["text"][:70]
                 suffix = "..." if len(chunk["text"]) > 70 else ""
-                print(f"{indent}  * {chunk['chunk_id']}: {preview}{suffix}")
+                print(
+                    f"{indent}  * {chunk['chunk_id']} "
+                    f"({chunk.get('word_count', 'n/a')} words, "
+                    f"{chunk.get('chunk_type', 'unknown')}): {preview}{suffix}"
+                )
 
     return 0
 

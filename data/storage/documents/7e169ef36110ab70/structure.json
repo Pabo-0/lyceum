@@ -29,7 +29,10 @@
           "text": "El metodo cientifico es una forma organizada de construir conocimiento mediante observacion, hipotesis, experimentacion y revision de resultados.",
           "order": 1,
           "start_line": 5,
-          "end_line": 5
+          "end_line": 5,
+          "word_count": 18,
+          "character_count": 145,
+          "chunk_type": "paragraph"
         }
       ]
     },
@@ -50,7 +53,10 @@
           "text": "La observacion identifica un fenomeno o problema. En esta etapa se registran patrones, preguntas y condiciones relevantes.",
           "order": 2,
           "start_line": 9,
-          "end_line": 9
+          "end_line": 9,
+          "word_count": 17,
+          "character_count": 122,
+          "chunk_type": "paragraph"
         }
       ]
     },
@@ -71,7 +77,10 @@
           "text": "Una hipotesis propone una explicacion tentativa. Debe poder ponerse a prueba y generar predicciones claras.",
           "order": 3,
           "start_line": 13,
-          "end_line": 13
+          "end_line": 13,
+          "word_count": 15,
+          "character_count": 107,
+          "chunk_type": "paragraph"
         }
       ]
     },
@@ -92,7 +101,10 @@
           "text": "La experimentacion compara resultados esperados con resultados observados. Un buen experimento controla variables y permite repetir el procedimiento.",
           "order": 4,
           "start_line": 17,
-          "end_line": 17
+          "end_line": 17,
+          "word_count": 18,
+          "character_count": 149,
+          "chunk_type": "paragraph"
         }
       ]
     },
@@ -113,7 +125,10 @@
           "text": "Los temas importantes son observacion, hipotesis, evidencia, experimentacion y revision. La ciencia avanza cuando sus explicaciones pueden corregirse con nueva evidencia.",
           "order": 5,
           "start_line": 21,
-          "end_line": 21
+          "end_line": 21,
+          "word_count": 21,
+          "character_count": 170,
+          "chunk_type": "paragraph"
         }
       ]
     }
