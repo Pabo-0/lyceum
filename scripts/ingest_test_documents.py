@@ -15,7 +15,9 @@ def main() -> int:
     documents_dir = PROJECT_ROOT / "test_documents"
     store = DocumentStore(
         storage_path=PROJECT_ROOT / "data/storage/documents.json",
+        documents_dir=PROJECT_ROOT / "data/storage/documents",
         originals_dir=PROJECT_ROOT / "data/storage/originals",
+        normalized_dir=PROJECT_ROOT / "data/storage/normalized",
     )
     documents = ingest_directory(documents_dir, store)
 
@@ -25,7 +27,8 @@ def main() -> int:
         print(
             f"- {metadata.title} "
             f"({metadata.source_extension}, {metadata.word_count} words, "
-            f"{metadata.paragraph_count} paragraphs)"
+            f"{metadata.paragraph_count} paragraphs, "
+            f"status={metadata.processing_status})"
         )
 
     return 0

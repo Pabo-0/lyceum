@@ -13,20 +13,24 @@ def build_document_id(path: Path, content: str) -> str:
     return sha256(source).hexdigest()[:16]
 
 
-def build_metadata(path: Path, content: str) -> DocumentMetadata:
-    title = extract_title(content, fallback=path.stem.replace("_", " ").title())
-    paragraphs = split_paragraphs(content)
-    tokens = tokenize(content)
+def build_metadata(
+    path: Path,
+    original_content: str,
+    normalized_content: str,
+    processing_status: str = "normalized",
+) -> DocumentMetadata:
+    title = extract_title(normalized_content, fallback=path.stem.replace("_", " ").title())
+    paragraphs = split_paragraphs(normalized_content)
+    tokens = tokenize(normalized_content)
 
     return DocumentMetadata(
-        document_id=build_document_id(path, content),
+        document_id=build_document_id(path, original_content),
         title=title,
         source_path=path.as_posix(),
         source_extension=path.suffix.lower(),
         created_at=datetime.now(timezone.utc).isoformat(),
-        processing_status="ingested",
-        character_count=len(content),
+        processing_status=processing_status,
+        character_count=len(normalized_content),
         word_count=len(tokens),
         paragraph_count=len(paragraphs),
     )
-

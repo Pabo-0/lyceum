@@ -1,26 +1,19 @@
-import re
-
-
-MARKDOWN_HEADING_PATTERN = re.compile(r"^\s{0,3}#{1,6}\s+(.+?)\s*$")
-NUMBERED_HEADING_PATTERN = re.compile(r"^\s*\d+(?:\.\d+)*\.?\s+(.+?)\s*$")
+from document_processing.heading_detector import detect_heading, looks_like_title_line
 
 
 def extract_title(content: str, fallback: str) -> str:
+    first_content_seen = False
     for line in content.splitlines():
         stripped = line.strip()
         if not stripped:
             continue
 
-        markdown_match = MARKDOWN_HEADING_PATTERN.match(stripped)
-        if markdown_match:
-            return markdown_match.group(1).strip()
+        heading = detect_heading(stripped, is_first_content_line=not first_content_seen)
+        first_content_seen = True
+        if heading:
+            return heading.title
 
-        numbered_match = NUMBERED_HEADING_PATTERN.match(stripped)
-        if numbered_match:
-            return numbered_match.group(1).strip()
-
-        if len(stripped) <= 90 and not stripped.endswith((".", ";", ",")):
+        if looks_like_title_line(stripped):
             return stripped
 
     return fallback
-

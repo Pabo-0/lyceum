@@ -1,0 +1,104 @@
+{
+  "sections": [
+    {
+      "section_id": "section-1",
+      "parent_section_id": null,
+      "title": "Biologia celular: membranas y organelos",
+      "level": 1,
+      "order": 1,
+      "heading_type": "title_line",
+      "numbering": null,
+      "start_line": 1,
+      "end_line": 1,
+      "chunks": []
+    },
+    {
+      "section_id": "section-2",
+      "parent_section_id": "section-1",
+      "title": "Introduccion",
+      "level": 2,
+      "order": 2,
+      "heading_type": "numbered",
+      "numbering": "1",
+      "start_line": 3,
+      "end_line": 5,
+      "chunks": [
+        {
+          "chunk_id": "chunk-1",
+          "parent_section_id": "section-2",
+          "text": "La biologia celular estudia la estructura y funcion de las celulas. La celula es la unidad basica de los seres vivos y contiene componentes especializados.",
+          "order": 1,
+          "start_line": 5,
+          "end_line": 5
+        }
+      ]
+    },
+    {
+      "section_id": "section-3",
+      "parent_section_id": "section-2",
+      "title": "Membrana celular",
+      "level": 3,
+      "order": 3,
+      "heading_type": "numbered",
+      "numbering": "1.1",
+      "start_line": 7,
+      "end_line": 9,
+      "chunks": [
+        {
+          "chunk_id": "chunk-2",
+          "parent_section_id": "section-3",
+          "text": "La membrana celular regula el intercambio de sustancias. Esta formada por una bicapa lipidica y proteinas que participan en transporte, senalizacion y reconocimiento.",
+          "order": 2,
+          "start_line": 9,
+          "end_line": 9
+        }
+      ]
+    },
+    {
+      "section_id": "section-4",
+      "parent_section_id": "section-2",
+      "title": "Organelos",
+      "level": 3,
+      "order": 4,
+      "heading_type": "numbered",
+      "numbering": "1.2",
+      "start_line": 11,
+      "end_line": 13,
+      "chunks": [
+        {
+          "chunk_id": "chunk-3",
+          "parent_section_id": "section-4",
+          "text": "Los organelos realizan tareas especificas. El nucleo guarda informacion genetica, las mitocondrias producen energia y los ribosomas participan en la sintesis de proteinas.",
+          "order": 3,
+          "start_line": 13,
+          "end_line": 13
+        }
+      ]
+    },
+    {
+      "section_id": "section-5",
+      "parent_section_id": "section-1",
+      "title": "Resumen de temas importantes",
+      "level": 2,
+      "order": 5,
+      "heading_type": "numbered",
+      "numbering": "2",
+      "start_line": 15,
+      "end_line": 17,
+      "chunks": [
+        {
+          "chunk_id": "chunk-4",
+          "parent_section_id": "section-5",
+          "text": "Los conceptos clave son celula, membrana celular, organelos, nucleo, mitocondria y sintesis de proteinas.",
+          "order": 4,
+          "start_line": 17,
+          "end_line": 17
+        }
+      ]
+    }
+  ],
+  "orphan_chunks": [],
+  "section_count": 5,
+  "subsection_count": 4,
+  "chunk_count": 4
+}

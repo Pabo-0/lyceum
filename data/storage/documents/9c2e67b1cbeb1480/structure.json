@@ -1,0 +1,125 @@
+{
+  "sections": [
+    {
+      "section_id": "section-1",
+      "parent_section_id": null,
+      "title": "Algebra lineal para vectores",
+      "level": 1,
+      "order": 1,
+      "heading_type": "markdown",
+      "numbering": null,
+      "start_line": 1,
+      "end_line": 1,
+      "chunks": []
+    },
+    {
+      "section_id": "section-2",
+      "parent_section_id": "section-1",
+      "title": "1. Introduccion",
+      "level": 2,
+      "order": 2,
+      "heading_type": "markdown",
+      "numbering": "1",
+      "start_line": 3,
+      "end_line": 5,
+      "chunks": [
+        {
+          "chunk_id": "chunk-1",
+          "parent_section_id": "section-2",
+          "text": "El algebra lineal estudia vectores, matrices y transformaciones lineales. Un vector puede representar una posicion, una direccion o una lista ordenada de valores.",
+          "order": 1,
+          "start_line": 5,
+          "end_line": 5
+        }
+      ]
+    },
+    {
+      "section_id": "section-3",
+      "parent_section_id": "section-2",
+      "title": "1.1 Vectores",
+      "level": 3,
+      "order": 3,
+      "heading_type": "markdown",
+      "numbering": "1.1",
+      "start_line": 7,
+      "end_line": 9,
+      "chunks": [
+        {
+          "chunk_id": "chunk-2",
+          "parent_section_id": "section-3",
+          "text": "Un vector tiene magnitud y direccion. En aprendizaje automatico, los vectores tambien pueden representar caracteristicas de objetos, textos o usuarios.",
+          "order": 2,
+          "start_line": 9,
+          "end_line": 9
+        }
+      ]
+    },
+    {
+      "section_id": "section-4",
+      "parent_section_id": "section-2",
+      "title": "1.2 Matrices",
+      "level": 3,
+      "order": 4,
+      "heading_type": "markdown",
+      "numbering": "1.2",
+      "start_line": 11,
+      "end_line": 13,
+      "chunks": [
+        {
+          "chunk_id": "chunk-3",
+          "parent_section_id": "section-4",
+          "text": "Una matriz organiza numeros en filas y columnas. Las matrices permiten describir sistemas de ecuaciones y transformar vectores de un espacio a otro.",
+          "order": 3,
+          "start_line": 13,
+          "end_line": 13
+        }
+      ]
+    },
+    {
+      "section_id": "section-5",
+      "parent_section_id": "section-1",
+      "title": "2. Idea importante",
+      "level": 2,
+      "order": 5,
+      "heading_type": "markdown",
+      "numbering": "2",
+      "start_line": 15,
+      "end_line": 17,
+      "chunks": [
+        {
+          "chunk_id": "chunk-4",
+          "parent_section_id": "section-5",
+          "text": "Los espacios vectoriales permiten estudiar relaciones entre objetos mediante operaciones como suma, multiplicacion por escalares y combinaciones lineales.",
+          "order": 4,
+          "start_line": 17,
+          "end_line": 17
+        }
+      ]
+    },
+    {
+      "section_id": "section-6",
+      "parent_section_id": "section-1",
+      "title": "Conclusion",
+      "level": 2,
+      "order": 6,
+      "heading_type": "markdown",
+      "numbering": null,
+      "start_line": 19,
+      "end_line": 21,
+      "chunks": [
+        {
+          "chunk_id": "chunk-5",
+          "parent_section_id": "section-6",
+          "text": "El tema central es que vectores y matrices funcionan como lenguaje comun para modelar datos y transformaciones.",
+          "order": 5,
+          "start_line": 21,
+          "end_line": 21
+        }
+      ]
+    }
+  ],
+  "orphan_chunks": [],
+  "section_count": 6,
+  "subsection_count": 5,
+  "chunk_count": 5
+}
