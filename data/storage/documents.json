@@ -1,0 +1,44 @@
+[
+  {
+    "metadata": {
+      "document_id": "9c2e67b1cbeb1480",
+      "title": "Algebra lineal para vectores",
+      "source_path": "D:/PABLO/Lyceum Project/lyceum/test_documents/algebra_lineal.md",
+      "source_extension": ".md",
+      "created_at": "2026-06-12T19:13:22.382943+00:00",
+      "processing_status": "ingested",
+      "character_count": 860,
+      "word_count": 117,
+      "paragraph_count": 11
+    },
+    "original_content": "# Algebra lineal para vectores\n\n## 1. Introduccion\n\nEl algebra lineal estudia vectores, matrices y transformaciones lineales. Un vector puede representar una posicion, una direccion o una lista ordenada de valores.\n\n## 1.1 Vectores\n\nUn vector tiene magnitud y direccion. En aprendizaje automatico, los vectores tambien pueden representar caracteristicas de objetos, textos o usuarios.\n\n## 1.2 Matrices\n\nUna matriz organiza numeros en filas y columnas. Las matrices permiten describir sistemas de ecuaciones y transformar vectores de un espacio a otro.\n\n## 2. Idea importante\n\nLos espacios vectoriales permiten estudiar relaciones entre objetos mediante operaciones como suma, multiplicacion por escalares y combinaciones lineales.\n\n## Conclusion\n\nEl tema central es que vectores y matrices funcionan como lenguaje comun para modelar datos y transformaciones.\n\n"
+  },
+  {
+    "metadata": {
+      "document_id": "cf930a8d0f9b30a7",
+      "title": "Biologia celular: membranas y organelos",
+      "source_path": "D:/PABLO/Lyceum Project/lyceum/test_documents/biologia_celular.txt",
+      "source_extension": ".txt",
+      "created_at": "2026-06-12T19:13:22.398059+00:00",
+      "processing_status": "ingested",
+      "character_count": 733,
+      "word_count": 104,
+      "paragraph_count": 9
+    },
+    "original_content": "Biologia celular: membranas y organelos\n\n1. Introduccion\n\nLa biologia celular estudia la estructura y funcion de las celulas. La celula es la unidad basica de los seres vivos y contiene componentes especializados.\n\n1.1 Membrana celular\n\nLa membrana celular regula el intercambio de sustancias. Esta formada por una bicapa lipidica y proteinas que participan en transporte, senalizacion y reconocimiento.\n\n1.2 Organelos\n\nLos organelos realizan tareas especificas. El nucleo guarda informacion genetica, las mitocondrias producen energia y los ribosomas participan en la sintesis de proteinas.\n\n2. Resumen de temas importantes\n\nLos conceptos clave son celula, membrana celular, organelos, nucleo, mitocondria y sintesis de proteinas.\n\n"
+  },
+  {
+    "metadata": {
+      "document_id": "7e169ef36110ab70",
+      "title": "Historia del metodo cientifico",
+      "source_path": "D:/PABLO/Lyceum Project/lyceum/test_documents/historia_metodo_cientifico.md",
+      "source_extension": ".md",
+      "created_at": "2026-06-12T19:13:22.400369+00:00",
+      "processing_status": "ingested",
+      "character_count": 833,
+      "word_count": 104,
+      "paragraph_count": 11
+    },
+    "original_content": "# Historia del metodo cientifico\n\n## Introduccion\n\nEl metodo cientifico es una forma organizada de construir conocimiento mediante observacion, hipotesis, experimentacion y revision de resultados.\n\n## 1. Observacion\n\nLa observacion identifica un fenomeno o problema. En esta etapa se registran patrones, preguntas y condiciones relevantes.\n\n## 1.1 Hipotesis\n\nUna hipotesis propone una explicacion tentativa. Debe poder ponerse a prueba y generar predicciones claras.\n\n## 1.2 Experimentacion\n\nLa experimentacion compara resultados esperados con resultados observados. Un buen experimento controla variables y permite repetir el procedimiento.\n\n## 2. Conclusion\n\nLos temas importantes son observacion, hipotesis, evidencia, experimentacion y revision. La ciencia avanza cuando sus explicaciones pueden corregirse con nueva evidencia.\n\n"
+  }
+]
