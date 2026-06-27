@@ -1,0 +1,2 @@
+# Runtime dependencies for the current MVP.
+# The document-processing pipeline currently uses only Python's standard library.

@@ -31,11 +31,29 @@ data/storage/documents/<document_id>/
   concept_deduplication_summary.json
   semantic_relationships.json
   graph.json
+  neo4j.cypher
   original.txt
   normalized.txt
 ```
 
 Esta separacion evita que un solo JSON crezca demasiado cuando los documentos sean largos.
+
+## Exportacion Neo4j
+
+Cada documento guarda una traduccion Cypher individual:
+
+```text
+data/storage/documents/<document_id>/neo4j.cypher
+```
+
+El exportador global genera archivos agregados para cargar o revisar la base:
+
+```text
+data/storage/neo4j/
+  schema.cypher
+  all_documents.cypher
+  verification_queries.cypher
+```
 
 ## Compatibilidad
 

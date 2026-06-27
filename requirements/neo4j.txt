@@ -1,0 +1,4 @@
+-r base.txt
+
+# Optional dependency used only by scripts/load_neo4j.py.
+neo4j>=5.0,<6.0

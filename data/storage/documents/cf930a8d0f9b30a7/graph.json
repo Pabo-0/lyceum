@@ -10,7 +10,7 @@
         "title": "Biologia celular: membranas y organelos",
         "source_path": "D:/PABLO/Lyceum Project/lyceum/test_documents/biologia_celular.txt",
         "source_extension": ".txt",
-        "processing_status": "semantic_relationships_built",
+        "processing_status": "neo4j_export_ready",
         "word_count": 104,
         "paragraph_count": 9
       }

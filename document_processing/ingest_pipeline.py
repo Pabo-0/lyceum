@@ -42,7 +42,7 @@ def ingest_file(path: Path, store: DocumentStore | None = None) -> StoredDocumen
         path,
         original_content,
         normalized_content,
-        processing_status="semantic_relationships_built",
+        processing_status="neo4j_export_ready",
     )
     graph = build_initial_graph(
         metadata,

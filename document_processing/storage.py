@@ -9,6 +9,7 @@ from document_processing.config import (
     DEFAULT_STORAGE_PATH,
 )
 from document_processing.models import StoredDocument
+from document_processing.neo4j_cypher import graph_to_cypher
 
 
 class DocumentStore:
@@ -198,7 +199,9 @@ class DocumentStore:
             document_dir / "semantic_relationships.json",
             document.semantic_relationships.to_dict(),
         )
-        self._write_json(document_dir / "graph.json", document.graph.to_dict())
+        graph = document.graph.to_dict()
+        self._write_json(document_dir / "graph.json", graph)
+        self._write_text(document_dir / "neo4j.cypher", graph_to_cypher(graph))
         self._write_text(document_dir / "original.txt", document.original_content)
         self._write_text(document_dir / "normalized.txt", document.normalized_content)
         self._write_json(
@@ -216,6 +219,7 @@ class DocumentStore:
                 "concept_deduplication_summary_path": "concept_deduplication_summary.json",
                 "semantic_relationships_path": "semantic_relationships.json",
                 "graph_path": "graph.json",
+                "neo4j_cypher_path": "neo4j.cypher",
                 "original_content_path": "original.txt",
                 "normalized_content_path": "normalized.txt",
             },
@@ -250,6 +254,9 @@ class DocumentStore:
                 self.documents_dir / document_id / "semantic_relationships.json"
             ).as_posix(),
             "graph_path": (self.documents_dir / document_id / "graph.json").as_posix(),
+            "neo4j_cypher_path": (
+                self.documents_dir / document_id / "neo4j.cypher"
+            ).as_posix(),
         }
         without_current = [
             item
@@ -314,6 +321,11 @@ class DocumentStore:
                 ).as_posix(),
                 "graph_path": (
                     self.documents_dir / item["metadata"]["document_id"] / "graph.json"
+                ).as_posix(),
+                "neo4j_cypher_path": (
+                    self.documents_dir
+                    / item["metadata"]["document_id"]
+                    / "neo4j.cypher"
                 ).as_posix(),
             }
             for item in data

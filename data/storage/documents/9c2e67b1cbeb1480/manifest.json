@@ -11,6 +11,7 @@
   "concept_deduplication_summary_path": "concept_deduplication_summary.json",
   "semantic_relationships_path": "semantic_relationships.json",
   "graph_path": "graph.json",
+  "neo4j_cypher_path": "neo4j.cypher",
   "original_content_path": "original.txt",
   "normalized_content_path": "normalized.txt"
 }

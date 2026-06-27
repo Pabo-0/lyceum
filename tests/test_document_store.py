@@ -40,6 +40,7 @@ class DocumentStoreTests(unittest.TestCase):
             self.assertTrue((document_dir / "normalized_concept_mentions.json").exists())
             self.assertTrue((document_dir / "semantic_relationships.json").exists())
             self.assertTrue((document_dir / "graph.json").exists())
+            self.assertTrue((document_dir / "neo4j.cypher").exists())
             self.assertTrue((document_dir / "original.txt").exists())
             self.assertTrue((document_dir / "normalized.txt").exists())
             self.assertEqual(loaded[0]["metadata"]["title"], "Sample")

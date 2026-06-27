@@ -10,7 +10,7 @@
         "title": "Algebra lineal para vectores",
         "source_path": "D:/PABLO/Lyceum Project/lyceum/test_documents/algebra_lineal.md",
         "source_extension": ".md",
-        "processing_status": "semantic_relationships_built",
+        "processing_status": "neo4j_export_ready",
         "word_count": 117,
         "paragraph_count": 11
       }

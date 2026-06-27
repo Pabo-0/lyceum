@@ -10,7 +10,7 @@
         "title": "Historia del metodo cientifico",
         "source_path": "D:/PABLO/Lyceum Project/lyceum/test_documents/historia_metodo_cientifico.md",
         "source_extension": ".md",
-        "processing_status": "semantic_relationships_built",
+        "processing_status": "neo4j_export_ready",
         "word_count": 104,
         "paragraph_count": 11
       }

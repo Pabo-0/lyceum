@@ -1,0 +1,4 @@
+-r backend.txt
+
+# Test runner is currently Python unittest from the standard library.
+# Add developer-only packages here when the project needs them.
