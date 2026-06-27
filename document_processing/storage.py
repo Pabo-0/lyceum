@@ -85,6 +85,15 @@ class DocumentStore:
                 "normalization_methods": [],
             },
         )
+        semantic_relationships = self._read_optional_json(
+            document_dir / "semantic_relationships.json",
+            {
+                "relationships": [],
+                "relationship_count": 0,
+                "relationship_counts_by_type": {},
+                "methods": [],
+            },
+        )
         graph = self._read_optional_json(
             document_dir / "graph.json",
             {
@@ -135,6 +144,7 @@ class DocumentStore:
                     [],
                 ),
             },
+            "semantic_relationships": semantic_relationships,
             "graph": graph,
         }
 
@@ -184,6 +194,10 @@ class DocumentStore:
                 "normalization_methods": concept_deduplication["normalization_methods"],
             },
         )
+        self._write_json(
+            document_dir / "semantic_relationships.json",
+            document.semantic_relationships.to_dict(),
+        )
         self._write_json(document_dir / "graph.json", document.graph.to_dict())
         self._write_text(document_dir / "original.txt", document.original_content)
         self._write_text(document_dir / "normalized.txt", document.normalized_content)
@@ -200,6 +214,7 @@ class DocumentStore:
                 "canonical_concepts_path": "canonical_concepts.json",
                 "normalized_concept_mentions_path": "normalized_concept_mentions.json",
                 "concept_deduplication_summary_path": "concept_deduplication_summary.json",
+                "semantic_relationships_path": "semantic_relationships.json",
                 "graph_path": "graph.json",
                 "original_content_path": "original.txt",
                 "normalized_content_path": "normalized.txt",
@@ -230,6 +245,9 @@ class DocumentStore:
             ).as_posix(),
             "normalized_concept_mentions_path": (
                 self.documents_dir / document_id / "normalized_concept_mentions.json"
+            ).as_posix(),
+            "semantic_relationships_path": (
+                self.documents_dir / document_id / "semantic_relationships.json"
             ).as_posix(),
             "graph_path": (self.documents_dir / document_id / "graph.json").as_posix(),
         }
@@ -288,6 +306,11 @@ class DocumentStore:
                     self.documents_dir
                     / item["metadata"]["document_id"]
                     / "normalized_concept_mentions.json"
+                ).as_posix(),
+                "semantic_relationships_path": (
+                    self.documents_dir
+                    / item["metadata"]["document_id"]
+                    / "semantic_relationships.json"
                 ).as_posix(),
                 "graph_path": (
                     self.documents_dir / item["metadata"]["document_id"] / "graph.json"

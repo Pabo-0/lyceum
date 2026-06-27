@@ -7,6 +7,7 @@ from document_processing.models import (
     GraphNode,
     GraphRelationship,
     KnowledgeGraph,
+    SemanticRelationshipResult,
     StructuralAnalysis,
 )
 
@@ -15,6 +16,7 @@ def build_initial_graph(
     metadata: DocumentMetadata,
     structure: StructuralAnalysis,
     concept_deduplication: ConceptDeduplicationResult,
+    semantic_relationships: SemanticRelationshipResult | None = None,
 ) -> KnowledgeGraph:
     document_id = metadata.document_id
     nodes: list[GraphNode] = []
@@ -58,6 +60,13 @@ def build_initial_graph(
             concept_node_ids,
         )
     )
+    if semantic_relationships:
+        relationships.extend(
+            _build_semantic_relationships(
+                semantic_relationships,
+                concept_node_ids,
+            )
+        )
 
     return _build_graph_result(nodes, relationships)
 
@@ -225,6 +234,38 @@ def _build_mentions_relationships(
                     "occurrence_count": stats["occurrence_count"],
                     "mention_count": stats["mention_count"],
                     "source": "section",
+                },
+            )
+        )
+
+    return relationships
+
+
+def _build_semantic_relationships(
+    semantic_relationships: SemanticRelationshipResult,
+    concept_node_ids: dict[str, str],
+) -> list[GraphRelationship]:
+    relationships: list[GraphRelationship] = []
+
+    for semantic_relationship in semantic_relationships.relationships:
+        source_node_id = concept_node_ids.get(semantic_relationship.source_concept_id)
+        target_node_id = concept_node_ids.get(semantic_relationship.target_concept_id)
+        if not source_node_id or not target_node_id:
+            continue
+        relationships.append(
+            _relationship(
+                semantic_relationship.relationship_type,
+                source_node_id,
+                target_node_id,
+                {
+                    "candidate_id": semantic_relationship.relationship_id,
+                    "weight": semantic_relationship.weight,
+                    "confidence": semantic_relationship.confidence,
+                    "method": semantic_relationship.method,
+                    "source": semantic_relationship.source,
+                    "reason": semantic_relationship.reason,
+                    "evidence": semantic_relationship.evidence,
+                    "status": "candidate",
                 },
             )
         )

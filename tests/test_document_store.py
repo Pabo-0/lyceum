@@ -38,6 +38,7 @@ class DocumentStoreTests(unittest.TestCase):
             self.assertTrue((document_dir / "concept_mentions.json").exists())
             self.assertTrue((document_dir / "canonical_concepts.json").exists())
             self.assertTrue((document_dir / "normalized_concept_mentions.json").exists())
+            self.assertTrue((document_dir / "semantic_relationships.json").exists())
             self.assertTrue((document_dir / "graph.json").exists())
             self.assertTrue((document_dir / "original.txt").exists())
             self.assertTrue((document_dir / "normalized.txt").exists())
@@ -45,6 +46,7 @@ class DocumentStoreTests(unittest.TestCase):
             self.assertIn("structure", loaded[0])
             self.assertIn("concept_extraction", loaded[0])
             self.assertIn("concept_deduplication", loaded[0])
+            self.assertIn("semantic_relationships", loaded[0])
             self.assertIn("graph", loaded[0])
 
 

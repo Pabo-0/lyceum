@@ -29,6 +29,7 @@ data/storage/documents/<document_id>/
   canonical_concepts.json
   normalized_concept_mentions.json
   concept_deduplication_summary.json
+  semantic_relationships.json
   graph.json
   original.txt
   normalized.txt

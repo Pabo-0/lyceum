@@ -10,7 +10,7 @@
         "title": "Estrategias de aprendizaje autorregulado",
         "source_path": "D:/PABLO/Lyceum Project/lyceum/test_documents/chunking_texto_largo.md",
         "source_extension": ".md",
-        "processing_status": "graph_built",
+        "processing_status": "semantic_relationships_built",
         "word_count": 177,
         "paragraph_count": 5
       }
@@ -690,10 +690,1215 @@
         "mention_count": 1,
         "source": "section"
       }
+    },
+    {
+      "relationship_id": "relationship:8922409af9e9ceb7",
+      "relationship_type": "PREREQUISITE_CANDIDATE",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-5ed38dd077d2",
+      "properties": {
+        "candidate_id": "semantic-relationship:219c5bf74337e123",
+        "weight": 0.75,
+        "confidence": 0.65,
+        "method": "title_subtitle_hierarchy",
+        "source": "section_hierarchy",
+        "reason": "A parent-section concept is connected to a child-section concept.",
+        "evidence": [
+          "section:section-1->section-2"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:bc74d79ec00adcf5",
+      "relationship_type": "PREREQUISITE_CANDIDATE",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "candidate_id": "semantic-relationship:da18ce01cf97786f",
+        "weight": 0.75,
+        "confidence": 0.65,
+        "method": "title_subtitle_hierarchy",
+        "source": "section_hierarchy",
+        "reason": "A parent-section concept is connected to a child-section concept.",
+        "evidence": [
+          "section:section-1->section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:2f0aa9dd2991011a",
+      "relationship_type": "PREREQUISITE_CANDIDATE",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "candidate_id": "semantic-relationship:20344af003502d93",
+        "weight": 0.333333,
+        "confidence": 0.5,
+        "method": "order_of_appearance",
+        "source": "document_order",
+        "reason": "A more general concept appears before a later concept.",
+        "evidence": [
+          "chunk_distance:2"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:b9f4572952e27da4",
+      "relationship_type": "PREREQUISITE_CANDIDATE",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "candidate_id": "semantic-relationship:905c3323f52d64cb",
+        "weight": 0.333333,
+        "confidence": 0.5,
+        "method": "order_of_appearance",
+        "source": "document_order",
+        "reason": "A more general concept appears before a later concept.",
+        "evidence": [
+          "chunk_distance:2"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:5d830f406770cf1b",
+      "relationship_type": "PREREQUISITE_CANDIDATE",
+      "source_id": "concept:canonical-concept-5ed38dd077d2",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "candidate_id": "semantic-relationship:c3cf922e08bb76fb",
+        "weight": 0.333333,
+        "confidence": 0.5,
+        "method": "order_of_appearance",
+        "source": "document_order",
+        "reason": "A more general concept appears before a later concept.",
+        "evidence": [
+          "chunk_distance:2"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:6033bde586e6f3a7",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:66561134df96e22f",
+        "weight": 1.0,
+        "confidence": 0.8,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:1.0"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:9df95d92b96ac811",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:3205b99714ab7e9a",
+        "weight": 1.0,
+        "confidence": 0.8,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:1.0"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:6a19480e776f8f5a",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-474e5dce48b2",
+      "properties": {
+        "candidate_id": "semantic-relationship:2ee40864cb70e27c",
+        "weight": 1.0,
+        "confidence": 0.8,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:1.0"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:20e2a4a1c05ffb98",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-aeb8c159f858",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:24f90a5751ca08b9",
+        "weight": 1.0,
+        "confidence": 0.8,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:1.0"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:bc8075f7315e757e",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:a50e8c0cb20ace51",
+        "weight": 0.991038,
+        "confidence": 0.8,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.991038"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:d27375d7cd003064",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:f10175c5bbe9b841",
+        "weight": 0.991038,
+        "confidence": 0.8,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.991038"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:bca621a100bac6a6",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-3feaf5d985f9",
+      "properties": {
+        "candidate_id": "semantic-relationship:afde9c2e53071f7a",
+        "weight": 0.991037,
+        "confidence": 0.8,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.991037"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:1cb0418425230500",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-474e5dce48b2",
+      "properties": {
+        "candidate_id": "semantic-relationship:0c240cd46a354b11",
+        "weight": 0.991037,
+        "confidence": 0.8,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.991037"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:5041381a512605fc",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:3103ba92cb33a818",
+        "weight": 0.991037,
+        "confidence": 0.8,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.991037"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:de47781362f86910",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:c89b633b259c4605",
+        "weight": 0.991037,
+        "confidence": 0.8,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.991037"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:9074843db0c36dab",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-5ed38dd077d2",
+      "properties": {
+        "candidate_id": "semantic-relationship:742d25ea8954e08f",
+        "weight": 0.83878,
+        "confidence": 0.8,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.83878"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:d67a473027e5de2c",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-5ed38dd077d2",
+      "properties": {
+        "candidate_id": "semantic-relationship:b22638a40ad49315",
+        "weight": 0.83878,
+        "confidence": 0.8,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.83878"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:863096c8398dcc31",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-5ed38dd077d2",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:36e2b2320fbcdfe4",
+        "weight": 0.786775,
+        "confidence": 0.793387,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.786775"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:122b19b5fecf7f9c",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-5ed38dd077d2",
+      "properties": {
+        "candidate_id": "semantic-relationship:3a4a6c115490c0fa",
+        "weight": 0.786766,
+        "confidence": 0.793383,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.786766"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:64d72d1a25cd368e",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-5ed38dd077d2",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:eb768a79f3604fc1",
+        "weight": 0.786766,
+        "confidence": 0.793383,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.786766"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:013fafc66433265b",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-3feaf5d985f9",
+      "properties": {
+        "candidate_id": "semantic-relationship:7e80290ad0917484",
+        "weight": 3.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2",
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:9a786292401c7d0a",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-474e5dce48b2",
+      "properties": {
+        "candidate_id": "semantic-relationship:8ad91d8822ac8bda",
+        "weight": 3.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2",
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:42db6e1bd6a2fe35",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:d4857681dfc35d26",
+        "weight": 3.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2",
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:1d15613368a4104c",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:7db9c6ff81a09b07",
+        "weight": 3.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2",
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:a578d61a650f2ffc",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-474e5dce48b2",
+      "properties": {
+        "candidate_id": "semantic-relationship:910b12b99c59a387",
+        "weight": 3.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2",
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:6402b3a75bb0a9e7",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:2affc253740d37be",
+        "weight": 3.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2",
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:0c578f1142dec888",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:c42bdfe43751b159",
+        "weight": 3.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2",
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:f6673bf37f931e6d",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:ee7abe827b75c77f",
+        "weight": 3.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2",
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:3aa4db8d256b7f8f",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:b8f7464c9baa483e",
+        "weight": 3.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2",
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:457369ab8e5ad4dc",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-aeb8c159f858",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:6fe11911d88a6f55",
+        "weight": 3.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2",
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:360d9edb0c05185e",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-5ed38dd077d2",
+      "properties": {
+        "candidate_id": "semantic-relationship:69b6f8a4e6dc49af",
+        "weight": 2.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:b0b9d847e8ec0885",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-5ed38dd077d2",
+      "properties": {
+        "candidate_id": "semantic-relationship:e3ddc902607f2bb1",
+        "weight": 2.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:ae3c8778bb2ee897",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-5ed38dd077d2",
+      "properties": {
+        "candidate_id": "semantic-relationship:83bbf49276762479",
+        "weight": 2.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:40d38da70a6834d0",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-5ed38dd077d2",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:acb6f4378a612e68",
+        "weight": 2.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:27ebaff58b885975",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-5ed38dd077d2",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:36e53abd961ca72b",
+        "weight": 2.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-1",
+          "chunk:chunk-2"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:a8f7759eda4c8d6f",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "candidate_id": "semantic-relationship:5fee9e84197c69ab",
+        "weight": 1.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:2c00910deef6ac17",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "candidate_id": "semantic-relationship:fd2a534b2c1aae18",
+        "weight": 1.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:1e90816526f02479",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "candidate_id": "semantic-relationship:11d88f0c09266ad6",
+        "weight": 1.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:d3dd75fddcd03ae5",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-a858929745ec",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:b798d1b3e7d52b8c",
+        "weight": 1.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:02467e6074f12fb5",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-a858929745ec",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:26d7628c2f8045da",
+        "weight": 1.0,
+        "confidence": 0.7,
+        "method": "chunk_cooccurrence",
+        "source": "chunk",
+        "reason": "Concepts are mentioned in the same chunk.",
+        "evidence": [
+          "chunk:chunk-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:bea5b65ccbd297cf",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "candidate_id": "semantic-relationship:5df4c6ea56cb8722",
+        "weight": 0.509524,
+        "confidence": 0.654762,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.509524"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:dc401634a3870719",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-a858929745ec",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:bf9f2d3dd46d38b5",
+        "weight": 0.509524,
+        "confidence": 0.654762,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.509524"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:9b00ad0e3cd9eb90",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-a858929745ec",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:e367a2db55c9ca8c",
+        "weight": 0.509514,
+        "confidence": 0.654757,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.509514"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:8c305a954662a5cd",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "candidate_id": "semantic-relationship:375dc5d516e8766c",
+        "weight": 0.495423,
+        "confidence": 0.647711,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.495423"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:20177e8e81448044",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "candidate_id": "semantic-relationship:64432b942ae8b676",
+        "weight": 0.495423,
+        "confidence": 0.647711,
+        "method": "tfidf_chunk_vector_similarity",
+        "source": "concept_mentions",
+        "reason": "Concepts have similar TF-IDF mention patterns across chunks.",
+        "evidence": [
+          "cosine_similarity:0.495423"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:da4f8b55d2f5849c",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-3feaf5d985f9",
+      "properties": {
+        "candidate_id": "semantic-relationship:a0485b5dbf741352",
+        "weight": 1.0,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2",
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:1c156680c3c11df4",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-474e5dce48b2",
+      "properties": {
+        "candidate_id": "semantic-relationship:8488fd7446a0640e",
+        "weight": 1.0,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2",
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:2b9a60f8b747e63c",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:90690c33b7932fdd",
+        "weight": 1.0,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2",
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:65e7db7f41ee2057",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:b1c8603c9bfb001d",
+        "weight": 1.0,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2",
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:f2489a271ad1e012",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-474e5dce48b2",
+      "properties": {
+        "candidate_id": "semantic-relationship:65a29b43692a9745",
+        "weight": 1.0,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2",
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:8ab7cd955ed36a12",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:834f70e14d1f6402",
+        "weight": 1.0,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2",
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:46e0f11bb2704ddf",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:a29ac557f9534741",
+        "weight": 1.0,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2",
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:21940c08aa16463b",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:17a909b9d14eff98",
+        "weight": 1.0,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2",
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:3822961d2d5cc353",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:2599d36bec25db8e",
+        "weight": 1.0,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2",
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:3f7f7e78441e7c68",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-aeb8c159f858",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:0c8cc5fff9b09ef2",
+        "weight": 1.0,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2",
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:e75eba9391f9b326",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-5ed38dd077d2",
+      "properties": {
+        "candidate_id": "semantic-relationship:f7dbf9b7a18794f9",
+        "weight": 0.5,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:a44f02136fddeee9",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-06e3f90dcaff",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "candidate_id": "semantic-relationship:0a25a4726ef4e5a1",
+        "weight": 0.5,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:c1270cb08e0e6f65",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-5ed38dd077d2",
+      "properties": {
+        "candidate_id": "semantic-relationship:0e2994c62f8e70e2",
+        "weight": 0.5,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:267043211ae3b8d4",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-3feaf5d985f9",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "candidate_id": "semantic-relationship:8fd914bae2f9e1cf",
+        "weight": 0.5,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:1f8cab9d1b504b8b",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-5ed38dd077d2",
+      "properties": {
+        "candidate_id": "semantic-relationship:ed7c756042aa3a91",
+        "weight": 0.5,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:bdd18d3d934e0469",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-474e5dce48b2",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "candidate_id": "semantic-relationship:1c7bde4dbac54594",
+        "weight": 0.5,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:a2864b7b75887d11",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-5ed38dd077d2",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:e908b26efb71f795",
+        "weight": 0.5,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:532f371cebac7ef2",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-5ed38dd077d2",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:80fc82943aaf10f0",
+        "weight": 0.5,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-2"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:6766442779b617d7",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-a858929745ec",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "candidate_id": "semantic-relationship:9153dfa9fedb6d10",
+        "weight": 0.5,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
+    },
+    {
+      "relationship_id": "relationship:294d92e6a8a38662",
+      "relationship_type": "RELATED_TO",
+      "source_id": "concept:canonical-concept-a858929745ec",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "candidate_id": "semantic-relationship:e1dd02561e252dca",
+        "weight": 0.5,
+        "confidence": 0.55,
+        "method": "section_cooccurrence",
+        "source": "section",
+        "reason": "Concepts are mentioned within the same section.",
+        "evidence": [
+          "section:section-3"
+        ],
+        "status": "candidate"
+      }
     }
   ],
   "node_count": 14,
-  "relationship_count": 36,
+  "relationship_count": 101,
   "node_counts_by_label": {
     "Chunk": 3,
     "Concept": 7,
@@ -704,6 +1909,8 @@
     "HAS_CHUNK": 3,
     "HAS_SECTION": 1,
     "HAS_SUBSECTION": 2,
-    "MENTIONS": 30
+    "MENTIONS": 30,
+    "PREREQUISITE_CANDIDATE": 5,
+    "RELATED_TO": 60
   }
 }

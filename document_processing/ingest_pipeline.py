@@ -7,6 +7,7 @@ from document_processing.graph_builder import build_initial_graph
 from document_processing.metadata import build_metadata
 from document_processing.models import StoredDocument
 from document_processing.reader import read_text_document
+from document_processing.semantic_relationship_builder import build_semantic_relationships
 from document_processing.storage import DocumentStore
 from document_processing.structural_segmenter import segment_structure
 from document_processing.text_normalizer import (
@@ -33,13 +34,22 @@ def ingest_file(path: Path, store: DocumentStore | None = None) -> StoredDocumen
     structure = segment_structure(normalized_content)
     concept_extraction = extract_concepts(structure)
     concept_deduplication = deduplicate_concepts(concept_extraction)
+    semantic_relationships = build_semantic_relationships(
+        structure,
+        concept_deduplication,
+    )
     metadata = build_metadata(
         path,
         original_content,
         normalized_content,
-        processing_status="graph_built",
+        processing_status="semantic_relationships_built",
     )
-    graph = build_initial_graph(metadata, structure, concept_deduplication)
+    graph = build_initial_graph(
+        metadata,
+        structure,
+        concept_deduplication,
+        semantic_relationships,
+    )
     normalization_report = build_normalization_report(
         original_content,
         normalized_content,
@@ -52,6 +62,7 @@ def ingest_file(path: Path, store: DocumentStore | None = None) -> StoredDocumen
         structure=structure,
         concept_extraction=concept_extraction,
         concept_deduplication=concept_deduplication,
+        semantic_relationships=semantic_relationships,
         graph=graph,
     )
     active_store.upsert(document)

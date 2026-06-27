@@ -24,6 +24,7 @@ def main() -> int:
         structure = item.get("structure", {})
         concept_extraction = item.get("concept_extraction", {})
         concept_deduplication = item.get("concept_deduplication", {})
+        semantic_relationships = item.get("semantic_relationships", {})
         graph = item.get("graph", {})
         print(
             f"- {metadata['title']} | "
@@ -38,6 +39,7 @@ def main() -> int:
             f"mentions={concept_extraction.get('mention_count', 'n/a')} | "
             f"canonical_concepts={concept_deduplication.get('concept_count', 'n/a')} | "
             f"variants={concept_deduplication.get('variant_count', 'n/a')} | "
+            f"semantic_relationships={semantic_relationships.get('relationship_count', 'n/a')} | "
             f"graph_nodes={graph.get('node_count', 'n/a')} | "
             f"graph_relationships={graph.get('relationship_count', 'n/a')}"
         )

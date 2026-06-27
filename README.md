@@ -12,6 +12,7 @@ MVP inicial para convertir documentos educativos de texto en una estructura list
 - Fase 6: extraccion de conceptos con NLP clasico.
 - Fase 7: normalizacion y deduplicacion de conceptos.
 - Fase 8: construccion del grafo inicial.
+- Fase 9: relaciones semanticas candidatas.
 
 ## Comandos utiles
 
@@ -20,8 +21,9 @@ python scripts/ingest_test_documents.py
 python analysis/dev_dataset_report.py
 python analysis/structure_report.py
 python analysis/concept_report.py
+python analysis/semantic_relationship_report.py
 python analysis/graph_report.py
-python -B -m unittest tests.test_text_normalizer tests.test_structural_segmenter tests.test_document_store tests.test_text_chunker tests.test_concept_extractor tests.test_concept_deduplicator tests.test_graph_builder
+python -B -m unittest tests.test_text_normalizer tests.test_structural_segmenter tests.test_document_store tests.test_text_chunker tests.test_concept_extractor tests.test_concept_deduplicator tests.test_semantic_relationship_builder tests.test_graph_builder
 ```
 
 Si Windows no reconoce `python`, puedes usar el Python incluido por Codex:

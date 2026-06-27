@@ -3,6 +3,42 @@ from typing import Any
 
 
 @dataclass(frozen=True)
+class SemanticRelationship:
+    relationship_id: str
+    relationship_type: str
+    source_concept_id: str
+    target_concept_id: str
+    weight: float
+    confidence: float
+    method: str
+    source: str
+    reason: str
+    evidence: list[str]
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class SemanticRelationshipResult:
+    relationships: list[SemanticRelationship]
+    relationship_count: int
+    relationship_counts_by_type: dict[str, int]
+    methods: list[str]
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "relationships": [
+                relationship.to_dict()
+                for relationship in self.relationships
+            ],
+            "relationship_count": self.relationship_count,
+            "relationship_counts_by_type": self.relationship_counts_by_type,
+            "methods": self.methods,
+        }
+
+
+@dataclass(frozen=True)
 class GraphNode:
     node_id: str
     labels: list[str]
@@ -252,6 +288,7 @@ class StoredDocument:
     structure: StructuralAnalysis
     concept_extraction: ConceptExtractionResult
     concept_deduplication: ConceptDeduplicationResult
+    semantic_relationships: SemanticRelationshipResult
     graph: KnowledgeGraph
 
     def to_dict(self) -> dict[str, Any]:
@@ -263,5 +300,6 @@ class StoredDocument:
             "structure": self.structure.to_dict(),
             "concept_extraction": self.concept_extraction.to_dict(),
             "concept_deduplication": self.concept_deduplication.to_dict(),
+            "semantic_relationships": self.semantic_relationships.to_dict(),
             "graph": self.graph.to_dict(),
         }
