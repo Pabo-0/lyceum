@@ -10,3 +10,4 @@ build/
 db.sqlite3
 backend/db.sqlite3
 backend/staticfiles/
+data/uploads/

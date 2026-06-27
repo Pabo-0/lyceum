@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -31,6 +32,8 @@ def env_path(name: str, default: Path) -> Path:
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = BASE_DIR.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 load_dotenv(BASE_DIR / ".env")
 
@@ -51,6 +54,7 @@ CSRF_TRUSTED_ORIGINS = env_list("DJANGO_CSRF_TRUSTED_ORIGINS")
 # Application definition
 
 INSTALLED_APPS = [
+    'api',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -104,7 +108,33 @@ NEO4J = {
     "USER": os.getenv("NEO4J_USER", "neo4j"),
     "PASSWORD": os.getenv("NEO4J_PASSWORD", ""),
     "DATABASE": os.getenv("NEO4J_DATABASE", ""),
+    "SYNC_ON_INGEST": env_bool("NEO4J_SYNC_ON_INGEST", default=False),
 }
+
+LYCEUM_STORAGE_PATH = env_path(
+    "LYCEUM_STORAGE_PATH",
+    PROJECT_ROOT / "data/storage/documents.json",
+)
+LYCEUM_DOCUMENTS_DIR = env_path(
+    "LYCEUM_DOCUMENTS_DIR",
+    PROJECT_ROOT / "data/storage/documents",
+)
+LYCEUM_ORIGINALS_DIR = env_path(
+    "LYCEUM_ORIGINALS_DIR",
+    PROJECT_ROOT / "data/storage/originals",
+)
+LYCEUM_NORMALIZED_DIR = env_path(
+    "LYCEUM_NORMALIZED_DIR",
+    PROJECT_ROOT / "data/storage/normalized",
+)
+LYCEUM_UPLOADS_DIR = env_path(
+    "LYCEUM_UPLOADS_DIR",
+    PROJECT_ROOT / "data/uploads",
+)
+LYCEUM_NEO4J_EXPORT_DIR = env_path(
+    "LYCEUM_NEO4J_EXPORT_DIR",
+    PROJECT_ROOT / "data/storage/neo4j",
+)
 
 
 # Password validation

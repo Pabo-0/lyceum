@@ -34,6 +34,7 @@ Mas detalles: `docs/development_environment.md`.
 - Fase 8: construccion del grafo inicial.
 - Fase 9: relaciones semanticas candidatas.
 - Fase 10: persistencia en Neo4j via Cypher.
+- Fase 11: API Django para documentos, grafo y edicion basica.
 
 ## Comandos utiles
 
@@ -46,6 +47,7 @@ python analysis/semantic_relationship_report.py
 python analysis/graph_report.py
 python scripts/export_neo4j_cypher.py
 python -B -m unittest tests.test_text_normalizer tests.test_structural_segmenter tests.test_document_store tests.test_text_chunker tests.test_concept_extractor tests.test_concept_deduplicator tests.test_semantic_relationship_builder tests.test_graph_builder tests.test_neo4j_cypher
+python backend/manage.py test api
 ```
 
 Si Windows no reconoce `python`, puedes usar el Python incluido por Codex:
@@ -100,3 +102,16 @@ python backend/manage.py runserver
 ```
 
 Los secretos locales estan en `backend/.env`, que esta ignorado por Git. La plantilla versionable es `backend/.env.example`.
+
+Endpoints MVP:
+
+```text
+POST   /documents/
+GET    /documents/
+GET    /documents/<document_id>/
+GET    /documents/<document_id>/graph/
+PATCH  /nodes/<node_id>/
+PATCH  /relationships/<relationship_id>/
+DELETE /nodes/<node_id>/
+DELETE /relationships/<relationship_id>/
+```

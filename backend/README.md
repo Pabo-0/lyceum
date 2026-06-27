@@ -32,6 +32,7 @@ From `backend/`:
 ```powershell
 python manage.py check
 python manage.py migrate
+python manage.py test api
 python manage.py runserver
 ```
 
@@ -40,7 +41,30 @@ If running from the project root:
 ```powershell
 python backend/manage.py check
 python backend/manage.py migrate
+python backend/manage.py test api
 python backend/manage.py runserver
+```
+
+## API endpoints
+
+```text
+POST   /documents/
+GET    /documents/
+GET    /documents/<document_id>/
+GET    /documents/<document_id>/graph/
+PATCH  /nodes/<node_id>/
+PATCH  /relationships/<relationship_id>/
+DELETE /nodes/<node_id>/
+DELETE /relationships/<relationship_id>/
+```
+
+Example JSON document upload:
+
+```json
+{
+  "filename": "calculo.md",
+  "content": "# Calculo\n\n## Derivadas\n\nLa derivada mide la tasa de cambio."
+}
 ```
 
 ## Current database
