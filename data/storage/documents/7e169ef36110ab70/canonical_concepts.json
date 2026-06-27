@@ -1,0 +1,429 @@
+{
+  "concepts": [
+    {
+      "concept_id": "canonical-concept-a7f19d0e7e88",
+      "canonical_name": "metodo cientifico",
+      "display_name": "metodo cientifico",
+      "variant_terms": [
+        "metodo cientifico"
+      ],
+      "raw_concept_ids": [
+        "concept-a7f19d0e7e88"
+      ],
+      "score": 0.444299,
+      "frequency": 6,
+      "mention_count": 3,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-ad157100c047",
+      "canonical_name": "cientifico",
+      "display_name": "cientifico",
+      "variant_terms": [
+        "cientifico"
+      ],
+      "raw_concept_ids": [
+        "concept-ad157100c047"
+      ],
+      "score": 0.386347,
+      "frequency": 6,
+      "mention_count": 3,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-fdc832a84284",
+      "canonical_name": "metodo",
+      "display_name": "metodo",
+      "variant_terms": [
+        "metodo"
+      ],
+      "raw_concept_ids": [
+        "concept-fdc832a84284"
+      ],
+      "score": 0.386347,
+      "frequency": 6,
+      "mention_count": 1,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-7d73a2290315",
+      "canonical_name": "observacion",
+      "display_name": "observacion",
+      "variant_terms": [
+        "observacion"
+      ],
+      "raw_concept_ids": [
+        "concept-7d73a2290315"
+      ],
+      "score": 0.382782,
+      "frequency": 6,
+      "mention_count": 0,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-eb2c97a846a6",
+      "canonical_name": "hipotesis",
+      "display_name": "hipotesis",
+      "variant_terms": [
+        "hipotesis"
+      ],
+      "raw_concept_ids": [
+        "concept-eb2c97a846a6"
+      ],
+      "score": 0.374022,
+      "frequency": 4,
+      "mention_count": 2,
+      "section_frequency": 3,
+      "chunk_frequency": 3,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-f8e5e6a86a22",
+      "canonical_name": "historia metodo cientifico",
+      "display_name": "historia metodo cientifico",
+      "variant_terms": [
+        "historia metodo cientifico"
+      ],
+      "raw_concept_ids": [
+        "concept-f8e5e6a86a22"
+      ],
+      "score": 0.344675,
+      "frequency": 5,
+      "mention_count": 2,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-8c7a452b3c53",
+      "canonical_name": "experimentacion",
+      "display_name": "experimentacion",
+      "variant_terms": [
+        "experimentacion"
+      ],
+      "raw_concept_ids": [
+        "concept-8c7a452b3c53"
+      ],
+      "score": 0.343761,
+      "frequency": 4,
+      "mention_count": 2,
+      "section_frequency": 3,
+      "chunk_frequency": 3,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-18a54cbd476e",
+      "canonical_name": "resultados",
+      "display_name": "resultados",
+      "variant_terms": [
+        "resultados"
+      ],
+      "raw_concept_ids": [
+        "concept-18a54cbd476e"
+      ],
+      "score": 0.333499,
+      "frequency": 3,
+      "mention_count": 1,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-256fea961843",
+      "canonical_name": "historia metodo",
+      "display_name": "historia metodo",
+      "variant_terms": [
+        "historia metodo"
+      ],
+      "raw_concept_ids": [
+        "concept-256fea961843"
+      ],
+      "score": 0.304905,
+      "frequency": 5,
+      "mention_count": 2,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-769c9e0034db",
+      "canonical_name": "evidencia",
+      "display_name": "evidencia",
+      "variant_terms": [
+        "evidencia"
+      ],
+      "raw_concept_ids": [
+        "concept-769c9e0034db"
+      ],
+      "score": 0.299802,
+      "frequency": 2,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-874900292abe",
+      "canonical_name": "historia",
+      "display_name": "historia",
+      "variant_terms": [
+        "historia"
+      ],
+      "raw_concept_ids": [
+        "concept-874900292abe"
+      ],
+      "score": 0.265135,
+      "frequency": 5,
+      "mention_count": 1,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-148a3ffbd154",
+      "canonical_name": "experimentacion revision",
+      "display_name": "experimentacion revision",
+      "variant_terms": [
+        "experimentacion revision"
+      ],
+      "raw_concept_ids": [
+        "concept-148a3ffbd154"
+      ],
+      "score": 0.210727,
+      "frequency": 2,
+      "mention_count": 1,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-3d698db604e2",
+      "canonical_name": "observacion hipotesis",
+      "display_name": "observacion hipotesis",
+      "variant_terms": [
+        "observacion hipotesis"
+      ],
+      "raw_concept_ids": [
+        "concept-3d698db604e2"
+      ],
+      "score": 0.210727,
+      "frequency": 2,
+      "mention_count": 1,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-2b214ddf3326",
+      "canonical_name": "revision",
+      "display_name": "revision",
+      "variant_terms": [
+        "revision"
+      ],
+      "raw_concept_ids": [
+        "concept-2b214ddf3326"
+      ],
+      "score": 0.183241,
+      "frequency": 2,
+      "mention_count": 1,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-7b0c6489184e",
+      "canonical_name": "conocimiento",
+      "display_name": "conocimiento",
+      "variant_terms": [
+        "conocimiento"
+      ],
+      "raw_concept_ids": [
+        "concept-7b0c6489184e"
+      ],
+      "score": 0.127189,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-3f1147684ec8",
+      "canonical_name": "construir",
+      "display_name": "construir",
+      "variant_terms": [
+        "construir"
+      ],
+      "raw_concept_ids": [
+        "concept-3f1147684ec8"
+      ],
+      "score": 0.127189,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-5a92df5bec38",
+      "canonical_name": "organizada",
+      "display_name": "organizada",
+      "variant_terms": [
+        "organizada"
+      ],
+      "raw_concept_ids": [
+        "concept-5a92df5bec38"
+      ],
+      "score": 0.127189,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-3243cd0dd827",
+      "canonical_name": "condicion",
+      "display_name": "condiciones",
+      "variant_terms": [
+        "condiciones"
+      ],
+      "raw_concept_ids": [
+        "concept-e85724dafd78"
+      ],
+      "score": 0.123448,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-00ed591b5c5f",
+      "canonical_name": "etapa",
+      "display_name": "etapa",
+      "variant_terms": [
+        "etapa"
+      ],
+      "raw_concept_ids": [
+        "concept-00ed591b5c5f"
+      ],
+      "score": 0.123448,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-9a06bb7eaa71",
+      "canonical_name": "fenomeno",
+      "display_name": "fenomeno",
+      "variant_terms": [
+        "fenomeno"
+      ],
+      "raw_concept_ids": [
+        "concept-9a06bb7eaa71"
+      ],
+      "score": 0.123448,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-d09566670783",
+      "canonical_name": "identifica",
+      "display_name": "identifica",
+      "variant_terms": [
+        "identifica"
+      ],
+      "raw_concept_ids": [
+        "concept-d09566670783"
+      ],
+      "score": 0.123448,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-6e753a6b0a37",
+      "canonical_name": "patron",
+      "display_name": "patrones",
+      "variant_terms": [
+        "patrones"
+      ],
+      "raw_concept_ids": [
+        "concept-e79dd3580f7d"
+      ],
+      "score": 0.123448,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-f480c3e5d390",
+      "canonical_name": "pregunta",
+      "display_name": "preguntas",
+      "variant_terms": [
+        "preguntas"
+      ],
+      "raw_concept_ids": [
+        "concept-fe074886460d"
+      ],
+      "score": 0.123448,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-835b578bd545",
+      "canonical_name": "problema",
+      "display_name": "problema",
+      "variant_terms": [
+        "problema"
+      ],
+      "raw_concept_ids": [
+        "concept-835b578bd545"
+      ],
+      "score": 0.123448,
+      "frequency": 1,
+      "mention_count": 0,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-6b4ecea085dd",
+      "canonical_name": "registran",
+      "display_name": "registran",
+      "variant_terms": [
+        "registran"
+      ],
+      "raw_concept_ids": [
+        "concept-6b4ecea085dd"
+      ],
+      "score": 0.123448,
+      "frequency": 1,
+      "mention_count": 0,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    }
+  ]
+}

@@ -23,6 +23,13 @@ data/storage/documents/<document_id>/
   metadata.json
   normalization_report.json
   structure.json
+  concepts.json
+  concept_mentions.json
+  concept_extraction_summary.json
+  canonical_concepts.json
+  normalized_concept_mentions.json
+  concept_deduplication_summary.json
+  graph.json
   original.txt
   normalized.txt
 ```

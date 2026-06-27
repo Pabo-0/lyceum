@@ -34,10 +34,18 @@ class DocumentStoreTests(unittest.TestCase):
             self.assertEqual(len(loaded), 1)
             self.assertTrue((document_dir / "metadata.json").exists())
             self.assertTrue((document_dir / "structure.json").exists())
+            self.assertTrue((document_dir / "concepts.json").exists())
+            self.assertTrue((document_dir / "concept_mentions.json").exists())
+            self.assertTrue((document_dir / "canonical_concepts.json").exists())
+            self.assertTrue((document_dir / "normalized_concept_mentions.json").exists())
+            self.assertTrue((document_dir / "graph.json").exists())
             self.assertTrue((document_dir / "original.txt").exists())
             self.assertTrue((document_dir / "normalized.txt").exists())
             self.assertEqual(loaded[0]["metadata"]["title"], "Sample")
             self.assertIn("structure", loaded[0])
+            self.assertIn("concept_extraction", loaded[0])
+            self.assertIn("concept_deduplication", loaded[0])
+            self.assertIn("graph", loaded[0])
 
 
 if __name__ == "__main__":

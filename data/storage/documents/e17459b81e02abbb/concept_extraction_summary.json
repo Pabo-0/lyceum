@@ -1,0 +1,7 @@
+{
+  "concept_count": 7,
+  "mention_count": 18,
+  "extraction_methods": [
+    "tfidf_frequency_ngram"
+  ]
+}

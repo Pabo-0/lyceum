@@ -3,6 +3,157 @@ from typing import Any
 
 
 @dataclass(frozen=True)
+class GraphNode:
+    node_id: str
+    labels: list[str]
+    properties: dict[str, Any]
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class GraphRelationship:
+    relationship_id: str
+    relationship_type: str
+    source_id: str
+    target_id: str
+    properties: dict[str, Any]
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class KnowledgeGraph:
+    nodes: list[GraphNode]
+    relationships: list[GraphRelationship]
+    node_count: int
+    relationship_count: int
+    node_counts_by_label: dict[str, int]
+    relationship_counts_by_type: dict[str, int]
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "nodes": [node.to_dict() for node in self.nodes],
+            "relationships": [
+                relationship.to_dict()
+                for relationship in self.relationships
+            ],
+            "node_count": self.node_count,
+            "relationship_count": self.relationship_count,
+            "node_counts_by_label": self.node_counts_by_label,
+            "relationship_counts_by_type": self.relationship_counts_by_type,
+        }
+
+
+@dataclass(frozen=True)
+class Concept:
+    concept_id: str
+    name: str
+    normalized_name: str
+    score: float
+    frequency: int
+    document_frequency: int
+    section_frequency: int
+    chunk_frequency: int
+    extraction_method: str
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class ConceptMention:
+    mention_id: str
+    concept_id: str
+    normalized_name: str
+    text: str
+    section_id: str | None
+    chunk_id: str
+    score: float
+    occurrence_count: int
+    extraction_method: str
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class ConceptExtractionResult:
+    concepts: list[Concept]
+    mentions: list[ConceptMention]
+    concept_count: int
+    mention_count: int
+    extraction_methods: list[str]
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "concepts": [concept.to_dict() for concept in self.concepts],
+            "mentions": [mention.to_dict() for mention in self.mentions],
+            "concept_count": self.concept_count,
+            "mention_count": self.mention_count,
+            "extraction_methods": self.extraction_methods,
+        }
+
+
+@dataclass(frozen=True)
+class CanonicalConcept:
+    concept_id: str
+    canonical_name: str
+    display_name: str
+    variant_terms: list[str]
+    raw_concept_ids: list[str]
+    score: float
+    frequency: int
+    mention_count: int
+    section_frequency: int
+    chunk_frequency: int
+    normalization_method: str
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class NormalizedConceptMention:
+    mention_id: str
+    concept_id: str
+    raw_concept_id: str
+    raw_normalized_name: str
+    text: str
+    section_id: str | None
+    chunk_id: str
+    score: float
+    occurrence_count: int
+    extraction_method: str
+    normalization_method: str
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class ConceptDeduplicationResult:
+    concepts: list[CanonicalConcept]
+    mentions: list[NormalizedConceptMention]
+    concept_count: int
+    mention_count: int
+    variant_count: int
+    normalization_methods: list[str]
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "concepts": [concept.to_dict() for concept in self.concepts],
+            "mentions": [mention.to_dict() for mention in self.mentions],
+            "concept_count": self.concept_count,
+            "mention_count": self.mention_count,
+            "variant_count": self.variant_count,
+            "normalization_methods": self.normalization_methods,
+        }
+
+
+@dataclass(frozen=True)
 class ParagraphChunk:
     chunk_id: str
     parent_section_id: str | None
@@ -99,6 +250,9 @@ class StoredDocument:
     normalized_content: str
     normalization_report: NormalizationReport
     structure: StructuralAnalysis
+    concept_extraction: ConceptExtractionResult
+    concept_deduplication: ConceptDeduplicationResult
+    graph: KnowledgeGraph
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -107,4 +261,7 @@ class StoredDocument:
             "normalized_content": self.normalized_content,
             "normalization_report": self.normalization_report.to_dict(),
             "structure": self.structure.to_dict(),
+            "concept_extraction": self.concept_extraction.to_dict(),
+            "concept_deduplication": self.concept_deduplication.to_dict(),
+            "graph": self.graph.to_dict(),
         }

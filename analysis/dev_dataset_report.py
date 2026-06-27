@@ -22,6 +22,9 @@ def main() -> int:
         metadata = item["metadata"]
         report = item.get("normalization_report", {})
         structure = item.get("structure", {})
+        concept_extraction = item.get("concept_extraction", {})
+        concept_deduplication = item.get("concept_deduplication", {})
+        graph = item.get("graph", {})
         print(
             f"- {metadata['title']} | "
             f"id={metadata['document_id']} | "
@@ -30,7 +33,13 @@ def main() -> int:
             f"status={metadata['processing_status']} | "
             f"normalized_chars={report.get('normalized_character_count', 'n/a')} | "
             f"sections={structure.get('section_count', 'n/a')} | "
-            f"chunks={structure.get('chunk_count', 'n/a')}"
+            f"chunks={structure.get('chunk_count', 'n/a')} | "
+            f"concepts={concept_extraction.get('concept_count', 'n/a')} | "
+            f"mentions={concept_extraction.get('mention_count', 'n/a')} | "
+            f"canonical_concepts={concept_deduplication.get('concept_count', 'n/a')} | "
+            f"variants={concept_deduplication.get('variant_count', 'n/a')} | "
+            f"graph_nodes={graph.get('node_count', 'n/a')} | "
+            f"graph_relationships={graph.get('relationship_count', 'n/a')}"
         )
 
     return 0

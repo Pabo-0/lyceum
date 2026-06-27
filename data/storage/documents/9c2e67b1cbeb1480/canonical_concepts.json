@@ -1,0 +1,331 @@
+{
+  "concepts": [
+    {
+      "concept_id": "canonical-concept-b0d51c58c8b9",
+      "canonical_name": "vector",
+      "display_name": "vectores",
+      "variant_terms": [
+        "vector",
+        "vectores"
+      ],
+      "raw_concept_ids": [
+        "concept-50c47f562af4",
+        "concept-b0d51c58c8b9"
+      ],
+      "score": 0.933804,
+      "frequency": 12,
+      "mention_count": 4,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-c3568c25c436",
+      "canonical_name": "lineal",
+      "display_name": "lineal",
+      "variant_terms": [
+        "lineal",
+        "lineales"
+      ],
+      "raw_concept_ids": [
+        "concept-c3568c25c436",
+        "concept-da28031d8af9"
+      ],
+      "score": 0.486862,
+      "frequency": 8,
+      "mention_count": 2,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-10e399e84efc",
+      "canonical_name": "algebra lineal",
+      "display_name": "algebra lineal",
+      "variant_terms": [
+        "algebra lineal"
+      ],
+      "raw_concept_ids": [
+        "concept-10e399e84efc"
+      ],
+      "score": 0.381405,
+      "frequency": 6,
+      "mention_count": 3,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-a5ebcbe2893f",
+      "canonical_name": "matriz",
+      "display_name": "matrices",
+      "variant_terms": [
+        "matrices"
+      ],
+      "raw_concept_ids": [
+        "concept-3b095cb6d8b6"
+      ],
+      "score": 0.33558,
+      "frequency": 4,
+      "mention_count": 1,
+      "section_frequency": 3,
+      "chunk_frequency": 3,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-ec752d1d10b6",
+      "canonical_name": "algebra",
+      "display_name": "algebra",
+      "variant_terms": [
+        "algebra"
+      ],
+      "raw_concept_ids": [
+        "concept-ec752d1d10b6"
+      ],
+      "score": 0.331657,
+      "frequency": 6,
+      "mention_count": 1,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-07f596a83279",
+      "canonical_name": "algebra lineal vector",
+      "display_name": "algebra lineal vectores",
+      "variant_terms": [
+        "algebra lineal vectores"
+      ],
+      "raw_concept_ids": [
+        "concept-60fe2b813a60"
+      ],
+      "score": 0.32282,
+      "frequency": 5,
+      "mention_count": 3,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-417aec00781a",
+      "canonical_name": "lineal vector",
+      "display_name": "lineal vectores",
+      "variant_terms": [
+        "lineal vectores"
+      ],
+      "raw_concept_ids": [
+        "concept-f5910a2e03e8"
+      ],
+      "score": 0.285572,
+      "frequency": 5,
+      "mention_count": 2,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-e7fb8dff526f",
+      "canonical_name": "vector matriz",
+      "display_name": "vectores matrices",
+      "variant_terms": [
+        "vectores matrices"
+      ],
+      "raw_concept_ids": [
+        "concept-ef5d10b83e18"
+      ],
+      "score": 0.210938,
+      "frequency": 2,
+      "mention_count": 1,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-cec5b52c461f",
+      "canonical_name": "transformacion",
+      "display_name": "transformaciones",
+      "variant_terms": [
+        "transformaciones"
+      ],
+      "raw_concept_ids": [
+        "concept-d3af1ebe2ae9"
+      ],
+      "score": 0.183424,
+      "frequency": 2,
+      "mention_count": 0,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-c58bf55b8da4",
+      "canonical_name": "objeto",
+      "display_name": "objetos",
+      "variant_terms": [
+        "objetos"
+      ],
+      "raw_concept_ids": [
+        "concept-9683b8b6a95a"
+      ],
+      "score": 0.163408,
+      "frequency": 2,
+      "mention_count": 2,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-6da516d844b3",
+      "canonical_name": "permiten",
+      "display_name": "permiten",
+      "variant_terms": [
+        "permiten"
+      ],
+      "raw_concept_ids": [
+        "concept-6da516d844b3"
+      ],
+      "score": 0.158272,
+      "frequency": 2,
+      "mention_count": 2,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-a0d3005ea234",
+      "canonical_name": "direccion",
+      "display_name": "direccion",
+      "variant_terms": [
+        "direccion"
+      ],
+      "raw_concept_ids": [
+        "concept-a0d3005ea234"
+      ],
+      "score": 0.149299,
+      "frequency": 2,
+      "mention_count": 2,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-99533f6472a2",
+      "canonical_name": "representar",
+      "display_name": "representar",
+      "variant_terms": [
+        "representar"
+      ],
+      "raw_concept_ids": [
+        "concept-99533f6472a2"
+      ],
+      "score": 0.149299,
+      "frequency": 2,
+      "mention_count": 1,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-8cb6279a8e1b",
+      "canonical_name": "central",
+      "display_name": "central",
+      "variant_terms": [
+        "central"
+      ],
+      "raw_concept_ids": [
+        "concept-8cb6279a8e1b"
+      ],
+      "score": 0.139907,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-38ea3835b477",
+      "canonical_name": "comun",
+      "display_name": "comun",
+      "variant_terms": [
+        "comun"
+      ],
+      "raw_concept_ids": [
+        "concept-38ea3835b477"
+      ],
+      "score": 0.139907,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-ba70ddc5159d",
+      "canonical_name": "dato",
+      "display_name": "datos",
+      "variant_terms": [
+        "datos"
+      ],
+      "raw_concept_ids": [
+        "concept-2477803baffb"
+      ],
+      "score": 0.139907,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-8e388de6a7bd",
+      "canonical_name": "funcionan",
+      "display_name": "funcionan",
+      "variant_terms": [
+        "funcionan"
+      ],
+      "raw_concept_ids": [
+        "concept-8e388de6a7bd"
+      ],
+      "score": 0.139907,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-e2a94f3ec336",
+      "canonical_name": "lenguaje",
+      "display_name": "lenguaje",
+      "variant_terms": [
+        "lenguaje"
+      ],
+      "raw_concept_ids": [
+        "concept-e2a94f3ec336"
+      ],
+      "score": 0.139907,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-e34c51af4dbd",
+      "canonical_name": "modelar",
+      "display_name": "modelar",
+      "variant_terms": [
+        "modelar"
+      ],
+      "raw_concept_ids": [
+        "concept-e34c51af4dbd"
+      ],
+      "score": 0.139907,
+      "frequency": 1,
+      "mention_count": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    }
+  ]
+}

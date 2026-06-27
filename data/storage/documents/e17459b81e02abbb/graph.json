@@ -1,0 +1,709 @@
+{
+  "nodes": [
+    {
+      "node_id": "document:e17459b81e02abbb",
+      "labels": [
+        "Document"
+      ],
+      "properties": {
+        "document_id": "e17459b81e02abbb",
+        "title": "Estrategias de aprendizaje autorregulado",
+        "source_path": "D:/PABLO/Lyceum Project/lyceum/test_documents/chunking_texto_largo.md",
+        "source_extension": ".md",
+        "processing_status": "graph_built",
+        "word_count": 177,
+        "paragraph_count": 5
+      }
+    },
+    {
+      "node_id": "section:e17459b81e02abbb:section-1",
+      "labels": [
+        "Section"
+      ],
+      "properties": {
+        "section_id": "section-1",
+        "title": "Estrategias de aprendizaje autorregulado",
+        "level": 1,
+        "order": 1,
+        "heading_type": "markdown",
+        "numbering": null,
+        "start_line": 1,
+        "end_line": 1
+      }
+    },
+    {
+      "node_id": "section:e17459b81e02abbb:section-2",
+      "labels": [
+        "Section"
+      ],
+      "properties": {
+        "section_id": "section-2",
+        "title": "1. Planificacion",
+        "level": 2,
+        "order": 2,
+        "heading_type": "markdown",
+        "numbering": "1",
+        "start_line": 3,
+        "end_line": 5
+      }
+    },
+    {
+      "node_id": "chunk:e17459b81e02abbb:chunk-1",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-1",
+        "text": "La planificacion del aprendizaje comienza cuando el estudiante identifica una meta concreta, revisa los recursos disponibles y decide una secuencia de acciones para avanzar. Esta etapa incluye reconocer conocimientos previos, anticipar dificultades, estimar el tiempo necesario y seleccionar estrategias de lectura, practica o explicacion. Cuando la planificacion es clara, el estudiante puede comparar su progreso con una intencion inicial y ajustar el esfuerzo antes de llegar al final de la actividad. En materiales educativos extensos, esta habilidad ayuda a dividir un tema grande en partes manejables, relacionar conceptos nuevos con conceptos conocidos y evitar que toda la informacion se procese como un bloque unico. La planificacion tambien permite detectar prerequisitos, ordenar actividades y construir una ruta de estudio mas estable.",
+        "order": 1,
+        "start_line": 5,
+        "end_line": 5,
+        "word_count": 120,
+        "character_count": 847,
+        "chunk_type": "split_paragraph"
+      }
+    },
+    {
+      "node_id": "chunk:e17459b81e02abbb:chunk-2",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-2",
+        "text": "Si el texto es demasiado largo, conviene partirlo en fragmentos pequenos para conservar contexto sin saturar el analisis.",
+        "order": 2,
+        "start_line": 5,
+        "end_line": 5,
+        "word_count": 18,
+        "character_count": 121,
+        "chunk_type": "split_paragraph"
+      }
+    },
+    {
+      "node_id": "section:e17459b81e02abbb:section-3",
+      "labels": [
+        "Section"
+      ],
+      "properties": {
+        "section_id": "section-3",
+        "title": "2. Monitoreo",
+        "level": 2,
+        "order": 3,
+        "heading_type": "markdown",
+        "numbering": "2",
+        "start_line": 7,
+        "end_line": 9
+      }
+    },
+    {
+      "node_id": "chunk:e17459b81e02abbb:chunk-3",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-3",
+        "text": "El monitoreo ocurre durante la actividad. El estudiante observa si entiende, si puede explicar una idea con sus propias palabras y si los ejemplos resueltos realmente coinciden con el procedimiento estudiado.",
+        "order": 3,
+        "start_line": 9,
+        "end_line": 9,
+        "word_count": 31,
+        "character_count": 208,
+        "chunk_type": "paragraph"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-5ed38dd077d2",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-5ed38dd077d2",
+        "canonical_name": "planificacion",
+        "display_name": "planificacion",
+        "variant_terms": [
+          "planificacion"
+        ],
+        "score": 0.205535,
+        "frequency": 5,
+        "mention_count": 2,
+        "section_frequency": 1,
+        "chunk_frequency": 2,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-a858929745ec",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-a858929745ec",
+        "canonical_name": "monitoreo",
+        "display_name": "monitoreo",
+        "variant_terms": [
+          "monitoreo"
+        ],
+        "score": 0.184707,
+        "frequency": 2,
+        "mention_count": 1,
+        "section_frequency": 1,
+        "chunk_frequency": 1,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-aeb8c159f858",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-aeb8c159f858",
+        "canonical_name": "estrategia aprendizaje autorregulado",
+        "display_name": "estrategias aprendizaje autorregulado",
+        "variant_terms": [
+          "estrategias aprendizaje autorregulado"
+        ],
+        "score": 0.138932,
+        "frequency": 3,
+        "mention_count": 3,
+        "section_frequency": 2,
+        "chunk_frequency": 3,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-474e5dce48b2",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-474e5dce48b2",
+        "canonical_name": "aprendizaje",
+        "display_name": "aprendizaje",
+        "variant_terms": [
+          "aprendizaje"
+        ],
+        "score": 0.126673,
+        "frequency": 4,
+        "mention_count": 3,
+        "section_frequency": 2,
+        "chunk_frequency": 3,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-3feaf5d985f9",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-3feaf5d985f9",
+        "canonical_name": "estrategia",
+        "display_name": "estrategias",
+        "variant_terms": [
+          "estrategias"
+        ],
+        "score": 0.126673,
+        "frequency": 4,
+        "mention_count": 3,
+        "section_frequency": 2,
+        "chunk_frequency": 3,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-06e3f90dcaff",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-06e3f90dcaff",
+        "canonical_name": "aprendizaje autorregulado",
+        "display_name": "aprendizaje autorregulado",
+        "variant_terms": [
+          "aprendizaje autorregulado"
+        ],
+        "score": 0.122901,
+        "frequency": 3,
+        "mention_count": 3,
+        "section_frequency": 2,
+        "chunk_frequency": 3,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-b49d02d9907f",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-b49d02d9907f",
+        "canonical_name": "estrategia aprendizaje",
+        "display_name": "estrategias aprendizaje",
+        "variant_terms": [
+          "estrategias aprendizaje"
+        ],
+        "score": 0.122901,
+        "frequency": 3,
+        "mention_count": 3,
+        "section_frequency": 2,
+        "chunk_frequency": 3,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "relationship:a74a3677bab7fdb0",
+      "relationship_type": "HAS_SECTION",
+      "source_id": "document:e17459b81e02abbb",
+      "target_id": "section:e17459b81e02abbb:section-1",
+      "properties": {
+        "order": 1
+      }
+    },
+    {
+      "relationship_id": "relationship:e63306679c9846ae",
+      "relationship_type": "HAS_SUBSECTION",
+      "source_id": "section:e17459b81e02abbb:section-1",
+      "target_id": "section:e17459b81e02abbb:section-2",
+      "properties": {
+        "order": 2
+      }
+    },
+    {
+      "relationship_id": "relationship:2dafac2274a28252",
+      "relationship_type": "HAS_CHUNK",
+      "source_id": "section:e17459b81e02abbb:section-2",
+      "target_id": "chunk:e17459b81e02abbb:chunk-1",
+      "properties": {
+        "order": 1
+      }
+    },
+    {
+      "relationship_id": "relationship:b8901fbcd299209c",
+      "relationship_type": "HAS_CHUNK",
+      "source_id": "section:e17459b81e02abbb:section-2",
+      "target_id": "chunk:e17459b81e02abbb:chunk-2",
+      "properties": {
+        "order": 2
+      }
+    },
+    {
+      "relationship_id": "relationship:d369db3b38d9ffd6",
+      "relationship_type": "HAS_SUBSECTION",
+      "source_id": "section:e17459b81e02abbb:section-1",
+      "target_id": "section:e17459b81e02abbb:section-3",
+      "properties": {
+        "order": 3
+      }
+    },
+    {
+      "relationship_id": "relationship:21a09faa98cf3bd3",
+      "relationship_type": "HAS_CHUNK",
+      "source_id": "section:e17459b81e02abbb:section-3",
+      "target_id": "chunk:e17459b81e02abbb:chunk-3",
+      "properties": {
+        "order": 3
+      }
+    },
+    {
+      "relationship_id": "relationship:d317ced346efc125",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-1",
+      "target_id": "concept:canonical-concept-5ed38dd077d2",
+      "properties": {
+        "mention_id": "canonical-mention-8663564517a6",
+        "score": 0.025499,
+        "occurrence_count": 4,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:97b7eab6a734f4db",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-1",
+      "target_id": "concept:canonical-concept-474e5dce48b2",
+      "properties": {
+        "mention_id": "canonical-mention-82d4497de51b",
+        "score": 0.009901,
+        "occurrence_count": 2,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:89349e92e8f2ea14",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-1",
+      "target_id": "concept:canonical-concept-3feaf5d985f9",
+      "properties": {
+        "mention_id": "canonical-mention-06e6f5692400",
+        "score": 0.009901,
+        "occurrence_count": 2,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:5c085468b0e9af31",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-1",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "mention_id": "canonical-mention-067a8b2a7eb2",
+        "score": 0.006436,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:e56d796ed5b4a641",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-1",
+      "target_id": "concept:canonical-concept-06e3f90dcaff",
+      "properties": {
+        "mention_id": "canonical-mention-0bd27860839b",
+        "score": 0.005693,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:270c7e479c9d7fc0",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-1",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "mention_id": "canonical-mention-fe63648f7e2e",
+        "score": 0.005693,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:e02480c25eb227bb",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-2",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "mention_id": "canonical-mention-d13322a3bb2a",
+        "score": 0.039394,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:e9a2f4dfe603a577",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-2",
+      "target_id": "concept:canonical-concept-5ed38dd077d2",
+      "properties": {
+        "mention_id": "canonical-mention-c522c22868b4",
+        "score": 0.039021,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:9cf36ba07260a7a6",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-2",
+      "target_id": "concept:canonical-concept-06e3f90dcaff",
+      "properties": {
+        "mention_id": "canonical-mention-a193596cee71",
+        "score": 0.034848,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:799929e7bc30e8d3",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-2",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "mention_id": "canonical-mention-a5e72eb960cb",
+        "score": 0.034848,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:1aba8ebe88631587",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-2",
+      "target_id": "concept:canonical-concept-474e5dce48b2",
+      "properties": {
+        "mention_id": "canonical-mention-f5905008f571",
+        "score": 0.030303,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:73009c9e297f58b5",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-2",
+      "target_id": "concept:canonical-concept-3feaf5d985f9",
+      "properties": {
+        "mention_id": "canonical-mention-0d05d99e13a9",
+        "score": 0.030303,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:5f0f46a0087d827d",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-3",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "mention_id": "canonical-mention-8b2e8e1208f5",
+        "score": 0.061569,
+        "occurrence_count": 2,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:0bff805f86fb7aac",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-3",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "mention_id": "canonical-mention-a0ca5a194997",
+        "score": 0.023636,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:a5bb8caa25757df3",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-3",
+      "target_id": "concept:canonical-concept-06e3f90dcaff",
+      "properties": {
+        "mention_id": "canonical-mention-3ccb0cb11126",
+        "score": 0.020909,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:52f7e4f11a04090c",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-3",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "mention_id": "canonical-mention-bff66f8cb60a",
+        "score": 0.020909,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:13972659dade9485",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-3",
+      "target_id": "concept:canonical-concept-474e5dce48b2",
+      "properties": {
+        "mention_id": "canonical-mention-4d0f7ec8ee54",
+        "score": 0.018182,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:b51177553f4a0f51",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:e17459b81e02abbb:chunk-3",
+      "target_id": "concept:canonical-concept-3feaf5d985f9",
+      "properties": {
+        "mention_id": "canonical-mention-811b3a3344a8",
+        "score": 0.018182,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:aed721403a843607",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:e17459b81e02abbb:section-2",
+      "target_id": "concept:canonical-concept-5ed38dd077d2",
+      "properties": {
+        "occurrence_count": 5,
+        "mention_count": 2,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:fc0506f297d4a598",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:e17459b81e02abbb:section-2",
+      "target_id": "concept:canonical-concept-474e5dce48b2",
+      "properties": {
+        "occurrence_count": 3,
+        "mention_count": 2,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:dcb50d65b12dbc9f",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:e17459b81e02abbb:section-2",
+      "target_id": "concept:canonical-concept-3feaf5d985f9",
+      "properties": {
+        "occurrence_count": 3,
+        "mention_count": 2,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:79ce3ad4124785b4",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:e17459b81e02abbb:section-2",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "occurrence_count": 2,
+        "mention_count": 2,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:29b8cae544e12c52",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:e17459b81e02abbb:section-2",
+      "target_id": "concept:canonical-concept-06e3f90dcaff",
+      "properties": {
+        "occurrence_count": 2,
+        "mention_count": 2,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:812007069a94541e",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:e17459b81e02abbb:section-2",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "occurrence_count": 2,
+        "mention_count": 2,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:89a0eafff8f2ffba",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:e17459b81e02abbb:section-3",
+      "target_id": "concept:canonical-concept-a858929745ec",
+      "properties": {
+        "occurrence_count": 2,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:45b4dcdb33c29e76",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:e17459b81e02abbb:section-3",
+      "target_id": "concept:canonical-concept-aeb8c159f858",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:68c410d036a869e2",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:e17459b81e02abbb:section-3",
+      "target_id": "concept:canonical-concept-06e3f90dcaff",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:3b9723704c4680f8",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:e17459b81e02abbb:section-3",
+      "target_id": "concept:canonical-concept-b49d02d9907f",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:bd1223beb2526286",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:e17459b81e02abbb:section-3",
+      "target_id": "concept:canonical-concept-474e5dce48b2",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:4713a8b8a11d84d5",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:e17459b81e02abbb:section-3",
+      "target_id": "concept:canonical-concept-3feaf5d985f9",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    }
+  ],
+  "node_count": 14,
+  "relationship_count": 36,
+  "node_counts_by_label": {
+    "Chunk": 3,
+    "Concept": 7,
+    "Document": 1,
+    "Section": 3
+  },
+  "relationship_counts_by_type": {
+    "HAS_CHUNK": 3,
+    "HAS_SECTION": 1,
+    "HAS_SUBSECTION": 2,
+    "MENTIONS": 30
+  }
+}

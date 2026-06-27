@@ -1,0 +1,268 @@
+{
+  "mentions": [
+    {
+      "mention_id": "mention-cfcb6e2422d3",
+      "concept_id": "concept-cd2b87c04e3d",
+      "normalized_name": "biologia celular",
+      "text": "biologia celular",
+      "section_id": "section-2",
+      "chunk_id": "chunk-1",
+      "score": 0.047917,
+      "occurrence_count": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-28fa68ee1382",
+      "concept_id": "concept-c59c5c439ef8",
+      "normalized_name": "biologia",
+      "text": "biologia",
+      "section_id": "section-2",
+      "chunk_id": "chunk-1",
+      "score": 0.041667,
+      "occurrence_count": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-559a69f44bd7",
+      "concept_id": "concept-c3ada42de2b8",
+      "normalized_name": "celular",
+      "text": "celular",
+      "section_id": "section-2",
+      "chunk_id": "chunk-1",
+      "score": 0.041667,
+      "occurrence_count": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-fb033657d0d9",
+      "concept_id": "concept-e837a5185381",
+      "normalized_name": "celula",
+      "text": "celula",
+      "section_id": "section-2",
+      "chunk_id": "chunk-1",
+      "score": 0.031476,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-c9439ddc741a",
+      "concept_id": "concept-53c09e1e169d",
+      "normalized_name": "biologia celular membranas",
+      "text": "biologia celular membranas",
+      "section_id": "section-2",
+      "chunk_id": "chunk-1",
+      "score": 0.027083,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-8d9d4ff7564b",
+      "concept_id": "concept-3045eea357aa",
+      "normalized_name": "celular membranas organelos",
+      "text": "celular membranas organelos",
+      "section_id": "section-2",
+      "chunk_id": "chunk-1",
+      "score": 0.027083,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-c4f8bfe574ee",
+      "concept_id": "concept-3b15c4d3747a",
+      "normalized_name": "membrana celular",
+      "text": "membrana celular",
+      "section_id": "section-3",
+      "chunk_id": "chunk-2",
+      "score": 0.072394,
+      "occurrence_count": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-980fbde4e08b",
+      "concept_id": "concept-62e76573b23c",
+      "normalized_name": "membrana",
+      "text": "membrana",
+      "section_id": "section-3",
+      "chunk_id": "chunk-2",
+      "score": 0.062951,
+      "occurrence_count": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-34848354236c",
+      "concept_id": "concept-c3ada42de2b8",
+      "normalized_name": "celular",
+      "text": "celular",
+      "section_id": "section-3",
+      "chunk_id": "chunk-2",
+      "score": 0.0625,
+      "occurrence_count": 3,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-fffb9f7d14c6",
+      "concept_id": "concept-3f8bc83f0c3b",
+      "normalized_name": "participan",
+      "text": "participan",
+      "section_id": "section-3",
+      "chunk_id": "chunk-2",
+      "score": 0.031476,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-72613c127774",
+      "concept_id": "concept-53c09e1e169d",
+      "normalized_name": "biologia celular membranas",
+      "text": "biologia celular membranas",
+      "section_id": "section-3",
+      "chunk_id": "chunk-2",
+      "score": 0.027083,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-f98755ad9c75",
+      "concept_id": "concept-3045eea357aa",
+      "normalized_name": "celular membranas organelos",
+      "text": "celular membranas organelos",
+      "section_id": "section-3",
+      "chunk_id": "chunk-2",
+      "score": 0.027083,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-143f4e01a734",
+      "concept_id": "concept-6bf7891f91dc",
+      "normalized_name": "organelos",
+      "text": "organelos",
+      "section_id": "section-4",
+      "chunk_id": "chunk-3",
+      "score": 0.061224,
+      "occurrence_count": 3,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-45fe92a7f747",
+      "concept_id": "concept-2964fbd52955",
+      "normalized_name": "sintesis proteinas",
+      "text": "sintesis proteinas",
+      "section_id": "section-4",
+      "chunk_id": "chunk-3",
+      "score": 0.035458,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-81e6e45e7eac",
+      "concept_id": "concept-812d6dca15fd",
+      "normalized_name": "nucleo",
+      "text": "nucleo",
+      "section_id": "section-4",
+      "chunk_id": "chunk-3",
+      "score": 0.030833,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-a8adab9e6cc8",
+      "concept_id": "concept-3f8bc83f0c3b",
+      "normalized_name": "participan",
+      "text": "participan",
+      "section_id": "section-4",
+      "chunk_id": "chunk-3",
+      "score": 0.030833,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-15db921b29b8",
+      "concept_id": "concept-c60dc706a863",
+      "normalized_name": "sintesis",
+      "text": "sintesis",
+      "section_id": "section-4",
+      "chunk_id": "chunk-3",
+      "score": 0.030833,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-061f26141bd8",
+      "concept_id": "concept-53c09e1e169d",
+      "normalized_name": "biologia celular membranas",
+      "text": "biologia celular membranas",
+      "section_id": "section-4",
+      "chunk_id": "chunk-3",
+      "score": 0.026531,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-d709ed0b495b",
+      "concept_id": "concept-c3ada42de2b8",
+      "normalized_name": "celular",
+      "text": "celular",
+      "section_id": "section-5",
+      "chunk_id": "chunk-4",
+      "score": 0.058824,
+      "occurrence_count": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-2c707989461b",
+      "concept_id": "concept-6bf7891f91dc",
+      "normalized_name": "organelos",
+      "text": "organelos",
+      "section_id": "section-5",
+      "chunk_id": "chunk-4",
+      "score": 0.058824,
+      "occurrence_count": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-0d278ebe1096",
+      "concept_id": "concept-3b15c4d3747a",
+      "normalized_name": "membrana celular",
+      "text": "membrana celular",
+      "section_id": "section-5",
+      "chunk_id": "chunk-4",
+      "score": 0.051101,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-b31ba059d552",
+      "concept_id": "concept-2964fbd52955",
+      "normalized_name": "sintesis proteinas",
+      "text": "sintesis proteinas",
+      "section_id": "section-5",
+      "chunk_id": "chunk-4",
+      "score": 0.051101,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-7f5c50ca347a",
+      "concept_id": "concept-e837a5185381",
+      "normalized_name": "celula",
+      "text": "celula",
+      "section_id": "section-5",
+      "chunk_id": "chunk-4",
+      "score": 0.044436,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "mention_id": "mention-56ef7ae1c72e",
+      "concept_id": "concept-62e76573b23c",
+      "normalized_name": "membrana",
+      "text": "membrana",
+      "section_id": "section-5",
+      "chunk_id": "chunk-4",
+      "score": 0.044436,
+      "occurrence_count": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    }
+  ]
+}

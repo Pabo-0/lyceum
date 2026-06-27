@@ -55,6 +55,47 @@ class DocumentStore:
         metadata = self._read_json(document_dir / "metadata.json")
         normalization_report = self._read_json(document_dir / "normalization_report.json")
         structure = self._read_json(document_dir / "structure.json")
+        concepts = self._read_optional_json(document_dir / "concepts.json", {"concepts": []})
+        mentions = self._read_optional_json(
+            document_dir / "concept_mentions.json",
+            {"mentions": []},
+        )
+        concept_summary = self._read_optional_json(
+            document_dir / "concept_extraction_summary.json",
+            {
+                "concept_count": len(concepts.get("concepts", [])),
+                "mention_count": len(mentions.get("mentions", [])),
+                "extraction_methods": [],
+            },
+        )
+        canonical_concepts = self._read_optional_json(
+            document_dir / "canonical_concepts.json",
+            {"concepts": []},
+        )
+        normalized_mentions = self._read_optional_json(
+            document_dir / "normalized_concept_mentions.json",
+            {"mentions": []},
+        )
+        deduplication_summary = self._read_optional_json(
+            document_dir / "concept_deduplication_summary.json",
+            {
+                "concept_count": len(canonical_concepts.get("concepts", [])),
+                "mention_count": len(normalized_mentions.get("mentions", [])),
+                "variant_count": 0,
+                "normalization_methods": [],
+            },
+        )
+        graph = self._read_optional_json(
+            document_dir / "graph.json",
+            {
+                "nodes": [],
+                "relationships": [],
+                "node_count": 0,
+                "relationship_count": 0,
+                "node_counts_by_label": {},
+                "relationship_counts_by_type": {},
+            },
+        )
         original_content = self._read_text(document_dir / "original.txt")
         normalized_content = self._read_text(document_dir / "normalized.txt")
 
@@ -64,6 +105,37 @@ class DocumentStore:
             "normalized_content": normalized_content,
             "normalization_report": normalization_report,
             "structure": structure,
+            "concept_extraction": {
+                "concepts": concepts.get("concepts", []),
+                "mentions": mentions.get("mentions", []),
+                "concept_count": concept_summary.get(
+                    "concept_count",
+                    len(concepts.get("concepts", [])),
+                ),
+                "mention_count": concept_summary.get(
+                    "mention_count",
+                    len(mentions.get("mentions", [])),
+                ),
+                "extraction_methods": concept_summary.get("extraction_methods", []),
+            },
+            "concept_deduplication": {
+                "concepts": canonical_concepts.get("concepts", []),
+                "mentions": normalized_mentions.get("mentions", []),
+                "concept_count": deduplication_summary.get(
+                    "concept_count",
+                    len(canonical_concepts.get("concepts", [])),
+                ),
+                "mention_count": deduplication_summary.get(
+                    "mention_count",
+                    len(normalized_mentions.get("mentions", [])),
+                ),
+                "variant_count": deduplication_summary.get("variant_count", 0),
+                "normalization_methods": deduplication_summary.get(
+                    "normalization_methods",
+                    [],
+                ),
+            },
+            "graph": graph,
         }
 
     def save_document_parts(self, document: StoredDocument) -> None:
@@ -77,6 +149,42 @@ class DocumentStore:
             document.normalization_report.to_dict(),
         )
         self._write_json(document_dir / "structure.json", document.structure.to_dict())
+        concept_extraction = document.concept_extraction.to_dict()
+        self._write_json(
+            document_dir / "concepts.json",
+            {"concepts": concept_extraction["concepts"]},
+        )
+        self._write_json(
+            document_dir / "concept_mentions.json",
+            {"mentions": concept_extraction["mentions"]},
+        )
+        self._write_json(
+            document_dir / "concept_extraction_summary.json",
+            {
+                "concept_count": concept_extraction["concept_count"],
+                "mention_count": concept_extraction["mention_count"],
+                "extraction_methods": concept_extraction["extraction_methods"],
+            },
+        )
+        concept_deduplication = document.concept_deduplication.to_dict()
+        self._write_json(
+            document_dir / "canonical_concepts.json",
+            {"concepts": concept_deduplication["concepts"]},
+        )
+        self._write_json(
+            document_dir / "normalized_concept_mentions.json",
+            {"mentions": concept_deduplication["mentions"]},
+        )
+        self._write_json(
+            document_dir / "concept_deduplication_summary.json",
+            {
+                "concept_count": concept_deduplication["concept_count"],
+                "mention_count": concept_deduplication["mention_count"],
+                "variant_count": concept_deduplication["variant_count"],
+                "normalization_methods": concept_deduplication["normalization_methods"],
+            },
+        )
+        self._write_json(document_dir / "graph.json", document.graph.to_dict())
         self._write_text(document_dir / "original.txt", document.original_content)
         self._write_text(document_dir / "normalized.txt", document.normalized_content)
         self._write_json(
@@ -86,6 +194,13 @@ class DocumentStore:
                 "metadata_path": "metadata.json",
                 "normalization_report_path": "normalization_report.json",
                 "structure_path": "structure.json",
+                "concepts_path": "concepts.json",
+                "concept_mentions_path": "concept_mentions.json",
+                "concept_extraction_summary_path": "concept_extraction_summary.json",
+                "canonical_concepts_path": "canonical_concepts.json",
+                "normalized_concept_mentions_path": "normalized_concept_mentions.json",
+                "concept_deduplication_summary_path": "concept_deduplication_summary.json",
+                "graph_path": "graph.json",
                 "original_content_path": "original.txt",
                 "normalized_content_path": "normalized.txt",
             },
@@ -106,6 +221,17 @@ class DocumentStore:
             "document_dir": (self.documents_dir / document_id).as_posix(),
             "metadata_path": (self.documents_dir / document_id / "metadata.json").as_posix(),
             "structure_path": (self.documents_dir / document_id / "structure.json").as_posix(),
+            "concepts_path": (self.documents_dir / document_id / "concepts.json").as_posix(),
+            "concept_mentions_path": (
+                self.documents_dir / document_id / "concept_mentions.json"
+            ).as_posix(),
+            "canonical_concepts_path": (
+                self.documents_dir / document_id / "canonical_concepts.json"
+            ).as_posix(),
+            "normalized_concept_mentions_path": (
+                self.documents_dir / document_id / "normalized_concept_mentions.json"
+            ).as_posix(),
+            "graph_path": (self.documents_dir / document_id / "graph.json").as_posix(),
         }
         without_current = [
             item
@@ -145,6 +271,27 @@ class DocumentStore:
                 "structure_path": (
                     self.documents_dir / item["metadata"]["document_id"] / "structure.json"
                 ).as_posix(),
+                "concepts_path": (
+                    self.documents_dir / item["metadata"]["document_id"] / "concepts.json"
+                ).as_posix(),
+                "concept_mentions_path": (
+                    self.documents_dir
+                    / item["metadata"]["document_id"]
+                    / "concept_mentions.json"
+                ).as_posix(),
+                "canonical_concepts_path": (
+                    self.documents_dir
+                    / item["metadata"]["document_id"]
+                    / "canonical_concepts.json"
+                ).as_posix(),
+                "normalized_concept_mentions_path": (
+                    self.documents_dir
+                    / item["metadata"]["document_id"]
+                    / "normalized_concept_mentions.json"
+                ).as_posix(),
+                "graph_path": (
+                    self.documents_dir / item["metadata"]["document_id"] / "graph.json"
+                ).as_posix(),
             }
             for item in data
         ]
@@ -172,6 +319,11 @@ class DocumentStore:
         if not isinstance(data, dict):
             raise ValueError(f"JSON file must contain an object: {path}")
         return data
+
+    def _read_optional_json(self, path: Path, default: dict[str, Any]) -> dict[str, Any]:
+        if not path.exists():
+            return default
+        return self._read_json(path)
 
     def _write_json(self, path: Path, data: dict[str, Any]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)

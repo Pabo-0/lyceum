@@ -1,0 +1,235 @@
+{
+  "concepts": [
+    {
+      "concept_id": "concept-50c47f562af4",
+      "name": "vectores",
+      "normalized_name": "vectores",
+      "score": 0.784505,
+      "frequency": 10,
+      "document_frequency": 5,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-10e399e84efc",
+      "name": "algebra lineal",
+      "normalized_name": "algebra lineal",
+      "score": 0.381405,
+      "frequency": 6,
+      "document_frequency": 5,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-3b095cb6d8b6",
+      "name": "matrices",
+      "normalized_name": "matrices",
+      "score": 0.33558,
+      "frequency": 4,
+      "document_frequency": 3,
+      "section_frequency": 3,
+      "chunk_frequency": 3,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-ec752d1d10b6",
+      "name": "algebra",
+      "normalized_name": "algebra",
+      "score": 0.331657,
+      "frequency": 6,
+      "document_frequency": 5,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-c3568c25c436",
+      "name": "lineal",
+      "normalized_name": "lineal",
+      "score": 0.331657,
+      "frequency": 6,
+      "document_frequency": 5,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-60fe2b813a60",
+      "name": "algebra lineal vectores",
+      "normalized_name": "algebra lineal vectores",
+      "score": 0.32282,
+      "frequency": 5,
+      "document_frequency": 5,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-f5910a2e03e8",
+      "name": "lineal vectores",
+      "normalized_name": "lineal vectores",
+      "score": 0.285572,
+      "frequency": 5,
+      "document_frequency": 5,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-ef5d10b83e18",
+      "name": "vectores matrices",
+      "normalized_name": "vectores matrices",
+      "score": 0.210938,
+      "frequency": 2,
+      "document_frequency": 2,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-d3af1ebe2ae9",
+      "name": "transformaciones",
+      "normalized_name": "transformaciones",
+      "score": 0.183424,
+      "frequency": 2,
+      "document_frequency": 2,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-9683b8b6a95a",
+      "name": "objetos",
+      "normalized_name": "objetos",
+      "score": 0.163408,
+      "frequency": 2,
+      "document_frequency": 2,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-6da516d844b3",
+      "name": "permiten",
+      "normalized_name": "permiten",
+      "score": 0.158272,
+      "frequency": 2,
+      "document_frequency": 2,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-da28031d8af9",
+      "name": "lineales",
+      "normalized_name": "lineales",
+      "score": 0.155205,
+      "frequency": 2,
+      "document_frequency": 2,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-a0d3005ea234",
+      "name": "direccion",
+      "normalized_name": "direccion",
+      "score": 0.149299,
+      "frequency": 2,
+      "document_frequency": 2,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-99533f6472a2",
+      "name": "representar",
+      "normalized_name": "representar",
+      "score": 0.149299,
+      "frequency": 2,
+      "document_frequency": 2,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-b0d51c58c8b9",
+      "name": "vector",
+      "normalized_name": "vector",
+      "score": 0.149299,
+      "frequency": 2,
+      "document_frequency": 2,
+      "section_frequency": 2,
+      "chunk_frequency": 2,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-8cb6279a8e1b",
+      "name": "central",
+      "normalized_name": "central",
+      "score": 0.139907,
+      "frequency": 1,
+      "document_frequency": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-38ea3835b477",
+      "name": "comun",
+      "normalized_name": "comun",
+      "score": 0.139907,
+      "frequency": 1,
+      "document_frequency": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-2477803baffb",
+      "name": "datos",
+      "normalized_name": "datos",
+      "score": 0.139907,
+      "frequency": 1,
+      "document_frequency": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-8e388de6a7bd",
+      "name": "funcionan",
+      "normalized_name": "funcionan",
+      "score": 0.139907,
+      "frequency": 1,
+      "document_frequency": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-e2a94f3ec336",
+      "name": "lenguaje",
+      "normalized_name": "lenguaje",
+      "score": 0.139907,
+      "frequency": 1,
+      "document_frequency": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-e34c51af4dbd",
+      "name": "modelar",
+      "normalized_name": "modelar",
+      "score": 0.139907,
+      "frequency": 1,
+      "document_frequency": 1,
+      "section_frequency": 1,
+      "chunk_frequency": 1,
+      "extraction_method": "tfidf_frequency_ngram"
+    }
+  ]
+}

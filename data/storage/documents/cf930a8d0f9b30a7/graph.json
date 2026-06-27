@@ -1,0 +1,1181 @@
+{
+  "nodes": [
+    {
+      "node_id": "document:cf930a8d0f9b30a7",
+      "labels": [
+        "Document"
+      ],
+      "properties": {
+        "document_id": "cf930a8d0f9b30a7",
+        "title": "Biologia celular: membranas y organelos",
+        "source_path": "D:/PABLO/Lyceum Project/lyceum/test_documents/biologia_celular.txt",
+        "source_extension": ".txt",
+        "processing_status": "graph_built",
+        "word_count": 104,
+        "paragraph_count": 9
+      }
+    },
+    {
+      "node_id": "section:cf930a8d0f9b30a7:section-1",
+      "labels": [
+        "Section"
+      ],
+      "properties": {
+        "section_id": "section-1",
+        "title": "Biologia celular: membranas y organelos",
+        "level": 1,
+        "order": 1,
+        "heading_type": "title_line",
+        "numbering": null,
+        "start_line": 1,
+        "end_line": 1
+      }
+    },
+    {
+      "node_id": "section:cf930a8d0f9b30a7:section-2",
+      "labels": [
+        "Section"
+      ],
+      "properties": {
+        "section_id": "section-2",
+        "title": "Introduccion",
+        "level": 2,
+        "order": 2,
+        "heading_type": "numbered",
+        "numbering": "1",
+        "start_line": 3,
+        "end_line": 5
+      }
+    },
+    {
+      "node_id": "chunk:cf930a8d0f9b30a7:chunk-1",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-1",
+        "text": "La biologia celular estudia la estructura y funcion de las celulas. La celula es la unidad basica de los seres vivos y contiene componentes especializados.",
+        "order": 1,
+        "start_line": 5,
+        "end_line": 5,
+        "word_count": 25,
+        "character_count": 155,
+        "chunk_type": "paragraph"
+      }
+    },
+    {
+      "node_id": "section:cf930a8d0f9b30a7:section-3",
+      "labels": [
+        "Section"
+      ],
+      "properties": {
+        "section_id": "section-3",
+        "title": "Membrana celular",
+        "level": 3,
+        "order": 3,
+        "heading_type": "numbered",
+        "numbering": "1.1",
+        "start_line": 7,
+        "end_line": 9
+      }
+    },
+    {
+      "node_id": "chunk:cf930a8d0f9b30a7:chunk-2",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-2",
+        "text": "La membrana celular regula el intercambio de sustancias. Esta formada por una bicapa lipidica y proteinas que participan en transporte, senalizacion y reconocimiento.",
+        "order": 2,
+        "start_line": 9,
+        "end_line": 9,
+        "word_count": 23,
+        "character_count": 166,
+        "chunk_type": "paragraph"
+      }
+    },
+    {
+      "node_id": "section:cf930a8d0f9b30a7:section-4",
+      "labels": [
+        "Section"
+      ],
+      "properties": {
+        "section_id": "section-4",
+        "title": "Organelos",
+        "level": 3,
+        "order": 4,
+        "heading_type": "numbered",
+        "numbering": "1.2",
+        "start_line": 11,
+        "end_line": 13
+      }
+    },
+    {
+      "node_id": "chunk:cf930a8d0f9b30a7:chunk-3",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-3",
+        "text": "Los organelos realizan tareas especificas. El nucleo guarda informacion genetica, las mitocondrias producen energia y los ribosomas participan en la sintesis de proteinas.",
+        "order": 3,
+        "start_line": 13,
+        "end_line": 13,
+        "word_count": 23,
+        "character_count": 171,
+        "chunk_type": "paragraph"
+      }
+    },
+    {
+      "node_id": "section:cf930a8d0f9b30a7:section-5",
+      "labels": [
+        "Section"
+      ],
+      "properties": {
+        "section_id": "section-5",
+        "title": "Resumen de temas importantes",
+        "level": 2,
+        "order": 5,
+        "heading_type": "numbered",
+        "numbering": "2",
+        "start_line": 15,
+        "end_line": 17
+      }
+    },
+    {
+      "node_id": "chunk:cf930a8d0f9b30a7:chunk-4",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-4",
+        "text": "Los conceptos clave son celula, membrana celular, organelos, nucleo, mitocondria y sintesis de proteinas.",
+        "order": 4,
+        "start_line": 17,
+        "end_line": 17,
+        "word_count": 14,
+        "character_count": 105,
+        "chunk_type": "paragraph"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-c3ada42de2b8",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-c3ada42de2b8",
+        "canonical_name": "celular",
+        "display_name": "celular",
+        "variant_terms": [
+          "celular"
+        ],
+        "score": 0.592287,
+        "frequency": 8,
+        "mention_count": 3,
+        "section_frequency": 4,
+        "chunk_frequency": 4,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-5564607f899f",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-5564607f899f",
+        "canonical_name": "organelo",
+        "display_name": "organelos",
+        "variant_terms": [
+          "organelos"
+        ],
+        "score": 0.504702,
+        "frequency": 7,
+        "mention_count": 2,
+        "section_frequency": 4,
+        "chunk_frequency": 4,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-62e76573b23c",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-62e76573b23c",
+        "canonical_name": "membrana",
+        "display_name": "membrana",
+        "variant_terms": [
+          "membrana",
+          "membranas"
+        ],
+        "score": 0.460698,
+        "frequency": 7,
+        "mention_count": 2,
+        "section_frequency": 4,
+        "chunk_frequency": 4,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-3b15c4d3747a",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-3b15c4d3747a",
+        "canonical_name": "membrana celular",
+        "display_name": "membrana celular",
+        "variant_terms": [
+          "membrana celular"
+        ],
+        "score": 0.319384,
+        "frequency": 3,
+        "mention_count": 2,
+        "section_frequency": 2,
+        "chunk_frequency": 2,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-cd2b87c04e3d",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-cd2b87c04e3d",
+        "canonical_name": "biologia celular",
+        "display_name": "biologia celular",
+        "variant_terms": [
+          "biologia celular"
+        ],
+        "score": 0.306253,
+        "frequency": 5,
+        "mention_count": 1,
+        "section_frequency": 4,
+        "chunk_frequency": 4,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-c59c5c439ef8",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-c59c5c439ef8",
+        "canonical_name": "biologia",
+        "display_name": "biologia",
+        "variant_terms": [
+          "biologia"
+        ],
+        "score": 0.266307,
+        "frequency": 5,
+        "mention_count": 1,
+        "section_frequency": 4,
+        "chunk_frequency": 4,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-9701408756ed",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-9701408756ed",
+        "canonical_name": "biologia celular membrana",
+        "display_name": "biologia celular membranas",
+        "variant_terms": [
+          "biologia celular membranas"
+        ],
+        "score": 0.237865,
+        "frequency": 4,
+        "mention_count": 3,
+        "section_frequency": 4,
+        "chunk_frequency": 4,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-23f394395e82",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-23f394395e82",
+        "canonical_name": "celular membrana organelo",
+        "display_name": "celular membranas organelos",
+        "variant_terms": [
+          "celular membranas organelos"
+        ],
+        "score": 0.237865,
+        "frequency": 4,
+        "mention_count": 2,
+        "section_frequency": 4,
+        "chunk_frequency": 4,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-aeadf184d703",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-aeadf184d703",
+        "canonical_name": "celular membrana",
+        "display_name": "celular membranas",
+        "variant_terms": [
+          "celular membranas"
+        ],
+        "score": 0.210419,
+        "frequency": 4,
+        "mention_count": 0,
+        "section_frequency": 4,
+        "chunk_frequency": 4,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-7943061132c7",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-7943061132c7",
+        "canonical_name": "membrana organelo",
+        "display_name": "membranas organelos",
+        "variant_terms": [
+          "membranas organelos"
+        ],
+        "score": 0.210419,
+        "frequency": 4,
+        "mention_count": 0,
+        "section_frequency": 4,
+        "chunk_frequency": 4,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-61752c9fc521",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-61752c9fc521",
+        "canonical_name": "sintesis proteina",
+        "display_name": "sintesis proteinas",
+        "variant_terms": [
+          "sintesis proteinas"
+        ],
+        "score": 0.173119,
+        "frequency": 2,
+        "mention_count": 2,
+        "section_frequency": 2,
+        "chunk_frequency": 2,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-f7d91f4c21e0",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-f7d91f4c21e0",
+        "canonical_name": "proteina",
+        "display_name": "proteinas",
+        "variant_terms": [
+          "proteinas"
+        ],
+        "score": 0.172838,
+        "frequency": 3,
+        "mention_count": 0,
+        "section_frequency": 3,
+        "chunk_frequency": 3,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-e837a5185381",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-e837a5185381",
+        "canonical_name": "celula",
+        "display_name": "celula",
+        "variant_terms": [
+          "celula"
+        ],
+        "score": 0.151823,
+        "frequency": 2,
+        "mention_count": 2,
+        "section_frequency": 2,
+        "chunk_frequency": 2,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-812d6dca15fd",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-812d6dca15fd",
+        "canonical_name": "nucleo",
+        "display_name": "nucleo",
+        "variant_terms": [
+          "nucleo"
+        ],
+        "score": 0.150538,
+        "frequency": 2,
+        "mention_count": 1,
+        "section_frequency": 2,
+        "chunk_frequency": 2,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-c60dc706a863",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-c60dc706a863",
+        "canonical_name": "sintesis",
+        "display_name": "sintesis",
+        "variant_terms": [
+          "sintesis"
+        ],
+        "score": 0.150538,
+        "frequency": 2,
+        "mention_count": 1,
+        "section_frequency": 2,
+        "chunk_frequency": 2,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    },
+    {
+      "node_id": "concept:canonical-concept-3f8bc83f0c3b",
+      "labels": [
+        "Concept"
+      ],
+      "properties": {
+        "concept_id": "canonical-concept-3f8bc83f0c3b",
+        "canonical_name": "participan",
+        "display_name": "participan",
+        "variant_terms": [
+          "participan"
+        ],
+        "score": 0.124617,
+        "frequency": 2,
+        "mention_count": 2,
+        "section_frequency": 2,
+        "chunk_frequency": 2,
+        "normalization_method": "lowercase_stopword_trim_simple_singular"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "relationship:ff173b637538ab70",
+      "relationship_type": "HAS_SECTION",
+      "source_id": "document:cf930a8d0f9b30a7",
+      "target_id": "section:cf930a8d0f9b30a7:section-1",
+      "properties": {
+        "order": 1
+      }
+    },
+    {
+      "relationship_id": "relationship:3c07704fce5711ee",
+      "relationship_type": "HAS_SUBSECTION",
+      "source_id": "section:cf930a8d0f9b30a7:section-1",
+      "target_id": "section:cf930a8d0f9b30a7:section-2",
+      "properties": {
+        "order": 2
+      }
+    },
+    {
+      "relationship_id": "relationship:c049df15954f371e",
+      "relationship_type": "HAS_CHUNK",
+      "source_id": "section:cf930a8d0f9b30a7:section-2",
+      "target_id": "chunk:cf930a8d0f9b30a7:chunk-1",
+      "properties": {
+        "order": 1
+      }
+    },
+    {
+      "relationship_id": "relationship:0dd81e8bebc4ce0f",
+      "relationship_type": "HAS_SUBSECTION",
+      "source_id": "section:cf930a8d0f9b30a7:section-2",
+      "target_id": "section:cf930a8d0f9b30a7:section-3",
+      "properties": {
+        "order": 3
+      }
+    },
+    {
+      "relationship_id": "relationship:877a0f00c9b59662",
+      "relationship_type": "HAS_CHUNK",
+      "source_id": "section:cf930a8d0f9b30a7:section-3",
+      "target_id": "chunk:cf930a8d0f9b30a7:chunk-2",
+      "properties": {
+        "order": 2
+      }
+    },
+    {
+      "relationship_id": "relationship:db2b61f6a5944757",
+      "relationship_type": "HAS_SUBSECTION",
+      "source_id": "section:cf930a8d0f9b30a7:section-2",
+      "target_id": "section:cf930a8d0f9b30a7:section-4",
+      "properties": {
+        "order": 4
+      }
+    },
+    {
+      "relationship_id": "relationship:a5ea98f96675beaa",
+      "relationship_type": "HAS_CHUNK",
+      "source_id": "section:cf930a8d0f9b30a7:section-4",
+      "target_id": "chunk:cf930a8d0f9b30a7:chunk-3",
+      "properties": {
+        "order": 3
+      }
+    },
+    {
+      "relationship_id": "relationship:9c4ad44a71395de6",
+      "relationship_type": "HAS_SUBSECTION",
+      "source_id": "section:cf930a8d0f9b30a7:section-1",
+      "target_id": "section:cf930a8d0f9b30a7:section-5",
+      "properties": {
+        "order": 5
+      }
+    },
+    {
+      "relationship_id": "relationship:723067e5ecd0c821",
+      "relationship_type": "HAS_CHUNK",
+      "source_id": "section:cf930a8d0f9b30a7:section-5",
+      "target_id": "chunk:cf930a8d0f9b30a7:chunk-4",
+      "properties": {
+        "order": 4
+      }
+    },
+    {
+      "relationship_id": "relationship:f762eb311717aafc",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-1",
+      "target_id": "concept:canonical-concept-cd2b87c04e3d",
+      "properties": {
+        "mention_id": "canonical-mention-8865df8d485b",
+        "score": 0.047917,
+        "occurrence_count": 2,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:35429f9d6a466704",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-1",
+      "target_id": "concept:canonical-concept-c59c5c439ef8",
+      "properties": {
+        "mention_id": "canonical-mention-005f249be910",
+        "score": 0.041667,
+        "occurrence_count": 2,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:f292e8ca92ecc8a9",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-1",
+      "target_id": "concept:canonical-concept-c3ada42de2b8",
+      "properties": {
+        "mention_id": "canonical-mention-654133c3c758",
+        "score": 0.041667,
+        "occurrence_count": 2,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:51abd73154a2b0dc",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-1",
+      "target_id": "concept:canonical-concept-e837a5185381",
+      "properties": {
+        "mention_id": "canonical-mention-0a6417becc76",
+        "score": 0.031476,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:21976e3c9c0160d2",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-1",
+      "target_id": "concept:canonical-concept-9701408756ed",
+      "properties": {
+        "mention_id": "canonical-mention-228c90963c2e",
+        "score": 0.027083,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:26f8a69bc28a4cb0",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-1",
+      "target_id": "concept:canonical-concept-23f394395e82",
+      "properties": {
+        "mention_id": "canonical-mention-efa1e815f6c3",
+        "score": 0.027083,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:9e6cef198be77e41",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-2",
+      "target_id": "concept:canonical-concept-3b15c4d3747a",
+      "properties": {
+        "mention_id": "canonical-mention-4c6e5ef1cd8e",
+        "score": 0.072394,
+        "occurrence_count": 2,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:acf0ba06798b3225",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-2",
+      "target_id": "concept:canonical-concept-62e76573b23c",
+      "properties": {
+        "mention_id": "canonical-mention-d5e6c25ddcee",
+        "score": 0.062951,
+        "occurrence_count": 2,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:1397d1802390dcf4",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-2",
+      "target_id": "concept:canonical-concept-c3ada42de2b8",
+      "properties": {
+        "mention_id": "canonical-mention-1183b217b5dc",
+        "score": 0.0625,
+        "occurrence_count": 3,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:500c858a273b0a6e",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-2",
+      "target_id": "concept:canonical-concept-3f8bc83f0c3b",
+      "properties": {
+        "mention_id": "canonical-mention-aadd1b31e030",
+        "score": 0.031476,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:6c68b9f5b2f6bff9",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-2",
+      "target_id": "concept:canonical-concept-9701408756ed",
+      "properties": {
+        "mention_id": "canonical-mention-1469078b2bba",
+        "score": 0.027083,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:eb0c8403d6d5dc28",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-2",
+      "target_id": "concept:canonical-concept-23f394395e82",
+      "properties": {
+        "mention_id": "canonical-mention-617037910c11",
+        "score": 0.027083,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:9d12c0c194665203",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-3",
+      "target_id": "concept:canonical-concept-5564607f899f",
+      "properties": {
+        "mention_id": "canonical-mention-3a2634f541c2",
+        "score": 0.061224,
+        "occurrence_count": 3,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:7c5f1d5541e7e1d1",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-3",
+      "target_id": "concept:canonical-concept-61752c9fc521",
+      "properties": {
+        "mention_id": "canonical-mention-fefcb82935e7",
+        "score": 0.035458,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:94891a17876f5abd",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-3",
+      "target_id": "concept:canonical-concept-812d6dca15fd",
+      "properties": {
+        "mention_id": "canonical-mention-7a907497ed7e",
+        "score": 0.030833,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:3b3dc9cb60b686bb",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-3",
+      "target_id": "concept:canonical-concept-3f8bc83f0c3b",
+      "properties": {
+        "mention_id": "canonical-mention-7684e7ab64d1",
+        "score": 0.030833,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:82027676a000d238",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-3",
+      "target_id": "concept:canonical-concept-c60dc706a863",
+      "properties": {
+        "mention_id": "canonical-mention-a03d03f77793",
+        "score": 0.030833,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:2f2348243560b8ae",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-3",
+      "target_id": "concept:canonical-concept-9701408756ed",
+      "properties": {
+        "mention_id": "canonical-mention-f6ae8f867751",
+        "score": 0.026531,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:888ea2eb55d02934",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-4",
+      "target_id": "concept:canonical-concept-c3ada42de2b8",
+      "properties": {
+        "mention_id": "canonical-mention-a8fa7f2a8052",
+        "score": 0.058824,
+        "occurrence_count": 2,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:197200ad178255de",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-4",
+      "target_id": "concept:canonical-concept-5564607f899f",
+      "properties": {
+        "mention_id": "canonical-mention-4f4dc6b29be4",
+        "score": 0.058824,
+        "occurrence_count": 2,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:debf652981f61634",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-4",
+      "target_id": "concept:canonical-concept-3b15c4d3747a",
+      "properties": {
+        "mention_id": "canonical-mention-ca0ad6465b32",
+        "score": 0.051101,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:328829ef2361f1c3",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-4",
+      "target_id": "concept:canonical-concept-61752c9fc521",
+      "properties": {
+        "mention_id": "canonical-mention-b2beaf2197c0",
+        "score": 0.051101,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:7b90dfa764602857",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-4",
+      "target_id": "concept:canonical-concept-e837a5185381",
+      "properties": {
+        "mention_id": "canonical-mention-3ca335b84bc6",
+        "score": 0.044436,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:cb35d69a4bb03460",
+      "relationship_type": "MENTIONS",
+      "source_id": "chunk:cf930a8d0f9b30a7:chunk-4",
+      "target_id": "concept:canonical-concept-62e76573b23c",
+      "properties": {
+        "mention_id": "canonical-mention-6d6a5bc7eee7",
+        "score": 0.044436,
+        "occurrence_count": 1,
+        "method": "tfidf_frequency_ngram",
+        "normalization_method": "lowercase_stopword_trim_simple_singular",
+        "source": "chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:097fc4cb8c92116e",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-2",
+      "target_id": "concept:canonical-concept-cd2b87c04e3d",
+      "properties": {
+        "occurrence_count": 2,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:d590e3271692ce29",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-2",
+      "target_id": "concept:canonical-concept-c59c5c439ef8",
+      "properties": {
+        "occurrence_count": 2,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:5e800393972e92aa",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-2",
+      "target_id": "concept:canonical-concept-c3ada42de2b8",
+      "properties": {
+        "occurrence_count": 2,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:8f506520928b8b5c",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-2",
+      "target_id": "concept:canonical-concept-e837a5185381",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:3551033fac33da14",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-2",
+      "target_id": "concept:canonical-concept-9701408756ed",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:57b859ba3ec03237",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-2",
+      "target_id": "concept:canonical-concept-23f394395e82",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:a804992a10329d33",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-3",
+      "target_id": "concept:canonical-concept-3b15c4d3747a",
+      "properties": {
+        "occurrence_count": 2,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:24ed9c1baa6fd2a4",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-3",
+      "target_id": "concept:canonical-concept-62e76573b23c",
+      "properties": {
+        "occurrence_count": 2,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:1beb3e775a1f2542",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-3",
+      "target_id": "concept:canonical-concept-c3ada42de2b8",
+      "properties": {
+        "occurrence_count": 3,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:05a7bd1cceb5ce04",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-3",
+      "target_id": "concept:canonical-concept-3f8bc83f0c3b",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:1bd9f3ebf73396fa",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-3",
+      "target_id": "concept:canonical-concept-9701408756ed",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:436df90df3d0067b",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-3",
+      "target_id": "concept:canonical-concept-23f394395e82",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:c9b790ae80f8b14a",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-4",
+      "target_id": "concept:canonical-concept-5564607f899f",
+      "properties": {
+        "occurrence_count": 3,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:255023271ad0bf96",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-4",
+      "target_id": "concept:canonical-concept-61752c9fc521",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:ad8b6191b87290d6",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-4",
+      "target_id": "concept:canonical-concept-812d6dca15fd",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:562aedfd0b63cc00",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-4",
+      "target_id": "concept:canonical-concept-3f8bc83f0c3b",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:d399532b9aa49bc4",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-4",
+      "target_id": "concept:canonical-concept-c60dc706a863",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:4ff794c56b44e9ed",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-4",
+      "target_id": "concept:canonical-concept-9701408756ed",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:c7b3b18c719ada1b",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-5",
+      "target_id": "concept:canonical-concept-c3ada42de2b8",
+      "properties": {
+        "occurrence_count": 2,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:67233caa5575748f",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-5",
+      "target_id": "concept:canonical-concept-5564607f899f",
+      "properties": {
+        "occurrence_count": 2,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:832f3f6c5b57ca2b",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-5",
+      "target_id": "concept:canonical-concept-3b15c4d3747a",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:551fe4a3179a9b1e",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-5",
+      "target_id": "concept:canonical-concept-61752c9fc521",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:b2752a6db0cf75aa",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-5",
+      "target_id": "concept:canonical-concept-e837a5185381",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    },
+    {
+      "relationship_id": "relationship:bb657d09e32a3fec",
+      "relationship_type": "MENTIONS",
+      "source_id": "section:cf930a8d0f9b30a7:section-5",
+      "target_id": "concept:canonical-concept-62e76573b23c",
+      "properties": {
+        "occurrence_count": 1,
+        "mention_count": 1,
+        "source": "section"
+      }
+    }
+  ],
+  "node_count": 26,
+  "relationship_count": 57,
+  "node_counts_by_label": {
+    "Chunk": 4,
+    "Concept": 16,
+    "Document": 1,
+    "Section": 5
+  },
+  "relationship_counts_by_type": {
+    "HAS_CHUNK": 4,
+    "HAS_SECTION": 1,
+    "HAS_SUBSECTION": 4,
+    "MENTIONS": 48
+  }
+}
