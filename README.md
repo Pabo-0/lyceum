@@ -22,6 +22,43 @@ El frontend de React se mantiene separado con su propio entorno Node dentro de `
 
 Mas detalles: `docs/development_environment.md`.
 
+## Frontend React
+
+El frontend vive en `frontend/` y usa React con Vite.
+
+```powershell
+cd frontend
+pnpm install
+pnpm dev
+```
+
+La configuracion local vive en `frontend/.env`, ignorado por Git. La plantilla versionable es `frontend/.env.example`.
+Para builds automatizados en esta terminal: `$env:CI = "true"; pnpm build`.
+
+## Desarrollo local con un comando
+
+Desde la raiz del proyecto:
+
+```powershell
+.\run_local.bat
+```
+
+Esto abre dos terminales:
+
+- Backend Django en `http://127.0.0.1:8000`
+- Frontend React en `http://localhost:5173`
+
+Para detenerlos, cierra las dos ventanas que se abren.
+
+Funciones actuales:
+
+- listar documentos procesados
+- subir nuevos `.txt` o `.md`
+- visualizar el grafo de lectura: documento, secciones y parrafos
+- ocultar o mostrar parrafos/chunks
+- seleccionar nodos o relaciones y ver detalles
+- centrar la vista en secciones o parrafos
+
 ## Fases actuales
 
 - Fase 1: alcance inicial limitado a `.txt` y `.md`.
@@ -35,6 +72,7 @@ Mas detalles: `docs/development_environment.md`.
 - Fase 9: relaciones semanticas candidatas.
 - Fase 10: persistencia en Neo4j via Cypher.
 - Fase 11: API Django para documentos, grafo y edicion basica.
+- Fase 12: visualizacion interactiva del grafo en React.
 
 ## Comandos utiles
 

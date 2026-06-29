@@ -10,6 +10,7 @@ Dividir contenido largo en fragmentos moderados para que las fases de analisis p
 - Cada parrafo largo se divide en chunks con limite de palabras.
 - La division intenta respetar oraciones cuando hay puntuacion.
 - Si una oracion es demasiado larga, se divide por palabras.
+- Cuando se divide un parrafo largo, se balancea la ultima parte para evitar fragmentos desproporcionados, por ejemplo un chunk grande seguido de una cola minima.
 - Cada chunk conserva:
   - `chunk_id`
   - `parent_section_id`
@@ -31,3 +32,5 @@ DEFAULT_CHUNK_MAX_WORDS = 120
 ## Decision clave
 
 El chunking ocurre despues de la normalizacion y durante la segmentacion estructural. Asi cada chunk ya queda asociado a su seccion de origen y listo para extraccion de conceptos.
+
+Los nombres visibles de los chunks no se guardan aqui como nodos nuevos. Se generan despues, durante la construccion del grafo, como metadatos de presentacion del nodo `Chunk`.

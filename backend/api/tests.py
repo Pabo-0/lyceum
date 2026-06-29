@@ -2,6 +2,7 @@ import json
 import tempfile
 from pathlib import Path
 
+from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import Client, TestCase, override_settings
 
 
@@ -62,7 +63,13 @@ class ApiEndpointTests(TestCase):
 
         graph_response = self.client.get(f"/documents/{document_id}/graph/")
         self.assertEqual(graph_response.status_code, 200)
-        self.assertGreater(graph_response.json()["graph"]["node_count"], 0)
+        returned_graph = graph_response.json()["graph"]
+        self.assertGreater(returned_graph["node_count"], 0)
+        self.assertNotIn("Concept", returned_graph["node_counts_by_label"])
+        self.assertEqual(
+            set(returned_graph["relationship_counts_by_type"]),
+            {"HAS_SECTION", "HAS_CHUNK"},
+        )
 
         patched = self.client.patch(
             f"/nodes/{node_id}/",
@@ -101,3 +108,22 @@ class ApiEndpointTests(TestCase):
             deleted.json()["deleted_relationship"]["relationship_id"],
             relationship_id,
         )
+
+    def test_uploads_document_file(self) -> None:
+        uploaded_file = SimpleUploadedFile(
+            "biologia.md",
+            (
+                b"# Biologia celular\n\n"
+                b"## 1. Membrana\n\n"
+                b"La membrana celular regula el paso de sustancias.\n"
+            ),
+            content_type="text/markdown",
+        )
+
+        response = self.client.post("/documents/", {"file": uploaded_file})
+
+        self.assertEqual(response.status_code, 201)
+        body = response.json()
+        self.assertEqual(body["document"]["metadata"]["source_extension"], ".md")
+        self.assertGreater(body["document"]["graph"]["node_count"], 0)
+        self.assertNotIn("Concept", body["document"]["graph"]["node_counts_by_label"])

@@ -13,7 +13,6 @@ Nodos:
 - `Document`
 - `Section`
 - `Chunk`
-- `Concept`
 
 Relaciones estructurales:
 
@@ -21,15 +20,7 @@ Relaciones estructurales:
 - `Section` - `HAS_SUBSECTION` -> `Section`
 - `Section` - `HAS_CHUNK` -> `Chunk`
 
-Relaciones de contenido:
-
-- `Chunk` - `MENTIONS` -> `Concept`
-- `Section` - `MENTIONS` -> `Concept`
-
-Relaciones semanticas candidatas:
-
-- `Concept` - `RELATED_TO` -> `Concept`
-- `Concept` - `PREREQUISITE_CANDIDATE` -> `Concept`
+Los conceptos y relaciones semanticas se conservan como archivos de analisis, pero no se persisten en el grafo MVP de Neo4j porque generan ruido visual antes de tener una capa semantica confiable.
 
 ## Archivos principales
 

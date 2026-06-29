@@ -28,6 +28,7 @@ class TextChunkerTests(unittest.TestCase):
         self.assertEqual(len(chunks), 3)
         self.assertTrue(all(chunk.word_count <= 10 for chunk in chunks))
         self.assertTrue(all(chunk.chunk_type == "split_paragraph" for chunk in chunks))
+        self.assertEqual([chunk.word_count for chunk in chunks], [9, 9, 7])
 
     def test_structural_segmenter_keeps_chunks_attached_to_section(self) -> None:
         content = "# Documento\n\n## 1. Tema\n\n" + " ".join(

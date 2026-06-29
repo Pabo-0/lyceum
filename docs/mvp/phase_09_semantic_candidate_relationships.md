@@ -36,8 +36,8 @@ Cada documento guarda:
 data/storage/documents/<document_id>/semantic_relationships.json
 ```
 
-El `graph.json` tambien incorpora estas relaciones como relaciones candidatas entre nodos `Concept`.
+Estas relaciones ya no se incorporan al `graph.json` visible del MVP. Se conservan como salida de analisis para futuras capas semanticas.
 
 ## Decision clave
 
-Estas relaciones no son definitivas. Son sugerencias explicables para que despues puedan confirmarse, editarse o eliminarse manualmente.
+Estas relaciones no son definitivas. Para evitar sobrecargar al usuario, quedan fuera de la visualizacion principal hasta que exista una experiencia clara para revisarlas, confirmarlas o eliminarlas.

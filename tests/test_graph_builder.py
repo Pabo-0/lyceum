@@ -49,14 +49,25 @@ class GraphBuilderTests(unittest.TestCase):
         }
 
         self.assertEqual(graph.node_counts_by_label["Document"], 1)
-        self.assertGreaterEqual(graph.node_counts_by_label["Section"], 2)
+        self.assertEqual(graph.node_counts_by_label["Section"], 2)
         self.assertGreaterEqual(graph.node_counts_by_label["Chunk"], 1)
-        self.assertGreaterEqual(graph.node_counts_by_label["Concept"], 1)
         self.assertIn("HAS_SECTION", relationship_types)
         self.assertIn("HAS_SUBSECTION", relationship_types)
         self.assertIn("HAS_CHUNK", relationship_types)
-        self.assertIn("MENTIONS", relationship_types)
-        self.assertIn("RELATED_TO", relationship_types)
+        self.assertNotIn("Concept", graph.node_counts_by_label)
+        self.assertNotIn("MENTIONS", relationship_types)
+        self.assertNotIn("RELATED_TO", relationship_types)
+        self.assertNotIn("PREREQUISITE_CANDIDATE", relationship_types)
+        chunk_nodes = [
+            node
+            for node in graph.nodes
+            if "Chunk" in node.labels
+        ]
+        self.assertTrue(all(node.properties["title"] for node in chunk_nodes))
+        self.assertTrue(
+            all(node.properties["title"] != node.properties["chunk_id"] for node in chunk_nodes)
+        )
+        self.assertTrue(all("title_reason" in node.properties for node in chunk_nodes))
 
 
 

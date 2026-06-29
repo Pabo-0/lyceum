@@ -9,15 +9,16 @@ Transformar la estructura procesada en nodos y relaciones listas para persistirs
 - `Document`
 - `Section`
 - `Chunk`
-- `Concept`
 
 ## Relaciones
 
 - `Document HAS_SECTION Section`
 - `Section HAS_SUBSECTION Section`
 - `Section HAS_CHUNK Chunk`
-- `Chunk MENTIONS Concept`
-- `Section MENTIONS Concept`
+
+Los conceptos extraidos se guardan en archivos separados de analisis, pero no entran en el `graph.json` visible del MVP.
+
+Los nodos `Chunk` si incluyen un `title` breve extraido de senales locales del texto. Ese titulo sirve solo para orientar al usuario en el grafo; no convierte la palabra clave en nodo ni crea relaciones semanticas visibles.
 
 ## Salida
 
@@ -35,6 +36,15 @@ El archivo contiene:
 - `relationship_count`
 - `node_counts_by_label`
 - `relationship_counts_by_type`
+
+En cada nodo `Chunk`, las propiedades principales para la interfaz son:
+
+- `title`
+- `title_source`
+- `title_reason`
+- `title_candidates`
+- `text`
+- `word_count`
 
 ## Decision clave
 

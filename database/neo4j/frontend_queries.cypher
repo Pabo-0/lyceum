@@ -8,7 +8,11 @@ RETURN
   d.processing_status AS processing_status
 ORDER BY d.title;
 
-// Get sections and chunks for one document.
+// Get the reading graph for one document.
+MATCH path = (d:Document {document_id: $document_id})-[:HAS_SECTION|HAS_SUBSECTION|HAS_CHUNK*1..]->(n)
+RETURN path;
+
+// Get sections and chunks for one document in a tabular shape.
 MATCH (d:Document {document_id: $document_id})-[:HAS_SECTION|HAS_SUBSECTION*1..]->(s:Section)
 OPTIONAL MATCH (s)-[:HAS_CHUNK]->(c:Chunk)
 RETURN
@@ -20,30 +24,3 @@ RETURN
   c.text AS chunk_text,
   c.order AS chunk_order
 ORDER BY section_order, chunk_order;
-
-// Get concept mentions for one document.
-MATCH (d:Document {document_id: $document_id})-[:HAS_SECTION|HAS_SUBSECTION*1..]->(:Section)-[:HAS_CHUNK]->(chunk:Chunk)
-MATCH (chunk)-[mention:MENTIONS]->(concept:Concept)
-RETURN
-  chunk.node_id AS chunk_node_id,
-  concept.node_id AS concept_node_id,
-  concept.canonical_name AS canonical_name,
-  concept.display_name AS display_name,
-  mention.score AS score,
-  mention.occurrence_count AS occurrence_count,
-  mention.method AS method
-ORDER BY canonical_name;
-
-// Get semantic candidate relationships for one document.
-MATCH (d:Document {document_id: $document_id})-[:HAS_SECTION|HAS_SUBSECTION*1..]->(:Section)-[:HAS_CHUNK]->(:Chunk)-[:MENTIONS]->(source:Concept)
-MATCH (source)-[relationship:RELATED_TO|PREREQUISITE_CANDIDATE]->(target:Concept)
-RETURN DISTINCT
-  source.canonical_name AS source,
-  type(relationship) AS relationship_type,
-  target.canonical_name AS target,
-  relationship.weight AS weight,
-  relationship.confidence AS confidence,
-  relationship.method AS method,
-  relationship.source AS source_scope,
-  relationship.reason AS reason
-ORDER BY relationship.confidence DESC, relationship.weight DESC;

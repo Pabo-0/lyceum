@@ -1,0 +1,12 @@
+@import './styles/base.css';
+@import './styles/layout.css';
+@import './styles/components/buttons.css';
+@import './styles/components/status.css';
+@import './styles/components/document-sidebar.css';
+@import './styles/components/upload-document-form.css';
+@import './styles/components/graph-controls.css';
+@import './styles/components/graph-canvas.css';
+@import './styles/components/node-content-popover.css';
+@import './styles/pages/home-page.css';
+@import './styles/pages/graph-page.css';
+@import './styles/theme-dark.css';

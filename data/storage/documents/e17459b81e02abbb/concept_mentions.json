@@ -7,74 +7,8 @@
       "text": "planificacion",
       "section_id": "section-2",
       "chunk_id": "chunk-1",
-      "score": 0.025499,
-      "occurrence_count": 4,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-b5f50222bae6",
-      "concept_id": "concept-474e5dce48b2",
-      "normalized_name": "aprendizaje",
-      "text": "aprendizaje",
-      "section_id": "section-2",
-      "chunk_id": "chunk-1",
-      "score": 0.009901,
+      "score": 0.028301,
       "occurrence_count": 2,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-1686f43420fb",
-      "concept_id": "concept-17450df2d5cf",
-      "normalized_name": "estrategias",
-      "text": "estrategias",
-      "section_id": "section-2",
-      "chunk_id": "chunk-1",
-      "score": 0.009901,
-      "occurrence_count": 2,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-51ecb8dd0af5",
-      "concept_id": "concept-59a0fdcfbc8d",
-      "normalized_name": "estrategias aprendizaje autorregulado",
-      "text": "estrategias aprendizaje autorregulado",
-      "section_id": "section-2",
-      "chunk_id": "chunk-1",
-      "score": 0.006436,
-      "occurrence_count": 1,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-d29193ebdc03",
-      "concept_id": "concept-06e3f90dcaff",
-      "normalized_name": "aprendizaje autorregulado",
-      "text": "aprendizaje autorregulado",
-      "section_id": "section-2",
-      "chunk_id": "chunk-1",
-      "score": 0.005693,
-      "occurrence_count": 1,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-112ab7b415ce",
-      "concept_id": "concept-cfed247e920c",
-      "normalized_name": "estrategias aprendizaje",
-      "text": "estrategias aprendizaje",
-      "section_id": "section-2",
-      "chunk_id": "chunk-1",
-      "score": 0.005693,
-      "occurrence_count": 1,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-6fa9431509e8",
-      "concept_id": "concept-59a0fdcfbc8d",
-      "normalized_name": "estrategias aprendizaje autorregulado",
-      "text": "estrategias aprendizaje autorregulado",
-      "section_id": "section-2",
-      "chunk_id": "chunk-2",
-      "score": 0.039394,
-      "occurrence_count": 1,
       "extraction_method": "tfidf_frequency_ngram"
     },
     {
@@ -84,52 +18,8 @@
       "text": "planificacion",
       "section_id": "section-2",
       "chunk_id": "chunk-2",
-      "score": 0.039021,
-      "occurrence_count": 1,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-23cdbd5fc9d7",
-      "concept_id": "concept-06e3f90dcaff",
-      "normalized_name": "aprendizaje autorregulado",
-      "text": "aprendizaje autorregulado",
-      "section_id": "section-2",
-      "chunk_id": "chunk-2",
-      "score": 0.034848,
-      "occurrence_count": 1,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-7adaad1743d5",
-      "concept_id": "concept-cfed247e920c",
-      "normalized_name": "estrategias aprendizaje",
-      "text": "estrategias aprendizaje",
-      "section_id": "section-2",
-      "chunk_id": "chunk-2",
-      "score": 0.034848,
-      "occurrence_count": 1,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-63b3146c8338",
-      "concept_id": "concept-474e5dce48b2",
-      "normalized_name": "aprendizaje",
-      "text": "aprendizaje",
-      "section_id": "section-2",
-      "chunk_id": "chunk-2",
-      "score": 0.030303,
-      "occurrence_count": 1,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-3f2b4bff6b51",
-      "concept_id": "concept-17450df2d5cf",
-      "normalized_name": "estrategias",
-      "text": "estrategias",
-      "section_id": "section-2",
-      "chunk_id": "chunk-2",
-      "score": 0.030303,
-      "occurrence_count": 1,
+      "score": 0.026827,
+      "occurrence_count": 3,
       "extraction_method": "tfidf_frequency_ngram"
     },
     {
@@ -141,61 +31,6 @@
       "chunk_id": "chunk-3",
       "score": 0.061569,
       "occurrence_count": 2,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-866137ed9d54",
-      "concept_id": "concept-59a0fdcfbc8d",
-      "normalized_name": "estrategias aprendizaje autorregulado",
-      "text": "estrategias aprendizaje autorregulado",
-      "section_id": "section-3",
-      "chunk_id": "chunk-3",
-      "score": 0.023636,
-      "occurrence_count": 1,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-239f1e4f294c",
-      "concept_id": "concept-06e3f90dcaff",
-      "normalized_name": "aprendizaje autorregulado",
-      "text": "aprendizaje autorregulado",
-      "section_id": "section-3",
-      "chunk_id": "chunk-3",
-      "score": 0.020909,
-      "occurrence_count": 1,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-4eed924aa531",
-      "concept_id": "concept-cfed247e920c",
-      "normalized_name": "estrategias aprendizaje",
-      "text": "estrategias aprendizaje",
-      "section_id": "section-3",
-      "chunk_id": "chunk-3",
-      "score": 0.020909,
-      "occurrence_count": 1,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-bdcc879f89ef",
-      "concept_id": "concept-474e5dce48b2",
-      "normalized_name": "aprendizaje",
-      "text": "aprendizaje",
-      "section_id": "section-3",
-      "chunk_id": "chunk-3",
-      "score": 0.018182,
-      "occurrence_count": 1,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "mention_id": "mention-620893a223d9",
-      "concept_id": "concept-17450df2d5cf",
-      "normalized_name": "estrategias",
-      "text": "estrategias",
-      "section_id": "section-3",
-      "chunk_id": "chunk-3",
-      "score": 0.018182,
-      "occurrence_count": 1,
       "extraction_method": "tfidf_frequency_ngram"
     }
   ]

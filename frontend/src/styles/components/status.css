@@ -1,0 +1,34 @@
+.status,
+.status-dot,
+.document-id {
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.status {
+  background: #ffffff;
+  border: 1px solid #d9e1e6;
+  padding: 8px 10px;
+}
+
+.status-dot {
+  display: inline-flex;
+  font-size: 0.82rem;
+  padding: 7px 9px;
+}
+
+.status-ready {
+  background: #e7f7ef;
+  color: #16643b;
+}
+
+.status-loading,
+.status-processing {
+  background: #fff4d8;
+  color: #73510d;
+}
+
+.status-error {
+  background: #ffe9e7;
+  color: #9d241b;
+}

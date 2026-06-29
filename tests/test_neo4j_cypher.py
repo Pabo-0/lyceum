@@ -33,26 +33,37 @@ class Neo4jCypherTests(unittest.TestCase):
                     },
                 },
                 {
-                    "node_id": "concept:derivada",
-                    "labels": ["Concept"],
+                    "node_id": "section:sample:section-1",
+                    "labels": ["Section"],
                     "properties": {
-                        "concept_id": "derivada",
-                        "canonical_name": "derivada",
-                        "variant_terms": ["derivada", "derivadas"],
+                        "section_id": "section-1",
+                        "title": "1. Derivadas",
+                    },
+                },
+                {
+                    "node_id": "chunk:sample:chunk-1",
+                    "labels": ["Chunk"],
+                    "properties": {
+                        "chunk_id": "chunk-1",
+                        "text": "La derivada mide la tasa de cambio.",
+                        "word_count": 7,
                     },
                 },
             ],
             "relationships": [
                 {
                     "relationship_id": "relationship:sample",
-                    "relationship_type": "MENTIONS",
+                    "relationship_type": "HAS_SECTION",
                     "source_id": "document:sample",
-                    "target_id": "concept:derivada",
-                    "properties": {
-                        "confidence": 0.72,
-                        "method": "test_method",
-                        "source": "test",
-                    },
+                    "target_id": "section:sample:section-1",
+                    "properties": {"order": 1},
+                },
+                {
+                    "relationship_id": "relationship:sample-chunk",
+                    "relationship_type": "HAS_CHUNK",
+                    "source_id": "section:sample:section-1",
+                    "target_id": "chunk:sample:chunk-1",
+                    "properties": {"order": 1},
                 }
             ],
         }
@@ -62,10 +73,13 @@ class Neo4jCypherTests(unittest.TestCase):
 
         self.assertIn("CREATE CONSTRAINT document_node_id", schema)
         self.assertIn("MERGE (n:Document", cypher)
-        self.assertIn("MERGE (n:Concept", cypher)
-        self.assertIn("MERGE (source)-[r:MENTIONS", cypher)
+        self.assertIn("MERGE (n:Section", cypher)
+        self.assertIn("MERGE (n:Chunk", cypher)
+        self.assertIn("MERGE (source)-[r:HAS_SECTION", cypher)
+        self.assertIn("MERGE (source)-[r:HAS_CHUNK", cypher)
         self.assertIn('title: "Sample \\"Graph\\""', cypher)
-        self.assertIn('variant_terms: ["derivada", "derivadas"]', cypher)
+        self.assertNotIn("Concept", schema)
+        self.assertNotIn("MENTIONS", schema)
 
     def test_splits_cypher_without_breaking_text_values(self) -> None:
         cypher = (

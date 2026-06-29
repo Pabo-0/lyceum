@@ -4,7 +4,7 @@
       "concept_id": "concept-5ed38dd077d2",
       "name": "planificacion",
       "normalized_name": "planificacion",
-      "score": 0.205535,
+      "score": 0.192209,
       "frequency": 5,
       "document_frequency": 2,
       "section_frequency": 1,
@@ -20,61 +20,6 @@
       "document_frequency": 1,
       "section_frequency": 1,
       "chunk_frequency": 1,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "concept_id": "concept-59a0fdcfbc8d",
-      "name": "estrategias aprendizaje autorregulado",
-      "normalized_name": "estrategias aprendizaje autorregulado",
-      "score": 0.138932,
-      "frequency": 3,
-      "document_frequency": 3,
-      "section_frequency": 2,
-      "chunk_frequency": 3,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "concept_id": "concept-474e5dce48b2",
-      "name": "aprendizaje",
-      "normalized_name": "aprendizaje",
-      "score": 0.126673,
-      "frequency": 4,
-      "document_frequency": 3,
-      "section_frequency": 2,
-      "chunk_frequency": 3,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "concept_id": "concept-17450df2d5cf",
-      "name": "estrategias",
-      "normalized_name": "estrategias",
-      "score": 0.126673,
-      "frequency": 4,
-      "document_frequency": 3,
-      "section_frequency": 2,
-      "chunk_frequency": 3,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "concept_id": "concept-06e3f90dcaff",
-      "name": "aprendizaje autorregulado",
-      "normalized_name": "aprendizaje autorregulado",
-      "score": 0.122901,
-      "frequency": 3,
-      "document_frequency": 3,
-      "section_frequency": 2,
-      "chunk_frequency": 3,
-      "extraction_method": "tfidf_frequency_ngram"
-    },
-    {
-      "concept_id": "concept-cfed247e920c",
-      "name": "estrategias aprendizaje",
-      "normalized_name": "estrategias aprendizaje",
-      "score": 0.122901,
-      "frequency": 3,
-      "document_frequency": 3,
-      "section_frequency": 2,
-      "chunk_frequency": 3,
       "extraction_method": "tfidf_frequency_ngram"
     }
   ]

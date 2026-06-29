@@ -10,7 +10,7 @@
       "raw_concept_ids": [
         "concept-5ed38dd077d2"
       ],
-      "score": 0.205535,
+      "score": 0.192209,
       "frequency": 5,
       "mention_count": 2,
       "section_frequency": 1,
@@ -32,91 +32,6 @@
       "mention_count": 1,
       "section_frequency": 1,
       "chunk_frequency": 1,
-      "normalization_method": "lowercase_stopword_trim_simple_singular"
-    },
-    {
-      "concept_id": "canonical-concept-aeb8c159f858",
-      "canonical_name": "estrategia aprendizaje autorregulado",
-      "display_name": "estrategias aprendizaje autorregulado",
-      "variant_terms": [
-        "estrategias aprendizaje autorregulado"
-      ],
-      "raw_concept_ids": [
-        "concept-59a0fdcfbc8d"
-      ],
-      "score": 0.138932,
-      "frequency": 3,
-      "mention_count": 3,
-      "section_frequency": 2,
-      "chunk_frequency": 3,
-      "normalization_method": "lowercase_stopword_trim_simple_singular"
-    },
-    {
-      "concept_id": "canonical-concept-474e5dce48b2",
-      "canonical_name": "aprendizaje",
-      "display_name": "aprendizaje",
-      "variant_terms": [
-        "aprendizaje"
-      ],
-      "raw_concept_ids": [
-        "concept-474e5dce48b2"
-      ],
-      "score": 0.126673,
-      "frequency": 4,
-      "mention_count": 3,
-      "section_frequency": 2,
-      "chunk_frequency": 3,
-      "normalization_method": "lowercase_stopword_trim_simple_singular"
-    },
-    {
-      "concept_id": "canonical-concept-3feaf5d985f9",
-      "canonical_name": "estrategia",
-      "display_name": "estrategias",
-      "variant_terms": [
-        "estrategias"
-      ],
-      "raw_concept_ids": [
-        "concept-17450df2d5cf"
-      ],
-      "score": 0.126673,
-      "frequency": 4,
-      "mention_count": 3,
-      "section_frequency": 2,
-      "chunk_frequency": 3,
-      "normalization_method": "lowercase_stopword_trim_simple_singular"
-    },
-    {
-      "concept_id": "canonical-concept-06e3f90dcaff",
-      "canonical_name": "aprendizaje autorregulado",
-      "display_name": "aprendizaje autorregulado",
-      "variant_terms": [
-        "aprendizaje autorregulado"
-      ],
-      "raw_concept_ids": [
-        "concept-06e3f90dcaff"
-      ],
-      "score": 0.122901,
-      "frequency": 3,
-      "mention_count": 3,
-      "section_frequency": 2,
-      "chunk_frequency": 3,
-      "normalization_method": "lowercase_stopword_trim_simple_singular"
-    },
-    {
-      "concept_id": "canonical-concept-b49d02d9907f",
-      "canonical_name": "estrategia aprendizaje",
-      "display_name": "estrategias aprendizaje",
-      "variant_terms": [
-        "estrategias aprendizaje"
-      ],
-      "raw_concept_ids": [
-        "concept-cfed247e920c"
-      ],
-      "score": 0.122901,
-      "frequency": 3,
-      "mention_count": 3,
-      "section_frequency": 2,
-      "chunk_frequency": 3,
       "normalization_method": "lowercase_stopword_trim_simple_singular"
     }
   ]

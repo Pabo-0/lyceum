@@ -1,0 +1,92 @@
+.node-reader-overlay {
+  align-items: center;
+  background: rgb(244 247 248 / 0.78);
+  display: grid;
+  inset: 0;
+  padding: 24px;
+  place-items: center;
+  position: absolute;
+  z-index: 8;
+}
+
+.node-reader-page {
+  background: #ffffff;
+  border: 1px solid #d9e1e6;
+  border-radius: 8px;
+  box-shadow: 0 18px 60px rgb(23 32 38 / 0.22);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  max-height: min(760px, calc(100vh - 84px));
+  max-width: min(900px, 100%);
+  min-height: min(560px, calc(100vh - 84px));
+  overflow: hidden;
+  width: 100%;
+}
+
+.node-reader-header {
+  border-bottom: 1px solid #edf1f3;
+  display: grid;
+  gap: 18px;
+  padding: 22px 28px 18px;
+}
+
+.node-reader-header h2 {
+  font-size: clamp(1.55rem, 3vw, 2.4rem);
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.12;
+  margin: 0;
+}
+
+.node-reader-back {
+  align-items: center;
+  background: #edf1f3;
+  border: 1px solid #d9e1e6;
+  border-radius: 8px;
+  color: #172026;
+  display: inline-flex;
+  font-weight: 700;
+  justify-content: center;
+  justify-self: start;
+  min-height: 38px;
+  padding: 8px 12px;
+}
+
+.node-reader-body {
+  color: #24343d;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  overflow: auto;
+  padding: 26px 28px 34px;
+}
+
+.node-reader-body p {
+  margin: 0;
+  max-width: 72ch;
+}
+
+.node-reader-body p + p {
+  margin-top: 1.15rem;
+}
+
+@media (max-width: 860px) {
+  .node-reader-overlay {
+    align-items: stretch;
+    padding: 10px;
+  }
+
+  .node-reader-page {
+    max-height: 100%;
+    min-height: 100%;
+  }
+
+  .node-reader-header {
+    gap: 14px;
+    padding: 18px 18px 16px;
+  }
+
+  .node-reader-body {
+    font-size: 1rem;
+    padding: 20px 18px 26px;
+  }
+}

@@ -1,4 +1,5 @@
 import re
+from math import ceil
 from dataclasses import dataclass
 
 from document_processing.config import DEFAULT_CHUNK_MAX_WORDS
@@ -39,6 +40,8 @@ def split_text_into_chunks(
     if not chunks:
         chunks = _split_by_words(cleaned, max_words)
 
+    chunks = _balance_small_tail(chunks, max_words)
+
     return [
         ChunkPiece(
             text=chunk,
@@ -62,12 +65,15 @@ def _split_by_sentences(text: str, max_words: int) -> list[str]:
     if len(sentences) <= 1:
         return []
 
+    sentence_word_counts = [count_words(sentence) for sentence in sentences]
+    total_words = sum(sentence_word_counts)
+    chunk_count = ceil(total_words / max_words)
+    target_words = ceil(total_words / chunk_count)
     chunks: list[str] = []
     current: list[str] = []
     current_words = 0
 
-    for sentence in sentences:
-        sentence_words = count_words(sentence)
+    for sentence, sentence_words in zip(sentences, sentence_word_counts):
         if sentence_words > max_words:
             if current:
                 chunks.append(" ".join(current))
@@ -76,7 +82,7 @@ def _split_by_sentences(text: str, max_words: int) -> list[str]:
             chunks.extend(_split_by_words(sentence, max_words))
             continue
 
-        would_exceed = current_words + sentence_words > max_words
+        would_exceed = current_words + sentence_words > target_words
         if current and would_exceed:
             chunks.append(" ".join(current))
             current = [sentence]
@@ -93,7 +99,32 @@ def _split_by_sentences(text: str, max_words: int) -> list[str]:
 
 def _split_by_words(text: str, max_words: int) -> list[str]:
     words = text.split()
+    if len(words) <= max_words:
+        return [text]
+
+    chunk_count = ceil(len(words) / max_words)
+    target_size = ceil(len(words) / chunk_count)
     return [
-        " ".join(words[index : index + max_words])
-        for index in range(0, len(words), max_words)
+        " ".join(words[index : index + target_size])
+        for index in range(0, len(words), target_size)
     ]
+
+
+def _balance_small_tail(chunks: list[str], max_words: int) -> list[str]:
+    if len(chunks) < 2:
+        return chunks
+
+    minimum_tail_words = max(12, min(40, max_words // 3))
+    last_words = count_words(chunks[-1])
+    previous_words = count_words(chunks[-2])
+    if last_words >= minimum_tail_words:
+        return chunks
+
+    merged_words = previous_words + last_words
+    if merged_words <= int(max_words * 1.15):
+        return [
+            *chunks[:-2],
+            f"{chunks[-2]} {chunks[-1]}",
+        ]
+
+    return chunks

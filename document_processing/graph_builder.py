@@ -1,6 +1,7 @@
 from collections import Counter
 from hashlib import sha256
 
+from document_processing.chunk_title_extractor import build_chunk_titles
 from document_processing.models import (
     ConceptDeduplicationResult,
     DocumentMetadata,
@@ -18,11 +19,18 @@ def build_initial_graph(
     concept_deduplication: ConceptDeduplicationResult,
     semantic_relationships: SemanticRelationshipResult | None = None,
 ) -> KnowledgeGraph:
+    """Build the MVP reading graph.
+
+    The pipeline still stores concept and semantic-analysis files for later
+    developer work. The user-facing graph intentionally shows only the reading
+    structure: document, sections and chunks.
+    """
     document_id = metadata.document_id
     nodes: list[GraphNode] = []
     relationships: list[GraphRelationship] = []
 
     document_node_id = _document_node_id(document_id)
+    chunk_titles = build_chunk_titles(structure, concept_deduplication)
     nodes.append(
         GraphNode(
             node_id=document_node_id,
@@ -43,45 +51,40 @@ def build_initial_graph(
     chunk_node_ids: dict[str, str] = {}
     relationships.extend(
         _build_section_and_chunk_graph(
-            document_id,
-            document_node_id,
-            structure,
-            nodes,
-            section_node_ids,
-            chunk_node_ids,
+            document_id=document_id,
+            document_title=metadata.title,
+            document_node_id=document_node_id,
+            structure=structure,
+            nodes=nodes,
+            section_node_ids=section_node_ids,
+            chunk_node_ids=chunk_node_ids,
+            chunk_titles=chunk_titles,
         )
     )
-    concept_node_ids = _build_concept_nodes(concept_deduplication, nodes)
-    relationships.extend(
-        _build_mentions_relationships(
-            concept_deduplication,
-            section_node_ids,
-            chunk_node_ids,
-            concept_node_ids,
-        )
-    )
-    if semantic_relationships:
-        relationships.extend(
-            _build_semantic_relationships(
-                semantic_relationships,
-                concept_node_ids,
-            )
-        )
 
     return _build_graph_result(nodes, relationships)
 
 
 def _build_section_and_chunk_graph(
     document_id: str,
+    document_title: str,
     document_node_id: str,
     structure: StructuralAnalysis,
     nodes: list[GraphNode],
     section_node_ids: dict[str, str],
     chunk_node_ids: dict[str, str],
+    chunk_titles: dict,
 ) -> list[GraphRelationship]:
     relationships: list[GraphRelationship] = []
+    skipped_root_section_ids = _find_skippable_root_section_ids(
+        document_title,
+        structure,
+    )
 
     for section in structure.sections:
+        if section.section_id in skipped_root_section_ids:
+            continue
+
         section_node_id = _section_node_id(document_id, section.section_id)
         section_node_ids[section.section_id] = section_node_id
         nodes.append(
@@ -101,7 +104,10 @@ def _build_section_and_chunk_graph(
             )
         )
 
-        if section.parent_section_id:
+        if (
+            section.parent_section_id
+            and section.parent_section_id not in skipped_root_section_ids
+        ):
             relationships.append(
                 _relationship(
                     "HAS_SUBSECTION",
@@ -123,12 +129,17 @@ def _build_section_and_chunk_graph(
         for chunk in section.chunks:
             chunk_node_id = _chunk_node_id(document_id, chunk.chunk_id)
             chunk_node_ids[chunk.chunk_id] = chunk_node_id
+            chunk_title = chunk_titles.get(chunk.chunk_id)
             nodes.append(
                 GraphNode(
                     node_id=chunk_node_id,
                     labels=["Chunk"],
                     properties={
                         "chunk_id": chunk.chunk_id,
+                        "title": chunk_title.title if chunk_title else chunk.chunk_id,
+                        "title_source": chunk_title.source if chunk_title else "chunk_id",
+                        "title_reason": chunk_title.reason if chunk_title else "",
+                        "title_candidates": chunk_title.candidates if chunk_title else [],
                         "text": chunk.text,
                         "order": chunk.order,
                         "start_line": chunk.start_line,
@@ -147,128 +158,6 @@ def _build_section_and_chunk_graph(
                     {"order": chunk.order},
                 )
             )
-
-    return relationships
-
-
-def _build_concept_nodes(
-    concept_deduplication: ConceptDeduplicationResult,
-    nodes: list[GraphNode],
-) -> dict[str, str]:
-    concept_node_ids: dict[str, str] = {}
-
-    for concept in concept_deduplication.concepts:
-        concept_node_id = _concept_node_id(concept.concept_id)
-        concept_node_ids[concept.concept_id] = concept_node_id
-        nodes.append(
-            GraphNode(
-                node_id=concept_node_id,
-                labels=["Concept"],
-                properties={
-                    "concept_id": concept.concept_id,
-                    "canonical_name": concept.canonical_name,
-                    "display_name": concept.display_name,
-                    "variant_terms": concept.variant_terms,
-                    "score": concept.score,
-                    "frequency": concept.frequency,
-                    "mention_count": concept.mention_count,
-                    "section_frequency": concept.section_frequency,
-                    "chunk_frequency": concept.chunk_frequency,
-                    "normalization_method": concept.normalization_method,
-                },
-            )
-        )
-
-    return concept_node_ids
-
-
-def _build_mentions_relationships(
-    concept_deduplication: ConceptDeduplicationResult,
-    section_node_ids: dict[str, str],
-    chunk_node_ids: dict[str, str],
-    concept_node_ids: dict[str, str],
-) -> list[GraphRelationship]:
-    relationships: list[GraphRelationship] = []
-    section_concept_stats: dict[tuple[str, str], Counter[str]] = {}
-
-    for mention in concept_deduplication.mentions:
-        chunk_node_id = chunk_node_ids.get(mention.chunk_id)
-        concept_node_id = concept_node_ids.get(mention.concept_id)
-        if not chunk_node_id or not concept_node_id:
-            continue
-
-        relationships.append(
-            _relationship(
-                "MENTIONS",
-                chunk_node_id,
-                concept_node_id,
-                {
-                    "mention_id": mention.mention_id,
-                    "score": mention.score,
-                    "occurrence_count": mention.occurrence_count,
-                    "method": mention.extraction_method,
-                    "normalization_method": mention.normalization_method,
-                    "source": "chunk",
-                },
-            )
-        )
-
-        if mention.section_id:
-            key = (mention.section_id, mention.concept_id)
-            if key not in section_concept_stats:
-                section_concept_stats[key] = Counter()
-            section_concept_stats[key]["occurrence_count"] += mention.occurrence_count
-            section_concept_stats[key]["mention_count"] += 1
-
-    for (section_id, concept_id), stats in section_concept_stats.items():
-        section_node_id = section_node_ids.get(section_id)
-        concept_node_id = concept_node_ids.get(concept_id)
-        if not section_node_id or not concept_node_id:
-            continue
-        relationships.append(
-            _relationship(
-                "MENTIONS",
-                section_node_id,
-                concept_node_id,
-                {
-                    "occurrence_count": stats["occurrence_count"],
-                    "mention_count": stats["mention_count"],
-                    "source": "section",
-                },
-            )
-        )
-
-    return relationships
-
-
-def _build_semantic_relationships(
-    semantic_relationships: SemanticRelationshipResult,
-    concept_node_ids: dict[str, str],
-) -> list[GraphRelationship]:
-    relationships: list[GraphRelationship] = []
-
-    for semantic_relationship in semantic_relationships.relationships:
-        source_node_id = concept_node_ids.get(semantic_relationship.source_concept_id)
-        target_node_id = concept_node_ids.get(semantic_relationship.target_concept_id)
-        if not source_node_id or not target_node_id:
-            continue
-        relationships.append(
-            _relationship(
-                semantic_relationship.relationship_type,
-                source_node_id,
-                target_node_id,
-                {
-                    "candidate_id": semantic_relationship.relationship_id,
-                    "weight": semantic_relationship.weight,
-                    "confidence": semantic_relationship.confidence,
-                    "method": semantic_relationship.method,
-                    "source": semantic_relationship.source,
-                    "reason": semantic_relationship.reason,
-                    "evidence": semantic_relationship.evidence,
-                    "status": "candidate",
-                },
-            )
-        )
 
     return relationships
 
@@ -296,6 +185,25 @@ def _build_graph_result(
     )
 
 
+def _find_skippable_root_section_ids(
+    document_title: str,
+    structure: StructuralAnalysis,
+) -> set[str]:
+    root_section_ids: set[str] = set()
+    normalized_document_title = _normalize_title(document_title)
+
+    for section in structure.sections:
+        if (
+            section.level == 1
+            and section.parent_section_id is None
+            and not section.chunks
+            and _normalize_title(section.title) == normalized_document_title
+        ):
+            root_section_ids.add(section.section_id)
+
+    return root_section_ids
+
+
 def _document_node_id(document_id: str) -> str:
     return f"document:{document_id}"
 
@@ -306,10 +214,6 @@ def _section_node_id(document_id: str, section_id: str) -> str:
 
 def _chunk_node_id(document_id: str, chunk_id: str) -> str:
     return f"chunk:{document_id}:{chunk_id}"
-
-
-def _concept_node_id(concept_id: str) -> str:
-    return f"concept:{concept_id}"
 
 
 def _relationship(
@@ -347,3 +251,7 @@ def _relationship_id(
         f"{relationship_type}:{source_id}:{target_id}:{stable_properties}".encode("utf-8")
     ).hexdigest()[:16]
     return f"relationship:{digest}"
+
+
+def _normalize_title(title: str) -> str:
+    return " ".join(title.strip().lower().split())
