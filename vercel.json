@@ -1,15 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd frontend && corepack pnpm@11.7.0 install --frozen-lockfile && corepack pnpm@11.7.0 build",
-  "outputDirectory": "frontend/dist",
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/backend/core/wsgi.py"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  "buildCommand": "cd frontend && corepack pnpm@11.7.0 install --frozen-lockfile && corepack pnpm@11.7.0 build"
 }
