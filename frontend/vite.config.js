@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => {
   const backendUrl = env.VITE_BACKEND_URL || 'http://127.0.0.1:8000';
 
   return {
-    base: mode === 'production' ? '/static/' : '/',
+    base: env.VITE_BASE_PATH || '/',
     plugins: [react()],
     server: {
       port: Number(env.VITE_DEV_PORT || 5173),
