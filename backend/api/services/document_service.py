@@ -1,3 +1,4 @@
+import shutil
 from pathlib import Path
 from typing import Any
 from uuid import uuid4
@@ -120,12 +121,29 @@ class DocumentService:
 
 
 def build_document_store() -> DocumentStore:
-    return DocumentStore(
+    store = DocumentStore(
         storage_path=settings.LYCEUM_STORAGE_PATH,
         documents_dir=settings.LYCEUM_DOCUMENTS_DIR,
         originals_dir=settings.LYCEUM_ORIGINALS_DIR,
         normalized_dir=settings.LYCEUM_NORMALIZED_DIR,
     )
+    seed_runtime_storage(store)
+    return store
+
+
+def seed_runtime_storage(store: DocumentStore) -> None:
+    if not getattr(settings, "LYCEUM_SEED_RUNTIME_STORAGE", False):
+        return
+    if store.storage_path.exists():
+        return
+
+    seed_dir = Path(settings.LYCEUM_SEED_STORAGE_DIR)
+    if not seed_dir.exists():
+        return
+
+    target_dir = store.storage_path.parent
+    target_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(seed_dir, target_dir, dirs_exist_ok=True)
 
 
 def _is_relative_to(path: Path, base: Path) -> bool:

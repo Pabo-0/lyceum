@@ -29,6 +29,10 @@ def env_path(name: str, default: Path) -> Path:
     return BASE_DIR / path
 
 
+def runtime_tmp_path(name: str) -> Path:
+    return Path(os.getenv("TMPDIR") or os.getenv("TEMP") or "/tmp") / name
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = BASE_DIR.parent
@@ -47,7 +51,15 @@ if not SECRET_KEY:
 
 DEBUG = env_bool("DJANGO_DEBUG", default=False)
 
-ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS", ["localhost", "127.0.0.1"])
+DEFAULT_ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".vercel.app"]
+for vercel_host in (
+    os.getenv("VERCEL_URL"),
+    os.getenv("VERCEL_PROJECT_PRODUCTION_URL"),
+):
+    if vercel_host and vercel_host not in DEFAULT_ALLOWED_HOSTS:
+        DEFAULT_ALLOWED_HOSTS.append(vercel_host)
+
+ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS", DEFAULT_ALLOWED_HOSTS)
 CSRF_TRUSTED_ORIGINS = env_list("DJANGO_CSRF_TRUSTED_ORIGINS")
 
 
@@ -111,29 +123,49 @@ NEO4J = {
     "SYNC_ON_INGEST": env_bool("NEO4J_SYNC_ON_INGEST", default=False),
 }
 
+IS_VERCEL = env_bool("VERCEL", default=False)
+DEFAULT_RUNTIME_STORAGE_ROOT = (
+    runtime_tmp_path("lyceum-storage")
+    if IS_VERCEL
+    else PROJECT_ROOT / "data/storage"
+)
+DEFAULT_UPLOADS_DIR = (
+    runtime_tmp_path("lyceum-uploads")
+    if IS_VERCEL
+    else PROJECT_ROOT / "data/uploads"
+)
+
+LYCEUM_SEED_RUNTIME_STORAGE = env_bool(
+    "LYCEUM_SEED_RUNTIME_STORAGE",
+    default=IS_VERCEL,
+)
+LYCEUM_SEED_STORAGE_DIR = env_path(
+    "LYCEUM_SEED_STORAGE_DIR",
+    PROJECT_ROOT / "data/storage",
+)
 LYCEUM_STORAGE_PATH = env_path(
     "LYCEUM_STORAGE_PATH",
-    PROJECT_ROOT / "data/storage/documents.json",
+    DEFAULT_RUNTIME_STORAGE_ROOT / "documents.json",
 )
 LYCEUM_DOCUMENTS_DIR = env_path(
     "LYCEUM_DOCUMENTS_DIR",
-    PROJECT_ROOT / "data/storage/documents",
+    DEFAULT_RUNTIME_STORAGE_ROOT / "documents",
 )
 LYCEUM_ORIGINALS_DIR = env_path(
     "LYCEUM_ORIGINALS_DIR",
-    PROJECT_ROOT / "data/storage/originals",
+    DEFAULT_RUNTIME_STORAGE_ROOT / "originals",
 )
 LYCEUM_NORMALIZED_DIR = env_path(
     "LYCEUM_NORMALIZED_DIR",
-    PROJECT_ROOT / "data/storage/normalized",
+    DEFAULT_RUNTIME_STORAGE_ROOT / "normalized",
 )
 LYCEUM_UPLOADS_DIR = env_path(
     "LYCEUM_UPLOADS_DIR",
-    PROJECT_ROOT / "data/uploads",
+    DEFAULT_UPLOADS_DIR,
 )
 LYCEUM_NEO4J_EXPORT_DIR = env_path(
     "LYCEUM_NEO4J_EXPORT_DIR",
-    PROJECT_ROOT / "data/storage/neo4j",
+    DEFAULT_RUNTIME_STORAGE_ROOT / "neo4j",
 )
 
 

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "cd frontend && pnpm install --frozen-lockfile && pnpm build",
+  "outputDirectory": "frontend/dist",
+  "functions": {
+    "backend/core/wsgi.py": {
+      "maxDuration": 60,
+      "includeFiles": [
+        "backend/**",
+        "document_processing/**",
+        "scripts/**",
+        "data/storage/**"
+      ]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/backend/core/wsgi.py"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
