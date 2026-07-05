@@ -28,16 +28,41 @@ def documents_collection(request: HttpRequest) -> JsonResponse:
     return method_not_allowed(["GET", "POST"])
 
 
+@csrf_exempt
 def document_detail(request: HttpRequest, document_id: str) -> JsonResponse:
-    if request.method != "GET":
-        return method_not_allowed(["GET"])
+    if request.method == "GET":
+        try:
+            document = DocumentService().get_document(document_id)
+        except FileNotFoundError:
+            return error_response(f"Document not found: {document_id}", status=404)
+        except ValueError as exc:
+            return error_response(str(exc), status=400)
 
-    try:
-        document = DocumentService().get_document(document_id)
-    except FileNotFoundError:
-        return error_response(f"Document not found: {document_id}", status=404)
+        return json_response({"document": document})
 
-    return json_response({"document": document})
+    if request.method == "PATCH":
+        try:
+            payload = parse_json_body(request)
+            title = str(payload.get("title", ""))
+            result = DocumentService().rename_document(document_id, title)
+            return json_response(result)
+        except JSONDecodeError as exc:
+            return error_response(str(exc), status=400)
+        except FileNotFoundError:
+            return error_response(f"Document not found: {document_id}", status=404)
+        except ValueError as exc:
+            return error_response(str(exc), status=400)
+
+    if request.method == "DELETE":
+        try:
+            result = DocumentService().delete_document(document_id)
+            return json_response(result)
+        except FileNotFoundError:
+            return error_response(f"Document not found: {document_id}", status=404)
+        except ValueError as exc:
+            return error_response(str(exc), status=400)
+
+    return method_not_allowed(["GET", "PATCH", "DELETE"])
 
 
 def document_graph(request: HttpRequest, document_id: str) -> JsonResponse:
@@ -53,6 +78,74 @@ def document_graph(request: HttpRequest, document_id: str) -> JsonResponse:
 
 
 @csrf_exempt
+def document_nodes(request: HttpRequest, document_id: str) -> JsonResponse:
+    if request.method != "POST":
+        return method_not_allowed(["POST"])
+
+    try:
+        payload = parse_json_body(request)
+        labels = payload.get("labels") or [payload.get("label", "Concept")]
+        properties = payload.get("properties", {})
+        result = GraphService().create_node(document_id, labels, properties)
+        return json_response(result, status=201)
+    except JSONDecodeError as exc:
+        return error_response(str(exc), status=400)
+    except FileNotFoundError:
+        return error_response(f"Document not found: {document_id}", status=404)
+    except (KeyError, ValueError) as exc:
+        return error_response(str(exc), status=400)
+
+
+@csrf_exempt
+def document_relationships(request: HttpRequest, document_id: str) -> JsonResponse:
+    if request.method != "POST":
+        return method_not_allowed(["POST"])
+
+    try:
+        payload = parse_json_body(request)
+        result = GraphService().create_relationship(
+            document_id=document_id,
+            source_id=str(payload.get("source_id", "")),
+            target_id=str(payload.get("target_id", "")),
+            relationship_type=str(payload.get("relationship_type", "SEMANTIC")),
+            properties=payload.get("properties", {}),
+        )
+        return json_response(result, status=201)
+    except JSONDecodeError as exc:
+        return error_response(str(exc), status=400)
+    except FileNotFoundError:
+        return error_response(f"Document not found: {document_id}", status=404)
+    except KeyError as exc:
+        return error_response(str(exc), status=404)
+    except ValueError as exc:
+        return error_response(str(exc), status=400)
+
+
+@csrf_exempt
+def document_node_merge(request: HttpRequest, document_id: str) -> JsonResponse:
+    if request.method != "POST":
+        return method_not_allowed(["POST"])
+
+    try:
+        payload = parse_json_body(request)
+        result = GraphService().merge_nodes(
+            document_id=document_id,
+            target_node_id=str(payload.get("target_node_id", "")),
+            source_node_ids=payload.get("source_node_ids", []),
+            properties=payload.get("properties", {}),
+        )
+        return json_response(result)
+    except JSONDecodeError as exc:
+        return error_response(str(exc), status=400)
+    except FileNotFoundError:
+        return error_response(f"Document not found: {document_id}", status=404)
+    except KeyError as exc:
+        return error_response(str(exc), status=404)
+    except ValueError as exc:
+        return error_response(str(exc), status=400)
+
+
+@csrf_exempt
 def node_detail(request: HttpRequest, node_id: str) -> JsonResponse:
     service = GraphService()
 
@@ -60,7 +153,11 @@ def node_detail(request: HttpRequest, node_id: str) -> JsonResponse:
         try:
             payload = parse_json_body(request)
             properties = payload.get("properties", payload)
-            result = service.patch_node(node_id, properties)
+            result = service.patch_node(
+                node_id,
+                properties,
+                labels=payload.get("labels"),
+            )
             return json_response(result)
         except JSONDecodeError as exc:
             return error_response(str(exc), status=400)
@@ -87,7 +184,11 @@ def relationship_detail(request: HttpRequest, relationship_id: str) -> JsonRespo
         try:
             payload = parse_json_body(request)
             properties = payload.get("properties", payload)
-            result = service.patch_relationship(relationship_id, properties)
+            result = service.patch_relationship(
+                relationship_id,
+                properties,
+                relationship_type=payload.get("relationship_type"),
+            )
             return json_response(result)
         except JSONDecodeError as exc:
             return error_response(str(exc), status=400)

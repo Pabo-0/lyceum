@@ -1,7 +1,7 @@
 from collections import Counter
 from hashlib import sha256
 
-from document_processing.chunk_title_extractor import build_chunk_titles
+from document_processing.chunk_title_extractor import build_chunk_title_from_text
 from document_processing.models import (
     ConceptDeduplicationResult,
     DocumentMetadata,
@@ -11,6 +11,8 @@ from document_processing.models import (
     SemanticRelationshipResult,
     StructuralAnalysis,
 )
+from document_processing.reading_graph_compactor import compact_structure_for_reading_graph
+from document_processing.term_normalizer import normalize_term
 
 
 def build_initial_graph(
@@ -30,7 +32,11 @@ def build_initial_graph(
     relationships: list[GraphRelationship] = []
 
     document_node_id = _document_node_id(document_id)
-    chunk_titles = build_chunk_titles(structure, concept_deduplication)
+    reading_structure = compact_structure_for_reading_graph(
+        structure=structure,
+        document_title=metadata.title,
+        document_word_count=metadata.word_count,
+    )
     nodes.append(
         GraphNode(
             node_id=document_node_id,
@@ -43,6 +49,10 @@ def build_initial_graph(
                 "processing_status": metadata.processing_status,
                 "word_count": metadata.word_count,
                 "paragraph_count": metadata.paragraph_count,
+                "reading_graph_compaction": reading_structure.compaction_method,
+                "visible_section_count": reading_structure.section_count,
+                "visible_chunk_count": reading_structure.chunk_count,
+                "max_visible_sections": reading_structure.max_visible_sections,
             },
         )
     )
@@ -52,13 +62,11 @@ def build_initial_graph(
     relationships.extend(
         _build_section_and_chunk_graph(
             document_id=document_id,
-            document_title=metadata.title,
             document_node_id=document_node_id,
-            structure=structure,
+            reading_structure=reading_structure,
             nodes=nodes,
             section_node_ids=section_node_ids,
             chunk_node_ids=chunk_node_ids,
-            chunk_titles=chunk_titles,
         )
     )
 
@@ -67,24 +75,16 @@ def build_initial_graph(
 
 def _build_section_and_chunk_graph(
     document_id: str,
-    document_title: str,
     document_node_id: str,
-    structure: StructuralAnalysis,
+    reading_structure,
     nodes: list[GraphNode],
     section_node_ids: dict[str, str],
     chunk_node_ids: dict[str, str],
-    chunk_titles: dict,
 ) -> list[GraphRelationship]:
     relationships: list[GraphRelationship] = []
-    skipped_root_section_ids = _find_skippable_root_section_ids(
-        document_title,
-        structure,
-    )
+    used_chunk_title_terms: set[str] = set()
 
-    for section in structure.sections:
-        if section.section_id in skipped_root_section_ids:
-            continue
-
+    for section in reading_structure.sections:
         section_node_id = _section_node_id(document_id, section.section_id)
         section_node_ids[section.section_id] = section_node_id
         nodes.append(
@@ -100,46 +100,52 @@ def _build_section_and_chunk_graph(
                     "numbering": section.numbering,
                     "start_line": section.start_line,
                     "end_line": section.end_line,
+                    "source_section_ids": section.source_section_ids,
+                    "source_section_titles": section.source_section_titles,
+                    "source_section_count": len(section.source_section_ids),
+                    "compaction_method": section.compaction_method,
                 },
             )
         )
 
-        if (
-            section.parent_section_id
-            and section.parent_section_id not in skipped_root_section_ids
-        ):
+        if section.parent_section_id:
             relationships.append(
                 _relationship(
-                    "HAS_SUBSECTION",
+                    "DIRECTIONAL",
                     section_node_ids[section.parent_section_id],
                     section_node_id,
-                    {"order": section.order},
+                    {"order": section.order, "role": "contains_subsection"},
                 )
             )
         else:
             relationships.append(
                 _relationship(
-                    "HAS_SECTION",
+                    "DIRECTIONAL",
                     document_node_id,
                     section_node_id,
-                    {"order": section.order},
+                    {"order": section.order, "role": "contains_section"},
                 )
             )
 
         for chunk in section.chunks:
             chunk_node_id = _chunk_node_id(document_id, chunk.chunk_id)
             chunk_node_ids[chunk.chunk_id] = chunk_node_id
-            chunk_title = chunk_titles.get(chunk.chunk_id)
+            chunk_title = build_chunk_title_from_text(
+                chunk.text,
+                section_title=section.title,
+                used_terms=used_chunk_title_terms,
+            )
+            used_chunk_title_terms.add(normalize_term(chunk_title.title))
             nodes.append(
                 GraphNode(
                     node_id=chunk_node_id,
                     labels=["Chunk"],
                     properties={
                         "chunk_id": chunk.chunk_id,
-                        "title": chunk_title.title if chunk_title else chunk.chunk_id,
-                        "title_source": chunk_title.source if chunk_title else "chunk_id",
-                        "title_reason": chunk_title.reason if chunk_title else "",
-                        "title_candidates": chunk_title.candidates if chunk_title else [],
+                        "title": chunk_title.title,
+                        "title_source": chunk_title.source,
+                        "title_reason": chunk_title.reason,
+                        "title_candidates": chunk_title.candidates,
                         "text": chunk.text,
                         "order": chunk.order,
                         "start_line": chunk.start_line,
@@ -147,15 +153,20 @@ def _build_section_and_chunk_graph(
                         "word_count": chunk.word_count,
                         "character_count": chunk.character_count,
                         "chunk_type": chunk.chunk_type,
+                        "source_chunk_ids": chunk.source_chunk_ids,
+                        "source_chunk_count": len(chunk.source_chunk_ids),
+                        "source_section_ids": chunk.source_section_ids,
+                        "source_section_titles": chunk.source_section_titles,
+                        "source_section_count": len(chunk.source_section_ids),
                     },
                 )
             )
             relationships.append(
                 _relationship(
-                    "HAS_CHUNK",
+                    "DIRECTIONAL",
                     section_node_id,
                     chunk_node_id,
-                    {"order": chunk.order},
+                    {"order": chunk.order, "role": "contains_chunk"},
                 )
             )
 
@@ -183,25 +194,6 @@ def _build_graph_result(
         node_counts_by_label=dict(sorted(node_counts.items())),
         relationship_counts_by_type=dict(sorted(relationship_counts.items())),
     )
-
-
-def _find_skippable_root_section_ids(
-    document_title: str,
-    structure: StructuralAnalysis,
-) -> set[str]:
-    root_section_ids: set[str] = set()
-    normalized_document_title = _normalize_title(document_title)
-
-    for section in structure.sections:
-        if (
-            section.level == 1
-            and section.parent_section_id is None
-            and not section.chunks
-            and _normalize_title(section.title) == normalized_document_title
-        ):
-            root_section_ids.add(section.section_id)
-
-    return root_section_ids
 
 
 def _document_node_id(document_id: str) -> str:
@@ -251,7 +243,3 @@ def _relationship_id(
         f"{relationship_type}:{source_id}:{target_id}:{stable_properties}".encode("utf-8")
     ).hexdigest()[:16]
     return f"relationship:{digest}"
-
-
-def _normalize_title(title: str) -> str:
-    return " ".join(title.strip().lower().split())

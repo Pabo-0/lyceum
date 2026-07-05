@@ -14,13 +14,15 @@
 }
 
 .home-center h1 {
-  font-size: clamp(4.3rem, 8vw, 6.8rem);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-title);
   line-height: 1;
   padding-block: 1rem;
 }
 
 .home-copy {
-  color: #41515c;
+  color: var(--color-text-secondary);
   font-size: 1.1rem;
   line-height: 1.75;
   margin: 18px auto 26px;

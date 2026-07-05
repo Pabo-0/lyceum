@@ -1,0 +1,381 @@
+{
+  "nodes": [
+    {
+      "node_id": "document:f140157e4da95a65",
+      "labels": [
+        "Document"
+      ],
+      "properties": {
+        "document_id": "f140157e4da95a65",
+        "title": "la ciudad aprende pero no se sabe bien por donde empieza todo esto",
+        "source_path": "D:/PABLO/Lyceum Project/lyceum/backend/../data/uploads/a34bf6788afb43a599bac7daf27b7a4c_test_2.txt",
+        "source_extension": ".txt",
+        "processing_status": "neo4j_export_ready",
+        "word_count": 423,
+        "paragraph_count": 9
+      }
+    },
+    {
+      "node_id": "section:f140157e4da95a65:section-1",
+      "labels": [
+        "Section"
+      ],
+      "properties": {
+        "section_id": "section-1",
+        "title": "la ciudad aprende pero no se sabe bien por donde empieza todo esto",
+        "level": 1,
+        "order": 1,
+        "heading_type": "title_line",
+        "numbering": null,
+        "start_line": 1,
+        "end_line": 45
+      }
+    },
+    {
+      "node_id": "chunk:f140157e4da95a65:chunk-1",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-1",
+        "title": "Primero estaban hablando",
+        "title_source": "local_ngram",
+        "title_reason": "Selected as the clearest local cue for this paragraph.",
+        "title_candidates": [
+          "primero estaban hablando",
+          "primero estaban",
+          "estaban hablando sensores",
+          "hablando sensores avenidas",
+          "sensores avenidas despues"
+        ],
+        "text": "primero estaban hablando de sensores en avenidas y despues alguien menciona escuelas sin explicar la conexion los datos llegan en tablas, correos, reportes de vecinos, fotos, llamadas, notas sueltas y archivos que a veces tienen fecha y a veces no",
+        "order": 1,
+        "start_line": 2,
+        "end_line": 3,
+        "word_count": 40,
+        "character_count": 247,
+        "chunk_type": "paragraph"
+      }
+    },
+    {
+      "node_id": "chunk:f140157e4da95a65:chunk-2",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-2",
+        "title": "Movilidad energia salud",
+        "title_source": "local_ngram",
+        "title_reason": "Selected as the clearest local cue for this paragraph.",
+        "title_candidates": [
+          "movilidad energia salud",
+          "movilidad energia",
+          "energia salud publica",
+          "salud publica educacion",
+          "publica educacion seguridad"
+        ],
+        "text": "movilidad energia salud publica educacion seguridad agua residuos todo aparece junto un tecnico dice que el trafico aumenta cuando llueve pero otra persona dice que tambien baja porque la gente no sale no queda claro si se esta midiendo velocidad promedio, numero de autos, ocupacion del autobus o quejas de usuarios",
+        "order": 2,
+        "start_line": 5,
+        "end_line": 7,
+        "word_count": 51,
+        "character_count": 316,
+        "chunk_type": "paragraph"
+      }
+    },
+    {
+      "node_id": "chunk:f140157e4da95a65:chunk-3",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-3",
+        "title": "Importante modelos predictivos",
+        "title_source": "local_ngram",
+        "title_reason": "Selected as the clearest local cue for this paragraph.",
+        "title_candidates": [
+          "importante modelos predictivos",
+          "importante modelos",
+          "modelos predictivos parece",
+          "predictivos parece sirven",
+          "parece sirven anticipar"
+        ],
+        "text": "hay una parte importante sobre modelos predictivos parece que sirven para anticipar demanda y fallas pero tambien pueden equivocarse si los datos vienen incompletos por ejemplo una colonia con pocos reportes puede parecer tranquila aunque tal vez solo no tiene internet o no confia en el sistema",
+        "order": 3,
+        "start_line": 9,
+        "end_line": 11,
+        "word_count": 47,
+        "character_count": 295,
+        "chunk_type": "paragraph"
+      }
+    },
+    {
+      "node_id": "chunk:f140157e4da95a65:chunk-4",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-4",
+        "title": "Privacidad aparece pronto",
+        "title_source": "local_ngram",
+        "title_reason": "Selected as the clearest local cue for this paragraph.",
+        "title_candidates": [
+          "privacidad aparece pronto",
+          "privacidad aparece",
+          "aparece pronto alguien",
+          "pronto alguien dice",
+          "alguien dice borrar"
+        ],
+        "text": "privacidad aparece de pronto alguien dice que borrar nombres no basta porque una ruta diaria puede identificar a una persona luego se mezcla con el tema de energia solar y baterias si hay paneles en algunas casas se puede estimar produccion pero eso tambien revela habitos de consumo",
+        "order": 4,
+        "start_line": 13,
+        "end_line": 16,
+        "word_count": 48,
+        "character_count": 283,
+        "chunk_type": "paragraph"
+      }
+    },
+    {
+      "node_id": "chunk:f140157e4da95a65:chunk-5",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-5",
+        "title": "Salud publica queda",
+        "title_source": "local_ngram",
+        "title_reason": "Selected as the clearest local cue for this paragraph.",
+        "title_candidates": [
+          "salud publica queda",
+          "salud publica",
+          "publica queda medio",
+          "queda medio consultas",
+          "medio consultas medicas"
+        ],
+        "text": "la salud publica queda entre medio consultas medicas sintomas ventas de medicamentos ausentismo escolar calidad del aire todo podria detectar un brote pero nadie explica quien revisa la alerta si el modelo se equivoca puede mandar recursos a un lugar incorrecto si no avisa a tiempo el problema crece",
+        "order": 5,
+        "start_line": 18,
+        "end_line": 22,
+        "word_count": 49,
+        "character_count": 300,
+        "chunk_type": "paragraph"
+      }
+    },
+    {
+      "node_id": "chunk:f140157e4da95a65:chunk-6",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-6",
+        "title": "Habla educacion asistencia",
+        "title_source": "local_ngram",
+        "title_reason": "Selected as the clearest local cue for this paragraph.",
+        "title_candidates": [
+          "habla educacion asistencia",
+          "habla educacion",
+          "educacion asistencia calificaciones",
+          "asistencia calificaciones conectividad",
+          "calificaciones conectividad transporte"
+        ],
+        "text": "tambien se habla de educacion asistencia calificaciones conectividad transporte familiaridad con plataformas digitales no se deberia etiquetar estudiantes como problema mejor seria identificar apoyos necesarios aunque eso exige docentes con tiempo y explicaciones claras",
+        "order": 6,
+        "start_line": 24,
+        "end_line": 27,
+        "word_count": 34,
+        "character_count": 270,
+        "chunk_type": "paragraph"
+      }
+    },
+    {
+      "node_id": "chunk:f140157e4da95a65:chunk-7",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-7",
+        "title": "Frases grafos conocimiento",
+        "title_source": "local_ngram",
+        "title_reason": "Selected as the clearest local cue for this paragraph.",
+        "title_candidates": [
+          "frases grafos conocimiento",
+          "frases grafos",
+          "grafos conocimiento estacion",
+          "conocimiento estacion conecta",
+          "estacion conecta ruta"
+        ],
+        "text": "hay frases sobre grafos de conocimiento una estacion se conecta con una ruta una escuela con un barrio un hospital con una subestacion electrica un sensor con una avenida la idea suena util pero el texto salta rapido a paneles de control y APIs",
+        "order": 7,
+        "start_line": 29,
+        "end_line": 34,
+        "word_count": 44,
+        "character_count": 244,
+        "chunk_type": "paragraph"
+      }
+    },
+    {
+      "node_id": "chunk:f140157e4da95a65:chunk-8",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-8",
+        "title": "Algun momento menciona",
+        "title_source": "local_ngram",
+        "title_reason": "Selected as the clearest local cue for this paragraph.",
+        "title_candidates": [
+          "algun momento menciona",
+          "algun momento",
+          "momento menciona paneles",
+          "menciona paneles no",
+          "paneles no deben"
+        ],
+        "text": "en algun momento se menciona que los paneles no deben confundir datos observados con predicciones esto parece importante si el usuario ve una prediccion como si fuera un hecho puede tomar malas decisiones pero tampoco se explica como se debe disenar el panel",
+        "order": 8,
+        "start_line": 36,
+        "end_line": 39,
+        "word_count": 43,
+        "character_count": 258,
+        "chunk_type": "paragraph"
+      }
+    },
+    {
+      "node_id": "chunk:f140157e4da95a65:chunk-9",
+      "labels": [
+        "Chunk"
+      ],
+      "properties": {
+        "chunk_id": "chunk-9",
+        "title": "Riesgos datos incompletos",
+        "title_source": "local_ngram",
+        "title_reason": "Selected as the clearest local cue for this paragraph.",
+        "title_candidates": [
+          "riesgos datos incompletos",
+          "riesgos datos",
+          "datos incompletos modelos",
+          "incompletos modelos opacos",
+          "modelos opacos instituciones"
+        ],
+        "text": "riesgos datos incompletos modelos opacos instituciones separadas mantenimiento caro confianza publica baja todo eso se enumera casi sin orden la conclusion parece ser que una ciudad inteligente necesita tecnologia pero tambien reglas equipos humanos auditoria participacion y correccion no queda claro si el tema principal era inteligencia artificial o gestion urbana o aprendizaje profundo",
+        "order": 9,
+        "start_line": 41,
+        "end_line": 45,
+        "word_count": 54,
+        "character_count": 390,
+        "chunk_type": "paragraph"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "relationship:999531e2f9cdff71",
+      "relationship_type": "DIRECTIONAL",
+      "source_id": "document:f140157e4da95a65",
+      "target_id": "section:f140157e4da95a65:section-1",
+      "properties": {
+        "order": 1,
+        "role": "contains_section"
+      }
+    },
+    {
+      "relationship_id": "relationship:494fa6fc60eefa8b",
+      "relationship_type": "DIRECTIONAL",
+      "source_id": "section:f140157e4da95a65:section-1",
+      "target_id": "chunk:f140157e4da95a65:chunk-1",
+      "properties": {
+        "order": 1,
+        "role": "contains_chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:5e649eac34cb48a9",
+      "relationship_type": "DIRECTIONAL",
+      "source_id": "section:f140157e4da95a65:section-1",
+      "target_id": "chunk:f140157e4da95a65:chunk-2",
+      "properties": {
+        "order": 2,
+        "role": "contains_chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:4bdb6433ae4b9a0e",
+      "relationship_type": "DIRECTIONAL",
+      "source_id": "section:f140157e4da95a65:section-1",
+      "target_id": "chunk:f140157e4da95a65:chunk-3",
+      "properties": {
+        "order": 3,
+        "role": "contains_chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:d6e9edfccb396e7a",
+      "relationship_type": "DIRECTIONAL",
+      "source_id": "section:f140157e4da95a65:section-1",
+      "target_id": "chunk:f140157e4da95a65:chunk-4",
+      "properties": {
+        "order": 4,
+        "role": "contains_chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:d2835dee106200f5",
+      "relationship_type": "DIRECTIONAL",
+      "source_id": "section:f140157e4da95a65:section-1",
+      "target_id": "chunk:f140157e4da95a65:chunk-5",
+      "properties": {
+        "order": 5,
+        "role": "contains_chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:62ae3d14059cccc6",
+      "relationship_type": "DIRECTIONAL",
+      "source_id": "section:f140157e4da95a65:section-1",
+      "target_id": "chunk:f140157e4da95a65:chunk-6",
+      "properties": {
+        "order": 6,
+        "role": "contains_chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:b709b6575eb8e6a3",
+      "relationship_type": "DIRECTIONAL",
+      "source_id": "section:f140157e4da95a65:section-1",
+      "target_id": "chunk:f140157e4da95a65:chunk-7",
+      "properties": {
+        "order": 7,
+        "role": "contains_chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:98114d89e79d4805",
+      "relationship_type": "DIRECTIONAL",
+      "source_id": "section:f140157e4da95a65:section-1",
+      "target_id": "chunk:f140157e4da95a65:chunk-8",
+      "properties": {
+        "order": 8,
+        "role": "contains_chunk"
+      }
+    },
+    {
+      "relationship_id": "relationship:cde559c374761341",
+      "relationship_type": "DIRECTIONAL",
+      "source_id": "section:f140157e4da95a65:section-1",
+      "target_id": "chunk:f140157e4da95a65:chunk-9",
+      "properties": {
+        "order": 9,
+        "role": "contains_chunk"
+      }
+    }
+  ],
+  "node_count": 11,
+  "relationship_count": 10,
+  "node_counts_by_label": {
+    "Chunk": 9,
+    "Document": 1,
+    "Section": 1
+  },
+  "relationship_counts_by_type": {
+    "DIRECTIONAL": 10
+  }
+}

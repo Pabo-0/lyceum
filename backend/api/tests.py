@@ -68,7 +68,7 @@ class ApiEndpointTests(TestCase):
         self.assertNotIn("Concept", returned_graph["node_counts_by_label"])
         self.assertEqual(
             set(returned_graph["relationship_counts_by_type"]),
-            {"HAS_SECTION", "HAS_CHUNK"},
+            {"DIRECTIONAL"},
         )
 
         patched = self.client.patch(
@@ -108,6 +108,214 @@ class ApiEndpointTests(TestCase):
             deleted.json()["deleted_relationship"]["relationship_id"],
             relationship_id,
         )
+
+    def test_document_delete_endpoint_removes_saved_backend_data(self) -> None:
+        created = self.client.post(
+            "/documents/",
+            data=json.dumps(
+                {
+                    "filename": "borrar.md",
+                    "content": (
+                        "# Documento para borrar\n\n"
+                        "## 1. Tema\n\n"
+                        "Este documento debe eliminarse completo.\n"
+                    ),
+                }
+            ),
+            content_type="application/json",
+        )
+        self.assertEqual(created.status_code, 201)
+        created_body = created.json()
+        document_id = created_body["document"]["metadata"]["document_id"]
+        source_path = Path(created_body["document"]["metadata"]["source_path"])
+        document_dir = self.root / "storage/documents" / document_id
+        original_copy = self.root / "storage/originals" / f"{document_id}.txt"
+        normalized_copy = self.root / "storage/normalized" / f"{document_id}.txt"
+
+        self.assertTrue(source_path.exists())
+        self.assertTrue(document_dir.exists())
+        self.assertTrue(original_copy.exists())
+        self.assertTrue(normalized_copy.exists())
+
+        deleted = self.client.delete(f"/documents/{document_id}/")
+
+        self.assertEqual(deleted.status_code, 200)
+        deleted_body = deleted.json()
+        self.assertEqual(deleted_body["deleted_document"]["document_id"], document_id)
+        self.assertEqual(deleted_body["neo4j_export"]["document_count"], 0)
+        self.assertTrue(deleted_body["upload_delete"]["deleted"])
+        self.assertFalse(source_path.exists())
+        self.assertFalse(document_dir.exists())
+        self.assertFalse(original_copy.exists())
+        self.assertFalse(normalized_copy.exists())
+
+        listed = self.client.get("/documents/")
+        self.assertEqual(listed.status_code, 200)
+        self.assertEqual(listed.json()["documents"], [])
+
+        missing_graph = self.client.get(f"/documents/{document_id}/graph/")
+        self.assertEqual(missing_graph.status_code, 404)
+
+    def test_document_rename_endpoint_updates_index_metadata_and_graph(self) -> None:
+        created = self.client.post(
+            "/documents/",
+            data=json.dumps(
+                {
+                    "filename": "renombrar.md",
+                    "content": (
+                        "# Titulo original\n\n"
+                        "## 1. Tema\n\n"
+                        "Este documento cambiara de nombre.\n"
+                    ),
+                }
+            ),
+            content_type="application/json",
+        )
+        self.assertEqual(created.status_code, 201)
+        document_id = created.json()["document"]["metadata"]["document_id"]
+
+        renamed = self.client.patch(
+            f"/documents/{document_id}/",
+            data=json.dumps({"title": "Nombre elegido por el usuario"}),
+            content_type="application/json",
+        )
+
+        self.assertEqual(renamed.status_code, 200)
+        renamed_body = renamed.json()
+        self.assertEqual(renamed_body["document"]["metadata"]["title"], "Nombre elegido por el usuario")
+
+        listed = self.client.get("/documents/")
+        self.assertEqual(listed.status_code, 200)
+        self.assertEqual(listed.json()["documents"][0]["title"], "Nombre elegido por el usuario")
+
+        graph = self.client.get(f"/documents/{document_id}/graph/").json()["graph"]
+        document_node = next(
+            node for node in graph["nodes"] if "Document" in node["labels"]
+        )
+        self.assertEqual(document_node["properties"]["title"], "Nombre elegido por el usuario")
+
+    def test_manual_graph_editing_endpoints(self) -> None:
+        created = self.client.post(
+            "/documents/",
+            data=json.dumps(
+                {
+                    "filename": "grafo.md",
+                    "content": (
+                        "# Grafo editable\n\n"
+                        "## 1. Tema base\n\n"
+                        "El usuario puede corregir nodos y relaciones.\n"
+                    ),
+                }
+            ),
+            content_type="application/json",
+        )
+        document_id = created.json()["document"]["metadata"]["document_id"]
+        document_node_id = created.json()["document"]["graph"]["nodes"][0]["node_id"]
+
+        first_node = self.client.post(
+            f"/documents/{document_id}/nodes/",
+            data=json.dumps(
+                {
+                    "labels": ["Concept"],
+                    "properties": {
+                        "title": "Concepto manual",
+                        "text": "Contenido escrito por el usuario.",
+                    },
+                }
+            ),
+            content_type="application/json",
+        )
+        self.assertEqual(first_node.status_code, 201)
+        first_node_body = first_node.json()
+        concept_id = first_node_body["node"]["node_id"]
+        self.assertEqual(first_node_body["graph"]["node_counts_by_label"]["Concept"], 1)
+
+        relabel_source = self.client.post(
+            f"/documents/{document_id}/nodes/",
+            data=json.dumps(
+                {
+                    "labels": ["Concept"],
+                    "properties": {"title": "Temporal", "text": "Cambiara de tipo."},
+                }
+            ),
+            content_type="application/json",
+        )
+        relabel_id = relabel_source.json()["node"]["node_id"]
+        relabeled_node = self.client.patch(
+            f"/nodes/{relabel_id}/",
+            data=json.dumps(
+                {
+                    "labels": ["Chunk"],
+                    "properties": {
+                        "title": "Contenido manual",
+                        "text": "Texto convertido en parrafo.",
+                    },
+                }
+            ),
+            content_type="application/json",
+        )
+        self.assertEqual(relabeled_node.status_code, 200)
+        self.assertEqual(relabeled_node.json()["node"]["labels"], ["Chunk"])
+        self.assertEqual(
+            relabeled_node.json()["node"]["properties"]["title"],
+            "Contenido manual",
+        )
+
+        second_node = self.client.post(
+            f"/documents/{document_id}/nodes/",
+            data=json.dumps(
+                {
+                    "labels": ["Concept"],
+                    "properties": {"title": "Concepto duplicado", "text": "Mas notas."},
+                }
+            ),
+            content_type="application/json",
+        )
+        duplicate_id = second_node.json()["node"]["node_id"]
+
+        relationship = self.client.post(
+            f"/documents/{document_id}/relationships/",
+            data=json.dumps(
+                {
+                    "source_id": document_node_id,
+                    "target_id": concept_id,
+                    "relationship_type": "SEMANTIC",
+                    "properties": {"reason": "Relacion manual"},
+                }
+            ),
+            content_type="application/json",
+        )
+        self.assertEqual(relationship.status_code, 201)
+        relationship_id = relationship.json()["relationship"]["relationship_id"]
+        self.assertIn("SEMANTIC", relationship.json()["graph"]["relationship_counts_by_type"])
+
+        changed = self.client.patch(
+            f"/relationships/{relationship_id}/",
+            data=json.dumps(
+                {
+                    "relationship_type": "DIRECTIONAL",
+                    "properties": {"status": "confirmed"},
+                }
+            ),
+            content_type="application/json",
+        )
+        self.assertEqual(changed.status_code, 200)
+        self.assertEqual(changed.json()["relationship"]["relationship_type"], "DIRECTIONAL")
+
+        merged = self.client.post(
+            f"/documents/{document_id}/nodes/merge/",
+            data=json.dumps(
+                {
+                    "target_node_id": concept_id,
+                    "source_node_ids": [duplicate_id],
+                    "properties": {"title": "Concepto fusionado"},
+                }
+            ),
+            content_type="application/json",
+        )
+        self.assertEqual(merged.status_code, 200)
+        self.assertEqual(merged.json()["node"]["properties"]["title"], "Concepto fusionado")
+        self.assertEqual(merged.json()["graph"]["node_counts_by_label"]["Concept"], 1)
 
     def test_uploads_document_file(self) -> None:
         uploaded_file = SimpleUploadedFile(

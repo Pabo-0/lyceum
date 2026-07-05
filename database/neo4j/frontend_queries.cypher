@@ -8,13 +8,15 @@ RETURN
   d.processing_status AS processing_status
 ORDER BY d.title;
 
-// Get the reading graph for one document.
-MATCH path = (d:Document {document_id: $document_id})-[:HAS_SECTION|HAS_SUBSECTION|HAS_CHUNK*1..]->(n)
+// Get the editable reading graph for one document.
+MATCH path = (d:Document {document_id: $document_id})-[:DIRECTIONAL|BIDIRECTIONAL|SEMANTIC*1..6]-(n)
 RETURN path;
 
 // Get sections and chunks for one document in a tabular shape.
-MATCH (d:Document {document_id: $document_id})-[:HAS_SECTION|HAS_SUBSECTION*1..]->(s:Section)
-OPTIONAL MATCH (s)-[:HAS_CHUNK]->(c:Chunk)
+MATCH (d:Document {document_id: $document_id})-[r:DIRECTIONAL*1..]->(s:Section)
+WHERE all(rel IN r WHERE rel.role IN ["contains_section", "contains_subsection"])
+OPTIONAL MATCH (s)-[chunk_rel:DIRECTIONAL]->(c:Chunk)
+WHERE chunk_rel.role = "contains_chunk"
 RETURN
   s.node_id AS section_node_id,
   s.title AS section_title,

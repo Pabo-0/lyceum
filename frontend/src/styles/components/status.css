@@ -1,13 +1,13 @@
 .status,
 .status-dot,
 .document-id {
-  border-radius: 8px;
-  font-weight: 800;
+  border-radius: var(--radius-button);
+  font-weight: var(--font-weight-label);
 }
 
 .status {
-  background: #ffffff;
-  border: 1px solid #d9e1e6;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   padding: 8px 10px;
 }
 
@@ -18,17 +18,17 @@
 }
 
 .status-ready {
-  background: #e7f7ef;
-  color: #16643b;
+  background: var(--status-ready-bg);
+  color: var(--status-ready-text);
 }
 
 .status-loading,
 .status-processing {
-  background: #fff4d8;
-  color: #73510d;
+  background: var(--status-loading-bg);
+  color: var(--status-loading-text);
 }
 
 .status-error {
-  background: #ffe9e7;
-  color: #9d241b;
+  background: var(--status-error-bg);
+  color: var(--status-error-text);
 }

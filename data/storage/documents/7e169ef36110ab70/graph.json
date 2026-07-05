@@ -12,35 +12,55 @@
         "source_extension": ".md",
         "processing_status": "neo4j_export_ready",
         "word_count": 104,
-        "paragraph_count": 11
+        "paragraph_count": 11,
+        "reading_graph_compaction": "section_budget_compaction",
+        "visible_section_count": 2,
+        "visible_chunk_count": 2,
+        "max_visible_sections": 2
       }
     },
     {
-      "node_id": "section:7e169ef36110ab70:section-2",
+      "node_id": "section:7e169ef36110ab70:graph-section-1",
       "labels": [
         "Section"
       ],
       "properties": {
-        "section_id": "section-2",
-        "title": "Introduccion",
-        "level": 2,
-        "order": 2,
-        "heading_type": "markdown",
+        "section_id": "graph-section-1",
+        "title": "Bloque 1: Introduccion - Observacion",
+        "level": 1,
+        "order": 1,
+        "heading_type": "compacted",
         "numbering": null,
         "start_line": 3,
-        "end_line": 5
+        "end_line": 17,
+        "source_section_ids": [
+          "section-2",
+          "section-3",
+          "section-4",
+          "section-5"
+        ],
+        "source_section_titles": [
+          "Introduccion",
+          "1. Observacion",
+          "1.1 Hipotesis",
+          "1.2 Experimentacion"
+        ],
+        "source_section_count": 4,
+        "compaction_method": "merged_adjacent_sections",
+        "text": "",
+        "updated_at": "2026-07-05T01:26:07.694988+00:00"
       }
     },
     {
-      "node_id": "chunk:7e169ef36110ab70:chunk-1",
+      "node_id": "chunk:7e169ef36110ab70:graph-chunk-1",
       "labels": [
         "Chunk"
       ],
       "properties": {
-        "chunk_id": "chunk-1",
+        "chunk_id": "graph-chunk-1",
         "title": "Metodo cientifico organizada",
         "title_source": "local_ngram",
-        "title_reason": "Selected as the clearest local cue for this paragraph.",
+        "title_reason": "Selected as the clearest cue for this compact reading chunk.",
         "title_candidates": [
           "metodo cientifico organizada",
           "metodo cientifico",
@@ -48,167 +68,69 @@
           "organizada construir conocimiento",
           "construir conocimiento observacion"
         ],
-        "text": "El metodo cientifico es una forma organizada de construir conocimiento mediante observacion, hipotesis, experimentacion y revision de resultados.",
+        "text": "El metodo cientifico es una forma organizada de construir conocimiento mediante observacion, hipotesis, experimentacion y revision de resultados.\n\nLa observacion identifica un fenomeno o problema. En esta etapa se registran patrones, preguntas y condiciones relevantes.\n\nUna hipotesis propone una explicacion tentativa. Debe poder ponerse a prueba y generar predicciones claras.\n\nLa experimentacion compara resultados esperados con resultados observados. Un buen experimento controla variables y permite repetir el procedimiento.",
         "order": 1,
         "start_line": 5,
-        "end_line": 5,
-        "word_count": 18,
-        "character_count": 145,
-        "chunk_type": "paragraph"
-      }
-    },
-    {
-      "node_id": "section:7e169ef36110ab70:section-3",
-      "labels": [
-        "Section"
-      ],
-      "properties": {
-        "section_id": "section-3",
-        "title": "1. Observacion",
-        "level": 2,
-        "order": 3,
-        "heading_type": "markdown",
-        "numbering": "1",
-        "start_line": 7,
-        "end_line": 9
-      }
-    },
-    {
-      "node_id": "chunk:7e169ef36110ab70:chunk-2",
-      "labels": [
-        "Chunk"
-      ],
-      "properties": {
-        "chunk_id": "chunk-2",
-        "title": "Observacion identifica fenomeno",
-        "title_source": "local_ngram",
-        "title_reason": "Selected as the clearest local cue for this paragraph.",
-        "title_candidates": [
-          "observacion identifica fenomeno",
-          "observacion identifica",
-          "identifica fenomeno problema",
-          "fenomeno problema etapa",
-          "problema etapa registran"
-        ],
-        "text": "La observacion identifica un fenomeno o problema. En esta etapa se registran patrones, preguntas y condiciones relevantes.",
-        "order": 2,
-        "start_line": 9,
-        "end_line": 9,
-        "word_count": 17,
-        "character_count": 122,
-        "chunk_type": "paragraph"
-      }
-    },
-    {
-      "node_id": "section:7e169ef36110ab70:section-4",
-      "labels": [
-        "Section"
-      ],
-      "properties": {
-        "section_id": "section-4",
-        "title": "1.1 Hipotesis",
-        "level": 3,
-        "order": 4,
-        "heading_type": "markdown",
-        "numbering": "1.1",
-        "start_line": 11,
-        "end_line": 13
-      }
-    },
-    {
-      "node_id": "chunk:7e169ef36110ab70:chunk-3",
-      "labels": [
-        "Chunk"
-      ],
-      "properties": {
-        "chunk_id": "chunk-3",
-        "title": "Hipotesis propone explicacion",
-        "title_source": "local_ngram",
-        "title_reason": "Selected as the clearest local cue for this paragraph.",
-        "title_candidates": [
-          "hipotesis propone explicacion",
-          "hipotesis propone",
-          "propone explicacion tentativa",
-          "explicacion tentativa debe",
-          "tentativa debe poder"
-        ],
-        "text": "Una hipotesis propone una explicacion tentativa. Debe poder ponerse a prueba y generar predicciones claras.",
-        "order": 3,
-        "start_line": 13,
-        "end_line": 13,
-        "word_count": 15,
-        "character_count": 107,
-        "chunk_type": "paragraph"
-      }
-    },
-    {
-      "node_id": "section:7e169ef36110ab70:section-5",
-      "labels": [
-        "Section"
-      ],
-      "properties": {
-        "section_id": "section-5",
-        "title": "1.2 Experimentacion",
-        "level": 3,
-        "order": 5,
-        "heading_type": "markdown",
-        "numbering": "1.2",
-        "start_line": 15,
-        "end_line": 17
-      }
-    },
-    {
-      "node_id": "chunk:7e169ef36110ab70:chunk-4",
-      "labels": [
-        "Chunk"
-      ],
-      "properties": {
-        "chunk_id": "chunk-4",
-        "title": "Experimentacion compara resultados",
-        "title_source": "local_ngram",
-        "title_reason": "Selected as the clearest local cue for this paragraph.",
-        "title_candidates": [
-          "experimentacion compara resultados",
-          "experimentacion compara",
-          "compara resultados esperados",
-          "resultados esperados resultados",
-          "esperados resultados observados"
-        ],
-        "text": "La experimentacion compara resultados esperados con resultados observados. Un buen experimento controla variables y permite repetir el procedimiento.",
-        "order": 4,
-        "start_line": 17,
         "end_line": 17,
-        "word_count": 18,
-        "character_count": 149,
-        "chunk_type": "paragraph"
+        "word_count": 68,
+        "character_count": 529,
+        "chunk_type": "merged_paragraphs",
+        "source_chunk_ids": [
+          "chunk-1",
+          "chunk-2",
+          "chunk-3",
+          "chunk-4"
+        ],
+        "source_chunk_count": 4,
+        "source_section_ids": [
+          "section-2",
+          "section-3",
+          "section-4",
+          "section-5"
+        ],
+        "source_section_titles": [
+          "Introduccion",
+          "1. Observacion",
+          "1.1 Hipotesis",
+          "1.2 Experimentacion"
+        ],
+        "source_section_count": 4
       }
     },
     {
-      "node_id": "section:7e169ef36110ab70:section-6",
+      "node_id": "section:7e169ef36110ab70:graph-section-2",
       "labels": [
         "Section"
       ],
       "properties": {
-        "section_id": "section-6",
+        "section_id": "graph-section-2",
         "title": "2. Conclusion",
-        "level": 2,
-        "order": 6,
-        "heading_type": "markdown",
-        "numbering": "2",
+        "level": 1,
+        "order": 2,
+        "heading_type": "compacted",
+        "numbering": null,
         "start_line": 19,
-        "end_line": 21
+        "end_line": 21,
+        "source_section_ids": [
+          "section-6"
+        ],
+        "source_section_titles": [
+          "2. Conclusion"
+        ],
+        "source_section_count": 1,
+        "compaction_method": "merged_adjacent_sections"
       }
     },
     {
-      "node_id": "chunk:7e169ef36110ab70:chunk-5",
+      "node_id": "chunk:7e169ef36110ab70:graph-chunk-2",
       "labels": [
         "Chunk"
       ],
       "properties": {
-        "chunk_id": "chunk-5",
+        "chunk_id": "graph-chunk-2",
         "title": "Importantes observacion hipotesis",
         "title_source": "local_ngram",
-        "title_reason": "Selected as the clearest local cue for this paragraph.",
+        "title_reason": "Selected as the clearest cue for this compact reading chunk.",
         "title_candidates": [
           "importantes observacion hipotesis",
           "importantes observacion",
@@ -217,117 +139,135 @@
           "evidencia experimentacion revision"
         ],
         "text": "Los temas importantes son observacion, hipotesis, evidencia, experimentacion y revision. La ciencia avanza cuando sus explicaciones pueden corregirse con nueva evidencia.",
-        "order": 5,
+        "order": 2,
         "start_line": 21,
         "end_line": 21,
         "word_count": 21,
         "character_count": 170,
-        "chunk_type": "paragraph"
+        "chunk_type": "paragraph",
+        "source_chunk_ids": [
+          "chunk-5"
+        ],
+        "source_chunk_count": 1,
+        "source_section_ids": [
+          "section-6"
+        ],
+        "source_section_titles": [
+          "2. Conclusion"
+        ],
+        "source_section_count": 1
+      }
+    },
+    {
+      "node_id": "manual-node:7e169ef36110ab70:f5536644be44",
+      "labels": [
+        "Section"
+      ],
+      "properties": {
+        "title": "Seccion",
+        "text": "",
+        "order": 3,
+        "manual": true,
+        "created_at": "2026-07-05T01:26:18.605941+00:00"
+      }
+    },
+    {
+      "node_id": "manual-node:7e169ef36110ab70:7cc04e21ce29",
+      "labels": [
+        "Section"
+      ],
+      "properties": {
+        "title": "Seccion",
+        "text": "",
+        "order": 4,
+        "manual": true,
+        "created_at": "2026-07-05T01:26:22.196909+00:00"
       }
     }
   ],
   "relationships": [
     {
-      "relationship_id": "relationship:6cfdd74bd6b6a161",
-      "relationship_type": "HAS_SECTION",
+      "relationship_id": "relationship:f0e8a8e62206e162",
+      "relationship_type": "SEMANTIC",
       "source_id": "document:7e169ef36110ab70",
-      "target_id": "section:7e169ef36110ab70:section-2",
+      "target_id": "section:7e169ef36110ab70:graph-section-1",
       "properties": {
-        "order": 2
+        "order": 1,
+        "role": "contains_section",
+        "status": "confirmed",
+        "reason": "",
+        "updated_at": "2026-07-05T01:26:04.500589+00:00"
       }
     },
     {
-      "relationship_id": "relationship:b64b3e2f2df4139f",
-      "relationship_type": "HAS_CHUNK",
-      "source_id": "section:7e169ef36110ab70:section-2",
-      "target_id": "chunk:7e169ef36110ab70:chunk-1",
+      "relationship_id": "relationship:e1e9b6c4b9c2e4ac",
+      "relationship_type": "DIRECTIONAL",
+      "source_id": "section:7e169ef36110ab70:graph-section-1",
+      "target_id": "chunk:7e169ef36110ab70:graph-chunk-1",
       "properties": {
-        "order": 1
+        "order": 1,
+        "role": "contains_chunk"
       }
     },
     {
-      "relationship_id": "relationship:e8e034340a27c5d3",
-      "relationship_type": "HAS_SECTION",
+      "relationship_id": "relationship:b1d1ebb970081d5a",
+      "relationship_type": "DIRECTIONAL",
       "source_id": "document:7e169ef36110ab70",
-      "target_id": "section:7e169ef36110ab70:section-3",
+      "target_id": "section:7e169ef36110ab70:graph-section-2",
       "properties": {
-        "order": 3
+        "order": 2,
+        "role": "contains_section"
       }
     },
     {
-      "relationship_id": "relationship:5b5a44b5c4b12f11",
-      "relationship_type": "HAS_CHUNK",
-      "source_id": "section:7e169ef36110ab70:section-3",
-      "target_id": "chunk:7e169ef36110ab70:chunk-2",
+      "relationship_id": "relationship:420e30dc300f7db7",
+      "relationship_type": "BIDIRECTIONAL",
+      "source_id": "section:7e169ef36110ab70:graph-section-2",
+      "target_id": "chunk:7e169ef36110ab70:graph-chunk-2",
       "properties": {
-        "order": 2
+        "order": 2,
+        "role": "contains_chunk",
+        "status": "confirmed",
+        "reason": "",
+        "updated_at": "2026-07-05T01:26:11.847094+00:00"
       }
     },
     {
-      "relationship_id": "relationship:2f7b774dd0701ba8",
-      "relationship_type": "HAS_SUBSECTION",
-      "source_id": "section:7e169ef36110ab70:section-3",
-      "target_id": "section:7e169ef36110ab70:section-4",
+      "relationship_id": "relationship:4cc6446b18ae8005",
+      "relationship_type": "DIRECTIONAL",
+      "source_id": "manual-node:7e169ef36110ab70:f5536644be44",
+      "target_id": "manual-node:7e169ef36110ab70:7cc04e21ce29",
       "properties": {
-        "order": 4
+        "manual": true,
+        "status": "confirmed",
+        "created_at": "2026-07-05T01:26:22.281201+00:00",
+        "reason": "Conexion creada desde el canvas"
       }
     },
     {
-      "relationship_id": "relationship:ebe3236662fb2613",
-      "relationship_type": "HAS_CHUNK",
-      "source_id": "section:7e169ef36110ab70:section-4",
-      "target_id": "chunk:7e169ef36110ab70:chunk-3",
+      "relationship_id": "relationship:ca8a2603c75c3047",
+      "relationship_type": "SEMANTIC",
+      "source_id": "manual-node:7e169ef36110ab70:7cc04e21ce29",
+      "target_id": "chunk:7e169ef36110ab70:graph-chunk-1",
       "properties": {
-        "order": 3
-      }
-    },
-    {
-      "relationship_id": "relationship:c28e2a5d0da199c0",
-      "relationship_type": "HAS_SUBSECTION",
-      "source_id": "section:7e169ef36110ab70:section-3",
-      "target_id": "section:7e169ef36110ab70:section-5",
-      "properties": {
-        "order": 5
-      }
-    },
-    {
-      "relationship_id": "relationship:0e66463e6e1b7409",
-      "relationship_type": "HAS_CHUNK",
-      "source_id": "section:7e169ef36110ab70:section-5",
-      "target_id": "chunk:7e169ef36110ab70:chunk-4",
-      "properties": {
-        "order": 4
-      }
-    },
-    {
-      "relationship_id": "relationship:6b88e8bddf106284",
-      "relationship_type": "HAS_SECTION",
-      "source_id": "document:7e169ef36110ab70",
-      "target_id": "section:7e169ef36110ab70:section-6",
-      "properties": {
-        "order": 6
-      }
-    },
-    {
-      "relationship_id": "relationship:3f32568e8c311750",
-      "relationship_type": "HAS_CHUNK",
-      "source_id": "section:7e169ef36110ab70:section-6",
-      "target_id": "chunk:7e169ef36110ab70:chunk-5",
-      "properties": {
-        "order": 5
+        "manual": true,
+        "status": "confirmed",
+        "created_at": "2026-07-05T01:26:42.170427+00:00",
+        "reason": "Conexion creada desde el canvas",
+        "updated_at": "2026-07-05T01:26:45.867677+00:00"
       }
     }
   ],
-  "node_count": 11,
-  "relationship_count": 10,
+  "node_count": 7,
+  "relationship_count": 6,
   "node_counts_by_label": {
-    "Chunk": 5,
+    "Chunk": 2,
     "Document": 1,
-    "Section": 5
+    "Section": 4
   },
   "relationship_counts_by_type": {
-    "HAS_CHUNK": 5,
-    "HAS_SECTION": 3,
-    "HAS_SUBSECTION": 2
+    "BIDIRECTIONAL": 1,
+    "DIRECTIONAL": 3,
+    "SEMANTIC": 2
   }
 }

@@ -1,16 +1,62 @@
 .graph-legend {
-  background: rgb(255 255 255 / 0.92);
-  border: 1px solid #d9e1e6;
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgb(23 32 38 / 0.12);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-floating);
+  color: var(--color-text-main);
   display: grid;
-  gap: 8px;
+  gap: 10px;
   left: 12px;
   max-width: min(560px, calc(100% - 24px));
-  padding: 10px 12px;
+  padding: 10px 64px 10px 12px;
   position: absolute;
   top: 12px;
   z-index: 3;
+}
+
+.legend-toggle {
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  box-shadow: var(--shadow-floating);
+  color: var(--color-text-secondary);
+  display: inline-flex;
+  height: 32px;
+  justify-content: center;
+  left: 12px;
+  position: absolute;
+  top: 12px;
+  width: 32px;
+  z-index: 3;
+}
+
+.legend-toggle::before {
+  border-color: currentColor;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  content: "";
+  height: 7px;
+  transform: rotate(45deg) translate(-1px, -1px);
+  width: 7px;
+}
+
+.legend-toggle:hover {
+  background: var(--color-surface-hover);
+  border-color: var(--color-accent);
+  color: var(--color-text-main);
+}
+
+.legend-toggle-expanded {
+  box-shadow: none;
+  left: auto;
+  position: absolute;
+  right: 14px;
+  top: 10px;
+}
+
+.legend-toggle-expanded::before {
+  transform: rotate(225deg) translate(-1px, -1px);
 }
 
 .legend {
@@ -21,14 +67,14 @@
 
 .legend-item {
   align-items: center;
-  color: #41515c;
+  color: var(--color-text-secondary);
   display: inline-flex;
-  font-size: 0.82rem;
+  font-size: var(--font-size-sidebar);
   gap: 6px;
 }
 
 .legend-dot {
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   height: 10px;
   width: 10px;
 }
@@ -40,11 +86,9 @@
 }
 
 .legend-line.dashed {
-  background: repeating-linear-gradient(
-    90deg,
-    currentColor 0 5px,
-    transparent 5px 8px
-  ) !important;
+  background: repeating-linear-gradient(90deg,
+      currentColor 0 5px,
+      transparent 5px 8px) !important;
 }
 
 @media (max-width: 860px) {

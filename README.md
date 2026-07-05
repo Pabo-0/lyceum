@@ -55,9 +55,11 @@ Funciones actuales:
 - listar documentos procesados
 - subir nuevos `.txt` o `.md`
 - visualizar el grafo de lectura: documento, secciones y parrafos
+- compactar automaticamente secciones y parrafos pequenos para evitar grafos desproporcionados
 - ocultar o mostrar parrafos/chunks
 - seleccionar nodos o relaciones y ver detalles
 - centrar la vista en secciones o parrafos
+- alternar entre modo lectura y modo edicion para crear, conectar, modificar, fusionar o eliminar nodos y relaciones
 
 ## Fases actuales
 
@@ -68,11 +70,12 @@ Funciones actuales:
 - Fase 5: chunking con limite de palabras por fragmento.
 - Fase 6: extraccion de conceptos con NLP clasico.
 - Fase 7: normalizacion y deduplicacion de conceptos.
-- Fase 8: construccion del grafo inicial.
+- Fase 8: construccion del grafo inicial compacto para lectura.
 - Fase 9: relaciones semanticas candidatas.
 - Fase 10: persistencia en Neo4j via Cypher.
 - Fase 11: API Django para documentos, grafo y edicion basica.
 - Fase 12: visualizacion interactiva del grafo en React.
+- Fase 13: edicion manual del grafo.
 
 ## Comandos utiles
 
@@ -84,7 +87,7 @@ python analysis/concept_report.py
 python analysis/semantic_relationship_report.py
 python analysis/graph_report.py
 python scripts/export_neo4j_cypher.py
-python -B -m unittest tests.test_text_normalizer tests.test_structural_segmenter tests.test_document_store tests.test_text_chunker tests.test_concept_extractor tests.test_concept_deduplicator tests.test_semantic_relationship_builder tests.test_graph_builder tests.test_neo4j_cypher
+python -B -m unittest tests.test_text_normalizer tests.test_structural_segmenter tests.test_document_store tests.test_text_chunker tests.test_concept_extractor tests.test_concept_deduplicator tests.test_chunk_title_extractor tests.test_reading_graph_compactor tests.test_semantic_relationship_builder tests.test_graph_builder tests.test_neo4j_cypher
 python backend/manage.py test api
 ```
 
@@ -148,6 +151,9 @@ POST   /documents/
 GET    /documents/
 GET    /documents/<document_id>/
 GET    /documents/<document_id>/graph/
+POST   /documents/<document_id>/nodes/
+POST   /documents/<document_id>/relationships/
+POST   /documents/<document_id>/nodes/merge/
 PATCH  /nodes/<node_id>/
 PATCH  /relationships/<relationship_id>/
 DELETE /nodes/<node_id>/

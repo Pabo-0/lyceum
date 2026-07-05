@@ -9,8 +9,12 @@ from document_processing.tokenizer import tokenize
 
 
 def build_document_id(path: Path, content: str) -> str:
-    source = f"{path.as_posix()}::{content}".encode("utf-8")
+    source = f"{normalize_source_path(path)}::{content}".encode("utf-8")
     return sha256(source).hexdigest()[:16]
+
+
+def normalize_source_path(path: Path) -> str:
+    return path.resolve().as_posix()
 
 
 def build_metadata(
@@ -26,7 +30,7 @@ def build_metadata(
     return DocumentMetadata(
         document_id=build_document_id(path, original_content),
         title=title,
-        source_path=path.as_posix(),
+        source_path=normalize_source_path(path),
         source_extension=path.suffix.lower(),
         created_at=datetime.now(timezone.utc).isoformat(),
         processing_status=processing_status,

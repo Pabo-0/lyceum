@@ -66,7 +66,8 @@ The Vite dev server proxies `/api/*` to Django, so the frontend can call `/api/d
 - Node colors and shapes by type.
 - Relationship colors and line styles by type.
 - Toggle paragraph/chunk visibility.
-- Node and relationship detail panel.
+- Reading mode with node content overlay.
+- Editing mode for creating, renaming, connecting, merging and deleting graph elements.
 - Centering on sections or paragraphs.
 
 ## Build

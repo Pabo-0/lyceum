@@ -3,11 +3,11 @@ import re
 from typing import Any
 
 
-NODE_LABELS = {"Document", "Section", "Chunk"}
+NODE_LABELS = {"Document", "Section", "Chunk", "Concept"}
 RELATIONSHIP_TYPES = {
-    "HAS_SECTION",
-    "HAS_SUBSECTION",
-    "HAS_CHUNK",
+    "DIRECTIONAL",
+    "BIDIRECTIONAL",
+    "SEMANTIC",
 }
 PROPERTY_NAME_PATTERN = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 
@@ -17,11 +17,13 @@ def build_neo4j_schema_cypher() -> str:
         "CREATE CONSTRAINT document_node_id IF NOT EXISTS FOR (n:Document) REQUIRE n.node_id IS UNIQUE",
         "CREATE CONSTRAINT section_node_id IF NOT EXISTS FOR (n:Section) REQUIRE n.node_id IS UNIQUE",
         "CREATE CONSTRAINT chunk_node_id IF NOT EXISTS FOR (n:Chunk) REQUIRE n.node_id IS UNIQUE",
+        "CREATE CONSTRAINT concept_node_id IF NOT EXISTS FOR (n:Concept) REQUIRE n.node_id IS UNIQUE",
         "CREATE INDEX document_title IF NOT EXISTS FOR (n:Document) ON (n.title)",
         "CREATE INDEX section_title IF NOT EXISTS FOR (n:Section) ON (n.title)",
-        "CREATE INDEX has_section_relationship_id IF NOT EXISTS FOR ()-[r:HAS_SECTION]-() ON (r.relationship_id)",
-        "CREATE INDEX has_subsection_relationship_id IF NOT EXISTS FOR ()-[r:HAS_SUBSECTION]-() ON (r.relationship_id)",
-        "CREATE INDEX has_chunk_relationship_id IF NOT EXISTS FOR ()-[r:HAS_CHUNK]-() ON (r.relationship_id)",
+        "CREATE INDEX concept_title IF NOT EXISTS FOR (n:Concept) ON (n.title)",
+        "CREATE INDEX directional_relationship_id IF NOT EXISTS FOR ()-[r:DIRECTIONAL]-() ON (r.relationship_id)",
+        "CREATE INDEX bidirectional_relationship_id IF NOT EXISTS FOR ()-[r:BIDIRECTIONAL]-() ON (r.relationship_id)",
+        "CREATE INDEX semantic_relationship_id IF NOT EXISTS FOR ()-[r:SEMANTIC]-() ON (r.relationship_id)",
     ]
     return _join_statements(statements)
 
@@ -30,8 +32,8 @@ def build_neo4j_verification_cypher() -> str:
     statements = [
         "MATCH (n) RETURN labels(n) AS labels, count(n) AS count ORDER BY labels",
         "MATCH ()-[r]->() RETURN type(r) AS relationship_type, count(r) AS count ORDER BY relationship_type",
-        "MATCH (d:Document)-[:HAS_SECTION]->(s:Section) RETURN d.title AS document, count(s) AS sections ORDER BY document",
-        "MATCH (:Section)-[:HAS_CHUNK]->(c:Chunk) RETURN count(c) AS chunks",
+        'MATCH (d:Document)-[r:DIRECTIONAL]->(s:Section) WHERE r.role = "contains_section" RETURN d.title AS document, count(s) AS sections ORDER BY document',
+        'MATCH (:Section)-[r:DIRECTIONAL]->(c:Chunk) WHERE r.role = "contains_chunk" RETURN count(c) AS chunks',
     ]
     return _join_statements(statements)
 

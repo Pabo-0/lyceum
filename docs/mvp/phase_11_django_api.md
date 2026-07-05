@@ -20,6 +20,9 @@ POST   /documents/
 GET    /documents/
 GET    /documents/<document_id>/
 GET    /documents/<document_id>/graph/
+POST   /documents/<document_id>/nodes/
+POST   /documents/<document_id>/relationships/
+POST   /documents/<document_id>/nodes/merge/
 PATCH  /nodes/<node_id>/
 PATCH  /relationships/<relationship_id>/
 DELETE /nodes/<node_id>/
@@ -74,6 +77,50 @@ Devuelve solo el grafo serializable:
 Los endpoints de edicion modifican `graph.json`, regeneran `neo4j.cypher` y actualizan el export global en `data/storage/neo4j`.
 
 ```http
+POST /documents/<document_id>/nodes/
+```
+
+```json
+{
+  "labels": ["Concept"],
+  "properties": {
+    "title": "Concepto manual",
+    "text": "Contenido escrito por el usuario."
+  }
+}
+```
+
+```http
+POST /documents/<document_id>/relationships/
+```
+
+```json
+{
+  "source_id": "chunk:...",
+  "target_id": "manual-node:...",
+  "relationship_type": "SEMANTIC",
+  "properties": {
+    "reason": "Relacion agregada manualmente",
+    "status": "confirmed"
+  }
+}
+```
+
+```http
+POST /documents/<document_id>/nodes/merge/
+```
+
+```json
+{
+  "target_node_id": "manual-node:principal",
+  "source_node_ids": ["manual-node:duplicado"],
+  "properties": {
+    "title": "Concepto fusionado"
+  }
+}
+```
+
+```http
 PATCH /nodes/<node_id>/
 ```
 
@@ -91,9 +138,10 @@ PATCH /relationships/<relationship_id>/
 
 ```json
 {
+  "relationship_type": "DIRECTIONAL",
   "properties": {
-    "confidence": 0.91,
-    "status": "reviewed"
+    "status": "confirmed",
+    "reason": "Explica el parrafo seleccionado"
   }
 }
 ```

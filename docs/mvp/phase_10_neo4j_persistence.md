@@ -16,9 +16,15 @@ Nodos:
 
 Relaciones estructurales:
 
-- `Document` - `HAS_SECTION` -> `Section`
-- `Section` - `HAS_SUBSECTION` -> `Section`
-- `Section` - `HAS_CHUNK` -> `Chunk`
+- `Document` - `DIRECTIONAL` -> `Section`, con `role: contains_section`
+- `Section` - `DIRECTIONAL` -> `Section`, con `role: contains_subsection`
+- `Section` - `DIRECTIONAL` -> `Chunk`, con `role: contains_chunk`
+
+Relaciones editables:
+
+- `DIRECTIONAL`: flecha de seguimiento u orden.
+- `BIDIRECTIONAL`: doble flecha entre nodos que se explican mutuamente.
+- `SEMANTIC`: relacion punteada sin orden necesario.
 
 Los conceptos y relaciones semanticas se conservan como archivos de analisis, pero no se persisten en el grafo MVP de Neo4j porque generan ruido visual antes de tener una capa semantica confiable.
 

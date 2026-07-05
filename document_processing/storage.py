@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import shutil
 from typing import Any
 
 from document_processing.config import (
@@ -8,6 +9,7 @@ from document_processing.config import (
     DEFAULT_ORIGINALS_DIR,
     DEFAULT_STORAGE_PATH,
 )
+from document_processing.metadata import normalize_source_path
 from document_processing.models import StoredDocument
 from document_processing.neo4j_cypher import graph_to_cypher
 
@@ -52,7 +54,7 @@ class DocumentStore:
         self.save_index_entry(document)
 
     def load_document(self, document_id: str) -> dict[str, Any]:
-        document_dir = self.documents_dir / document_id
+        document_dir = _safe_child_path(self.documents_dir, document_id)
         metadata = self._read_json(document_dir / "metadata.json")
         normalization_report = self._read_json(document_dir / "normalization_report.json")
         structure = self._read_json(document_dir / "structure.json")
@@ -149,6 +151,94 @@ class DocumentStore:
             "graph": graph,
         }
 
+    def delete(self, document_id: str) -> dict[str, Any]:
+        document_dir = _safe_child_path(self.documents_dir, document_id)
+        original_copy = _safe_child_path(self.originals_dir, f"{document_id}.txt")
+        normalized_copy = _safe_child_path(self.normalized_dir, f"{document_id}.txt")
+        index = self.load_index()
+        deleted_index_entry = next(
+            (item for item in index if item.get("document_id") == document_id),
+            None,
+        )
+
+        if not document_dir.exists() and deleted_index_entry is None:
+            raise FileNotFoundError(f"Document not found: {document_id}")
+
+        deleted_paths: list[str] = []
+        if document_dir.exists():
+            shutil.rmtree(document_dir)
+            deleted_paths.append(document_dir.as_posix())
+
+        for path in (original_copy, normalized_copy):
+            if path.exists():
+                path.unlink()
+                deleted_paths.append(path.as_posix())
+
+        remaining_index = [
+            item
+            for item in index
+            if item.get("document_id") != document_id
+        ]
+        self.save_all(remaining_index)
+
+        return {
+            "document_id": document_id,
+            "deleted_paths": deleted_paths,
+            "deleted_index_entry": deleted_index_entry,
+            "index_removed": deleted_index_entry is not None,
+        }
+
+    def rename(self, document_id: str, title: str) -> dict[str, Any]:
+        clean_title = " ".join(str(title).split())
+        if not clean_title:
+            raise ValueError("Document title is required")
+
+        document_dir = _safe_child_path(self.documents_dir, document_id)
+        if not document_dir.exists():
+            raise FileNotFoundError(f"Document not found: {document_id}")
+
+        metadata_path = document_dir / "metadata.json"
+        graph_path = document_dir / "graph.json"
+        metadata = self._read_json(metadata_path)
+        graph = self._read_optional_json(graph_path, {"nodes": [], "relationships": []})
+        old_title = str(metadata.get("title", ""))
+
+        metadata["title"] = clean_title
+        self._write_json(metadata_path, metadata)
+
+        for node in graph.get("nodes", []):
+            properties = node.get("properties", {})
+            if (
+                "Document" in node.get("labels", [])
+                or properties.get("document_id") == document_id
+            ):
+                properties["title"] = clean_title
+                node["properties"] = properties
+                break
+
+        self._write_json(graph_path, graph)
+        self._write_text(document_dir / "neo4j.cypher", graph_to_cypher(graph))
+
+        index = self.load_index()
+        updated_index = False
+        for entry in index:
+            if entry.get("document_id") == document_id:
+                entry["title"] = clean_title
+                updated_index = True
+                break
+
+        if not updated_index:
+            raise FileNotFoundError(f"Document not found in index: {document_id}")
+
+        self.save_all(index)
+        return {
+            "document_id": document_id,
+            "old_title": old_title,
+            "title": clean_title,
+            "metadata": metadata,
+            "graph": graph,
+        }
+
     def save_document_parts(self, document: StoredDocument) -> None:
         document_id = document.metadata.document_id
         document_dir = self.documents_dir / document_id
@@ -231,6 +321,7 @@ class DocumentStore:
         index = self.load_index()
         document_id = document.metadata.document_id
         source_path = document.metadata.source_path
+        source_key = normalize_source_path(Path(source_path))
         entry = {
             "document_id": document_id,
             "title": document.metadata.title,
@@ -262,7 +353,7 @@ class DocumentStore:
             item
             for item in index
             if item.get("document_id") != document_id
-            and item.get("source_path") != source_path
+            and _source_key(item.get("source_path", "")) != source_key
         ]
         without_current.append(entry)
         self.save_all(without_current)
@@ -372,3 +463,23 @@ class DocumentStore:
     def _write_text(self, path: Path, content: str) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content, encoding="utf-8")
+
+
+def _source_key(source_path: str) -> str:
+    return normalize_source_path(Path(source_path)) if source_path else ""
+
+
+def _safe_child_path(base: Path, child_name: str) -> Path:
+    base_path = base.resolve()
+    candidate = (base / child_name).resolve()
+    if not _is_relative_to(candidate, base_path):
+        raise ValueError(f"Path escapes storage directory: {child_name}")
+    return candidate
+
+
+def _is_relative_to(path: Path, base: Path) -> bool:
+    try:
+        path.relative_to(base)
+        return True
+    except ValueError:
+        return False

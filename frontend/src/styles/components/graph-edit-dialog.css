@@ -1,0 +1,154 @@
+.graph-edit-overlay {
+  align-items: center;
+  background: var(--color-overlay);
+  display: grid;
+  inset: 0;
+  padding: 24px;
+  place-items: center;
+  position: absolute;
+  z-index: 9;
+}
+
+.graph-edit-dialog {
+  background: var(--modal-bg);
+  border: 1px solid var(--modal-border);
+  border-radius: var(--radius-modal);
+  box-shadow: var(--shadow-modal);
+  max-height: min(760px, calc(100vh - 84px));
+  max-width: min(860px, 100%);
+  overflow: hidden;
+  width: 100%;
+}
+
+.graph-edit-form {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  max-height: min(760px, calc(100vh - 84px));
+}
+
+.graph-edit-header {
+  background: var(--modal-header-bg);
+  border-bottom: 1px solid var(--color-border);
+  display: grid;
+  gap: 18px;
+  padding: 22px 28px 18px;
+}
+
+.graph-edit-header h2 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-title-modal);
+  font-weight: var(--font-weight-title);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.graph-edit-body {
+  display: grid;
+  gap: 14px;
+  overflow: auto;
+  padding: 24px 28px;
+}
+
+.graph-edit-body label {
+  color: var(--color-text-secondary);
+  display: grid;
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-label);
+  gap: 6px;
+}
+
+.graph-edit-body input,
+.graph-edit-body select,
+.graph-edit-body textarea {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-input);
+  color: var(--color-text-main);
+  font: inherit;
+  min-height: 40px;
+  padding: 9px 11px;
+  resize: vertical;
+}
+
+.graph-edit-body input:focus,
+.graph-edit-body select:focus,
+.graph-edit-body textarea:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: var(--shadow-focus);
+  outline: 0;
+}
+
+.graph-edit-footer {
+  background: var(--modal-footer-bg);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 16px 28px 20px;
+}
+
+.graph-edit-footer button {
+  min-width: 140px;
+}
+
+.graph-edit-merge {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: 10px;
+  padding-top: 14px;
+}
+
+.graph-edit-merge .secondary-button {
+  justify-self: start;
+  margin: 0;
+}
+
+.graph-edit-meta,
+.graph-edit-status,
+.graph-edit-error {
+  border-radius: var(--radius-button);
+  font-size: 0.88rem;
+  margin: 0;
+  padding: 9px 11px;
+}
+
+.graph-edit-meta {
+  background: var(--color-surface-hover);
+  color: var(--color-text-secondary);
+}
+
+.graph-edit-status {
+  background: var(--status-ready-bg);
+  color: var(--status-ready-text);
+}
+
+.graph-edit-error {
+  background: var(--status-error-bg);
+  color: var(--status-error-text);
+}
+
+@media (max-width: 860px) {
+  .graph-edit-overlay {
+    align-items: stretch;
+    padding: 10px;
+  }
+
+  .graph-edit-dialog,
+  .graph-edit-form {
+    max-height: 100%;
+  }
+
+  .graph-edit-header {
+    gap: 14px;
+    padding: 18px 18px 16px;
+  }
+
+  .graph-edit-body {
+    padding: 18px;
+  }
+
+  .graph-edit-footer {
+    flex-direction: column;
+    padding: 14px 18px 18px;
+  }
+}

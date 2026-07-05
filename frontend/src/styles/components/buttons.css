@@ -1,38 +1,87 @@
 .primary-button,
 .secondary-button {
   border: 0;
-  border-radius: 8px;
-  font-weight: 700;
+  border-radius: var(--radius-button);
+  font-size: var(--font-size-button);
+  font-weight: var(--font-weight-button);
   min-height: 44px;
   padding: 10px 14px;
 }
 
 .primary-button {
-  background: #2374ab;
-  color: #ffffff;
+  background: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+
+.primary-button:hover:not(:disabled) {
+  background: var(--button-primary-hover-bg);
+}
+
+.primary-button:active:not(:disabled) {
+  background: var(--button-primary-active-bg);
 }
 
 .primary-button:disabled {
-  background: #888;
-  color: #ffffff;
+  background: var(--button-disabled-bg);
+  color: var(--button-disabled-text);
   cursor: not-allowed;
 }
 
 .secondary-button {
-  background: #edf1f3;
-  color: #172026;
+  background: var(--button-secondary-bg);
+  border: 1px solid var(--button-secondary-border);
+  color: var(--button-secondary-text);
   margin: 12px 0;
+}
+
+.secondary-button:hover:not(:disabled) {
+  background: var(--button-secondary-hover-bg);
+}
+
+.secondary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.danger-button {
+  background: var(--button-danger-soft-bg);
+  border: 0;
+  border-radius: var(--radius-button);
+  color: var(--button-danger-soft-text);
+  font-size: var(--font-size-button);
+  font-weight: var(--font-weight-button);
+  min-height: 44px;
+  padding: 10px 12px;
+}
+
+.danger-button:hover:not(:disabled) {
+  background: var(--button-danger-bg);
+  color: var(--button-danger-text);
+}
+
+.danger-button:active:not(:disabled) {
+  background: var(--button-danger-active-bg);
+}
+
+.danger-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
 }
 
 .icon-button {
   align-items: center;
-  background: #edf1f3;
-  border: 1px solid #d9e1e6;
-  border-radius: 8px;
-  color: #41515c;
+  background: transparent;
+  border: 1px solid var(--button-ghost-border);
+  border-radius: var(--radius-button);
+  color: var(--button-ghost-text);
   display: inline-flex;
-  font-weight: 900;
+  font-weight: var(--font-weight-button);
   height: 34px;
   justify-content: center;
   min-width: 34px;
+}
+
+.icon-button:hover {
+  background: var(--button-ghost-hover-bg);
+  color: var(--color-text-main);
 }

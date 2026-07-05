@@ -1,0 +1,279 @@
+{
+  "concepts": [
+    {
+      "concept_id": "concept-2477803baffb",
+      "name": "datos",
+      "normalized_name": "datos",
+      "score": 3.539108,
+      "frequency": 49,
+      "document_frequency": 34,
+      "section_frequency": 25,
+      "chunk_frequency": 34,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-055fad95ad68",
+      "name": "ecosistema aprendizaje profundo",
+      "normalized_name": "ecosistema aprendizaje profundo",
+      "score": 3.435181,
+      "frequency": 91,
+      "document_frequency": 90,
+      "section_frequency": 51,
+      "chunk_frequency": 90,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-db341698e058",
+      "name": "aprendizaje profundo",
+      "normalized_name": "aprendizaje profundo",
+      "score": 3.422502,
+      "frequency": 97,
+      "document_frequency": 90,
+      "section_frequency": 51,
+      "chunk_frequency": 90,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-40b45ac821b0",
+      "name": "aprendizaje profundo ciudad",
+      "normalized_name": "aprendizaje profundo ciudad",
+      "score": 3.379862,
+      "frequency": 90,
+      "document_frequency": 90,
+      "section_frequency": 51,
+      "chunk_frequency": 90,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-b3c241f0e231",
+      "name": "profundo ciudad inteligente",
+      "normalized_name": "profundo ciudad inteligente",
+      "score": 3.379862,
+      "frequency": 90,
+      "document_frequency": 90,
+      "section_frequency": 51,
+      "chunk_frequency": 90,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-3838ff14766f",
+      "name": "ciudad",
+      "normalized_name": "ciudad",
+      "score": 3.278368,
+      "frequency": 103,
+      "document_frequency": 90,
+      "section_frequency": 51,
+      "chunk_frequency": 90,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-474e5dce48b2",
+      "name": "aprendizaje",
+      "normalized_name": "aprendizaje",
+      "score": 3.165023,
+      "frequency": 100,
+      "document_frequency": 90,
+      "section_frequency": 51,
+      "chunk_frequency": 90,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-d4ac603cb2cd",
+      "name": "ciudad inteligente",
+      "normalized_name": "ciudad inteligente",
+      "score": 3.12868,
+      "frequency": 93,
+      "document_frequency": 90,
+      "section_frequency": 51,
+      "chunk_frequency": 90,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-ec7557e6d545",
+      "name": "ecosistema aprendizaje",
+      "normalized_name": "ecosistema aprendizaje",
+      "score": 3.038814,
+      "frequency": 91,
+      "document_frequency": 90,
+      "section_frequency": 51,
+      "chunk_frequency": 90,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-23c75cdfc948",
+      "name": "profundo ciudad",
+      "normalized_name": "profundo ciudad",
+      "score": 2.989878,
+      "frequency": 90,
+      "document_frequency": 90,
+      "section_frequency": 51,
+      "chunk_frequency": 90,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-b23786ab3320",
+      "name": "profundo",
+      "normalized_name": "profundo",
+      "score": 2.976089,
+      "frequency": 97,
+      "document_frequency": 90,
+      "section_frequency": 51,
+      "chunk_frequency": 90,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-8cce676e2f83",
+      "name": "modelo",
+      "normalized_name": "modelo",
+      "score": 2.952653,
+      "frequency": 38,
+      "document_frequency": 28,
+      "section_frequency": 22,
+      "chunk_frequency": 28,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-c621fb0dd868",
+      "name": "puede",
+      "normalized_name": "puede",
+      "score": 2.862469,
+      "frequency": 49,
+      "document_frequency": 38,
+      "section_frequency": 31,
+      "chunk_frequency": 38,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-f74d22179606",
+      "name": "indicadores",
+      "normalized_name": "indicadores",
+      "score": 2.831396,
+      "frequency": 12,
+      "document_frequency": 5,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-fd7cad38dc29",
+      "name": "inteligente",
+      "normalized_name": "inteligente",
+      "score": 2.720591,
+      "frequency": 93,
+      "document_frequency": 90,
+      "section_frequency": 51,
+      "chunk_frequency": 90,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-50562429fa76",
+      "name": "ecosistema",
+      "normalized_name": "ecosistema",
+      "score": 2.700418,
+      "frequency": 92,
+      "document_frequency": 90,
+      "section_frequency": 51,
+      "chunk_frequency": 90,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-9ad6116f947e",
+      "name": "modelos",
+      "normalized_name": "modelos",
+      "score": 2.004644,
+      "frequency": 33,
+      "document_frequency": 29,
+      "section_frequency": 17,
+      "chunk_frequency": 29,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-6ab03c93de35",
+      "name": "debe",
+      "normalized_name": "debe",
+      "score": 1.782251,
+      "frequency": 29,
+      "document_frequency": 26,
+      "section_frequency": 23,
+      "chunk_frequency": 26,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-e7f979143880",
+      "name": "modelos dominio",
+      "normalized_name": "modelos dominio",
+      "score": 1.615119,
+      "frequency": 24,
+      "document_frequency": 24,
+      "section_frequency": 12,
+      "chunk_frequency": 24,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-257a5e14d818",
+      "name": "dominio",
+      "normalized_name": "dominio",
+      "score": 1.444783,
+      "frequency": 25,
+      "document_frequency": 25,
+      "section_frequency": 13,
+      "chunk_frequency": 25,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-19b6d495c217",
+      "name": "pueden",
+      "normalized_name": "pueden",
+      "score": 1.356005,
+      "frequency": 18,
+      "document_frequency": 16,
+      "section_frequency": 16,
+      "chunk_frequency": 16,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-5f1da0912e17",
+      "name": "agua",
+      "normalized_name": "agua",
+      "score": 1.306701,
+      "frequency": 10,
+      "document_frequency": 7,
+      "section_frequency": 5,
+      "chunk_frequency": 7,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-cf5b18b9fb0f",
+      "name": "residuos",
+      "normalized_name": "residuos",
+      "score": 1.288207,
+      "frequency": 9,
+      "document_frequency": 6,
+      "section_frequency": 4,
+      "chunk_frequency": 6,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-d1ee8f06ede1",
+      "name": "glosario",
+      "normalized_name": "glosario",
+      "score": 1.257209,
+      "frequency": 5,
+      "document_frequency": 5,
+      "section_frequency": 5,
+      "chunk_frequency": 5,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-cd99d081c60c",
+      "name": "ciclo vida modelo",
+      "normalized_name": "ciclo vida modelo",
+      "score": 1.200224,
+      "frequency": 12,
+      "document_frequency": 12,
+      "section_frequency": 6,
+      "chunk_frequency": 12,
+      "extraction_method": "tfidf_frequency_ngram"
+    }
+  ]
+}

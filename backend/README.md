@@ -51,7 +51,12 @@ python backend/manage.py runserver
 POST   /documents/
 GET    /documents/
 GET    /documents/<document_id>/
+PATCH  /documents/<document_id>/
+DELETE /documents/<document_id>/
 GET    /documents/<document_id>/graph/
+POST   /documents/<document_id>/nodes/
+POST   /documents/<document_id>/relationships/
+POST   /documents/<document_id>/nodes/merge/
 PATCH  /nodes/<node_id>/
 PATCH  /relationships/<relationship_id>/
 DELETE /nodes/<node_id>/

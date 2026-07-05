@@ -43,6 +43,45 @@ class DocumentService:
             "neo4j_sync": neo4j_sync,
         }
 
+    def delete_document(self, document_id: str) -> dict[str, Any]:
+        document = self.get_document(document_id)
+        metadata = document.get("metadata", {})
+        graph = document.get("graph", {})
+        storage_delete = self.store.delete(document_id)
+        upload_delete = self._delete_uploaded_source(str(metadata.get("source_path", "")))
+        export_summary = export_neo4j_cypher(self.store, settings.LYCEUM_NEO4J_EXPORT_DIR)
+        neo4j_sync = self.neo4j.delete_graph(graph)
+
+        return {
+            "document_id": document_id,
+            "deleted_document": {
+                "document_id": document_id,
+                "title": metadata.get("title", ""),
+            },
+            "storage_delete": storage_delete,
+            "upload_delete": upload_delete,
+            "neo4j_export": export_summary,
+            "neo4j_sync": neo4j_sync,
+        }
+
+    def rename_document(self, document_id: str, title: str) -> dict[str, Any]:
+        renamed = self.store.rename(document_id, title)
+        export_summary = export_neo4j_cypher(self.store, settings.LYCEUM_NEO4J_EXPORT_DIR)
+        neo4j_sync = self.neo4j.patch_node(
+            f"document:{document_id}",
+            {"title": renamed["title"]},
+        )
+        document = self.get_document(document_id)
+
+        return {
+            "document_id": document_id,
+            "document": document,
+            "old_title": renamed["old_title"],
+            "title": renamed["title"],
+            "neo4j_export": export_summary,
+            "neo4j_sync": neo4j_sync,
+        }
+
     def _save_uploaded_content(self, content: str, filename: str) -> Path:
         safe_name = Path(filename).name
         extension = Path(safe_name).suffix.lower()
@@ -55,6 +94,30 @@ class DocumentService:
         target.write_text(content, encoding="utf-8")
         return target
 
+    def _delete_uploaded_source(self, source_path: str) -> dict[str, Any]:
+        if not source_path:
+            return {"deleted": False, "reason": "empty_source_path"}
+
+        source = Path(source_path)
+        uploads_dir = settings.LYCEUM_UPLOADS_DIR.resolve()
+        try:
+            resolved_source = source.resolve()
+        except OSError as exc:
+            return {"deleted": False, "reason": str(exc), "path": source_path}
+
+        if not _is_relative_to(resolved_source, uploads_dir):
+            return {
+                "deleted": False,
+                "reason": "source_outside_uploads_dir",
+                "path": source_path,
+            }
+
+        if not resolved_source.exists():
+            return {"deleted": False, "reason": "source_not_found", "path": source_path}
+
+        resolved_source.unlink()
+        return {"deleted": True, "path": resolved_source.as_posix()}
+
 
 def build_document_store() -> DocumentStore:
     return DocumentStore(
@@ -63,3 +126,11 @@ def build_document_store() -> DocumentStore:
         originals_dir=settings.LYCEUM_ORIGINALS_DIR,
         normalized_dir=settings.LYCEUM_NORMALIZED_DIR,
     )
+
+
+def _is_relative_to(path: Path, base: Path) -> bool:
+    try:
+        path.relative_to(base)
+        return True
+    except ValueError:
+        return False

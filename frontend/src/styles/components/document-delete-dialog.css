@@ -1,0 +1,63 @@
+.document-delete-overlay {
+  align-items: center;
+  background: var(--color-overlay);
+  display: grid;
+  inset: 0;
+  padding: 24px;
+  place-items: center;
+  position: fixed;
+  z-index: 20;
+}
+
+.document-delete-dialog {
+  background: var(--modal-bg);
+  border: 1px solid var(--modal-border);
+  border-radius: var(--radius-modal);
+  box-shadow: var(--shadow-modal);
+  max-width: min(460px, 100%);
+  overflow: hidden;
+  width: 100%;
+}
+
+.document-delete-dialog header {
+  display: grid;
+  gap: 10px;
+  padding: 24px 26px 18px;
+}
+
+.document-delete-dialog h2 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.document-delete-dialog p {
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.document-delete-dialog footer {
+  background: var(--modal-footer-bg);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 16px 26px 20px;
+}
+
+.document-delete-dialog footer button {
+  margin: 0;
+  min-width: 120px;
+}
+
+@media (max-width: 560px) {
+  .document-delete-dialog footer {
+    display: grid;
+  }
+
+  .document-delete-dialog footer button {
+    width: 100%;
+  }
+}

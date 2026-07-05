@@ -27,11 +27,13 @@ data/storage/documents/<document_id>/
 
 `concepts.json` contiene conceptos agregados por documento.
 
-`concept_mentions.json` contiene relaciones candidatas entre chunks y conceptos:
+`concept_mentions.json` contiene menciones internas entre chunks y conceptos:
 
 ```text
 Chunk MENTIONS Concept
 ```
+
+Estas menciones son evidencia de analisis para desarrolladores. No se convierten en nodos ni relaciones visibles dentro del grafo de lectura del MVP.
 
 ## Estado del pipeline
 

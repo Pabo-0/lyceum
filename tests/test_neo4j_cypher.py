@@ -49,21 +49,36 @@ class Neo4jCypherTests(unittest.TestCase):
                         "word_count": 7,
                     },
                 },
+                {
+                    "node_id": "manual:sample:concept-1",
+                    "labels": ["Concept"],
+                    "properties": {
+                        "title": "Concepto manual",
+                        "text": "Nota editable.",
+                    },
+                },
             ],
             "relationships": [
                 {
                     "relationship_id": "relationship:sample",
-                    "relationship_type": "HAS_SECTION",
+                    "relationship_type": "DIRECTIONAL",
                     "source_id": "document:sample",
                     "target_id": "section:sample:section-1",
-                    "properties": {"order": 1},
+                    "properties": {"order": 1, "role": "contains_section"},
                 },
                 {
                     "relationship_id": "relationship:sample-chunk",
-                    "relationship_type": "HAS_CHUNK",
+                    "relationship_type": "DIRECTIONAL",
                     "source_id": "section:sample:section-1",
                     "target_id": "chunk:sample:chunk-1",
-                    "properties": {"order": 1},
+                    "properties": {"order": 1, "role": "contains_chunk"},
+                },
+                {
+                    "relationship_id": "relationship:manual",
+                    "relationship_type": "SEMANTIC",
+                    "source_id": "chunk:sample:chunk-1",
+                    "target_id": "manual:sample:concept-1",
+                    "properties": {"status": "confirmed"},
                 }
             ],
         }
@@ -75,10 +90,14 @@ class Neo4jCypherTests(unittest.TestCase):
         self.assertIn("MERGE (n:Document", cypher)
         self.assertIn("MERGE (n:Section", cypher)
         self.assertIn("MERGE (n:Chunk", cypher)
-        self.assertIn("MERGE (source)-[r:HAS_SECTION", cypher)
-        self.assertIn("MERGE (source)-[r:HAS_CHUNK", cypher)
+        self.assertIn("MERGE (n:Concept", cypher)
+        self.assertIn("MERGE (source)-[r:DIRECTIONAL", cypher)
+        self.assertIn("MERGE (source)-[r:SEMANTIC", cypher)
         self.assertIn('title: "Sample \\"Graph\\""', cypher)
-        self.assertNotIn("Concept", schema)
+        self.assertIn("CREATE CONSTRAINT concept_node_id", schema)
+        self.assertNotIn("Note", schema)
+        self.assertNotIn("HAS_CHUNK", schema)
+        self.assertNotIn("RELATED_TO", schema)
         self.assertNotIn("MENTIONS", schema)
 
     def test_splits_cypher_without_breaking_text_values(self) -> None:

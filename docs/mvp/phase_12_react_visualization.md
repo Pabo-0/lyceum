@@ -16,14 +16,19 @@ El frontend permite seleccionar documentos procesados, subir nuevos `.txt` o `.m
   - `Document`
   - `Section`
   - `Chunk`
+  - `Concept`
 - Diferenciar relaciones visibles por tipo:
-  - `HAS_SECTION`
-  - `HAS_SUBSECTION`
-  - `HAS_CHUNK`
+  - `DIRECTIONAL`: flecha simple.
+  - `BIDIRECTIONAL`: doble flecha.
+  - `SEMANTIC`: linea punteada.
+- Ocultar o mostrar la leyenda de nodos y conexiones.
 - Ocultar o mostrar chunks/parrafos.
 - Seleccionar nodos y relaciones para ver detalles.
 - Centrar el grafo en secciones o parrafos.
 - Hacer zoom y recentrar el canvas.
+- Mostrar el grafo compacto generado para lectura, no la estructura cruda completa.
+- Alternar entre modo lectura y modo edicion.
+- En modo edicion, crear, renombrar, fusionar, conectar y eliminar elementos del grafo.
 
 ## Flujo de datos
 
@@ -46,7 +51,8 @@ frontend/src/api/client.js
 frontend/src/components/DocumentSidebar.jsx
 frontend/src/components/GraphControls.jsx
 frontend/src/components/GraphCanvas.jsx
-frontend/src/components/DetailsPanel.jsx
+frontend/src/components/GraphEditorPanel.jsx
+frontend/src/components/NodeContentPopover.jsx
 frontend/src/utils/graphModel.js
 frontend/src/styles.css
 ```
@@ -100,5 +106,9 @@ http://localhost:5173
 ## Decision clave
 
 El grafo visible del MVP es un grafo de lectura, no un grafo de conceptos. Los archivos de conceptos y relaciones semanticas se siguen guardando para investigacion futura, pero no se muestran al usuario porque agregan ruido antes de tener una capa semantica confiable.
+
+El grafo visible tambien es una version compactada de la estructura documental. Si un documento tiene muchos encabezados o parrafos pequenos, el backend agrupa secciones cercanas y chunks de contenido para que el numero de nodos crezca de forma proporcional al tamano real del texto.
+
+El modo edicion esta separado del modo lectura para que las herramientas de modificacion no contaminen la exploracion normal. Las ediciones viajan a Django y se guardan en `graph.json`.
 
 El grafo se dibuja con SVG propio en esta fase. Esto mantiene el MVP ligero y deja el modelo de datos claro. Cuando el grafo crezca mucho, se puede reemplazar `GraphCanvas.jsx` por una libreria especializada sin cambiar la API ni el resto del frontend.

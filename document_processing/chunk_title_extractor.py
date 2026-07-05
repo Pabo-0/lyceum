@@ -64,6 +64,11 @@ class _Candidate:
     source: str
 
 
+@dataclass(frozen=True)
+class _SectionTitle:
+    title: str
+
+
 def build_chunk_titles(
     structure: StructuralAnalysis,
     concept_deduplication: ConceptDeduplicationResult,
@@ -110,6 +115,41 @@ def build_chunk_titles(
         used_terms.add(normalize_term(title.title))
 
     return titles
+
+
+def build_chunk_title_from_text(
+    text: str,
+    section_title: str | None = None,
+    used_terms: set[str] | None = None,
+) -> ChunkTitle:
+    used = used_terms or set()
+    section_terms = (
+        {normalize_term(section_title), *generate_candidate_terms(section_title).keys()}
+        if section_title
+        else set()
+    )
+    candidates = _dedupe_candidates(_local_candidates(text))
+    preferred = _choose_candidate(candidates, used, section_terms)
+    candidate_terms = [candidate.display for candidate in candidates[:5]]
+
+    if preferred:
+        return ChunkTitle(
+            title=_format_candidate_title(
+                preferred.display,
+                _SectionTitle(section_title) if section_title else None,
+            ),
+            source=preferred.source,
+            reason="Selected as the clearest cue for this compact reading chunk.",
+            candidates=candidate_terms,
+        )
+
+    fallback = _fallback_title_from_text(text, section_title)
+    return ChunkTitle(
+        title=fallback,
+        source="text_fallback",
+        reason="No unique candidate survived deduplication; using a short text cue.",
+        candidates=candidate_terms,
+    )
 
 
 def _group_mentions_by_chunk(

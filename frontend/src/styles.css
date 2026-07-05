@@ -3,10 +3,229 @@
 @import './styles/components/buttons.css';
 @import './styles/components/status.css';
 @import './styles/components/document-sidebar.css';
+@import './styles/components/document-delete-dialog.css';
 @import './styles/components/upload-document-form.css';
 @import './styles/components/graph-controls.css';
 @import './styles/components/graph-canvas.css';
+@import './styles/components/graph-edit-dialog.css';
 @import './styles/components/node-content-popover.css';
 @import './styles/pages/home-page.css';
 @import './styles/pages/graph-page.css';
+@import './styles/pages/settings-page.css';
 @import './styles/theme-dark.css';
+
+:root {
+  --font-ui: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-reading: "Source Sans 3", "IBM Plex Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --font-weight-title: 700;
+  --font-weight-subtitle: 600;
+  --font-weight-button: 600;
+  --font-weight-body: 400;
+  --font-weight-label: 600;
+
+  --font-size-display: 5.8rem;
+  --font-size-title-main: 2rem;
+  --font-size-title-modal: 1.625rem;
+  --font-size-section-title: 1.25rem;
+  --font-size-body: 0.9375rem;
+  --font-size-sidebar: 0.875rem;
+  --font-size-label: 0.8125rem;
+  --font-size-graph-label: 0.8125rem;
+  --font-size-button: 0.875rem;
+  --font-size-caption: 0.75rem;
+
+  --radius-button: 8px;
+  --radius-input: 8px;
+  --radius-sidebar-item: 8px;
+  --radius-card: 10px;
+  --radius-modal: 12px;
+  --radius-panel: 12px;
+  --radius-pill: 999px;
+
+  --color-bg-main: #F6FAFB;
+  --color-bg-sidebar: #EEF5F8;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #E1EEF3;
+  --color-border: #CAD9E1;
+  --color-text-main: #17252D;
+  --color-text-secondary: #526773;
+  --color-text-muted: #7B8E99;
+  --color-accent: #2F80C4;
+  --color-accent-hover: #2376B8;
+  --color-accent-active: #1C5F95;
+
+  --color-graph-panel-bg: #FFFFFF;
+  --color-input-bg: #FFFFFF;
+  --color-overlay: rgb(246 250 251 / 0.78);
+  --color-brand-mark-bg: var(--color-text-main);
+  --color-brand-mark-text: #F8FAFC;
+
+  --button-primary-bg: var(--color-accent);
+  --button-primary-hover-bg: var(--color-accent-hover);
+  --button-primary-active-bg: var(--color-accent-active);
+  --button-primary-text: #F8FAFC;
+  --button-secondary-bg: var(--color-bg-sidebar);
+  --button-secondary-hover-bg: var(--color-surface-hover);
+  --button-secondary-border: var(--color-border);
+  --button-secondary-text: var(--color-text-main);
+  --button-ghost-hover-bg: var(--color-bg-sidebar);
+  --button-ghost-border: var(--color-border);
+  --button-ghost-text: var(--color-text-secondary);
+  --button-positive-bg: #1F9D74;
+  --button-positive-hover-bg: #26B987;
+  --button-positive-active-bg: #157A59;
+  --button-positive-text: #F8FAFC;
+  --button-danger-bg: #D64545;
+  --button-danger-hover-bg: #E35A5A;
+  --button-danger-active-bg: #B83232;
+  --button-danger-text: #FFF5F5;
+  --button-danger-soft-bg: #FDE2E2;
+  --button-danger-soft-text: #991B1B;
+  --button-disabled-bg: var(--color-text-muted);
+  --button-disabled-text: #F8FAFC;
+
+  --status-ready-bg: #E7F7EF;
+  --status-ready-text: #157A59;
+  --status-loading-bg: #FFF4D8;
+  --status-loading-text: #73510D;
+  --status-error-bg: #FDE2E2;
+  --status-error-border: #F4B7B7;
+  --status-error-text: #991B1B;
+
+  --sidebar-bg: var(--color-bg-sidebar);
+  --sidebar-border: var(--color-border);
+  --sidebar-active-bg: var(--color-surface-hover);
+  --sidebar-active-border: var(--color-accent);
+  --library-item-bg: var(--color-surface);
+  --library-item-hover-bg: var(--color-bg-sidebar);
+  --library-item-active-bg: var(--color-surface-hover);
+
+  --modal-bg: var(--color-surface);
+  --modal-border: var(--color-border);
+  --modal-header-bg: var(--color-surface);
+  --modal-footer-bg: var(--color-bg-main);
+
+  --input-bg: var(--color-input-bg);
+  --input-border: var(--color-border);
+  --input-focus-border: var(--color-accent);
+  --input-placeholder: var(--color-text-muted);
+
+  --shadow-subtle: 0 1px 2px rgb(23 37 45 / 0.08);
+  --shadow-interactive: 0 2px 6px rgb(23 37 45 / 0.12);
+  --shadow-floating: 0 8px 20px rgb(23 37 45 / 0.12);
+  --shadow-control: 0 6px 14px rgb(23 37 45 / 0.14);
+  --shadow-modal: 0 18px 60px rgb(23 37 45 / 0.22);
+  --shadow-node: drop-shadow(0 4px 8px rgb(23 37 45 / 0.24));
+  --shadow-toggle: 0 1px 3px rgb(23 37 45 / 0.2);
+  --shadow-focus: 0 0 0 3px rgb(47 128 196 / 0.16);
+
+  --graph-node-document: #2563EB;
+  --graph-node-section: #0F8B7D;
+  --graph-node-chunk: #475569;
+  --graph-node-concept: #D9467F;
+  --graph-node-prerequisite: #D97706;
+  --graph-node-path: #7C3AED;
+  --graph-node-selected: #22D3EE;
+
+  --graph-edge-directional: #3B82F6;
+  --graph-edge-bidirectional: #8B5CF6;
+  --graph-edge-semantic: #E11D48;
+  --graph-edge-prerequisite: #F59E0B;
+  --graph-edge-weak: #94A3B8;
+  --graph-edge-opacity-weak: 0.42;
+  --graph-edge-opacity-connected: 0.68;
+  --graph-edge-opacity-selected: 0.96;
+
+  --graph-node-circle-hitbox-extra: 2px;
+  --graph-node-title-hitbox-padding-x: 2px;
+  --graph-node-title-hitbox-padding-y: 2px;
+  --graph-node-min-drag-gap: 8px;
+  --graph-relationship-hitbox-width: 6px;
+  --graph-hitbox-debug-fill: transparent;
+  --graph-hitbox-debug-stroke: transparent;
+  --graph-hitbox-debug-stroke-width: 1px;
+}
+
+.app-shell {
+  background: var(--color-bg-main);
+  color: var(--color-text-main);
+  font-family: var(--font-ui);
+}
+
+.app-shell[data-theme='dark'] {
+  --color-bg-main: #11161D;
+  --color-bg-sidebar: #171E27;
+  --color-surface: #1D2630;
+  --color-surface-hover: #263241;
+  --color-border: #334155;
+  --color-text-main: #E7ECF2;
+  --color-text-secondary: #AAB4C0;
+  --color-text-muted: #758294;
+  --color-accent: #3B82F6;
+  --color-accent-hover: #60A5FA;
+  --color-accent-active: #2563EB;
+
+  --color-graph-panel-bg: #11161D;
+  --color-input-bg: #171E27;
+  --color-overlay: rgb(17 22 29 / 0.78);
+  --color-brand-mark-bg: var(--color-text-main);
+  --color-brand-mark-text: var(--color-bg-main);
+
+  --button-primary-bg: var(--color-accent);
+  --button-primary-hover-bg: var(--color-accent-hover);
+  --button-primary-active-bg: var(--color-accent-active);
+  --button-primary-text: #F8FAFC;
+  --button-secondary-bg: var(--color-surface);
+  --button-secondary-hover-bg: var(--color-surface-hover);
+  --button-secondary-border: var(--color-border);
+  --button-secondary-text: var(--color-text-main);
+  --button-ghost-hover-bg: var(--color-surface);
+  --button-ghost-border: var(--color-border);
+  --button-ghost-text: var(--color-text-secondary);
+  --button-danger-soft-bg: var(--status-error-bg);
+  --button-danger-soft-text: var(--status-error-text);
+  --button-disabled-bg: var(--color-text-muted);
+  --button-disabled-text: #F8FAFC;
+
+  --status-ready-bg: #123D2A;
+  --status-ready-text: #9BE7B8;
+  --status-loading-bg: #3E3214;
+  --status-loading-text: #F2D073;
+  --status-error-bg: #451B1B;
+  --status-error-border: #71302D;
+  --status-error-text: #FFB2AA;
+
+  --sidebar-bg: var(--color-bg-sidebar);
+  --sidebar-border: var(--color-border);
+  --sidebar-active-bg: var(--color-surface-hover);
+  --sidebar-active-border: var(--color-accent);
+  --library-item-bg: var(--color-bg-sidebar);
+  --library-item-hover-bg: var(--color-surface);
+  --library-item-active-bg: var(--color-surface-hover);
+
+  --modal-bg: var(--color-surface);
+  --modal-border: var(--color-border);
+  --modal-header-bg: var(--color-surface);
+  --modal-footer-bg: var(--color-bg-sidebar);
+
+  --input-bg: var(--color-input-bg);
+  --input-border: var(--color-border);
+  --input-focus-border: var(--color-accent);
+  --input-placeholder: var(--color-text-muted);
+
+  --shadow-subtle: 0 1px 2px rgb(0 0 0 / 0.18);
+  --shadow-interactive: 0 2px 6px rgb(0 0 0 / 0.22);
+  --shadow-floating: 0 8px 20px rgb(0 0 0 / 0.24);
+  --shadow-control: 0 6px 14px rgb(0 0 0 / 0.2);
+  --shadow-modal: 0 18px 60px rgb(0 0 0 / 0.34);
+  --shadow-node: drop-shadow(0 4px 8px rgb(0 0 0 / 0.32));
+  --shadow-toggle: 0 1px 4px rgb(0 0 0 / 0.34);
+  --shadow-focus: 0 0 0 3px rgb(59 130 246 / 0.22);
+
+  --graph-edge-opacity-weak: 0.46;
+  --graph-edge-opacity-connected: 0.78;
+  color-scheme: dark;
+}
