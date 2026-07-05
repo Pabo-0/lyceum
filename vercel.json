@@ -5,12 +5,7 @@
   "functions": {
     "backend/core/wsgi.py": {
       "maxDuration": 60,
-      "includeFiles": [
-        "backend/**",
-        "document_processing/**",
-        "scripts/**",
-        "data/storage/**"
-      ]
+      "includeFiles": "data/storage/**"
     }
   },
   "rewrites": [
