@@ -1,6 +1,7 @@
 import json
 from json import JSONDecodeError
 from typing import Any
+from urllib.parse import unquote
 
 from django.http import HttpRequest, HttpResponseNotAllowed, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -148,6 +149,7 @@ def document_node_merge(request: HttpRequest, document_id: str) -> JsonResponse:
 @csrf_exempt
 def node_detail(request: HttpRequest, node_id: str) -> JsonResponse:
     service = GraphService()
+    node_id = unquote(node_id)
 
     if request.method == "PATCH":
         try:
@@ -179,6 +181,7 @@ def node_detail(request: HttpRequest, node_id: str) -> JsonResponse:
 @csrf_exempt
 def relationship_detail(request: HttpRequest, relationship_id: str) -> JsonResponse:
     service = GraphService()
+    relationship_id = unquote(relationship_id)
 
     if request.method == "PATCH":
         try:

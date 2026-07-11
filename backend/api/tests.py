@@ -1,6 +1,7 @@
 import json
 import tempfile
 from pathlib import Path
+from urllib.parse import quote
 
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import Client, TestCase, override_settings
@@ -72,7 +73,7 @@ class ApiEndpointTests(TestCase):
         )
 
         patched = self.client.patch(
-            f"/nodes/{node_id}/",
+            f"/nodes/{quote(node_id, safe='')}/",
             data=json.dumps({"properties": {"frontend_label": "Nodo visible"}}),
             content_type="application/json",
         )
@@ -101,7 +102,7 @@ class ApiEndpointTests(TestCase):
             "relationship_id"
         ]
 
-        deleted = self.client.delete(f"/relationships/{relationship_id}/")
+        deleted = self.client.delete(f"/relationships/{quote(relationship_id, safe='')}/")
 
         self.assertEqual(deleted.status_code, 200)
         self.assertEqual(
@@ -290,7 +291,7 @@ class ApiEndpointTests(TestCase):
         self.assertIn("SEMANTIC", relationship.json()["graph"]["relationship_counts_by_type"])
 
         changed = self.client.patch(
-            f"/relationships/{relationship_id}/",
+            f"/relationships/{quote(relationship_id, safe='')}/",
             data=json.dumps(
                 {
                     "relationship_type": "DIRECTIONAL",
