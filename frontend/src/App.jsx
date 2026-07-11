@@ -34,7 +34,6 @@ export default function App() {
   const [status, setStatus] = useState('loading');
   const [uploadStatus, setUploadStatus] = useState('idle');
   const [error, setError] = useState('');
-  const [theme, setTheme] = useState(() => localStorage.getItem('lyceum-theme') || 'dark');
   const [graphMode, setGraphMode] = useState('read');
   const [graphLayouts, setGraphLayouts] = useState(readStoredGraphLayouts);
   const [activePage, setActivePage] = useState('home');
@@ -44,10 +43,6 @@ export default function App() {
   useEffect(() => {
     refreshDocuments();
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem('lyceum-theme', theme);
-  }, [theme]);
 
   useEffect(() => {
     localStorage.setItem(GRAPH_LAYOUTS_STORAGE_KEY, JSON.stringify(graphLayouts));
@@ -286,7 +281,7 @@ export default function App() {
   const isHomePage = activePage === 'home' || (!isSettingsPage && !selectedDocumentId);
 
   return (
-    <main className="app-shell" data-theme={theme}>
+    <main className="app-shell">
       <section className="workspace">
         <DocumentSidebar
           appName={appName}
@@ -305,10 +300,7 @@ export default function App() {
           {error ? <p className="error">{error}</p> : null}
 
           {isSettingsPage ? (
-            <SettingsPage
-              onThemeChange={setTheme}
-              theme={theme}
-            />
+            <SettingsPage />
           ) : isGraphPage ? (
             <GraphPage
               documentId={selectedDocumentId}
