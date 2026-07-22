@@ -72,12 +72,7 @@ Example JSON document upload:
 }
 ```
 
-## Current database
+## Current databases
 
-Django uses local SQLite for framework tables:
-
-```text
-backend/db.sqlite3
-```
-
-The knowledge graph is exported separately to Neo4j using the scripts in `scripts/`.
+Django requires `DATABASE_URL` to point to Neon Postgres for framework tables.
+The knowledge graph uses Neo4j Aura through the `NEO4J_*` environment variables.

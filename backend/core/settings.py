@@ -158,25 +158,17 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DEFAULT_SQLITE_PATH = (
-    runtime_tmp_path("lyceum-db/db.sqlite3")
-    if IS_VERCEL
-    else BASE_DIR / "db.sqlite3"
-)
+DATABASE_URL = os.getenv("DATABASE_URL", "").strip()
+if not DATABASE_URL:
+    raise RuntimeError("DATABASE_URL must be set to the Neon Postgres connection string.")
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': env_path("DJANGO_SQLITE_NAME", DEFAULT_SQLITE_PATH),
-    }
-}
-DATABASE_URL = os.getenv("DATABASE_URL", "").strip()
-if DATABASE_URL:
-    DATABASES["default"] = dj_database_url.config(
+    "default": dj_database_url.config(
         default=DATABASE_URL,
         conn_max_age=int(os.getenv("DATABASE_CONN_MAX_AGE", "600")),
         conn_health_checks=True,
     )
+}
 
 AUTH_USER_MODEL = "users.User"
 
