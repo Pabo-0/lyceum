@@ -29,19 +29,25 @@ def segment_structure(
             return
 
         text = " ".join(part.strip() for part in paragraph_buffer if part.strip())
+        markdown = "\n".join(part.rstrip() for part in paragraph_buffer if part.strip())
         if text:
             parent = section_stack[-1] if section_stack else None
-            for piece in split_text_into_chunks(text, max_words=max_chunk_words):
+            for piece in split_text_into_chunks(
+                text,
+                max_words=max_chunk_words,
+                markdown=markdown,
+            ):
                 chunk_order += 1
                 chunk = ParagraphChunk(
                     chunk_id=f"chunk-{chunk_order}",
                     parent_section_id=parent.section_id if parent else None,
                     text=piece.text,
+                    markdown=piece.markdown,
                     order=chunk_order,
                     start_line=paragraph_start_line or end_line,
                     end_line=end_line,
                     word_count=piece.word_count,
-                    character_count=len(piece.text),
+                    character_count=len(piece.markdown or piece.text),
                     chunk_type=piece.chunk_type,
                 )
                 if parent:
@@ -66,6 +72,7 @@ def segment_structure(
                 heading=heading,
                 order=len(section_builders) + 1,
                 line_number=index,
+                markdown=line.rstrip() or heading.title,
                 section_stack=section_stack,
             )
             while section_stack and section_stack[-1].level >= builder.level:
@@ -77,7 +84,7 @@ def segment_structure(
 
         if paragraph_start_line is None:
             paragraph_start_line = index
-        paragraph_buffer.append(stripped)
+        paragraph_buffer.append(line.rstrip())
 
     flush_paragraph(len(lines))
     sections = [_finalize_section(builder, len(lines)) for builder in section_builders]
@@ -97,6 +104,7 @@ class _SectionBuilder:
         self,
         section_id: str,
         title: str,
+        markdown: str,
         level: int,
         order: int,
         heading_type: str,
@@ -106,6 +114,7 @@ class _SectionBuilder:
     ) -> None:
         self.section_id = section_id
         self.title = title
+        self.markdown = markdown
         self.level = level
         self.order = order
         self.heading_type = heading_type
@@ -119,6 +128,7 @@ def _create_section_builder(
     heading: HeadingCandidate,
     order: int,
     line_number: int,
+    markdown: str,
     section_stack: list[_SectionBuilder],
 ) -> _SectionBuilder:
     level = _effective_heading_level(heading, section_stack)
@@ -126,6 +136,7 @@ def _create_section_builder(
     return _SectionBuilder(
         section_id=f"section-{order}",
         title=heading.title,
+        markdown=markdown,
         level=level,
         order=order,
         heading_type=heading.heading_type,
@@ -169,6 +180,7 @@ def _finalize_section(builder: _SectionBuilder, document_end_line: int) -> Docum
         section_id=builder.section_id,
         parent_section_id=builder.parent_section_id,
         title=builder.title,
+        markdown=builder.markdown,
         level=builder.level,
         order=builder.order,
         heading_type=builder.heading_type,

@@ -13,6 +13,7 @@ from document_processing.neo4j_cypher import (
     build_neo4j_verification_cypher,
     graph_to_cypher,
 )
+from document_processing.phase2_graph_builder import build_phase2_graph
 from document_processing.storage import DocumentStore
 
 
@@ -37,7 +38,7 @@ def export_neo4j_cypher(
 
     for document in documents:
         metadata = document["metadata"]
-        graph = document.get("graph", {})
+        graph = build_phase2_graph(document)
         node_count += graph.get("node_count", 0)
         relationship_count += graph.get("relationship_count", 0)
         graph_exports.append(

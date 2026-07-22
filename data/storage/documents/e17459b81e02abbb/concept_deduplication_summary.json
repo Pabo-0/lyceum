@@ -1,8 +1,0 @@
-{
-  "concept_count": 2,
-  "mention_count": 3,
-  "variant_count": 0,
-  "normalization_methods": [
-    "lowercase_stopword_trim_simple_singular"
-  ]
-}

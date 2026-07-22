@@ -130,6 +130,38 @@ $env:NEO4J_PASSWORD = "tu_password"
 python scripts/load_neo4j.py
 ```
 
+### Neo4j AuraDB como fuente compartida
+
+El backend puede usar Neo4j AuraDB como fuente de verdad para que local y
+Vercel lean/escriban el mismo grafo.
+
+Variables de backend:
+
+```env
+LYCEUM_GRAPH_BACKEND=neo4j
+NEO4J_URI=neo4j+s://...
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=...
+NEO4J_DATABASE=neo4j
+NEO4J_SYNC_ON_INGEST=True
+```
+
+En local, si existe un archivo `Credentials/Neo4j-*.txt` junto a la carpeta
+`lyceum/`, Django puede leerlo automaticamente. En Vercel, configura las
+mismas variables como Environment Variables del proyecto.
+
+Migrar los grafos locales existentes a AuraDB:
+
+```powershell
+python scripts/migrate_to_neo4j_aura.py
+```
+
+Validar que los endpoints escriben y leen contra AuraDB:
+
+```powershell
+python scripts/smoke_neo4j_endpoints.py
+```
+
 ## Backend Django
 
 El backend vive en `backend/` y usa `core` como proyecto principal.

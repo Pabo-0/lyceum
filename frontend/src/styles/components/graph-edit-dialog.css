@@ -31,15 +31,119 @@
   border-bottom: 1px solid var(--color-border);
   display: grid;
   gap: 18px;
-  padding: 22px 28px 18px;
+  padding: 62px 28px 24px;
+  position: relative;
 }
 
 .graph-edit-header h2 {
   font-family: var(--font-heading);
-  font-size: var(--font-size-title-modal);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: var(--font-weight-title);
+  line-height: 1.05;
+  margin: 0;
+}
+
+.graph-edit-node-heading {
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+  min-width: 0;
+}
+
+.graph-edit-node-title {
+  overflow-wrap: anywhere;
+}
+
+.graph-edit-node-title.editable {
+  cursor: text;
+}
+
+.graph-edit-title-input {
+  background: var(--input-bg);
+  border: 1px solid var(--input-focus-border);
+  border-radius: var(--radius-input);
+  box-shadow: var(--shadow-focus);
+  color: var(--color-text-main);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.4rem);
   font-weight: var(--font-weight-title);
   line-height: 1.1;
-  margin: 0;
+  min-height: 64px;
+  min-width: 0;
+  outline: 0;
+  padding: 8px 10px;
+  width: 100%;
+}
+
+.node-type-picker {
+  justify-self: start;
+  position: relative;
+}
+
+.node-type-tag,
+.node-type-option {
+  --node-type-color: var(--color-accent);
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+}
+
+.node-type-tag {
+  background: color-mix(in srgb, var(--node-type-color) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--node-type-color) 62%, transparent);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-main);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-label);
+  min-height: 30px;
+  padding: 5px 10px;
+}
+
+.node-type-tag:disabled {
+  cursor: default;
+  opacity: 0.78;
+}
+
+.node-type-dot {
+  background: var(--node-type-color);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0 0 2px rgb(248 250 252 / 0.12);
+  display: inline-block;
+  height: 9px;
+  width: 9px;
+}
+
+.node-type-menu {
+  background: var(--modal-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  box-shadow: var(--shadow-floating);
+  display: grid;
+  gap: 4px;
+  left: 0;
+  min-width: 180px;
+  padding: 6px;
+  position: absolute;
+  top: calc(100% + 8px);
+  z-index: 2;
+}
+
+.node-type-option {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: calc(var(--radius-button) - 2px);
+  color: var(--color-text-main);
+  font-size: var(--font-size-label);
+  justify-content: flex-start;
+  min-height: 34px;
+  padding: 7px 9px;
+  text-align: left;
+}
+
+.node-type-option:hover,
+.node-type-option.selected {
+  background: color-mix(in srgb, var(--node-type-color) 18%, transparent);
+  border-color: color-mix(in srgb, var(--node-type-color) 50%, transparent);
 }
 
 .graph-edit-body {
@@ -91,18 +195,6 @@
   min-width: 140px;
 }
 
-.graph-edit-merge {
-  border-top: 1px solid var(--color-border);
-  display: grid;
-  gap: 10px;
-  padding-top: 14px;
-}
-
-.graph-edit-merge .secondary-button {
-  justify-self: start;
-  margin: 0;
-}
-
 .graph-edit-meta,
 .graph-edit-status,
 .graph-edit-error {
@@ -140,7 +232,7 @@
 
   .graph-edit-header {
     gap: 14px;
-    padding: 18px 18px 16px;
+    padding: 58px 18px 18px;
   }
 
   .graph-edit-body {

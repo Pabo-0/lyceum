@@ -4,11 +4,13 @@ import GraphEditDialog from '../components/GraphEditDialog.jsx';
 import GraphCanvas from '../components/GraphCanvas.jsx';
 import GraphControls from '../components/GraphControls.jsx';
 import NodeContentPopover from '../components/NodeContentPopover.jsx';
+import { isDedicatedContentNode } from '../utils/nodeContent.js';
 
 export default function GraphPage({
   graph,
-  graphMode,
   focusNodeId,
+  isLoading = false,
+  layoutResetVersion = 0,
   nodePositions,
   selectedNodeId,
   selectedRelationshipId,
@@ -19,12 +21,15 @@ export default function GraphPage({
   onUpdateRelationship,
   onDeleteRelationship,
   onMergeNodes,
-  onGraphModeChange,
+  onOpenNodeContent,
   onNodePositionChange,
+  onRequestReorganizeGraph,
   onSelectNode,
   onSelectRelationship,
 }) {
-  const selectedNode = graph?.nodes?.find((node) => node.node_id === selectedNodeId);
+  const selectedNode = isLoading
+    ? null
+    : graph?.nodes?.find((node) => node.node_id === selectedNodeId);
   const [editDialog, setEditDialog] = useState(null);
 
   async function createRelationshipFromCanvas(payload) {
@@ -32,57 +37,87 @@ export default function GraphPage({
     setEditDialog(null);
   }
 
+  function handleSelectNode(nodeId) {
+    const node = graph?.nodes?.find((candidate) => candidate.node_id === nodeId);
+    if (isDedicatedContentNode(node)) {
+      onSelectNode(nodeId);
+      onSelectRelationship(null);
+      onOpenNodeContent?.(nodeId);
+      return;
+    }
+    onSelectNode(nodeId);
+  }
+
+  function handleOpenNodeEditor(nodeId) {
+    onSelectNode(nodeId);
+    onSelectRelationship(null);
+    setEditDialog({ kind: 'node', nodeId });
+  }
+
   return (
     <section className="graph-page" aria-label="Grafo del documento">
       <div className="graph-layout">
         <section className="graph-workbench">
-          <GraphCanvas
-            focusNodeId={focusNodeId}
-            graph={graph}
-            graphMode={graphMode}
-            nodePositions={nodePositions}
-            onCreateRelationship={createRelationshipFromCanvas}
-            onGraphModeChange={onGraphModeChange}
-            onNodePositionChange={onNodePositionChange}
-            onOpenCreateNode={(payload) =>
-              setEditDialog({
-                kind: 'create-node',
-                position: payload.position,
-                sourceNodeId: payload.sourceNodeId || '',
-              })
-            }
-            onOpenNodeEditor={(nodeId) => setEditDialog({ kind: 'node', nodeId })}
-            onOpenRelationshipEditor={(relationshipId) =>
-              setEditDialog({ kind: 'relationship', relationshipId })
-            }
-            onSelectNode={onSelectNode}
-            onSelectRelationship={onSelectRelationship}
-            selectedNodeId={selectedNodeId}
-            selectedRelationshipId={selectedRelationshipId}
-          />
-
-          <GraphControls />
-          {graphMode === 'read' ? (
-            <NodeContentPopover node={selectedNode} onClose={() => onSelectNode('')} />
-          ) : null}
-
-          {graphMode === 'edit' ? (
-            <GraphEditDialog
-              action={editDialog}
+          {isLoading ? (
+            <GraphLoadingState />
+          ) : (
+            <GraphCanvas
+              focusNodeId={focusNodeId}
               graph={graph}
-              onClose={() => setEditDialog(null)}
-              onCreateNode={onCreateNode}
-              onCreateRelationship={onCreateRelationship}
-              onDeleteNode={onDeleteNode}
-              onDeleteRelationship={onDeleteRelationship}
-              onMergeNodes={onMergeNodes}
+              layoutResetVersion={layoutResetVersion}
+              nodePositions={nodePositions}
+              onCreateRelationship={createRelationshipFromCanvas}
               onNodePositionChange={onNodePositionChange}
-              onUpdateNode={onUpdateNode}
-              onUpdateRelationship={onUpdateRelationship}
+              onRequestReorganizeGraph={onRequestReorganizeGraph}
+              onOpenCreateNode={(payload) =>
+                setEditDialog({
+                  kind: 'create-node',
+                  position: payload.position,
+                  sourceNodeId: payload.sourceNodeId || '',
+                })
+              }
+              onOpenNodeEditor={handleOpenNodeEditor}
+              onOpenRelationshipEditor={(relationshipId) =>
+                setEditDialog({ kind: 'relationship', relationshipId })
+              }
+              onSelectNode={handleSelectNode}
+              onSelectRelationship={onSelectRelationship}
+              selectedNodeId={selectedNodeId}
+              selectedRelationshipId={selectedRelationshipId}
             />
-          ) : null}
+          )}
+
+          {isLoading ? null : (
+            <>
+              <GraphControls />
+              <NodeContentPopover node={selectedNode} onClose={() => onSelectNode('')} />
+            </>
+          )}
+
+          <GraphEditDialog
+            action={isLoading ? null : editDialog}
+            graph={graph}
+            onClose={() => setEditDialog(null)}
+            onCreateNode={onCreateNode}
+            onCreateRelationship={onCreateRelationship}
+            onDeleteNode={onDeleteNode}
+            onDeleteRelationship={onDeleteRelationship}
+            onMergeNodes={onMergeNodes}
+            onNodePositionChange={onNodePositionChange}
+            onUpdateNode={onUpdateNode}
+            onUpdateRelationship={onUpdateRelationship}
+          />
         </section>
       </div>
     </section>
+  );
+}
+
+function GraphLoadingState() {
+  return (
+    <div className="graph-loading-state" role="status" aria-live="polite">
+      <span className="graph-loading-spinner" aria-hidden="true" />
+      <span>Cargando grafo...</span>
+    </div>
   );
 }

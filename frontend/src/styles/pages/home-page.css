@@ -19,19 +19,36 @@
   font-weight: var(--font-weight-title);
   line-height: 1;
   padding-block: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.home-kicker,
+.home-meta {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-label);
+  margin: 0;
 }
 
 .home-copy {
   color: var(--color-text-secondary);
   font-size: 1.1rem;
   line-height: 1.75;
-  margin: 18px auto 26px;
+  margin: 12px auto;
   max-width: 560px;
+}
+
+.home-meta {
+  margin: 0 auto 26px;
 }
 
 @media (max-width: 860px) {
   .home-page {
     min-height: calc(100vh - 82px);
     padding: 18px 8px;
+  }
+
+  .home-center h1 {
+    font-size: 2.4rem;
   }
 }

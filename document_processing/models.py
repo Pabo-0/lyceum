@@ -194,6 +194,7 @@ class ParagraphChunk:
     chunk_id: str
     parent_section_id: str | None
     text: str
+    markdown: str
     order: int
     start_line: int
     end_line: int
@@ -210,6 +211,7 @@ class DocumentSection:
     section_id: str
     parent_section_id: str | None
     title: str
+    markdown: str
     level: int
     order: int
     heading_type: str
@@ -223,6 +225,7 @@ class DocumentSection:
             "section_id": self.section_id,
             "parent_section_id": self.parent_section_id,
             "title": self.title,
+            "markdown": self.markdown,
             "level": self.level,
             "order": self.order,
             "heading_type": self.heading_type,

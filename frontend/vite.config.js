@@ -10,11 +10,11 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     server: {
       port: Number(env.VITE_DEV_PORT || 5173),
+      allowedHosts: ['localhost', '127.0.0.1'],
       proxy: {
         '/api': {
           target: backendUrl,
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
         },
       },
     },

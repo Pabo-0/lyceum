@@ -8,8 +8,11 @@
 @import './styles/components/graph-controls.css';
 @import './styles/components/graph-canvas.css';
 @import './styles/components/graph-edit-dialog.css';
+@import './styles/components/markdown-renderer.css';
 @import './styles/components/node-content-popover.css';
+@import './styles/pages/auth-page.css';
 @import './styles/pages/home-page.css';
+@import './styles/pages/node-content-page.css';
 @import './styles/pages/graph-page.css';
 @import './styles/pages/settings-page.css';
 
@@ -124,6 +127,7 @@
   --graph-node-document: #2563EB;
   --graph-node-section: #0F8B7D;
   --graph-node-chunk: #475569;
+  --graph-node-content: #7C3AED;
   --graph-node-concept: #D9467F;
   --graph-node-prerequisite: #D97706;
   --graph-node-path: #7C3AED;
@@ -133,6 +137,7 @@
   --graph-edge-bidirectional: #8B5CF6;
   --graph-edge-semantic: #E11D48;
   --graph-edge-prerequisite: #F59E0B;
+  --graph-edge-evaluates: #7C3AED;
   --graph-edge-weak: #94A3B8;
   --graph-edge-opacity-weak: 0.46;
   --graph-edge-opacity-connected: 0.78;

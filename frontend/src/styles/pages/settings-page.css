@@ -1,11 +1,181 @@
 .settings-page {
+  align-items: center;
+  display: grid;
   min-height: calc(100vh - 36px);
   padding: 24px;
+}
+
+.settings-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-floating);
+  display: grid;
+  gap: 24px;
+  margin: 0 auto;
+  max-width: 760px;
+  padding: 24px;
+  width: min(100%, 760px);
+}
+
+.settings-header {
+  align-items: flex-start;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+}
+
+.settings-header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.settings-header h1 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-title-main);
+  line-height: 1.15;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.settings-icon-button {
+  align-items: center;
+  background: var(--button-secondary-bg);
+  border: 1px solid var(--button-secondary-border);
+  border-radius: var(--radius-button);
+  color: var(--button-secondary-text);
+  display: inline-flex;
+  height: 40px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 40px;
+}
+
+.settings-icon-button:hover {
+  background: var(--button-secondary-hover-bg);
+}
+
+.settings-action-icon {
+  fill: none;
+  height: 20px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  width: 20px;
+}
+
+.settings-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.settings-list div {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 150px minmax(0, 1fr);
+  padding-top: 12px;
+}
+
+.settings-list dt {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-label);
+}
+
+.settings-list dd {
+  color: var(--color-text-main);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.settings-delete-account {
+  justify-self: start;
+  margin: 0;
+}
+
+.logout-confirm-overlay {
+  align-items: center;
+  background: var(--color-overlay);
+  display: grid;
+  inset: 0;
+  padding: 24px;
+  place-items: center;
+  position: fixed;
+  z-index: 20;
+}
+
+.logout-confirm-dialog {
+  background: var(--modal-bg);
+  border: 1px solid var(--modal-border);
+  border-radius: var(--radius-modal);
+  box-shadow: var(--shadow-modal);
+  max-width: min(420px, 100%);
+  overflow: hidden;
+  width: 100%;
+}
+
+.logout-confirm-dialog header {
+  display: grid;
+  gap: 10px;
+  padding: 24px 26px 18px;
+}
+
+.logout-confirm-dialog h2 {
+  font-family: var(--font-heading);
+  font-size: 1.28rem;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.logout-confirm-dialog p {
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.logout-confirm-dialog footer {
+  background: var(--modal-footer-bg);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 16px 26px 20px;
+}
+
+.logout-confirm-dialog footer button {
+  margin: 0;
+  min-width: 120px;
 }
 
 @media (max-width: 860px) {
   .settings-page {
     min-height: calc(100vh - 82px);
     padding: 18px 8px;
+  }
+
+  .settings-header,
+  .settings-list div {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .settings-header-actions {
+    justify-content: flex-end;
+  }
+
+  .logout-confirm-dialog footer {
+    display: grid;
+  }
+
+  .logout-confirm-dialog footer button {
+    width: 100%;
   }
 }

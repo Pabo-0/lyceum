@@ -12,6 +12,7 @@ from document_processing.config import (
 from document_processing.metadata import normalize_source_path
 from document_processing.models import StoredDocument
 from document_processing.neo4j_cypher import graph_to_cypher
+from document_processing.phase2_graph_builder import build_phase2_graph
 
 
 class DocumentStore:
@@ -217,7 +218,10 @@ class DocumentStore:
                 break
 
         self._write_json(graph_path, graph)
-        self._write_text(document_dir / "neo4j.cypher", graph_to_cypher(graph))
+        self._write_text(
+            document_dir / "neo4j.cypher",
+            graph_to_cypher(build_phase2_graph(self.load_document(document_id))),
+        )
 
         index = self.load_index()
         updated_index = False
@@ -291,7 +295,10 @@ class DocumentStore:
         )
         graph = document.graph.to_dict()
         self._write_json(document_dir / "graph.json", graph)
-        self._write_text(document_dir / "neo4j.cypher", graph_to_cypher(graph))
+        self._write_text(
+            document_dir / "neo4j.cypher",
+            graph_to_cypher(build_phase2_graph(document.to_dict())),
+        )
         self._write_text(document_dir / "original.txt", document.original_content)
         self._write_text(document_dir / "normalized.txt", document.normalized_content)
         self._write_json(

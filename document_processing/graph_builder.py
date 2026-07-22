@@ -24,8 +24,8 @@ def build_initial_graph(
     """Build the MVP reading graph.
 
     The pipeline still stores concept and semantic-analysis files for later
-    developer work. The user-facing graph intentionally shows only the reading
-    structure: document, sections and chunks.
+    developer work. The user-facing graph shows the reading structure:
+    document, sections and information chunks.
     """
     document_id = metadata.document_id
     nodes: list[GraphNode] = []
@@ -46,40 +46,40 @@ def build_initial_graph(
                 "title": metadata.title,
                 "source_path": metadata.source_path,
                 "source_extension": metadata.source_extension,
+                "created_at": metadata.created_at,
                 "processing_status": metadata.processing_status,
+                "character_count": metadata.character_count,
                 "word_count": metadata.word_count,
                 "paragraph_count": metadata.paragraph_count,
                 "reading_graph_compaction": reading_structure.compaction_method,
                 "visible_section_count": reading_structure.section_count,
                 "visible_chunk_count": reading_structure.chunk_count,
                 "max_visible_sections": reading_structure.max_visible_sections,
+                **_content_properties(""),
             },
         )
     )
 
     section_node_ids: dict[str, str] = {}
-    chunk_node_ids: dict[str, str] = {}
     relationships.extend(
-        _build_section_and_chunk_graph(
+        _build_section_graph(
             document_id=document_id,
             document_node_id=document_node_id,
             reading_structure=reading_structure,
             nodes=nodes,
             section_node_ids=section_node_ids,
-            chunk_node_ids=chunk_node_ids,
         )
     )
 
     return _build_graph_result(nodes, relationships)
 
 
-def _build_section_and_chunk_graph(
+def _build_section_graph(
     document_id: str,
     document_node_id: str,
     reading_structure,
     nodes: list[GraphNode],
     section_node_ids: dict[str, str],
-    chunk_node_ids: dict[str, str],
 ) -> list[GraphRelationship]:
     relationships: list[GraphRelationship] = []
     used_chunk_title_terms: set[str] = set()
@@ -87,6 +87,7 @@ def _build_section_and_chunk_graph(
     for section in reading_structure.sections:
         section_node_id = _section_node_id(document_id, section.section_id)
         section_node_ids[section.section_id] = section_node_id
+        section_chunk_ids = _section_chunk_ids(section)
         nodes.append(
             GraphNode(
                 node_id=section_node_id,
@@ -103,7 +104,12 @@ def _build_section_and_chunk_graph(
                     "source_section_ids": section.source_section_ids,
                     "source_section_titles": section.source_section_titles,
                     "source_section_count": len(section.source_section_ids),
+                    "source_chunk_ids": section_chunk_ids,
+                    "source_chunk_count": len(section_chunk_ids),
                     "compaction_method": section.compaction_method,
+                    "word_count": sum(chunk.word_count for chunk in section.chunks),
+                    "character_count": sum(chunk.character_count for chunk in section.chunks),
+                    **_content_properties(section.title, section.markdown),
                 },
             )
         )
@@ -111,25 +117,24 @@ def _build_section_and_chunk_graph(
         if section.parent_section_id:
             relationships.append(
                 _relationship(
-                    "DIRECTIONAL",
+                    "CONTAINS",
                     section_node_ids[section.parent_section_id],
                     section_node_id,
-                    {"order": section.order, "role": "contains_subsection"},
+                    {"order": section.order, "role": "subsection"},
                 )
             )
         else:
             relationships.append(
                 _relationship(
-                    "DIRECTIONAL",
+                    "CONTAINS",
                     document_node_id,
                     section_node_id,
-                    {"order": section.order, "role": "contains_section"},
+                    {"order": section.order, "role": "section"},
                 )
             )
 
         for chunk in section.chunks:
             chunk_node_id = _chunk_node_id(document_id, chunk.chunk_id)
-            chunk_node_ids[chunk.chunk_id] = chunk_node_id
             chunk_title = build_chunk_title_from_text(
                 chunk.text,
                 section_title=section.title,
@@ -150,23 +155,28 @@ def _build_section_and_chunk_graph(
                         "order": chunk.order,
                         "start_line": chunk.start_line,
                         "end_line": chunk.end_line,
+                        "start_position": chunk.start_line,
+                        "end_position": chunk.end_line,
                         "word_count": chunk.word_count,
                         "character_count": chunk.character_count,
                         "chunk_type": chunk.chunk_type,
+                        "token_count": _estimate_token_count(chunk.text),
+                        "source_hash": _hash_text(chunk.markdown or chunk.text),
                         "source_chunk_ids": chunk.source_chunk_ids,
                         "source_chunk_count": len(chunk.source_chunk_ids),
                         "source_section_ids": chunk.source_section_ids,
                         "source_section_titles": chunk.source_section_titles,
                         "source_section_count": len(chunk.source_section_ids),
+                        **_content_properties(chunk.text, chunk.markdown),
                     },
                 )
             )
             relationships.append(
                 _relationship(
-                    "DIRECTIONAL",
+                    "CONTAINS",
                     section_node_id,
                     chunk_node_id,
-                    {"order": chunk.order, "role": "contains_chunk"},
+                    {"order": chunk.order, "role": "chunk"},
                 )
             )
 
@@ -208,6 +218,44 @@ def _chunk_node_id(document_id: str, chunk_id: str) -> str:
     return f"chunk:{document_id}:{chunk_id}"
 
 
+def _section_chunk_ids(section) -> list[str]:
+    chunk_ids: list[str] = []
+    for chunk in section.chunks:
+        for chunk_id in chunk.source_chunk_ids or [chunk.chunk_id]:
+            if chunk_id not in chunk_ids:
+                chunk_ids.append(chunk_id)
+    return chunk_ids
+
+
+def _content_properties(text: str, markdown: str | None = None) -> dict:
+    content_text = str(text or "")
+    content_markdown = str(markdown if markdown is not None else content_text)
+    return {
+        "content_json": _plain_text_doc(content_text),
+        "content_markdown": content_markdown or content_text,
+        "content_text": content_text,
+        "content_version": 1,
+    }
+
+
+def _plain_text_doc(text: str) -> dict:
+    paragraphs = [
+        paragraph.strip()
+        for paragraph in str(text or "").split("\n\n")
+        if paragraph.strip()
+    ]
+    return {
+        "type": "doc",
+        "content": [
+            {
+                "type": "paragraph",
+                "content": [{"type": "text", "text": paragraph}],
+            }
+            for paragraph in paragraphs
+        ],
+    }
+
+
 def _relationship(
     relationship_type: str,
     source_id: str,
@@ -243,3 +291,14 @@ def _relationship_id(
         f"{relationship_type}:{source_id}:{target_id}:{stable_properties}".encode("utf-8")
     ).hexdigest()[:16]
     return f"relationship:{digest}"
+
+
+def _estimate_token_count(text: str) -> int:
+    words = len(str(text or "").split())
+    if not words:
+        return 0
+    return max(1, int(words * 1.3))
+
+
+def _hash_text(value: str) -> str:
+    return sha256(str(value or "").encode("utf-8")).hexdigest()

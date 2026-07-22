@@ -1,0 +1,2023 @@
+{
+  "sections": [
+    {
+      "section_id": "section-1",
+      "parent_section_id": null,
+      "title": "Ecosistema de aprendizaje profundo para una ciudad inteligente",
+      "markdown": "# Ecosistema de aprendizaje profundo para una ciudad inteligente",
+      "level": 1,
+      "order": 1,
+      "heading_type": "markdown",
+      "numbering": null,
+      "start_line": 1,
+      "end_line": 1,
+      "chunks": []
+    },
+    {
+      "section_id": "section-2",
+      "parent_section_id": "section-1",
+      "title": "Introduccion general",
+      "markdown": "## Introduccion general",
+      "level": 2,
+      "order": 2,
+      "heading_type": "markdown",
+      "numbering": null,
+      "start_line": 3,
+      "end_line": 7,
+      "chunks": [
+        {
+          "chunk_id": "chunk-1",
+          "parent_section_id": "section-2",
+          "text": "Una ciudad inteligente no es solamente una ciudad llena de sensores. Es un sistema social, tecnico y administrativo que intenta convertir datos dispersos en decisiones utiles. Para que ese proceso funcione, la ciudad necesita infraestructura digital, reglas de gobernanza, modelos de analisis, equipos humanos capaces de interpretar resultados y mecanismos de participacion publica.",
+          "markdown": "Una ciudad inteligente no es solamente una ciudad llena de sensores. Es un sistema social, tecnico y administrativo que intenta convertir datos dispersos en decisiones utiles. Para que ese proceso funcione, la ciudad necesita infraestructura digital, reglas de gobernanza, modelos de analisis, equipos humanos capaces de interpretar resultados y mecanismos de participacion publica.",
+          "order": 1,
+          "start_line": 5,
+          "end_line": 5,
+          "word_count": 53,
+          "character_count": 382,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-2",
+          "parent_section_id": "section-2",
+          "text": "Este documento describe un escenario amplio para probar como Lyceum procesa informacion extensa, organizada y con muchos niveles de estructura. El tema principal es el diseno de un ecosistema de aprendizaje profundo aplicado a movilidad, energia, salud publica, educacion, seguridad, agua, residuos y participacion ciudadana.",
+          "markdown": "Este documento describe un escenario amplio para probar como Lyceum procesa informacion extensa, organizada y con muchos niveles de estructura. El tema principal es el diseno de un ecosistema de aprendizaje profundo aplicado a movilidad, energia, salud publica, educacion, seguridad, agua, residuos y participacion ciudadana.",
+          "order": 2,
+          "start_line": 7,
+          "end_line": 7,
+          "word_count": 45,
+          "character_count": 325,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-3",
+      "parent_section_id": "section-1",
+      "title": "1. Marco conceptual",
+      "markdown": "## 1. Marco conceptual",
+      "level": 2,
+      "order": 3,
+      "heading_type": "markdown",
+      "numbering": "1",
+      "start_line": 9,
+      "end_line": 9,
+      "chunks": []
+    },
+    {
+      "section_id": "section-4",
+      "parent_section_id": "section-3",
+      "title": "1.1 Ciudad como sistema complejo",
+      "markdown": "### 1.1 Ciudad como sistema complejo",
+      "level": 3,
+      "order": 4,
+      "heading_type": "markdown",
+      "numbering": "1.1",
+      "start_line": 11,
+      "end_line": 15,
+      "chunks": [
+        {
+          "chunk_id": "chunk-3",
+          "parent_section_id": "section-4",
+          "text": "Una ciudad combina flujos de personas, bienes, energia, informacion y decisiones. Cada flujo tiene patrones propios, pero tambien depende de los demas. Un cambio en transporte publico puede modificar el consumo electrico, la calidad del aire, el uso de espacios publicos y la puntualidad escolar.",
+          "markdown": "Una ciudad combina flujos de personas, bienes, energia, informacion y decisiones. Cada flujo tiene patrones propios, pero tambien depende de los demas. Un cambio en transporte publico puede modificar el consumo electrico, la calidad del aire, el uso de espacios publicos y la puntualidad escolar.",
+          "order": 3,
+          "start_line": 13,
+          "end_line": 13,
+          "word_count": 45,
+          "character_count": 296,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-4",
+          "parent_section_id": "section-4",
+          "text": "Desde una perspectiva de sistemas complejos, la ciudad no puede entenderse como una suma simple de edificios, avenidas y servicios. El comportamiento urbano emerge de interacciones entre actores, normas, tecnologias y restricciones materiales. Por eso, un modelo predictivo debe considerar relaciones indirectas y efectos acumulativos.",
+          "markdown": "Desde una perspectiva de sistemas complejos, la ciudad no puede entenderse como una suma simple de edificios, avenidas y servicios. El comportamiento urbano emerge de interacciones entre actores, normas, tecnologias y restricciones materiales. Por eso, un modelo predictivo debe considerar relaciones indirectas y efectos acumulativos.",
+          "order": 4,
+          "start_line": 15,
+          "end_line": 15,
+          "word_count": 45,
+          "character_count": 335,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-5",
+      "parent_section_id": "section-3",
+      "title": "1.2 Datos urbanos",
+      "markdown": "### 1.2 Datos urbanos",
+      "level": 3,
+      "order": 5,
+      "heading_type": "markdown",
+      "numbering": "1.2",
+      "start_line": 17,
+      "end_line": 21,
+      "chunks": [
+        {
+          "chunk_id": "chunk-5",
+          "parent_section_id": "section-5",
+          "text": "Los datos urbanos provienen de fuentes heterogeneas. Algunas fuentes son continuas, como sensores de trafico, medidores de energia o estaciones de calidad del aire. Otras fuentes son periodicas, como censos, encuestas de movilidad, reportes escolares o inspecciones de infraestructura.",
+          "markdown": "Los datos urbanos provienen de fuentes heterogeneas. Algunas fuentes son continuas, como sensores de trafico, medidores de energia o estaciones de calidad del aire. Otras fuentes son periodicas, como censos, encuestas de movilidad, reportes escolares o inspecciones de infraestructura.",
+          "order": 5,
+          "start_line": 19,
+          "end_line": 19,
+          "word_count": 39,
+          "character_count": 285,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-6",
+          "parent_section_id": "section-5",
+          "text": "La calidad de los datos depende de su precision, cobertura, frecuencia, estabilidad y contexto. Un sensor puede registrar una medida exacta, pero si no se conoce su ubicacion, calibracion o periodo de mantenimiento, el dato puede producir conclusiones debiles.",
+          "markdown": "La calidad de los datos depende de su precision, cobertura, frecuencia, estabilidad y contexto. Un sensor puede registrar una medida exacta, pero si no se conoce su ubicacion, calibracion o periodo de mantenimiento, el dato puede producir conclusiones debiles.",
+          "order": 6,
+          "start_line": 21,
+          "end_line": 21,
+          "word_count": 39,
+          "character_count": 260,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-6",
+      "parent_section_id": "section-3",
+      "title": "1.3 Aprendizaje profundo",
+      "markdown": "### 1.3 Aprendizaje profundo",
+      "level": 3,
+      "order": 6,
+      "heading_type": "markdown",
+      "numbering": "1.3",
+      "start_line": 23,
+      "end_line": 27,
+      "chunks": [
+        {
+          "chunk_id": "chunk-7",
+          "parent_section_id": "section-6",
+          "text": "El aprendizaje profundo usa redes neuronales con muchas capas para reconocer patrones en imagenes, texto, audio, series temporales y grafos. En una ciudad inteligente, estas tecnicas pueden usarse para prediccion de demanda, deteccion de anomalias, clasificacion de documentos, estimacion de riesgo y simulacion de escenarios.",
+          "markdown": "El aprendizaje profundo usa redes neuronales con muchas capas para reconocer patrones en imagenes, texto, audio, series temporales y grafos. En una ciudad inteligente, estas tecnicas pueden usarse para prediccion de demanda, deteccion de anomalias, clasificacion de documentos, estimacion de riesgo y simulacion de escenarios.",
+          "order": 7,
+          "start_line": 25,
+          "end_line": 25,
+          "word_count": 45,
+          "character_count": 326,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-8",
+          "parent_section_id": "section-6",
+          "text": "Sin embargo, el aprendizaje profundo no reemplaza la interpretacion humana. Un modelo puede detectar correlaciones, pero la decision publica requiere explicar causas probables, evaluar impactos y justificar acciones ante la comunidad.",
+          "markdown": "Sin embargo, el aprendizaje profundo no reemplaza la interpretacion humana. Un modelo puede detectar correlaciones, pero la decision publica requiere explicar causas probables, evaluar impactos y justificar acciones ante la comunidad.",
+          "order": 8,
+          "start_line": 27,
+          "end_line": 27,
+          "word_count": 31,
+          "character_count": 234,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-7",
+      "parent_section_id": "section-1",
+      "title": "2. Arquitectura de datos",
+      "markdown": "## 2. Arquitectura de datos",
+      "level": 2,
+      "order": 7,
+      "heading_type": "markdown",
+      "numbering": "2",
+      "start_line": 29,
+      "end_line": 29,
+      "chunks": []
+    },
+    {
+      "section_id": "section-8",
+      "parent_section_id": "section-7",
+      "title": "2.1 Captura",
+      "markdown": "### 2.1 Captura",
+      "level": 3,
+      "order": 8,
+      "heading_type": "markdown",
+      "numbering": "2.1",
+      "start_line": 31,
+      "end_line": 35,
+      "chunks": [
+        {
+          "chunk_id": "chunk-9",
+          "parent_section_id": "section-8",
+          "text": "La captura de datos comienza en dispositivos, formularios, sistemas administrativos y reportes ciudadanos. Cada fuente debe registrar metadatos basicos: fecha, ubicacion, responsable, metodo de recoleccion, unidad de medida y condiciones relevantes.",
+          "markdown": "La captura de datos comienza en dispositivos, formularios, sistemas administrativos y reportes ciudadanos. Cada fuente debe registrar metadatos basicos: fecha, ubicacion, responsable, metodo de recoleccion, unidad de medida y condiciones relevantes.",
+          "order": 9,
+          "start_line": 33,
+          "end_line": 33,
+          "word_count": 31,
+          "character_count": 249,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-10",
+          "parent_section_id": "section-8",
+          "text": "En movilidad, por ejemplo, la captura puede incluir conteo vehicular, velocidad promedio, uso de bicicleta publica, ocupacion de autobuses, incidentes viales y tiempos de traslado. En energia, puede incluir consumo por zona, carga maxima, generacion distribuida y fallas de suministro.",
+          "markdown": "En movilidad, por ejemplo, la captura puede incluir conteo vehicular, velocidad promedio, uso de bicicleta publica, ocupacion de autobuses, incidentes viales y tiempos de traslado. En energia, puede incluir consumo por zona, carga maxima, generacion distribuida y fallas de suministro.",
+          "order": 10,
+          "start_line": 35,
+          "end_line": 35,
+          "word_count": 40,
+          "character_count": 285,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-9",
+      "parent_section_id": "section-7",
+      "title": "2.2 Ingestion",
+      "markdown": "### 2.2 Ingestion",
+      "level": 3,
+      "order": 9,
+      "heading_type": "markdown",
+      "numbering": "2.2",
+      "start_line": 37,
+      "end_line": 41,
+      "chunks": [
+        {
+          "chunk_id": "chunk-11",
+          "parent_section_id": "section-9",
+          "text": "La ingestion transforma datos crudos en registros almacenables. Este proceso valida formatos, elimina duplicados evidentes, normaliza unidades y asigna identificadores. Una ingestion robusta evita que errores pequenos contaminen analisis posteriores.",
+          "markdown": "La ingestion transforma datos crudos en registros almacenables. Este proceso valida formatos, elimina duplicados evidentes, normaliza unidades y asigna identificadores. Una ingestion robusta evita que errores pequenos contaminen analisis posteriores.",
+          "order": 11,
+          "start_line": 39,
+          "end_line": 39,
+          "word_count": 30,
+          "character_count": 250,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-12",
+          "parent_section_id": "section-9",
+          "text": "Un sistema urbano debe aceptar archivos CSV, documentos de texto, imagenes, flujos de eventos, bases relacionales y datos geoespaciales. Tambien debe registrar errores sin detener todo el proceso, porque las fuentes publicas suelen ser irregulares.",
+          "markdown": "Un sistema urbano debe aceptar archivos CSV, documentos de texto, imagenes, flujos de eventos, bases relacionales y datos geoespaciales. Tambien debe registrar errores sin detener todo el proceso, porque las fuentes publicas suelen ser irregulares.",
+          "order": 12,
+          "start_line": 41,
+          "end_line": 41,
+          "word_count": 35,
+          "character_count": 248,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-10",
+      "parent_section_id": "section-7",
+      "title": "2.3 Almacenamiento",
+      "markdown": "### 2.3 Almacenamiento",
+      "level": 3,
+      "order": 10,
+      "heading_type": "markdown",
+      "numbering": "2.3",
+      "start_line": 43,
+      "end_line": 47,
+      "chunks": [
+        {
+          "chunk_id": "chunk-13",
+          "parent_section_id": "section-10",
+          "text": "El almacenamiento puede organizarse en capas. Una capa conserva datos originales para auditoria. Otra capa contiene datos limpios y normalizados. Una tercera capa almacena representaciones analiticas, como vectores, embeddings, grafos o agregados temporales.",
+          "markdown": "El almacenamiento puede organizarse en capas. Una capa conserva datos originales para auditoria. Otra capa contiene datos limpios y normalizados. Una tercera capa almacena representaciones analiticas, como vectores, embeddings, grafos o agregados temporales.",
+          "order": 13,
+          "start_line": 45,
+          "end_line": 45,
+          "word_count": 33,
+          "character_count": 258,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-14",
+          "parent_section_id": "section-10",
+          "text": "La separacion de capas permite reproducibilidad. Si un modelo produce una prediccion incorrecta, el equipo puede volver al dato original, revisar la limpieza, examinar la transformacion y detectar en que punto se genero el problema.",
+          "markdown": "La separacion de capas permite reproducibilidad. Si un modelo produce una prediccion incorrecta, el equipo puede volver al dato original, revisar la limpieza, examinar la transformacion y detectar en que punto se genero el problema.",
+          "order": 14,
+          "start_line": 47,
+          "end_line": 47,
+          "word_count": 35,
+          "character_count": 232,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-11",
+      "parent_section_id": "section-7",
+      "title": "2.4 Catalogacion",
+      "markdown": "### 2.4 Catalogacion",
+      "level": 3,
+      "order": 11,
+      "heading_type": "markdown",
+      "numbering": "2.4",
+      "start_line": 49,
+      "end_line": 53,
+      "chunks": [
+        {
+          "chunk_id": "chunk-15",
+          "parent_section_id": "section-11",
+          "text": "La catalogacion describe los conjuntos de datos disponibles. Incluye origen, propietario, licencia, sensibilidad, cobertura temporal, cobertura geografica, actualizacion, calidad y dependencias. Sin catalogo, los equipos terminan repitiendo trabajo o usando datos obsoletos.",
+          "markdown": "La catalogacion describe los conjuntos de datos disponibles. Incluye origen, propietario, licencia, sensibilidad, cobertura temporal, cobertura geografica, actualizacion, calidad y dependencias. Sin catalogo, los equipos terminan repitiendo trabajo o usando datos obsoletos.",
+          "order": 15,
+          "start_line": 51,
+          "end_line": 51,
+          "word_count": 32,
+          "character_count": 274,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-16",
+          "parent_section_id": "section-11",
+          "text": "Un buen catalogo no solo lista tablas. Tambien explica conceptos. Por ejemplo, \"viaje\" puede significar una tarjeta validada, un desplazamiento completo, una ruta segmentada o una solicitud de transporte. Esas diferencias cambian el analisis.",
+          "markdown": "Un buen catalogo no solo lista tablas. Tambien explica conceptos. Por ejemplo, \"viaje\" puede significar una tarjeta validada, un desplazamiento completo, una ruta segmentada o una solicitud de transporte. Esas diferencias cambian el analisis.",
+          "order": 16,
+          "start_line": 53,
+          "end_line": 53,
+          "word_count": 34,
+          "character_count": 242,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-12",
+      "parent_section_id": "section-1",
+      "title": "3. Modelos por dominio",
+      "markdown": "## 3. Modelos por dominio",
+      "level": 2,
+      "order": 12,
+      "heading_type": "markdown",
+      "numbering": "3",
+      "start_line": 55,
+      "end_line": 55,
+      "chunks": []
+    },
+    {
+      "section_id": "section-13",
+      "parent_section_id": "section-12",
+      "title": "3.1 Movilidad",
+      "markdown": "### 3.1 Movilidad",
+      "level": 3,
+      "order": 13,
+      "heading_type": "markdown",
+      "numbering": "3.1",
+      "start_line": 57,
+      "end_line": 57,
+      "chunks": []
+    },
+    {
+      "section_id": "section-14",
+      "parent_section_id": "section-13",
+      "title": "3.1.1 Prediccion de demanda",
+      "markdown": "#### 3.1.1 Prediccion de demanda",
+      "level": 4,
+      "order": 14,
+      "heading_type": "markdown",
+      "numbering": "3.1.1",
+      "start_line": 59,
+      "end_line": 63,
+      "chunks": [
+        {
+          "chunk_id": "chunk-17",
+          "parent_section_id": "section-14",
+          "text": "La prediccion de demanda estima cuantos usuarios usaran una linea, una estacion o una ruta en diferentes horarios. Puede combinar series temporales, clima, calendario escolar, eventos masivos y cambios operativos.",
+          "markdown": "La prediccion de demanda estima cuantos usuarios usaran una linea, una estacion o una ruta en diferentes horarios. Puede combinar series temporales, clima, calendario escolar, eventos masivos y cambios operativos.",
+          "order": 17,
+          "start_line": 61,
+          "end_line": 61,
+          "word_count": 30,
+          "character_count": 213,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-18",
+          "parent_section_id": "section-14",
+          "text": "Un modelo de demanda debe distinguir patrones normales de eventos excepcionales. La lluvia puede aumentar ciertos viajes y reducir otros. Un concierto puede saturar una estacion cercana durante una ventana corta, mientras que una obra vial puede modificar rutas durante semanas.",
+          "markdown": "Un modelo de demanda debe distinguir patrones normales de eventos excepcionales. La lluvia puede aumentar ciertos viajes y reducir otros. Un concierto puede saturar una estacion cercana durante una ventana corta, mientras que una obra vial puede modificar rutas durante semanas.",
+          "order": 18,
+          "start_line": 63,
+          "end_line": 63,
+          "word_count": 41,
+          "character_count": 278,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-15",
+      "parent_section_id": "section-13",
+      "title": "3.1.2 Optimizacion de rutas",
+      "markdown": "#### 3.1.2 Optimizacion de rutas",
+      "level": 4,
+      "order": 15,
+      "heading_type": "markdown",
+      "numbering": "3.1.2",
+      "start_line": 65,
+      "end_line": 69,
+      "chunks": [
+        {
+          "chunk_id": "chunk-19",
+          "parent_section_id": "section-15",
+          "text": "La optimizacion de rutas busca reducir tiempos de espera, mejorar cobertura y equilibrar costos. Los modelos pueden sugerir cambios de frecuencia, redistribucion de unidades o ajustes de paradas.",
+          "markdown": "La optimizacion de rutas busca reducir tiempos de espera, mejorar cobertura y equilibrar costos. Los modelos pueden sugerir cambios de frecuencia, redistribucion de unidades o ajustes de paradas.",
+          "order": 19,
+          "start_line": 67,
+          "end_line": 67,
+          "word_count": 28,
+          "character_count": 195,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-20",
+          "parent_section_id": "section-15",
+          "text": "Pero una ruta no debe evaluarse solo por eficiencia promedio. Tambien importa la equidad. Una colonia con menos pasajeros puede necesitar servicio porque conecta a poblaciones con menor acceso a empleo, salud o educacion.",
+          "markdown": "Pero una ruta no debe evaluarse solo por eficiencia promedio. Tambien importa la equidad. Una colonia con menos pasajeros puede necesitar servicio porque conecta a poblaciones con menor acceso a empleo, salud o educacion.",
+          "order": 20,
+          "start_line": 69,
+          "end_line": 69,
+          "word_count": 34,
+          "character_count": 221,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-16",
+      "parent_section_id": "section-12",
+      "title": "3.2 Energia",
+      "markdown": "### 3.2 Energia",
+      "level": 3,
+      "order": 16,
+      "heading_type": "markdown",
+      "numbering": "3.2",
+      "start_line": 71,
+      "end_line": 71,
+      "chunks": []
+    },
+    {
+      "section_id": "section-17",
+      "parent_section_id": "section-16",
+      "title": "3.2.1 Demanda electrica",
+      "markdown": "#### 3.2.1 Demanda electrica",
+      "level": 4,
+      "order": 17,
+      "heading_type": "markdown",
+      "numbering": "3.2.1",
+      "start_line": 73,
+      "end_line": 77,
+      "chunks": [
+        {
+          "chunk_id": "chunk-21",
+          "parent_section_id": "section-17",
+          "text": "La demanda electrica cambia por temperatura, actividad economica, densidad habitacional, horarios laborales y adopcion de tecnologias. Los modelos pueden anticipar picos, detectar anomalias y estimar necesidades de mantenimiento.",
+          "markdown": "La demanda electrica cambia por temperatura, actividad economica, densidad habitacional, horarios laborales y adopcion de tecnologias. Los modelos pueden anticipar picos, detectar anomalias y estimar necesidades de mantenimiento.",
+          "order": 21,
+          "start_line": 75,
+          "end_line": 75,
+          "word_count": 28,
+          "character_count": 229,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-22",
+          "parent_section_id": "section-17",
+          "text": "La prediccion energetica debe considerar incertidumbre. Una ola de calor puede elevar el uso de aire acondicionado y tensionar la red. Un modelo que entregue intervalos de confianza ayuda a planear respuestas preventivas.",
+          "markdown": "La prediccion energetica debe considerar incertidumbre. Una ola de calor puede elevar el uso de aire acondicionado y tensionar la red. Un modelo que entregue intervalos de confianza ayuda a planear respuestas preventivas.",
+          "order": 22,
+          "start_line": 77,
+          "end_line": 77,
+          "word_count": 33,
+          "character_count": 221,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-18",
+      "parent_section_id": "section-16",
+      "title": "3.2.2 Generacion distribuida",
+      "markdown": "#### 3.2.2 Generacion distribuida",
+      "level": 4,
+      "order": 18,
+      "heading_type": "markdown",
+      "numbering": "3.2.2",
+      "start_line": 79,
+      "end_line": 83,
+      "chunks": [
+        {
+          "chunk_id": "chunk-23",
+          "parent_section_id": "section-18",
+          "text": "Los paneles solares, baterias y microredes generan nuevos patrones. La ciudad puede pasar de un esquema centralizado a uno mixto, donde algunos barrios producen parte de su energia.",
+          "markdown": "Los paneles solares, baterias y microredes generan nuevos patrones. La ciudad puede pasar de un esquema centralizado a uno mixto, donde algunos barrios producen parte de su energia.",
+          "order": 23,
+          "start_line": 81,
+          "end_line": 81,
+          "word_count": 28,
+          "character_count": 181,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-24",
+          "parent_section_id": "section-18",
+          "text": "El aprendizaje profundo puede ayudar a estimar generacion esperada, identificar fallas y coordinar almacenamiento. Aun asi, las decisiones deben alinearse con regulaciones, seguridad y capacidad financiera de los usuarios.",
+          "markdown": "El aprendizaje profundo puede ayudar a estimar generacion esperada, identificar fallas y coordinar almacenamiento. Aun asi, las decisiones deben alinearse con regulaciones, seguridad y capacidad financiera de los usuarios.",
+          "order": 24,
+          "start_line": 83,
+          "end_line": 83,
+          "word_count": 29,
+          "character_count": 222,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-19",
+      "parent_section_id": "section-12",
+      "title": "3.3 Salud publica",
+      "markdown": "### 3.3 Salud publica",
+      "level": 3,
+      "order": 19,
+      "heading_type": "markdown",
+      "numbering": "3.3",
+      "start_line": 85,
+      "end_line": 85,
+      "chunks": []
+    },
+    {
+      "section_id": "section-20",
+      "parent_section_id": "section-19",
+      "title": "3.3.1 Vigilancia epidemiologica",
+      "markdown": "#### 3.3.1 Vigilancia epidemiologica",
+      "level": 4,
+      "order": 20,
+      "heading_type": "markdown",
+      "numbering": "3.3.1",
+      "start_line": 87,
+      "end_line": 91,
+      "chunks": [
+        {
+          "chunk_id": "chunk-25",
+          "parent_section_id": "section-20",
+          "text": "La vigilancia epidemiologica analiza consultas, sintomas reportados, ventas de medicamentos, ausentismo escolar y datos ambientales. El objetivo es detectar cambios tempranos que indiquen un brote o un riesgo emergente.",
+          "markdown": "La vigilancia epidemiologica analiza consultas, sintomas reportados, ventas de medicamentos, ausentismo escolar y datos ambientales. El objetivo es detectar cambios tempranos que indiquen un brote o un riesgo emergente.",
+          "order": 25,
+          "start_line": 89,
+          "end_line": 89,
+          "word_count": 29,
+          "character_count": 219,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-26",
+          "parent_section_id": "section-20",
+          "text": "Los modelos deben manejar sesgos. Una zona con pocos reportes no necesariamente tiene menos enfermedad; puede tener menor acceso a clinicas o menor confianza en instituciones. Por eso, los resultados deben contrastarse con conocimiento local.",
+          "markdown": "Los modelos deben manejar sesgos. Una zona con pocos reportes no necesariamente tiene menos enfermedad; puede tener menor acceso a clinicas o menor confianza en instituciones. Por eso, los resultados deben contrastarse con conocimiento local.",
+          "order": 26,
+          "start_line": 91,
+          "end_line": 91,
+          "word_count": 35,
+          "character_count": 242,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-21",
+      "parent_section_id": "section-19",
+      "title": "3.3.2 Distribucion de recursos",
+      "markdown": "#### 3.3.2 Distribucion de recursos",
+      "level": 4,
+      "order": 21,
+      "heading_type": "markdown",
+      "numbering": "3.3.2",
+      "start_line": 93,
+      "end_line": 97,
+      "chunks": [
+        {
+          "chunk_id": "chunk-27",
+          "parent_section_id": "section-21",
+          "text": "La distribucion de recursos decide donde ubicar brigadas, vacunas, medicamentos o personal. Un sistema predictivo puede priorizar zonas con mayor riesgo, pero debe explicar criterios para evitar decisiones opacas.",
+          "markdown": "La distribucion de recursos decide donde ubicar brigadas, vacunas, medicamentos o personal. Un sistema predictivo puede priorizar zonas con mayor riesgo, pero debe explicar criterios para evitar decisiones opacas.",
+          "order": 27,
+          "start_line": 95,
+          "end_line": 95,
+          "word_count": 29,
+          "character_count": 213,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-28",
+          "parent_section_id": "section-21",
+          "text": "La transparencia es especialmente importante en salud, porque los errores pueden afectar vidas. Una recomendacion automatica debe ser revisada por profesionales y documentada con evidencia comprensible.",
+          "markdown": "La transparencia es especialmente importante en salud, porque los errores pueden afectar vidas. Una recomendacion automatica debe ser revisada por profesionales y documentada con evidencia comprensible.",
+          "order": 28,
+          "start_line": 97,
+          "end_line": 97,
+          "word_count": 26,
+          "character_count": 202,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-22",
+      "parent_section_id": "section-12",
+      "title": "3.4 Educacion",
+      "markdown": "### 3.4 Educacion",
+      "level": 3,
+      "order": 22,
+      "heading_type": "markdown",
+      "numbering": "3.4",
+      "start_line": 99,
+      "end_line": 99,
+      "chunks": []
+    },
+    {
+      "section_id": "section-23",
+      "parent_section_id": "section-22",
+      "title": "3.4.1 Trayectorias escolares",
+      "markdown": "#### 3.4.1 Trayectorias escolares",
+      "level": 4,
+      "order": 23,
+      "heading_type": "markdown",
+      "numbering": "3.4.1",
+      "start_line": 101,
+      "end_line": 105,
+      "chunks": [
+        {
+          "chunk_id": "chunk-29",
+          "parent_section_id": "section-23",
+          "text": "Los datos educativos pueden incluir asistencia, calificaciones, evaluaciones diagnosticas, conectividad, movilidad, apoyos sociales y participacion familiar. El objetivo no es etiquetar estudiantes, sino detectar necesidades de apoyo.",
+          "markdown": "Los datos educativos pueden incluir asistencia, calificaciones, evaluaciones diagnosticas, conectividad, movilidad, apoyos sociales y participacion familiar. El objetivo no es etiquetar estudiantes, sino detectar necesidades de apoyo.",
+          "order": 29,
+          "start_line": 103,
+          "end_line": 103,
+          "word_count": 27,
+          "character_count": 234,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-30",
+          "parent_section_id": "section-23",
+          "text": "Un modelo puede identificar patrones de abandono probable, pero la intervencion debe ser cuidadosa. Si el sistema solo produce alertas, puede aumentar carga administrativa. Si produce explicaciones y sugerencias, puede apoyar mejor a docentes y orientadores.",
+          "markdown": "Un modelo puede identificar patrones de abandono probable, pero la intervencion debe ser cuidadosa. Si el sistema solo produce alertas, puede aumentar carga administrativa. Si produce explicaciones y sugerencias, puede apoyar mejor a docentes y orientadores.",
+          "order": 30,
+          "start_line": 105,
+          "end_line": 105,
+          "word_count": 36,
+          "character_count": 258,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-24",
+      "parent_section_id": "section-22",
+      "title": "3.4.2 Recursos de aprendizaje",
+      "markdown": "#### 3.4.2 Recursos de aprendizaje",
+      "level": 4,
+      "order": 24,
+      "heading_type": "markdown",
+      "numbering": "3.4.2",
+      "start_line": 107,
+      "end_line": 111,
+      "chunks": [
+        {
+          "chunk_id": "chunk-31",
+          "parent_section_id": "section-24",
+          "text": "Los sistemas de recomendacion pueden sugerir materiales segun brechas de aprendizaje. Para ser utiles, deben considerar nivel, idioma, accesibilidad, contexto cultural y disponibilidad tecnologica.",
+          "markdown": "Los sistemas de recomendacion pueden sugerir materiales segun brechas de aprendizaje. Para ser utiles, deben considerar nivel, idioma, accesibilidad, contexto cultural y disponibilidad tecnologica.",
+          "order": 31,
+          "start_line": 109,
+          "end_line": 109,
+          "word_count": 24,
+          "character_count": 197,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-32",
+          "parent_section_id": "section-24",
+          "text": "La recomendacion educativa no debe reducirse a maximizar clics. Debe promover comprension, practica sostenida y autonomia. Un recurso popular no siempre es el recurso correcto para una dificultad especifica.",
+          "markdown": "La recomendacion educativa no debe reducirse a maximizar clics. Debe promover comprension, practica sostenida y autonomia. Un recurso popular no siempre es el recurso correcto para una dificultad especifica.",
+          "order": 32,
+          "start_line": 111,
+          "end_line": 111,
+          "word_count": 29,
+          "character_count": 207,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-25",
+      "parent_section_id": "section-12",
+      "title": "3.5 Seguridad y proteccion civil",
+      "markdown": "### 3.5 Seguridad y proteccion civil",
+      "level": 3,
+      "order": 25,
+      "heading_type": "markdown",
+      "numbering": "3.5",
+      "start_line": 113,
+      "end_line": 113,
+      "chunks": []
+    },
+    {
+      "section_id": "section-26",
+      "parent_section_id": "section-25",
+      "title": "3.5.1 Deteccion de incidentes",
+      "markdown": "#### 3.5.1 Deteccion de incidentes",
+      "level": 4,
+      "order": 26,
+      "heading_type": "markdown",
+      "numbering": "3.5.1",
+      "start_line": 115,
+      "end_line": 119,
+      "chunks": [
+        {
+          "chunk_id": "chunk-33",
+          "parent_section_id": "section-26",
+          "text": "Los sistemas pueden integrar llamadas de emergencia, reportes ciudadanos, camaras, sensores ambientales y datos meteorologicos. El objetivo es mejorar tiempos de respuesta y prevenir riesgos.",
+          "markdown": "Los sistemas pueden integrar llamadas de emergencia, reportes ciudadanos, camaras, sensores ambientales y datos meteorologicos. El objetivo es mejorar tiempos de respuesta y prevenir riesgos.",
+          "order": 33,
+          "start_line": 117,
+          "end_line": 117,
+          "word_count": 25,
+          "character_count": 191,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-34",
+          "parent_section_id": "section-26",
+          "text": "El uso de datos de seguridad requiere limites claros. Debe evitar vigilancia invasiva, discriminacion y decisiones automaticas sin supervisiion. La proteccion civil debe orientarse a cuidado publico, no a control indiscriminado.",
+          "markdown": "El uso de datos de seguridad requiere limites claros. Debe evitar vigilancia invasiva, discriminacion y decisiones automaticas sin supervisiion. La proteccion civil debe orientarse a cuidado publico, no a control indiscriminado.",
+          "order": 34,
+          "start_line": 119,
+          "end_line": 119,
+          "word_count": 31,
+          "character_count": 228,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-27",
+      "parent_section_id": "section-25",
+      "title": "3.5.2 Riesgos naturales",
+      "markdown": "#### 3.5.2 Riesgos naturales",
+      "level": 4,
+      "order": 27,
+      "heading_type": "markdown",
+      "numbering": "3.5.2",
+      "start_line": 121,
+      "end_line": 125,
+      "chunks": [
+        {
+          "chunk_id": "chunk-35",
+          "parent_section_id": "section-27",
+          "text": "Inundaciones, incendios, deslizamientos y olas de calor pueden modelarse con datos geograficos, historicos y climaticos. Las redes neuronales pueden reconocer patrones complejos, pero la comunicacion del riesgo debe ser sencilla.",
+          "markdown": "Inundaciones, incendios, deslizamientos y olas de calor pueden modelarse con datos geograficos, historicos y climaticos. Las redes neuronales pueden reconocer patrones complejos, pero la comunicacion del riesgo debe ser sencilla.",
+          "order": 35,
+          "start_line": 123,
+          "end_line": 123,
+          "word_count": 30,
+          "character_count": 229,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-36",
+          "parent_section_id": "section-27",
+          "text": "Una alerta efectiva indica que ocurre, donde ocurre, que tan urgente es y que acciones debe tomar la poblacion. El mejor modelo pierde valor si la alerta llega tarde o no se entiende.",
+          "markdown": "Una alerta efectiva indica que ocurre, donde ocurre, que tan urgente es y que acciones debe tomar la poblacion. El mejor modelo pierde valor si la alerta llega tarde o no se entiende.",
+          "order": 36,
+          "start_line": 125,
+          "end_line": 125,
+          "word_count": 33,
+          "character_count": 183,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-28",
+      "parent_section_id": "section-12",
+      "title": "3.6 Agua y residuos",
+      "markdown": "### 3.6 Agua y residuos",
+      "level": 3,
+      "order": 28,
+      "heading_type": "markdown",
+      "numbering": "3.6",
+      "start_line": 127,
+      "end_line": 127,
+      "chunks": []
+    },
+    {
+      "section_id": "section-29",
+      "parent_section_id": "section-28",
+      "title": "3.6.1 Gestion del agua",
+      "markdown": "#### 3.6.1 Gestion del agua",
+      "level": 4,
+      "order": 29,
+      "heading_type": "markdown",
+      "numbering": "3.6.1",
+      "start_line": 129,
+      "end_line": 133,
+      "chunks": [
+        {
+          "chunk_id": "chunk-37",
+          "parent_section_id": "section-29",
+          "text": "La gestion del agua incluye captacion, potabilizacion, distribucion, consumo, fugas y tratamiento. Los modelos pueden detectar perdidas probables, estimar demanda y priorizar reparaciones.",
+          "markdown": "La gestion del agua incluye captacion, potabilizacion, distribucion, consumo, fugas y tratamiento. Los modelos pueden detectar perdidas probables, estimar demanda y priorizar reparaciones.",
+          "order": 37,
+          "start_line": 131,
+          "end_line": 131,
+          "word_count": 23,
+          "character_count": 188,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-38",
+          "parent_section_id": "section-29",
+          "text": "Las fugas no siempre se observan directamente. Se infieren por presion, consumo anomalo, reportes vecinales y cambios en el terreno. La combinacion de datos mejora la deteccion.",
+          "markdown": "Las fugas no siempre se observan directamente. Se infieren por presion, consumo anomalo, reportes vecinales y cambios en el terreno. La combinacion de datos mejora la deteccion.",
+          "order": 38,
+          "start_line": 133,
+          "end_line": 133,
+          "word_count": 27,
+          "character_count": 177,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-30",
+      "parent_section_id": "section-28",
+      "title": "3.6.2 Residuos urbanos",
+      "markdown": "#### 3.6.2 Residuos urbanos",
+      "level": 4,
+      "order": 30,
+      "heading_type": "markdown",
+      "numbering": "3.6.2",
+      "start_line": 135,
+      "end_line": 139,
+      "chunks": [
+        {
+          "chunk_id": "chunk-39",
+          "parent_section_id": "section-30",
+          "text": "La recoleccion de residuos depende de densidad, actividad comercial, habitos de consumo, calendario y rutas. Un modelo puede estimar volumen por zona y ajustar frecuencia de recoleccion.",
+          "markdown": "La recoleccion de residuos depende de densidad, actividad comercial, habitos de consumo, calendario y rutas. Un modelo puede estimar volumen por zona y ajustar frecuencia de recoleccion.",
+          "order": 39,
+          "start_line": 137,
+          "end_line": 137,
+          "word_count": 27,
+          "character_count": 186,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-40",
+          "parent_section_id": "section-30",
+          "text": "Tambien puede apoyar reciclaje al identificar materiales, ubicar puntos de acopio y detectar zonas con baja separacion. Pero el cambio requiere educacion, incentivos y servicios confiables.",
+          "markdown": "Tambien puede apoyar reciclaje al identificar materiales, ubicar puntos de acopio y detectar zonas con baja separacion. Pero el cambio requiere educacion, incentivos y servicios confiables.",
+          "order": 40,
+          "start_line": 139,
+          "end_line": 139,
+          "word_count": 26,
+          "character_count": 189,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-31",
+      "parent_section_id": "section-1",
+      "title": "4. Gobernanza y etica",
+      "markdown": "## 4. Gobernanza y etica",
+      "level": 2,
+      "order": 31,
+      "heading_type": "markdown",
+      "numbering": "4",
+      "start_line": 141,
+      "end_line": 141,
+      "chunks": []
+    },
+    {
+      "section_id": "section-32",
+      "parent_section_id": "section-31",
+      "title": "4.1 Privacidad",
+      "markdown": "### 4.1 Privacidad",
+      "level": 3,
+      "order": 32,
+      "heading_type": "markdown",
+      "numbering": "4.1",
+      "start_line": 143,
+      "end_line": 147,
+      "chunks": [
+        {
+          "chunk_id": "chunk-41",
+          "parent_section_id": "section-32",
+          "text": "La privacidad debe incorporarse desde el diseno. No basta con eliminar nombres si los datos pueden reidentificar personas por ubicacion, horarios o combinaciones raras. La minimizacion de datos reduce riesgos.",
+          "markdown": "La privacidad debe incorporarse desde el diseno. No basta con eliminar nombres si los datos pueden reidentificar personas por ubicacion, horarios o combinaciones raras. La minimizacion de datos reduce riesgos.",
+          "order": 41,
+          "start_line": 145,
+          "end_line": 145,
+          "word_count": 30,
+          "character_count": 209,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-42",
+          "parent_section_id": "section-32",
+          "text": "Un proyecto responsable define que datos son necesarios, por cuanto tiempo se conservan, quien puede acceder a ellos y como se audita el uso. Tambien establece procedimientos para incidentes de seguridad.",
+          "markdown": "Un proyecto responsable define que datos son necesarios, por cuanto tiempo se conservan, quien puede acceder a ellos y como se audita el uso. Tambien establece procedimientos para incidentes de seguridad.",
+          "order": 42,
+          "start_line": 147,
+          "end_line": 147,
+          "word_count": 31,
+          "character_count": 204,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-33",
+      "parent_section_id": "section-31",
+      "title": "4.2 Explicabilidad",
+      "markdown": "### 4.2 Explicabilidad",
+      "level": 3,
+      "order": 33,
+      "heading_type": "markdown",
+      "numbering": "4.2",
+      "start_line": 149,
+      "end_line": 153,
+      "chunks": [
+        {
+          "chunk_id": "chunk-43",
+          "parent_section_id": "section-33",
+          "text": "La explicabilidad permite entender por que un modelo recomienda una accion. En administracion publica, la explicacion no es un lujo tecnico; es parte de la rendicion de cuentas.",
+          "markdown": "La explicabilidad permite entender por que un modelo recomienda una accion. En administracion publica, la explicacion no es un lujo tecnico; es parte de la rendicion de cuentas.",
+          "order": 43,
+          "start_line": 151,
+          "end_line": 151,
+          "word_count": 28,
+          "character_count": 177,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-44",
+          "parent_section_id": "section-33",
+          "text": "Algunas tecnicas generan importancia de variables, ejemplos similares o reglas aproximadas. Ninguna explicacion es perfecta, pero una explicacion parcial puede ser mejor que una decision cerrada e incomprensible.",
+          "markdown": "Algunas tecnicas generan importancia de variables, ejemplos similares o reglas aproximadas. Ninguna explicacion es perfecta, pero una explicacion parcial puede ser mejor que una decision cerrada e incomprensible.",
+          "order": 44,
+          "start_line": 153,
+          "end_line": 153,
+          "word_count": 28,
+          "character_count": 212,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-34",
+      "parent_section_id": "section-31",
+      "title": "4.3 Equidad",
+      "markdown": "### 4.3 Equidad",
+      "level": 3,
+      "order": 34,
+      "heading_type": "markdown",
+      "numbering": "4.3",
+      "start_line": 155,
+      "end_line": 159,
+      "chunks": [
+        {
+          "chunk_id": "chunk-45",
+          "parent_section_id": "section-34",
+          "text": "La equidad exige revisar impactos diferenciados. Un modelo puede ser preciso en promedio y fallar en comunidades pequenas, perifericas o historicamente subrepresentadas. Por eso, las metricas deben desagregarse.",
+          "markdown": "La equidad exige revisar impactos diferenciados. Un modelo puede ser preciso en promedio y fallar en comunidades pequenas, perifericas o historicamente subrepresentadas. Por eso, las metricas deben desagregarse.",
+          "order": 45,
+          "start_line": 157,
+          "end_line": 157,
+          "word_count": 28,
+          "character_count": 211,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-46",
+          "parent_section_id": "section-34",
+          "text": "Tambien se deben evaluar costos de error. Un falso positivo puede desperdiciar recursos, pero un falso negativo puede dejar sin apoyo a una comunidad vulnerable. La comparacion depende del dominio.",
+          "markdown": "Tambien se deben evaluar costos de error. Un falso positivo puede desperdiciar recursos, pero un falso negativo puede dejar sin apoyo a una comunidad vulnerable. La comparacion depende del dominio.",
+          "order": 46,
+          "start_line": 159,
+          "end_line": 159,
+          "word_count": 30,
+          "character_count": 197,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-35",
+      "parent_section_id": "section-31",
+      "title": "4.4 Participacion ciudadana",
+      "markdown": "### 4.4 Participacion ciudadana",
+      "level": 3,
+      "order": 35,
+      "heading_type": "markdown",
+      "numbering": "4.4",
+      "start_line": 161,
+      "end_line": 165,
+      "chunks": [
+        {
+          "chunk_id": "chunk-47",
+          "parent_section_id": "section-35",
+          "text": "La participacion ciudadana permite validar prioridades, corregir supuestos y construir confianza. Los habitantes conocen problemas que no siempre aparecen en bases de datos.",
+          "markdown": "La participacion ciudadana permite validar prioridades, corregir supuestos y construir confianza. Los habitantes conocen problemas que no siempre aparecen en bases de datos.",
+          "order": 47,
+          "start_line": 163,
+          "end_line": 163,
+          "word_count": 23,
+          "character_count": 173,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-48",
+          "parent_section_id": "section-35",
+          "text": "Un sistema urbano debe permitir reportar errores, solicitar explicaciones y proponer mejoras. La tecnologia publica funciona mejor cuando las personas pueden discutirla, no solo recibirla.",
+          "markdown": "Un sistema urbano debe permitir reportar errores, solicitar explicaciones y proponer mejoras. La tecnologia publica funciona mejor cuando las personas pueden discutirla, no solo recibirla.",
+          "order": 48,
+          "start_line": 165,
+          "end_line": 165,
+          "word_count": 25,
+          "character_count": 188,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-36",
+      "parent_section_id": "section-1",
+      "title": "5. Ciclo de vida del modelo",
+      "markdown": "## 5. Ciclo de vida del modelo",
+      "level": 2,
+      "order": 36,
+      "heading_type": "markdown",
+      "numbering": "5",
+      "start_line": 167,
+      "end_line": 167,
+      "chunks": []
+    },
+    {
+      "section_id": "section-37",
+      "parent_section_id": "section-36",
+      "title": "5.1 Definicion del problema",
+      "markdown": "### 5.1 Definicion del problema",
+      "level": 3,
+      "order": 37,
+      "heading_type": "markdown",
+      "numbering": "5.1",
+      "start_line": 169,
+      "end_line": 173,
+      "chunks": [
+        {
+          "chunk_id": "chunk-49",
+          "parent_section_id": "section-37",
+          "text": "Antes de entrenar un modelo, el equipo debe definir una pregunta operacional. Una pregunta como \"mejorar movilidad\" es demasiado amplia. Una pregunta como \"predecir ocupacion de estaciones cada quince minutos para ajustar frecuencia\" es mas accionable.",
+          "markdown": "Antes de entrenar un modelo, el equipo debe definir una pregunta operacional. Una pregunta como \"mejorar movilidad\" es demasiado amplia. Una pregunta como \"predecir ocupacion de estaciones cada quince minutos para ajustar frecuencia\" es mas accionable.",
+          "order": 49,
+          "start_line": 171,
+          "end_line": 171,
+          "word_count": 36,
+          "character_count": 252,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-50",
+          "parent_section_id": "section-37",
+          "text": "La definicion debe incluir usuarios, decisiones, limites, datos disponibles, indicadores de exito y riesgos. Si no se define la decision final, el modelo puede convertirse en una demostracion sin uso real.",
+          "markdown": "La definicion debe incluir usuarios, decisiones, limites, datos disponibles, indicadores de exito y riesgos. Si no se define la decision final, el modelo puede convertirse en una demostracion sin uso real.",
+          "order": 50,
+          "start_line": 173,
+          "end_line": 173,
+          "word_count": 31,
+          "character_count": 205,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-38",
+      "parent_section_id": "section-36",
+      "title": "5.2 Preparacion de datos",
+      "markdown": "### 5.2 Preparacion de datos",
+      "level": 3,
+      "order": 38,
+      "heading_type": "markdown",
+      "numbering": "5.2",
+      "start_line": 175,
+      "end_line": 179,
+      "chunks": [
+        {
+          "chunk_id": "chunk-51",
+          "parent_section_id": "section-38",
+          "text": "La preparacion incluye limpieza, normalizacion, union de fuentes, manejo de valores faltantes, deteccion de valores extremos y construccion de variables. Esta etapa suele consumir mas tiempo que el entrenamiento.",
+          "markdown": "La preparacion incluye limpieza, normalizacion, union de fuentes, manejo de valores faltantes, deteccion de valores extremos y construccion de variables. Esta etapa suele consumir mas tiempo que el entrenamiento.",
+          "order": 51,
+          "start_line": 177,
+          "end_line": 177,
+          "word_count": 29,
+          "character_count": 212,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-52",
+          "parent_section_id": "section-38",
+          "text": "En datos urbanos, las inconsistencias son frecuentes. Una misma colonia puede tener nombres distintos. Una estacion puede cambiar de codigo. Un sensor puede quedar fuera de servicio. La preparacion debe registrar esos casos.",
+          "markdown": "En datos urbanos, las inconsistencias son frecuentes. Una misma colonia puede tener nombres distintos. Una estacion puede cambiar de codigo. Un sensor puede quedar fuera de servicio. La preparacion debe registrar esos casos.",
+          "order": 52,
+          "start_line": 179,
+          "end_line": 179,
+          "word_count": 33,
+          "character_count": 224,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-39",
+      "parent_section_id": "section-36",
+      "title": "5.3 Entrenamiento",
+      "markdown": "### 5.3 Entrenamiento",
+      "level": 3,
+      "order": 39,
+      "heading_type": "markdown",
+      "numbering": "5.3",
+      "start_line": 181,
+      "end_line": 185,
+      "chunks": [
+        {
+          "chunk_id": "chunk-53",
+          "parent_section_id": "section-39",
+          "text": "El entrenamiento ajusta parametros del modelo a partir de datos historicos. Se deben separar datos de entrenamiento, validacion y prueba para estimar desempeno sin autoengano.",
+          "markdown": "El entrenamiento ajusta parametros del modelo a partir de datos historicos. Se deben separar datos de entrenamiento, validacion y prueba para estimar desempeno sin autoengano.",
+          "order": 53,
+          "start_line": 183,
+          "end_line": 183,
+          "word_count": 25,
+          "character_count": 175,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-54",
+          "parent_section_id": "section-39",
+          "text": "Los modelos profundos pueden requerir GPUs, pero no siempre son necesarios. Para algunos problemas, un modelo simple y explicable puede funcionar mejor. La seleccion debe basarse en evidencia, no en prestigio tecnico.",
+          "markdown": "Los modelos profundos pueden requerir GPUs, pero no siempre son necesarios. Para algunos problemas, un modelo simple y explicable puede funcionar mejor. La seleccion debe basarse en evidencia, no en prestigio tecnico.",
+          "order": 54,
+          "start_line": 185,
+          "end_line": 185,
+          "word_count": 32,
+          "character_count": 217,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-40",
+      "parent_section_id": "section-36",
+      "title": "5.4 Evaluacion",
+      "markdown": "### 5.4 Evaluacion",
+      "level": 3,
+      "order": 40,
+      "heading_type": "markdown",
+      "numbering": "5.4",
+      "start_line": 187,
+      "end_line": 191,
+      "chunks": [
+        {
+          "chunk_id": "chunk-55",
+          "parent_section_id": "section-40",
+          "text": "La evaluacion mide precision, error, robustez, estabilidad y utilidad operativa. Una metrica tecnica puede no capturar el valor real. Por ejemplo, reducir error promedio en demanda no sirve si el modelo falla en horas pico.",
+          "markdown": "La evaluacion mide precision, error, robustez, estabilidad y utilidad operativa. Una metrica tecnica puede no capturar el valor real. Por ejemplo, reducir error promedio en demanda no sirve si el modelo falla en horas pico.",
+          "order": 55,
+          "start_line": 189,
+          "end_line": 189,
+          "word_count": 35,
+          "character_count": 223,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-56",
+          "parent_section_id": "section-40",
+          "text": "Tambien se deben hacer pruebas de estres. Que pasa si falta una fuente? Que pasa si cambia el clima? Que pasa si hay un evento masivo? Las respuestas ayudan a preparar planes de contingencia.",
+          "markdown": "Tambien se deben hacer pruebas de estres. Que pasa si falta una fuente? Que pasa si cambia el clima? Que pasa si hay un evento masivo? Las respuestas ayudan a preparar planes de contingencia.",
+          "order": 56,
+          "start_line": 191,
+          "end_line": 191,
+          "word_count": 34,
+          "character_count": 191,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-41",
+      "parent_section_id": "section-36",
+      "title": "5.5 Despliegue",
+      "markdown": "### 5.5 Despliegue",
+      "level": 3,
+      "order": 41,
+      "heading_type": "markdown",
+      "numbering": "5.5",
+      "start_line": 193,
+      "end_line": 197,
+      "chunks": [
+        {
+          "chunk_id": "chunk-57",
+          "parent_section_id": "section-41",
+          "text": "El despliegue integra el modelo con sistemas reales. Incluye APIs, paneles, alertas, permisos, monitoreo y documentacion. Un modelo desplegado sin monitoreo puede degradarse silenciosamente.",
+          "markdown": "El despliegue integra el modelo con sistemas reales. Incluye APIs, paneles, alertas, permisos, monitoreo y documentacion. Un modelo desplegado sin monitoreo puede degradarse silenciosamente.",
+          "order": 57,
+          "start_line": 195,
+          "end_line": 195,
+          "word_count": 24,
+          "character_count": 190,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-58",
+          "parent_section_id": "section-41",
+          "text": "El despliegue debe ser gradual. Primero puede operar en modo observacion, comparando predicciones con decisiones humanas. Luego puede pasar a recomendaciones asistidas. Las decisiones criticas requieren supervision.",
+          "markdown": "El despliegue debe ser gradual. Primero puede operar en modo observacion, comparando predicciones con decisiones humanas. Luego puede pasar a recomendaciones asistidas. Las decisiones criticas requieren supervision.",
+          "order": 58,
+          "start_line": 197,
+          "end_line": 197,
+          "word_count": 27,
+          "character_count": 215,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-42",
+      "parent_section_id": "section-36",
+      "title": "5.6 Monitoreo",
+      "markdown": "### 5.6 Monitoreo",
+      "level": 3,
+      "order": 42,
+      "heading_type": "markdown",
+      "numbering": "5.6",
+      "start_line": 199,
+      "end_line": 203,
+      "chunks": [
+        {
+          "chunk_id": "chunk-59",
+          "parent_section_id": "section-42",
+          "text": "El monitoreo detecta desviacion de datos, cambio de distribucion, caida de precision, errores de servicio y uso indebido. Tambien registra si las recomendaciones se aplican y con que resultado.",
+          "markdown": "El monitoreo detecta desviacion de datos, cambio de distribucion, caida de precision, errores de servicio y uso indebido. Tambien registra si las recomendaciones se aplican y con que resultado.",
+          "order": 59,
+          "start_line": 201,
+          "end_line": 201,
+          "word_count": 29,
+          "character_count": 193,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-60",
+          "parent_section_id": "section-42",
+          "text": "Un modelo urbano vive en un ambiente cambiante. Nuevas rutas, obras, politicas, habitos y crisis pueden volver obsoleto un modelo. El monitoreo permite decidir cuando recalibrar o retirar.",
+          "markdown": "Un modelo urbano vive en un ambiente cambiante. Nuevas rutas, obras, politicas, habitos y crisis pueden volver obsoleto un modelo. El monitoreo permite decidir cuando recalibrar o retirar.",
+          "order": 60,
+          "start_line": 203,
+          "end_line": 203,
+          "word_count": 28,
+          "character_count": 188,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-43",
+      "parent_section_id": "section-1",
+      "title": "6. Infraestructura tecnica",
+      "markdown": "## 6. Infraestructura tecnica",
+      "level": 2,
+      "order": 43,
+      "heading_type": "markdown",
+      "numbering": "6",
+      "start_line": 205,
+      "end_line": 205,
+      "chunks": []
+    },
+    {
+      "section_id": "section-44",
+      "parent_section_id": "section-43",
+      "title": "6.1 APIs",
+      "markdown": "### 6.1 APIs",
+      "level": 3,
+      "order": 44,
+      "heading_type": "markdown",
+      "numbering": "6.1",
+      "start_line": 207,
+      "end_line": 211,
+      "chunks": [
+        {
+          "chunk_id": "chunk-61",
+          "parent_section_id": "section-44",
+          "text": "Las APIs permiten que sistemas distintos compartan datos y resultados. Deben tener autenticacion, control de version, limites de uso y documentacion clara.",
+          "markdown": "Las APIs permiten que sistemas distintos compartan datos y resultados. Deben tener autenticacion, control de version, limites de uso y documentacion clara.",
+          "order": 61,
+          "start_line": 209,
+          "end_line": 209,
+          "word_count": 22,
+          "character_count": 155,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-62",
+          "parent_section_id": "section-44",
+          "text": "Una API de prediccion podria recibir zona, horario y condiciones, y devolver demanda esperada junto con confianza y factores principales. Una API de consulta podria devolver historiales y metadatos.",
+          "markdown": "Una API de prediccion podria recibir zona, horario y condiciones, y devolver demanda esperada junto con confianza y factores principales. Una API de consulta podria devolver historiales y metadatos.",
+          "order": 62,
+          "start_line": 211,
+          "end_line": 211,
+          "word_count": 29,
+          "character_count": 198,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-45",
+      "parent_section_id": "section-43",
+      "title": "6.2 Grafos de conocimiento",
+      "markdown": "### 6.2 Grafos de conocimiento",
+      "level": 3,
+      "order": 45,
+      "heading_type": "markdown",
+      "numbering": "6.2",
+      "start_line": 213,
+      "end_line": 217,
+      "chunks": [
+        {
+          "chunk_id": "chunk-63",
+          "parent_section_id": "section-45",
+          "text": "Un grafo de conocimiento representa entidades y relaciones: estaciones, rutas, barrios, escuelas, hospitales, sensores, incidentes y politicas. Este tipo de estructura ayuda a conectar informacion dispersa.",
+          "markdown": "Un grafo de conocimiento representa entidades y relaciones: estaciones, rutas, barrios, escuelas, hospitales, sensores, incidentes y politicas. Este tipo de estructura ayuda a conectar informacion dispersa.",
+          "order": 63,
+          "start_line": 215,
+          "end_line": 215,
+          "word_count": 26,
+          "character_count": 206,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-64",
+          "parent_section_id": "section-45",
+          "text": "Los grafos permiten preguntas como: que escuelas estan cerca de zonas con baja conectividad y alta desercion? Que rutas atraviesan areas con mayor contaminacion? Que hospitales dependen de una subestacion electrica vulnerable?",
+          "markdown": "Los grafos permiten preguntas como: que escuelas estan cerca de zonas con baja conectividad y alta desercion? Que rutas atraviesan areas con mayor contaminacion? Que hospitales dependen de una subestacion electrica vulnerable?",
+          "order": 64,
+          "start_line": 217,
+          "end_line": 217,
+          "word_count": 32,
+          "character_count": 226,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-46",
+      "parent_section_id": "section-43",
+      "title": "6.3 Embeddings",
+      "markdown": "### 6.3 Embeddings",
+      "level": 3,
+      "order": 46,
+      "heading_type": "markdown",
+      "numbering": "6.3",
+      "start_line": 219,
+      "end_line": 223,
+      "chunks": [
+        {
+          "chunk_id": "chunk-65",
+          "parent_section_id": "section-46",
+          "text": "Los embeddings convierten texto, imagenes o entidades en vectores numericos. Sirven para busqueda semantica, agrupamiento, recomendacion y deteccion de similitud.",
+          "markdown": "Los embeddings convierten texto, imagenes o entidades en vectores numericos. Sirven para busqueda semantica, agrupamiento, recomendacion y deteccion de similitud.",
+          "order": 65,
+          "start_line": 221,
+          "end_line": 221,
+          "word_count": 20,
+          "character_count": 162,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-66",
+          "parent_section_id": "section-46",
+          "text": "En documentos urbanos, los embeddings pueden conectar reportes que usan palabras distintas para describir el mismo problema. \"falla de alumbrado\", \"lampara apagada\" y \"calle oscura\" pueden agruparse como incidentes relacionados.",
+          "markdown": "En documentos urbanos, los embeddings pueden conectar reportes que usan palabras distintas para describir el mismo problema. \"falla de alumbrado\", \"lampara apagada\" y \"calle oscura\" pueden agruparse como incidentes relacionados.",
+          "order": 66,
+          "start_line": 223,
+          "end_line": 223,
+          "word_count": 30,
+          "character_count": 228,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-47",
+      "parent_section_id": "section-43",
+      "title": "6.4 Paneles de control",
+      "markdown": "### 6.4 Paneles de control",
+      "level": 3,
+      "order": 47,
+      "heading_type": "markdown",
+      "numbering": "6.4",
+      "start_line": 225,
+      "end_line": 229,
+      "chunks": [
+        {
+          "chunk_id": "chunk-67",
+          "parent_section_id": "section-47",
+          "text": "Los paneles muestran indicadores, mapas, series temporales y alertas. Deben evitar saturacion visual. Un buen panel permite responder preguntas concretas con rapidez.",
+          "markdown": "Los paneles muestran indicadores, mapas, series temporales y alertas. Deben evitar saturacion visual. Un buen panel permite responder preguntas concretas con rapidez.",
+          "order": 67,
+          "start_line": 227,
+          "end_line": 227,
+          "word_count": 22,
+          "character_count": 166,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-68",
+          "parent_section_id": "section-47",
+          "text": "El diseno debe distinguir informacion observada, estimada y recomendada. Si el usuario no sabe que parte proviene de un modelo, puede interpretar una prediccion como un hecho confirmado.",
+          "markdown": "El diseno debe distinguir informacion observada, estimada y recomendada. Si el usuario no sabe que parte proviene de un modelo, puede interpretar una prediccion como un hecho confirmado.",
+          "order": 68,
+          "start_line": 229,
+          "end_line": 229,
+          "word_count": 28,
+          "character_count": 186,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-48",
+      "parent_section_id": "section-1",
+      "title": "7. Escenarios de uso",
+      "markdown": "## 7. Escenarios de uso",
+      "level": 2,
+      "order": 48,
+      "heading_type": "markdown",
+      "numbering": "7",
+      "start_line": 231,
+      "end_line": 231,
+      "chunks": []
+    },
+    {
+      "section_id": "section-49",
+      "parent_section_id": "section-48",
+      "title": "7.1 Evento masivo",
+      "markdown": "### 7.1 Evento masivo",
+      "level": 3,
+      "order": 49,
+      "heading_type": "markdown",
+      "numbering": "7.1",
+      "start_line": 233,
+      "end_line": 237,
+      "chunks": [
+        {
+          "chunk_id": "chunk-69",
+          "parent_section_id": "section-49",
+          "text": "Antes de un evento masivo, la ciudad puede estimar demanda de transporte, necesidades de seguridad, consumo de agua, residuos esperados y riesgo sanitario. Durante el evento, puede monitorear cambios y ajustar recursos.",
+          "markdown": "Antes de un evento masivo, la ciudad puede estimar demanda de transporte, necesidades de seguridad, consumo de agua, residuos esperados y riesgo sanitario. Durante el evento, puede monitorear cambios y ajustar recursos.",
+          "order": 69,
+          "start_line": 235,
+          "end_line": 235,
+          "word_count": 32,
+          "character_count": 219,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-70",
+          "parent_section_id": "section-49",
+          "text": "Despues del evento, se comparan predicciones con datos reales. Esa retroalimentacion mejora modelos futuros y permite evaluar si las decisiones fueron adecuadas.",
+          "markdown": "Despues del evento, se comparan predicciones con datos reales. Esa retroalimentacion mejora modelos futuros y permite evaluar si las decisiones fueron adecuadas.",
+          "order": 70,
+          "start_line": 237,
+          "end_line": 237,
+          "word_count": 22,
+          "character_count": 161,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-50",
+      "parent_section_id": "section-48",
+      "title": "7.2 Ola de calor",
+      "markdown": "### 7.2 Ola de calor",
+      "level": 3,
+      "order": 50,
+      "heading_type": "markdown",
+      "numbering": "7.2",
+      "start_line": 239,
+      "end_line": 243,
+      "chunks": [
+        {
+          "chunk_id": "chunk-71",
+          "parent_section_id": "section-50",
+          "text": "Una ola de calor afecta salud, energia, agua, trabajo y educacion. Los modelos pueden identificar barrios con mayor riesgo por temperatura, edad de poblacion, baja vegetacion, vivienda precaria y falta de acceso a centros frescos.",
+          "markdown": "Una ola de calor afecta salud, energia, agua, trabajo y educacion. Los modelos pueden identificar barrios con mayor riesgo por temperatura, edad de poblacion, baja vegetacion, vivienda precaria y falta de acceso a centros frescos.",
+          "order": 71,
+          "start_line": 241,
+          "end_line": 241,
+          "word_count": 35,
+          "character_count": 230,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-72",
+          "parent_section_id": "section-50",
+          "text": "La respuesta puede incluir apertura de refugios climaticos, comunicacion preventiva, redistribucion de personal medico y monitoreo electrico. El sistema debe priorizar zonas vulnerables, no solo zonas con mas reportes.",
+          "markdown": "La respuesta puede incluir apertura de refugios climaticos, comunicacion preventiva, redistribucion de personal medico y monitoreo electrico. El sistema debe priorizar zonas vulnerables, no solo zonas con mas reportes.",
+          "order": 72,
+          "start_line": 243,
+          "end_line": 243,
+          "word_count": 29,
+          "character_count": 218,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-51",
+      "parent_section_id": "section-48",
+      "title": "7.3 Reparacion de infraestructura",
+      "markdown": "### 7.3 Reparacion de infraestructura",
+      "level": 3,
+      "order": 51,
+      "heading_type": "markdown",
+      "numbering": "7.3",
+      "start_line": 245,
+      "end_line": 249,
+      "chunks": [
+        {
+          "chunk_id": "chunk-73",
+          "parent_section_id": "section-51",
+          "text": "Cuando una avenida principal entra en reparacion, cambian rutas, tiempos de traslado, comercio local y acceso a servicios. Un modelo puede simular efectos y recomendar rutas alternas.",
+          "markdown": "Cuando una avenida principal entra en reparacion, cambian rutas, tiempos de traslado, comercio local y acceso a servicios. Un modelo puede simular efectos y recomendar rutas alternas.",
+          "order": 73,
+          "start_line": 247,
+          "end_line": 247,
+          "word_count": 27,
+          "character_count": 183,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-74",
+          "parent_section_id": "section-51",
+          "text": "El analisis debe comunicarse a la poblacion con anticipacion. La calidad de la prediccion importa, pero tambien importa que las personas puedan planear.",
+          "markdown": "El analisis debe comunicarse a la poblacion con anticipacion. La calidad de la prediccion importa, pero tambien importa que las personas puedan planear.",
+          "order": 74,
+          "start_line": 249,
+          "end_line": 249,
+          "word_count": 23,
+          "character_count": 152,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-52",
+      "parent_section_id": "section-48",
+      "title": "7.4 Planeacion escolar",
+      "markdown": "### 7.4 Planeacion escolar",
+      "level": 3,
+      "order": 52,
+      "heading_type": "markdown",
+      "numbering": "7.4",
+      "start_line": 251,
+      "end_line": 255,
+      "chunks": [
+        {
+          "chunk_id": "chunk-75",
+          "parent_section_id": "section-52",
+          "text": "La ciudad puede cruzar datos de crecimiento poblacional, transporte, trayectorias escolares y disponibilidad de aulas. Esto ayuda a decidir donde abrir grupos, reforzar escuelas o mejorar transporte escolar.",
+          "markdown": "La ciudad puede cruzar datos de crecimiento poblacional, transporte, trayectorias escolares y disponibilidad de aulas. Esto ayuda a decidir donde abrir grupos, reforzar escuelas o mejorar transporte escolar.",
+          "order": 75,
+          "start_line": 253,
+          "end_line": 253,
+          "word_count": 28,
+          "character_count": 207,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-76",
+          "parent_section_id": "section-52",
+          "text": "Una decision educativa debe combinar datos con dialogo comunitario. Los numeros muestran tendencias, pero las familias y docentes explican barreras concretas.",
+          "markdown": "Una decision educativa debe combinar datos con dialogo comunitario. Los numeros muestran tendencias, pero las familias y docentes explican barreras concretas.",
+          "order": 76,
+          "start_line": 255,
+          "end_line": 255,
+          "word_count": 21,
+          "character_count": 158,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-53",
+      "parent_section_id": "section-1",
+      "title": "8. Riesgos frecuentes",
+      "markdown": "## 8. Riesgos frecuentes",
+      "level": 2,
+      "order": 53,
+      "heading_type": "markdown",
+      "numbering": "8",
+      "start_line": 257,
+      "end_line": 257,
+      "chunks": []
+    },
+    {
+      "section_id": "section-54",
+      "parent_section_id": "section-53",
+      "title": "8.1 Dependencia excesiva del modelo",
+      "markdown": "### 8.1 Dependencia excesiva del modelo",
+      "level": 3,
+      "order": 54,
+      "heading_type": "markdown",
+      "numbering": "8.1",
+      "start_line": 259,
+      "end_line": 261,
+      "chunks": [
+        {
+          "chunk_id": "chunk-77",
+          "parent_section_id": "section-54",
+          "text": "Un riesgo comun es tratar el modelo como autoridad final. Esto puede desplazar juicio profesional y reducir responsabilidad. La recomendacion automatica debe verse como insumo, no como mandato.",
+          "markdown": "Un riesgo comun es tratar el modelo como autoridad final. Esto puede desplazar juicio profesional y reducir responsabilidad. La recomendacion automatica debe verse como insumo, no como mandato.",
+          "order": 77,
+          "start_line": 261,
+          "end_line": 261,
+          "word_count": 28,
+          "character_count": 193,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-55",
+      "parent_section_id": "section-53",
+      "title": "8.2 Datos incompletos",
+      "markdown": "### 8.2 Datos incompletos",
+      "level": 3,
+      "order": 55,
+      "heading_type": "markdown",
+      "numbering": "8.2",
+      "start_line": 263,
+      "end_line": 265,
+      "chunks": [
+        {
+          "chunk_id": "chunk-78",
+          "parent_section_id": "section-55",
+          "text": "La falta de datos puede ocultar necesidades. Las comunidades menos conectadas pueden producir menos registros digitales. Si el modelo aprende solo de datos visibles, refuerza desigualdades.",
+          "markdown": "La falta de datos puede ocultar necesidades. Las comunidades menos conectadas pueden producir menos registros digitales. Si el modelo aprende solo de datos visibles, refuerza desigualdades.",
+          "order": 78,
+          "start_line": 265,
+          "end_line": 265,
+          "word_count": 26,
+          "character_count": 189,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-56",
+      "parent_section_id": "section-53",
+      "title": "8.3 Fragmentacion institucional",
+      "markdown": "### 8.3 Fragmentacion institucional",
+      "level": 3,
+      "order": 56,
+      "heading_type": "markdown",
+      "numbering": "8.3",
+      "start_line": 267,
+      "end_line": 269,
+      "chunks": [
+        {
+          "chunk_id": "chunk-79",
+          "parent_section_id": "section-56",
+          "text": "Los datos urbanos suelen estar distribuidos entre dependencias. Si cada equipo usa formatos incompatibles, el analisis integrado se vuelve lento. La interoperabilidad requiere acuerdos, no solo software.",
+          "markdown": "Los datos urbanos suelen estar distribuidos entre dependencias. Si cada equipo usa formatos incompatibles, el analisis integrado se vuelve lento. La interoperabilidad requiere acuerdos, no solo software.",
+          "order": 79,
+          "start_line": 269,
+          "end_line": 269,
+          "word_count": 27,
+          "character_count": 203,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-57",
+      "parent_section_id": "section-53",
+      "title": "8.4 Mantenimiento insuficiente",
+      "markdown": "### 8.4 Mantenimiento insuficiente",
+      "level": 3,
+      "order": 57,
+      "heading_type": "markdown",
+      "numbering": "8.4",
+      "start_line": 271,
+      "end_line": 273,
+      "chunks": [
+        {
+          "chunk_id": "chunk-80",
+          "parent_section_id": "section-57",
+          "text": "Los proyectos de inteligencia artificial fallan cuando se financia el prototipo pero no el mantenimiento. Sensores, modelos, APIs y paneles requieren actualizacion continua.",
+          "markdown": "Los proyectos de inteligencia artificial fallan cuando se financia el prototipo pero no el mantenimiento. Sensores, modelos, APIs y paneles requieren actualizacion continua.",
+          "order": 80,
+          "start_line": 273,
+          "end_line": 273,
+          "word_count": 23,
+          "character_count": 173,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-58",
+      "parent_section_id": "section-1",
+      "title": "9. Indicadores de exito",
+      "markdown": "## 9. Indicadores de exito",
+      "level": 2,
+      "order": 58,
+      "heading_type": "markdown",
+      "numbering": "9",
+      "start_line": 275,
+      "end_line": 275,
+      "chunks": []
+    },
+    {
+      "section_id": "section-59",
+      "parent_section_id": "section-58",
+      "title": "9.1 Indicadores tecnicos",
+      "markdown": "### 9.1 Indicadores tecnicos",
+      "level": 3,
+      "order": 59,
+      "heading_type": "markdown",
+      "numbering": "9.1",
+      "start_line": 277,
+      "end_line": 279,
+      "chunks": [
+        {
+          "chunk_id": "chunk-81",
+          "parent_section_id": "section-59",
+          "text": "Los indicadores tecnicos incluyen disponibilidad del sistema, latencia, error predictivo, cobertura de datos, estabilidad, frecuencia de actualizacion y tasa de fallos.",
+          "markdown": "Los indicadores tecnicos incluyen disponibilidad del sistema, latencia, error predictivo, cobertura de datos, estabilidad, frecuencia de actualizacion y tasa de fallos.",
+          "order": 81,
+          "start_line": 279,
+          "end_line": 279,
+          "word_count": 21,
+          "character_count": 168,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-60",
+      "parent_section_id": "section-58",
+      "title": "9.2 Indicadores operativos",
+      "markdown": "### 9.2 Indicadores operativos",
+      "level": 3,
+      "order": 60,
+      "heading_type": "markdown",
+      "numbering": "9.2",
+      "start_line": 281,
+      "end_line": 283,
+      "chunks": [
+        {
+          "chunk_id": "chunk-82",
+          "parent_section_id": "section-60",
+          "text": "Los indicadores operativos incluyen reduccion de tiempos de respuesta, mejor asignacion de recursos, disminucion de incidentes, aumento de cobertura y mejora en continuidad de servicios.",
+          "markdown": "Los indicadores operativos incluyen reduccion de tiempos de respuesta, mejor asignacion de recursos, disminucion de incidentes, aumento de cobertura y mejora en continuidad de servicios.",
+          "order": 82,
+          "start_line": 283,
+          "end_line": 283,
+          "word_count": 25,
+          "character_count": 186,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-61",
+      "parent_section_id": "section-58",
+      "title": "9.3 Indicadores sociales",
+      "markdown": "### 9.3 Indicadores sociales",
+      "level": 3,
+      "order": 61,
+      "heading_type": "markdown",
+      "numbering": "9.3",
+      "start_line": 285,
+      "end_line": 287,
+      "chunks": [
+        {
+          "chunk_id": "chunk-83",
+          "parent_section_id": "section-61",
+          "text": "Los indicadores sociales incluyen confianza publica, percepcion de transparencia, equidad territorial, satisfaccion ciudadana y participacion. Estos indicadores son mas dificiles de medir, pero son esenciales.",
+          "markdown": "Los indicadores sociales incluyen confianza publica, percepcion de transparencia, equidad territorial, satisfaccion ciudadana y participacion. Estos indicadores son mas dificiles de medir, pero son esenciales.",
+          "order": 83,
+          "start_line": 287,
+          "end_line": 287,
+          "word_count": 25,
+          "character_count": 209,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-62",
+      "parent_section_id": "section-1",
+      "title": "10. Conclusiones",
+      "markdown": "## 10. Conclusiones",
+      "level": 2,
+      "order": 62,
+      "heading_type": "markdown",
+      "numbering": "10",
+      "start_line": 289,
+      "end_line": 293,
+      "chunks": [
+        {
+          "chunk_id": "chunk-84",
+          "parent_section_id": "section-62",
+          "text": "Un ecosistema urbano de aprendizaje profundo requiere mucho mas que algoritmos. Necesita datos confiables, instituciones coordinadas, explicaciones claras, controles eticos, monitoreo continuo y participacion ciudadana.",
+          "markdown": "Un ecosistema urbano de aprendizaje profundo requiere mucho mas que algoritmos. Necesita datos confiables, instituciones coordinadas, explicaciones claras, controles eticos, monitoreo continuo y participacion ciudadana.",
+          "order": 84,
+          "start_line": 291,
+          "end_line": 291,
+          "word_count": 25,
+          "character_count": 219,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-85",
+          "parent_section_id": "section-62",
+          "text": "La inteligencia artificial puede ayudar a detectar patrones, anticipar riesgos y coordinar servicios. Su valor aparece cuando se conecta con decisiones concretas y se evalua con criterios humanos. Una ciudad inteligente debe ser tambien una ciudad legible, responsable y abierta a correccion.",
+          "markdown": "La inteligencia artificial puede ayudar a detectar patrones, anticipar riesgos y coordinar servicios. Su valor aparece cuando se conecta con decisiones concretas y se evalua con criterios humanos. Una ciudad inteligente debe ser tambien una ciudad legible, responsable y abierta a correccion.",
+          "order": 85,
+          "start_line": 293,
+          "end_line": 293,
+          "word_count": 42,
+          "character_count": 292,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-63",
+      "parent_section_id": "section-1",
+      "title": "11. Glosario",
+      "markdown": "## 11. Glosario",
+      "level": 2,
+      "order": 63,
+      "heading_type": "markdown",
+      "numbering": "11",
+      "start_line": 295,
+      "end_line": 295,
+      "chunks": []
+    },
+    {
+      "section_id": "section-64",
+      "parent_section_id": "section-63",
+      "title": "11.1 Dato crudo",
+      "markdown": "### 11.1 Dato crudo",
+      "level": 3,
+      "order": 64,
+      "heading_type": "markdown",
+      "numbering": "11.1",
+      "start_line": 297,
+      "end_line": 299,
+      "chunks": [
+        {
+          "chunk_id": "chunk-86",
+          "parent_section_id": "section-64",
+          "text": "Registro original antes de limpieza o transformacion.",
+          "markdown": "Registro original antes de limpieza o transformacion.",
+          "order": 86,
+          "start_line": 299,
+          "end_line": 299,
+          "word_count": 7,
+          "character_count": 53,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-65",
+      "parent_section_id": "section-63",
+      "title": "11.2 Metadato",
+      "markdown": "### 11.2 Metadato",
+      "level": 3,
+      "order": 65,
+      "heading_type": "markdown",
+      "numbering": "11.2",
+      "start_line": 301,
+      "end_line": 303,
+      "chunks": [
+        {
+          "chunk_id": "chunk-87",
+          "parent_section_id": "section-65",
+          "text": "Informacion que describe origen, contexto, formato o calidad de un dato.",
+          "markdown": "Informacion que describe origen, contexto, formato o calidad de un dato.",
+          "order": 87,
+          "start_line": 303,
+          "end_line": 303,
+          "word_count": 11,
+          "character_count": 72,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-66",
+      "parent_section_id": "section-63",
+      "title": "11.3 Modelo predictivo",
+      "markdown": "### 11.3 Modelo predictivo",
+      "level": 3,
+      "order": 66,
+      "heading_type": "markdown",
+      "numbering": "11.3",
+      "start_line": 305,
+      "end_line": 307,
+      "chunks": [
+        {
+          "chunk_id": "chunk-88",
+          "parent_section_id": "section-66",
+          "text": "Sistema que estima un resultado futuro o desconocido a partir de patrones aprendidos.",
+          "markdown": "Sistema que estima un resultado futuro o desconocido a partir de patrones aprendidos.",
+          "order": 88,
+          "start_line": 307,
+          "end_line": 307,
+          "word_count": 13,
+          "character_count": 85,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-67",
+      "parent_section_id": "section-63",
+      "title": "11.4 Grafo de conocimiento",
+      "markdown": "### 11.4 Grafo de conocimiento",
+      "level": 3,
+      "order": 67,
+      "heading_type": "markdown",
+      "numbering": "11.4",
+      "start_line": 309,
+      "end_line": 311,
+      "chunks": [
+        {
+          "chunk_id": "chunk-89",
+          "parent_section_id": "section-67",
+          "text": "Estructura que representa entidades y relaciones para conectar informacion.",
+          "markdown": "Estructura que representa entidades y relaciones para conectar informacion.",
+          "order": 89,
+          "start_line": 311,
+          "end_line": 311,
+          "word_count": 9,
+          "character_count": 75,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-68",
+      "parent_section_id": "section-63",
+      "title": "11.5 Desviacion de datos",
+      "markdown": "### 11.5 Desviacion de datos",
+      "level": 3,
+      "order": 68,
+      "heading_type": "markdown",
+      "numbering": "11.5",
+      "start_line": 313,
+      "end_line": 315,
+      "chunks": [
+        {
+          "chunk_id": "chunk-90",
+          "parent_section_id": "section-68",
+          "text": "Cambio en la distribucion de los datos que puede reducir la precision de un modelo.",
+          "markdown": "Cambio en la distribucion de los datos que puede reducir la precision de un modelo.",
+          "order": 90,
+          "start_line": 315,
+          "end_line": 315,
+          "word_count": 15,
+          "character_count": 83,
+          "chunk_type": "paragraph"
+        }
+      ]
+    }
+  ],
+  "orphan_chunks": [],
+  "section_count": 68,
+  "subsection_count": 67,
+  "chunk_count": 90
+}

@@ -12,6 +12,7 @@ from document_processing.models import DocumentSection, ParagraphChunk, Structur
 class ReadingGraphChunk:
     chunk_id: str
     text: str
+    markdown: str
     order: int
     start_line: int
     end_line: int
@@ -28,6 +29,7 @@ class ReadingGraphSection:
     section_id: str
     parent_section_id: str | None
     title: str
+    markdown: str
     level: int
     order: int
     heading_type: str
@@ -107,6 +109,7 @@ def _build_uncompacted_sections(
                 section_id=section.section_id,
                 parent_section_id=parent_id,
                 title=section.title,
+                markdown=section.markdown or section.title,
                 level=section.level,
                 order=section.order,
                 heading_type=section.heading_type,
@@ -149,11 +152,13 @@ def _build_compacted_sections(
         source_ids = [section.section_id for section in source_sections]
         source_titles = [section.title for section in source_sections]
         chunks = _collect_chunks(source_sections)
+        title = _group_title(group, order)
         compacted_sections.append(
             ReadingGraphSection(
                 section_id=f"graph-section-{order}",
                 parent_section_id=None,
-                title=_group_title(group, order),
+                title=title,
+                markdown=_markdown_heading(title, 1),
                 level=1,
                 order=order,
                 heading_type="compacted",
@@ -193,6 +198,7 @@ def _compact_chunks_in_sections(
                 ReadingGraphChunk(
                     chunk_id=f"graph-chunk-{next_chunk_order}",
                     text=chunk.text,
+                    markdown=chunk.markdown,
                     order=next_chunk_order,
                     start_line=chunk.start_line,
                     end_line=chunk.end_line,
@@ -209,6 +215,7 @@ def _compact_chunks_in_sections(
                 section_id=section.section_id,
                 parent_section_id=section.parent_section_id,
                 title=section.title,
+                markdown=section.markdown,
                 level=section.level,
                 order=section.order,
                 heading_type=section.heading_type,
@@ -268,6 +275,11 @@ def _balance_small_tail(chunks: list[ReadingGraphChunk]) -> list[ReadingGraphChu
 
 def _join_chunks(chunks: list[ReadingGraphChunk]) -> ReadingGraphChunk:
     text = "\n\n".join(chunk.text for chunk in chunks if chunk.text)
+    markdown = "\n\n".join(
+        chunk.markdown or chunk.text
+        for chunk in chunks
+        if chunk.markdown or chunk.text
+    )
     source_chunk_ids: list[str] = []
     source_section_ids: list[str] = []
     source_section_titles: list[str] = []
@@ -280,11 +292,12 @@ def _join_chunks(chunks: list[ReadingGraphChunk]) -> ReadingGraphChunk:
     return ReadingGraphChunk(
         chunk_id=chunks[0].chunk_id,
         text=text,
+        markdown=markdown,
         order=chunks[0].order,
         start_line=min(chunk.start_line for chunk in chunks),
         end_line=max(chunk.end_line for chunk in chunks),
         word_count=sum(chunk.word_count for chunk in chunks),
-        character_count=len(text),
+        character_count=len(markdown or text),
         chunk_type=(
             "merged_paragraphs"
             if len(source_chunk_ids) > 1
@@ -305,6 +318,7 @@ def _source_chunk_to_reading_chunk(
     return ReadingGraphChunk(
         chunk_id=chunk_id,
         text=chunk.text,
+        markdown=chunk.markdown or chunk.text,
         order=order,
         start_line=chunk.start_line,
         end_line=chunk.end_line,
@@ -325,6 +339,7 @@ def _build_orphan_content_section(
         ReadingGraphChunk(
             chunk_id=chunk.chunk_id,
             text=chunk.text,
+            markdown=chunk.markdown or chunk.text,
             order=chunk.order,
             start_line=chunk.start_line,
             end_line=chunk.end_line,
@@ -342,6 +357,7 @@ def _build_orphan_content_section(
             section_id="graph-section-1",
             parent_section_id=None,
             title="Contenido principal",
+            markdown="Contenido principal",
             level=1,
             order=1,
             heading_type="synthetic",
@@ -446,6 +462,11 @@ def _group_title(group: list[DocumentSection], order: int) -> str:
     first = _clean_numbering(group[0].title)
     last = _clean_numbering(group[-1].title)
     return f"Bloque {order}: {first} - {last}"
+
+
+def _markdown_heading(title: str, level: int) -> str:
+    heading_level = max(1, min(level, 6))
+    return f"{'#' * heading_level} {title}"
 
 
 def _clean_numbering(title: str) -> str:

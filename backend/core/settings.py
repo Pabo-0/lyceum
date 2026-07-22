@@ -2,6 +2,7 @@ import os
 import sys
 from pathlib import Path
 
+import dj_database_url
 from dotenv import load_dotenv
 
 
@@ -31,6 +32,52 @@ def env_path(name: str, default: Path) -> Path:
 
 def runtime_tmp_path(name: str) -> Path:
     return Path(os.getenv("TMPDIR") or os.getenv("TEMP") or "/tmp") / name
+
+
+def read_key_value_file(path: Path) -> dict[str, str]:
+    if not path.exists():
+        return {}
+
+    values: dict[str, str] = {}
+    for line in path.read_text(encoding="utf-8").splitlines():
+        clean_line = line.strip()
+        if not clean_line or clean_line.startswith("#"):
+            continue
+
+        separator = "=" if "=" in clean_line else ":"
+        if separator not in clean_line:
+            continue
+
+        key, value = clean_line.split(separator, 1)
+        key = key.strip()
+        if not key:
+            continue
+        values[key] = value.strip().strip('"').strip("'")
+
+    return values
+
+
+def default_neo4j_credentials_file() -> Path | None:
+    credentials_dir = PROJECT_ROOT.parent / "Credentials"
+    if not credentials_dir.exists():
+        return None
+
+    candidates = sorted(credentials_dir.glob("Neo4j-*.txt"))
+    return candidates[0] if candidates else None
+
+
+def env_or_file(names: tuple[str, ...], file_values: dict[str, str], default: str = "") -> str:
+    for name in names:
+        value = os.getenv(name)
+        if value:
+            return value
+
+    for name in names:
+        value = file_values.get(name)
+        if value:
+            return value
+
+    return default
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -66,7 +113,9 @@ CSRF_TRUSTED_ORIGINS = env_list("DJANGO_CSRF_TRUSTED_ORIGINS")
 # Application definition
 
 INSTALLED_APPS = [
-    'api',
+    'apps.users.apps.UsersConfig',
+    'apps.workspaces.apps.WorkspacesConfig',
+    'apps.graphs.apps.GraphsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -114,14 +163,36 @@ DATABASES = {
         'NAME': env_path("DJANGO_SQLITE_NAME", BASE_DIR / "db.sqlite3"),
     }
 }
+DATABASE_URL = os.getenv("DATABASE_URL", "").strip()
+if DATABASE_URL:
+    DATABASES["default"] = dj_database_url.config(
+        default=DATABASE_URL,
+        conn_max_age=int(os.getenv("DATABASE_CONN_MAX_AGE", "600")),
+        conn_health_checks=True,
+    )
 
+AUTH_USER_MODEL = "users.User"
+
+NEO4J_CREDENTIALS_FILE = env_path(
+    "LYCEUM_NEO4J_CREDENTIALS_FILE",
+    default_neo4j_credentials_file() or PROJECT_ROOT.parent / "Credentials/Neo4j.txt",
+)
+NEO4J_FILE_VALUES = read_key_value_file(NEO4J_CREDENTIALS_FILE)
 NEO4J = {
-    "URI": os.getenv("NEO4J_URI", "bolt://localhost:7687"),
-    "USER": os.getenv("NEO4J_USER", "neo4j"),
-    "PASSWORD": os.getenv("NEO4J_PASSWORD", ""),
-    "DATABASE": os.getenv("NEO4J_DATABASE", ""),
+    "URI": env_or_file(("NEO4J_URI",), NEO4J_FILE_VALUES, "bolt://localhost:7687"),
+    "USER": env_or_file(
+        ("NEO4J_USER", "NEO4J_USERNAME"),
+        NEO4J_FILE_VALUES,
+        "neo4j",
+    ),
+    "PASSWORD": env_or_file(("NEO4J_PASSWORD",), NEO4J_FILE_VALUES),
+    "DATABASE": env_or_file(("NEO4J_DATABASE",), NEO4J_FILE_VALUES),
     "SYNC_ON_INGEST": env_bool("NEO4J_SYNC_ON_INGEST", default=False),
 }
+LYCEUM_GRAPH_BACKEND = os.getenv(
+    "LYCEUM_GRAPH_BACKEND",
+    "neo4j" if NEO4J["PASSWORD"] else "file",
+).strip().lower()
 
 IS_VERCEL = env_bool("VERCEL", default=False)
 DEFAULT_RUNTIME_STORAGE_ROOT = (

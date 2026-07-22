@@ -3,11 +3,12 @@ import re
 from typing import Any
 
 
-NODE_LABELS = {"Document", "Section", "Chunk", "Concept"}
+NODE_LABELS = {"Document", "Section", "Content", "Chunk", "Concept"}
 RELATIONSHIP_TYPES = {
-    "DIRECTIONAL",
-    "BIDIRECTIONAL",
-    "SEMANTIC",
+    "CONTAINS",
+    "RELATES",
+    "DEPENDS_ON",
+    "EVALUATES",
 }
 PROPERTY_NAME_PATTERN = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 
@@ -16,14 +17,18 @@ def build_neo4j_schema_cypher() -> str:
     statements = [
         "CREATE CONSTRAINT document_node_id IF NOT EXISTS FOR (n:Document) REQUIRE n.node_id IS UNIQUE",
         "CREATE CONSTRAINT section_node_id IF NOT EXISTS FOR (n:Section) REQUIRE n.node_id IS UNIQUE",
+        "CREATE CONSTRAINT content_node_id IF NOT EXISTS FOR (n:Content) REQUIRE n.node_id IS UNIQUE",
         "CREATE CONSTRAINT chunk_node_id IF NOT EXISTS FOR (n:Chunk) REQUIRE n.node_id IS UNIQUE",
         "CREATE CONSTRAINT concept_node_id IF NOT EXISTS FOR (n:Concept) REQUIRE n.node_id IS UNIQUE",
         "CREATE INDEX document_title IF NOT EXISTS FOR (n:Document) ON (n.title)",
         "CREATE INDEX section_title IF NOT EXISTS FOR (n:Section) ON (n.title)",
+        "CREATE INDEX content_title IF NOT EXISTS FOR (n:Content) ON (n.title)",
+        "CREATE INDEX chunk_title IF NOT EXISTS FOR (n:Chunk) ON (n.title)",
         "CREATE INDEX concept_title IF NOT EXISTS FOR (n:Concept) ON (n.title)",
-        "CREATE INDEX directional_relationship_id IF NOT EXISTS FOR ()-[r:DIRECTIONAL]-() ON (r.relationship_id)",
-        "CREATE INDEX bidirectional_relationship_id IF NOT EXISTS FOR ()-[r:BIDIRECTIONAL]-() ON (r.relationship_id)",
-        "CREATE INDEX semantic_relationship_id IF NOT EXISTS FOR ()-[r:SEMANTIC]-() ON (r.relationship_id)",
+        "CREATE INDEX contains_relationship_id IF NOT EXISTS FOR ()-[r:CONTAINS]-() ON (r.relationship_id)",
+        "CREATE INDEX relates_relationship_id IF NOT EXISTS FOR ()-[r:RELATES]-() ON (r.relationship_id)",
+        "CREATE INDEX depends_on_relationship_id IF NOT EXISTS FOR ()-[r:DEPENDS_ON]-() ON (r.relationship_id)",
+        "CREATE INDEX evaluates_relationship_id IF NOT EXISTS FOR ()-[r:EVALUATES]-() ON (r.relationship_id)",
     ]
     return _join_statements(statements)
 
@@ -32,8 +37,9 @@ def build_neo4j_verification_cypher() -> str:
     statements = [
         "MATCH (n) RETURN labels(n) AS labels, count(n) AS count ORDER BY labels",
         "MATCH ()-[r]->() RETURN type(r) AS relationship_type, count(r) AS count ORDER BY relationship_type",
-        'MATCH (d:Document)-[r:DIRECTIONAL]->(s:Section) WHERE r.role = "contains_section" RETURN d.title AS document, count(s) AS sections ORDER BY document',
-        'MATCH (:Section)-[r:DIRECTIONAL]->(c:Chunk) WHERE r.role = "contains_chunk" RETURN count(c) AS chunks',
+        'MATCH (d:Document)-[r:CONTAINS]->(s:Section) WHERE r.role = "section" RETURN d.title AS document, count(s) AS sections ORDER BY document',
+        'MATCH (:Section)-[r:CONTAINS]->(c:Chunk) WHERE r.role = "chunk" RETURN count(c) AS chunks',
+        "MATCH (:Concept)-[r:RELATES|DEPENDS_ON]->(:Concept) RETURN type(r) AS relationship_type, count(r) AS count ORDER BY relationship_type",
     ]
     return _join_statements(statements)
 
@@ -98,7 +104,7 @@ def _validate_relationship_type(relationship_type: str) -> str:
 
 def _clean_properties(properties: dict[str, Any]) -> dict[str, Any]:
     return {
-        key: value
+        key: _serialize_property_value(value)
         for key, value in properties.items()
         if value is not None and _is_supported_property_value(value)
     }
@@ -109,7 +115,19 @@ def _is_supported_property_value(value: Any) -> bool:
         return True
     if isinstance(value, list):
         return all(isinstance(item, (str, int, float, bool)) for item in value)
+    if isinstance(value, dict):
+        try:
+            json.dumps(value, ensure_ascii=False)
+        except (TypeError, ValueError):
+            return False
+        return True
     return False
+
+
+def _serialize_property_value(value: Any) -> Any:
+    if isinstance(value, dict):
+        return json.dumps(value, ensure_ascii=False, sort_keys=True)
+    return value
 
 
 def _cypher_map(properties: dict[str, Any]) -> str:

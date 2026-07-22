@@ -19,43 +19,26 @@ const DEFAULT_INTERACTION_METRICS = {
   titlePaddingY: 2,
   minDragGap: 8,
 };
-const GRAPH_MODES = [
-  {
-    id: 'read',
-    shortLabel: 'Leer',
-    title: 'Modo lectura: seleccionar y leer',
-  },
-  {
-    id: 'style',
-    shortLabel: 'Mover',
-    title: 'Modo estilo: arrastrar nodos',
-  },
-  {
-    id: 'edit',
-    shortLabel: 'Editar',
-    title: 'Modo edicion: crear y modificar',
-  },
-];
-
 export default function GraphCanvas({
   graph,
-  graphMode = 'read',
+  layoutResetVersion = 0,
   nodePositions = {},
   selectedNodeId,
   selectedRelationshipId,
   focusNodeId,
-  onGraphModeChange,
   onNodePositionChange,
   onOpenCreateNode,
   onOpenNodeEditor,
   onOpenRelationshipEditor,
   onCreateRelationship,
+  onRequestReorganizeGraph,
   onSelectNode,
   onSelectRelationship,
 }) {
   const svgRef = useRef(null);
-  const connectionTimerRef = useRef(null);
   const suppressCanvasClickRef = useRef(false);
+  const suppressNodeClickRef = useRef(false);
+  const suppressNativeContextMenuRef = useRef(false);
   const graphView = useMemo(
     () => buildGraphView(graph, { nodePositions }),
     [graph, nodePositions],
@@ -68,7 +51,10 @@ export default function GraphCanvas({
   const [panState, setPanState] = useState(null);
   const [dragState, setDragState] = useState(null);
   const [connectionDraft, setConnectionDraft] = useState(null);
-  const [editPrompt, setEditPrompt] = useState(null);
+  const [contextMenu, setContextMenu] = useState(null);
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
+  const dragStateRef = useRef(null);
+  const connectionDraftRef = useRef(null);
 
   useEffect(() => {
     if (!graphView.nodes.length) {
@@ -78,15 +64,30 @@ export default function GraphCanvas({
 
     const focusedNode = graphView.nodeById.get(focusNodeId);
     setViewBox(focusedNode ? centerOnNode(focusedNode) : fitNodes(graphView.nodes));
-  }, [graphLayoutKey, focusNodeId]);
+  }, [graphLayoutKey, focusNodeId, layoutResetVersion]);
 
   useEffect(() => {
-    setEditPrompt(null);
+    setContextMenu(null);
+    setIsHelpOpen(false);
+    dragStateRef.current = null;
+    connectionDraftRef.current = null;
+    setDragState(null);
     setConnectionDraft(null);
-    clearConnectionTimer();
-  }, [graphMode, graphLayoutKey]);
+  }, [graphLayoutKey]);
 
-  useEffect(() => () => clearConnectionTimer(), []);
+  useEffect(() => {
+    function preventDeferredNativeContextMenu(event) {
+      if (!suppressNativeContextMenuRef.current) return;
+      event.preventDefault();
+      event.stopPropagation();
+      suppressNativeContextMenuRef.current = false;
+    }
+
+    window.addEventListener('contextmenu', preventDeferredNativeContextMenu, true);
+    return () => {
+      window.removeEventListener('contextmenu', preventDeferredNativeContextMenu, true);
+    };
+  }, []);
 
   if (!graph) {
     return (
@@ -134,6 +135,7 @@ export default function GraphCanvas({
   function handlePointerDown(event) {
     const svg = svgRef.current;
     if (!svg) return;
+    setContextMenu(null);
     const isMiddlePan = event.button === 1;
     const isBackgroundPan = event.button === 0 && event.target === svg;
     if (!isMiddlePan && !isBackgroundPan) return;
@@ -151,40 +153,50 @@ export default function GraphCanvas({
   }
 
   function handlePointerMove(event) {
-    if (connectionDraft && connectionDraft.pointerId === event.pointerId) {
+    const currentConnectionDraft = connectionDraftRef.current;
+    if (currentConnectionDraft && currentConnectionDraft.pointerId === event.pointerId) {
       event.preventDefault();
       const graphPoint = screenToGraphPoint(event);
-      const moved =
-        Math.hypot(
-          event.clientX - connectionDraft.startClientX,
-          event.clientY - connectionDraft.startClientY,
-        ) > 8;
-      setConnectionDraft((current) => {
-        if (!current || current.pointerId !== event.pointerId) return current;
-        return {
-          ...current,
-          active: current.active || moved,
-          currentPoint: graphPoint,
-        };
-      });
+      const movement = Math.hypot(
+        event.clientX - currentConnectionDraft.startClientX,
+        event.clientY - currentConnectionDraft.startClientY,
+      );
+      const nextDraft = {
+        ...currentConnectionDraft,
+        active: currentConnectionDraft.active || movement > 8,
+        currentPoint: graphPoint,
+      };
+      connectionDraftRef.current = nextDraft;
+      setConnectionDraft(nextDraft);
       return;
     }
 
-    if (dragState && dragState.pointerId === event.pointerId) {
+    const currentDragState = dragStateRef.current;
+    if (currentDragState && currentDragState.pointerId === event.pointerId) {
       event.preventDefault();
       const graphPoint = screenToGraphPoint(event);
+      const movement = Math.hypot(
+        event.clientX - currentDragState.startClientX,
+        event.clientY - currentDragState.startClientY,
+      );
+      const hasMoved = currentDragState.hasMoved || movement > 3;
+      if (!hasMoved) return;
+      if (!currentDragState.hasMoved) {
+        currentDragState.hasMoved = true;
+        setDragState({ ...currentDragState });
+      }
       const candidatePosition = {
-        x: Math.round(graphPoint.x - dragState.offsetX),
-        y: Math.round(graphPoint.y - dragState.offsetY),
+        x: Math.round(graphPoint.x - currentDragState.offsetX),
+        y: Math.round(graphPoint.y - currentDragState.offsetY),
       };
       const safePosition = getSafeNodePosition(
-        dragState.nodeId,
+        currentDragState.nodeId,
         candidatePosition,
         graphView.nodes,
         getInteractionMetrics(svgRef.current),
       );
       if (safePosition) {
-        onNodePositionChange?.(dragState.nodeId, safePosition);
+        onNodePositionChange?.(currentDragState.nodeId, safePosition);
       }
       return;
     }
@@ -222,25 +234,27 @@ export default function GraphCanvas({
   }
 
   function handlePointerUp(event) {
-    if (connectionDraft && connectionDraft.pointerId === event.pointerId) {
+    const currentConnectionDraft = connectionDraftRef.current;
+    if (currentConnectionDraft && currentConnectionDraft.pointerId === event.pointerId) {
+      event.preventDefault();
       const svg = svgRef.current;
       const graphPoint = screenToGraphPoint(event);
-      const targetNode = connectionDraft.active
-        ? findNodeAtPoint(graphView.nodes, graphPoint, connectionDraft.source.node_id)
+      const targetNode = currentConnectionDraft.active
+        ? findNodeAtPoint(graphView.nodes, graphPoint, currentConnectionDraft.source.node_id)
         : null;
 
-      clearConnectionTimer();
       if (svg?.hasPointerCapture(event.pointerId)) {
         svg.releasePointerCapture(event.pointerId);
       }
 
-      if (connectionDraft.active) {
-        suppressNextCanvasClick();
+      suppressNextCanvasClick();
+      suppressNextNativeContextMenu();
+      if (currentConnectionDraft.active) {
         if (targetNode) {
           onCreateRelationship?.({
-            source_id: connectionDraft.source.node_id,
+            source_id: currentConnectionDraft.source.node_id,
             target_id: targetNode.node_id,
-            relationship_type: 'DIRECTIONAL',
+            relationship_type: 'RELATES',
             properties: {
               status: 'confirmed',
               reason: 'Conexion creada desde el canvas',
@@ -249,22 +263,37 @@ export default function GraphCanvas({
         } else {
           onOpenCreateNode?.({
             position: roundPoint(graphPoint),
-            sourceNodeId: connectionDraft.source.node_id,
+            sourceNodeId: currentConnectionDraft.source.node_id,
           });
         }
       } else {
-        suppressNextCanvasClick();
-        onOpenNodeEditor?.(connectionDraft.source.node_id);
+        openContextMenu(event, {
+          kind: 'node',
+          nodeId: currentConnectionDraft.source.node_id,
+        });
       }
+      connectionDraftRef.current = null;
       setConnectionDraft(null);
       return;
     }
 
-    if (dragState && dragState.pointerId === event.pointerId) {
+    const currentDragState = dragStateRef.current;
+    if (currentDragState && currentDragState.pointerId === event.pointerId) {
       const svg = svgRef.current;
       if (svg?.hasPointerCapture(event.pointerId)) {
         svg.releasePointerCapture(event.pointerId);
       }
+      if (currentDragState.hasMoved) {
+        suppressNextCanvasClick();
+        suppressNextNodeClick();
+      } else {
+        event.preventDefault();
+        suppressNextCanvasClick();
+        suppressNextNodeClick();
+        onSelectNode(currentDragState.nodeId);
+        onSelectRelationship(null);
+      }
+      dragStateRef.current = null;
       setDragState(null);
       return;
     }
@@ -286,7 +315,11 @@ export default function GraphCanvas({
   }
 
   function handleNodeDragStart(event, node) {
-    if (graphMode !== 'style') return;
+    if (event.button === 2) {
+      handleConnectionStart(event, node);
+      return;
+    }
+
     if (event.button !== 0) return;
 
     const svg = svgRef.current;
@@ -294,29 +327,32 @@ export default function GraphCanvas({
 
     event.preventDefault();
     event.stopPropagation();
+    setContextMenu(null);
     svg.setPointerCapture(event.pointerId);
     const graphPoint = screenToGraphPoint(event);
-    setDragState({
+    const nextDragState = {
       pointerId: event.pointerId,
       nodeId: node.node_id,
       offsetX: graphPoint.x - node.x,
       offsetY: graphPoint.y - node.y,
-    });
+      hasMoved: false,
+      startClientX: event.clientX,
+      startClientY: event.clientY,
+    };
+    dragStateRef.current = nextDragState;
+    setDragState(nextDragState);
   }
 
   function handleConnectionStart(event, node) {
-    if (graphMode !== 'edit') return;
-    if (event.button !== 0) return;
-
     const svg = svgRef.current;
     if (!svg) return;
 
     event.preventDefault();
     event.stopPropagation();
-    setEditPrompt(null);
+    setContextMenu(null);
     svg.setPointerCapture(event.pointerId);
     const graphPoint = screenToGraphPoint(event);
-    const draft = {
+    const nextDraft = {
       pointerId: event.pointerId,
       source: node,
       active: false,
@@ -325,15 +361,8 @@ export default function GraphCanvas({
       startClientX: event.clientX,
       startClientY: event.clientY,
     };
-    setConnectionDraft(draft);
-    clearConnectionTimer();
-    connectionTimerRef.current = window.setTimeout(() => {
-      setConnectionDraft((current) => (
-        current && current.pointerId === event.pointerId
-          ? { ...current, active: true }
-          : current
-      ));
-    }, 220);
+    connectionDraftRef.current = nextDraft;
+    setConnectionDraft(nextDraft);
   }
 
   function handleCanvasClick(event) {
@@ -342,31 +371,38 @@ export default function GraphCanvas({
       return;
     }
 
-    if (graphMode === 'read') {
-      onSelectRelationship(null);
+    setContextMenu(null);
+    onSelectRelationship(null);
+  }
+
+  function handleGraphContextMenuCapture(event) {
+    event.preventDefault();
+  }
+
+  function handleCanvasContextMenu(event) {
+    event.preventDefault();
+    if (suppressNativeContextMenuRef.current) {
+      suppressNativeContextMenuRef.current = false;
       return;
     }
+    if (event.target !== svgRef.current) return;
+    openContextMenu(event, {
+      kind: 'create-node',
+      position: roundPoint(screenToGraphPoint(event)),
+    });
+  }
 
-    if (graphMode === 'edit') {
-      const graphPoint = screenToGraphPoint(event);
-      setEditPrompt({
-        kind: 'create',
-        position: roundPoint(graphPoint),
-        x: graphPoint.x,
-        y: graphPoint.y,
-      });
-    }
+  function openContextMenu(event, payload) {
+    const rect = svgRef.current?.getBoundingClientRect();
+    setContextMenu({
+      ...payload,
+      x: rect ? event.clientX - rect.left : event.clientX,
+      y: rect ? event.clientY - rect.top : event.clientY,
+    });
   }
 
   function zoomCanvas(factor) {
     setViewBox((current) => zoomViewBoxAtPoint(current, factor, getViewBoxCenter(current)));
-  }
-
-  function clearConnectionTimer() {
-    if (connectionTimerRef.current) {
-      window.clearTimeout(connectionTimerRef.current);
-      connectionTimerRef.current = null;
-    }
   }
 
   function suppressNextCanvasClick() {
@@ -376,37 +412,68 @@ export default function GraphCanvas({
     }, 160);
   }
 
+  function suppressNextNodeClick() {
+    suppressNodeClickRef.current = true;
+    window.setTimeout(() => {
+      suppressNodeClickRef.current = false;
+    }, 160);
+  }
+
+  function suppressNextNativeContextMenu() {
+    suppressNativeContextMenuRef.current = true;
+    window.setTimeout(() => {
+      suppressNativeContextMenuRef.current = false;
+    }, 500);
+  }
+
+  function handleContextMenuAction() {
+    if (!contextMenu) return;
+    if (contextMenu.kind === 'node') {
+      onOpenNodeEditor?.(contextMenu.nodeId);
+    }
+    if (contextMenu.kind === 'relationship') {
+      onOpenRelationshipEditor?.(contextMenu.relationshipId);
+    }
+    if (contextMenu.kind === 'create-node') {
+      onOpenCreateNode?.({ position: contextMenu.position });
+    }
+    setContextMenu(null);
+  }
+
   const canvasClassName = [
     'graph-canvas',
-    `${graphMode}-mode`,
     panState ? 'middle-panning' : '',
     dragState ? 'node-dragging' : '',
+    connectionDraft?.active ? 'connection-dragging' : '',
   ].filter(Boolean).join(' ');
-  const canSelect = graphMode === 'read';
-  const canDragNodes = graphMode === 'style';
-  const canEdit = graphMode === 'edit';
 
   return (
-    <div className={canvasClassName}>
-      <div className="canvas-actions">
-        {GRAPH_MODES.map((mode) => (
-          <button
-            aria-label={mode.title}
-            aria-pressed={graphMode === mode.id}
-            className={graphMode === mode.id ? 'canvas-mode-button active' : 'canvas-mode-button'}
-            data-mode={mode.id}
-            key={mode.id}
-            onClick={() => onGraphModeChange?.(mode.id)}
-            title={mode.title}
-            type="button"
-          >
-            <ModeIcon mode={mode.id} />
-            <span>{mode.shortLabel}</span>
-          </button>
-        ))}
-      </div>
+    <div className={canvasClassName} onContextMenuCapture={handleGraphContextMenuCapture}>
+      <button
+        aria-expanded={isHelpOpen}
+        aria-label="Abrir guia de controles del grafo"
+        className="canvas-help-button"
+        onClick={() => setIsHelpOpen((current) => !current)}
+        title="Guia de controles"
+        type="button"
+      >
+        ?
+      </button>
+
+      {isHelpOpen ? (
+        <GraphHelpPanel onClose={() => setIsHelpOpen(false)} />
+      ) : null}
 
       <div className="canvas-navigation">
+        <button
+          aria-label="Reorganizar grafo"
+          className="canvas-layout-button"
+          onClick={onRequestReorganizeGraph}
+          title="Reorganizar grafo"
+          type="button"
+        >
+          <AutoLayoutIcon />
+        </button>
         <button
           aria-label="Acercar grafo"
           onClick={() => zoomCanvas(0.84)}
@@ -438,6 +505,7 @@ export default function GraphCanvas({
         className="graph-svg"
         onAuxClick={(event) => event.preventDefault()}
         onClick={handleCanvasClick}
+        onContextMenu={handleCanvasContextMenu}
         onPointerCancel={handlePointerUp}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
@@ -481,13 +549,16 @@ export default function GraphCanvas({
         <g className="relationships-layer">
           {graphView.relationships.map((relationship) => (
             <RelationshipLine
-              canEdit={canEdit}
               isSelected={relationship.relationship_id === selectedRelationshipId}
               key={relationship.relationship_id}
-              canSelect={canSelect}
-              onEdit={(nextRelationship) =>
-                onOpenRelationshipEditor?.(nextRelationship.relationship_id)
-              }
+              onContextMenu={(event, nextRelationship) => {
+                event.preventDefault();
+                event.stopPropagation();
+                openContextMenu(event, {
+                  kind: 'relationship',
+                  relationshipId: nextRelationship.relationship_id,
+                });
+              }}
               onSelect={onSelectRelationship}
               relationship={relationship}
               selectedNodeId={selectedNodeId}
@@ -500,15 +571,27 @@ export default function GraphCanvas({
             <GraphNode
               isFocused={node.node_id === focusNodeId}
               isSelected={node.node_id === selectedNodeId}
-              isDraggable={canDragNodes}
-              isConnectable={canEdit}
               isDragging={dragState?.nodeId === node.node_id}
               key={node.node_id}
               node={node}
-              onConnectionStart={handleConnectionStart}
+              onContextMenu={(event, nextNode) => {
+                event.preventDefault();
+                if (suppressNativeContextMenuRef.current) {
+                  suppressNativeContextMenuRef.current = false;
+                  return;
+                }
+                event.stopPropagation();
+                openContextMenu(event, {
+                  kind: 'node',
+                  nodeId: nextNode.node_id,
+                });
+              }}
               onDragStart={handleNodeDragStart}
               onSelect={(nodeId) => {
-                if (!canSelect) return;
+                if (suppressNodeClickRef.current) {
+                  suppressNodeClickRef.current = false;
+                  return;
+                }
                 onSelectNode(nodeId);
                 onSelectRelationship(null);
               }}
@@ -524,18 +607,102 @@ export default function GraphCanvas({
             })}
           />
         ) : null}
-
-        {canEdit && editPrompt ? (
-          <EditPrompt
-            prompt={editPrompt}
-            onOpen={() => {
-              onOpenCreateNode?.({ position: editPrompt.position });
-              setEditPrompt(null);
-            }}
-          />
-        ) : null}
       </svg>
+
+      {contextMenu ? (
+        <div
+          className="graph-context-menu"
+          style={{
+            left: contextMenu.x,
+            top: contextMenu.y,
+          }}
+        >
+          <button onClick={handleContextMenuAction} type="button">
+            {contextMenu.kind === 'create-node' ? 'Nuevo nodo' : 'Editar'}
+          </button>
+        </div>
+      ) : null}
     </div>
+  );
+}
+
+function GraphHelpPanel({ onClose }) {
+  return (
+    <aside className="graph-help-panel" aria-label="Guia rapida del grafo">
+      <header className="graph-help-header">
+        <div>
+          <p className="graph-help-eyebrow">Guia rapida</p>
+          <h2>Controles del grafo</h2>
+        </div>
+        <button
+          aria-label="Cerrar guia"
+          className="graph-help-close"
+          onClick={onClose}
+          title="Cerrar guia"
+          type="button"
+        >
+          <CloseIcon />
+        </button>
+      </header>
+
+      <div className="graph-help-sections">
+        <GraphHelpSection
+          icon={<NavigateIcon />}
+          items={[
+            ['Zoom', 'Usa el scroll del mouse o los botones de la interfaz.'],
+            ['Mover vista', 'Arrastra el fondo con click izquierdo o mantén pulsada la rueda del raton.'],
+            ['Boton de mira', 'Centra todos los nodos visibles.'],
+          ]}
+          title="Navegacion"
+        />
+        <GraphHelpSection
+          icon={<NodeHelpIcon />}
+          items={[
+            ['Abrir o seleccionar', 'Click izquierdo sobre el nodo.'],
+            ['Mover nodo', 'Mantener click izquierdo y arrastrar.'],
+            ['Editar nodo', 'Click derecho sobre el nodo.'],
+          ]}
+          title="Nodos"
+        />
+        <GraphHelpSection
+          icon={<LinkHelpIcon />}
+          items={[
+            ['Editar conexion', 'Click derecho sobre la relacion.'],
+            ['Crear relacion', 'Click derecho y arrastra de un nodo a otro.'],
+            ['Crear nodo conectado', 'Click derecho y arrastra desde un nodo al vacio.'],
+          ]}
+          title="Relaciones"
+        />
+        <GraphHelpSection
+          icon={<AutoLayoutIcon />}
+          items={[
+            ['Reorganizar', 'Calcula una posicion sugerida.'],
+          ]}
+          title="Organizacion"
+        />
+      </div>
+    </aside>
+  );
+}
+
+function GraphHelpSection({ icon, items, title }) {
+  return (
+    <section className="graph-help-section">
+      <h3>
+        <span aria-hidden="true" className="graph-help-section-icon">
+          {icon}
+        </span>
+        {title}
+      </h3>
+      <dl>
+        {items.map(([action, result]) => (
+          <div className="graph-help-row" key={`${title}-${action}`}>
+            <dt>{action}</dt>
+            <dd>{result}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
   );
 }
 
@@ -543,12 +710,10 @@ function RelationshipLine({
   relationship,
   selectedNodeId,
   isSelected,
-  canSelect,
-  canEdit,
-  onEdit,
+  onContextMenu,
   onSelect,
 }) {
-  const style = RELATIONSHIP_STYLES[relationship.visual_type] || RELATIONSHIP_STYLES.DIRECTIONAL;
+  const style = RELATIONSHIP_STYLES[relationship.visual_type] || RELATIONSHIP_STYLES.CONTAINS;
   const isConnected =
     relationship.source_id === selectedNodeId || relationship.target_id === selectedNodeId;
   const path = curvedPath(relationship.source, relationship.target);
@@ -569,17 +734,13 @@ function RelationshipLine({
   return (
     <g className="relationship-group">
       <path
-        className={canSelect || canEdit ? 'relationship-hitbox' : 'relationship-hitbox disabled'}
+        className="relationship-hitbox"
         d={path}
         onClick={(event) => {
           event.stopPropagation();
-          if (canEdit) {
-            onEdit(relationship);
-            return;
-          }
-          if (!canSelect) return;
           onSelect(relationship.relationship_id);
         }}
+        onContextMenu={(event) => onContextMenu(event, relationship)}
       />
       <path
         className={style.dashed ? 'relationship dashed' : 'relationship'}
@@ -598,15 +759,13 @@ function GraphNode({
   node,
   isSelected,
   isFocused,
-  isDraggable,
-  isConnectable,
   isDragging,
-  onConnectionStart,
+  onContextMenu,
   onDragStart,
   onSelect,
 }) {
   const label = getPrimaryLabel(node);
-  const style = NODE_STYLES[label] || NODE_STYLES.Chunk;
+  const style = NODE_STYLES[label] || NODE_STYLES.Content;
   const radius = nodeRadius(label);
   const titleLines = wrapNodeTitle(getNodeTitle(node));
   const firstLineY = -(radius + (titleLines.length > 1 ? 24 : 13));
@@ -614,8 +773,6 @@ function GraphNode({
   const className = [
     'graph-node',
     isSelected ? 'selected' : '',
-    isDraggable ? 'draggable' : '',
-    isConnectable ? 'connectable' : '',
     isDragging ? 'dragging' : '',
   ].filter(Boolean).join(' ');
 
@@ -626,67 +783,46 @@ function GraphNode({
         event.stopPropagation();
         onSelect(node.node_id);
       }}
+      onContextMenu={(event) => onContextMenu(event, node)}
       onPointerDown={(event) => {
-        if (isConnectable) onConnectionStart(event, node);
-        if (isDraggable) onDragStart(event, node);
+        onDragStart(event, node);
       }}
       transform={`translate(${node.x}, ${node.y})`}
     >
-      <circle
-        className="node-circle-hitbox"
-        r={radius + DEFAULT_INTERACTION_METRICS.circleExtra}
-        style={{ '--node-circle-radius': `${radius}px` }}
-      />
-      <rect
-        className="node-title-hitbox"
-        height={titleHitbox.height + DEFAULT_INTERACTION_METRICS.titlePaddingY * 2}
-        rx="4"
-        style={{
-          '--node-title-hitbox-base-height': `${titleHitbox.height}px`,
-          '--node-title-hitbox-base-width': `${titleHitbox.width}px`,
-          '--node-title-hitbox-base-x': `${titleHitbox.x}px`,
-          '--node-title-hitbox-base-y': `${titleHitbox.y}px`,
-        }}
-        width={titleHitbox.width + DEFAULT_INTERACTION_METRICS.titlePaddingX * 2}
-        x={titleHitbox.x - DEFAULT_INTERACTION_METRICS.titlePaddingX}
-        y={titleHitbox.y - DEFAULT_INTERACTION_METRICS.titlePaddingY}
-      />
-      <circle
-        className={isFocused ? 'node-shape focused' : 'node-shape'}
-        fill={style.color}
-        r={radius}
-      />
-      <text className="node-title" textAnchor="middle">
-        {titleLines.map((line, index) => (
-          <tspan key={`${node.node_id}-title-${index}`} x="0" y={firstLineY + index * TITLE_LINE_HEIGHT}>
-            {line}
-          </tspan>
-        ))}
-      </text>
+      <g className="graph-node-visual">
+        <circle
+          className="node-circle-hitbox"
+          r={radius + DEFAULT_INTERACTION_METRICS.circleExtra}
+          style={{ '--node-circle-radius': `${radius}px` }}
+        />
+        <rect
+          className="node-title-hitbox"
+          height={titleHitbox.height + DEFAULT_INTERACTION_METRICS.titlePaddingY * 2}
+          rx="4"
+          style={{
+            '--node-title-hitbox-base-height': `${titleHitbox.height}px`,
+            '--node-title-hitbox-base-width': `${titleHitbox.width}px`,
+            '--node-title-hitbox-base-x': `${titleHitbox.x}px`,
+            '--node-title-hitbox-base-y': `${titleHitbox.y}px`,
+          }}
+          width={titleHitbox.width + DEFAULT_INTERACTION_METRICS.titlePaddingX * 2}
+          x={titleHitbox.x - DEFAULT_INTERACTION_METRICS.titlePaddingX}
+          y={titleHitbox.y - DEFAULT_INTERACTION_METRICS.titlePaddingY}
+        />
+        <circle
+          className={isFocused ? 'node-shape focused' : 'node-shape'}
+          fill={style.color}
+          r={radius}
+        />
+        <text className="node-title" textAnchor="middle">
+          {titleLines.map((line, index) => (
+            <tspan key={`${node.node_id}-title-${index}`} x="0" y={firstLineY + index * TITLE_LINE_HEIGHT}>
+              {line}
+            </tspan>
+          ))}
+        </text>
+      </g>
     </g>
-  );
-}
-
-function EditPrompt({ prompt, onOpen }) {
-  return (
-    <foreignObject
-      className="graph-edit-prompt"
-      height="26"
-      width="68"
-      x={prompt.x - 34}
-      y={prompt.y - 34}
-    >
-      <button
-        onClick={(event) => {
-          event.stopPropagation();
-          onOpen();
-        }}
-        onPointerDown={(event) => event.stopPropagation()}
-        type="button"
-      >
-        + nuevo
-      </button>
-    </foreignObject>
   );
 }
 
@@ -940,8 +1076,52 @@ function getGraphLayoutKey(graph) {
 function RecenterIcon() {
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24">
-      <path d="M12 5V2L7.5 6.5 12 11V8a4 4 0 1 1-4 4H5a7 7 0 1 0 7-7Z" />
-      <path d="M12 16v6l4.5-4.5L12 13v3Z" />
+      <path d="M11 2h2v3.05a7 7 0 0 1 5.95 5.95H22v2h-3.05A7 7 0 0 1 13 18.95V22h-2v-3.05A7 7 0 0 1 5.05 13H2v-2h3.05A7 7 0 0 1 11 5.05V2Zm1 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z" />
+      <path d="M12 9.4a2.6 2.6 0 1 1 0 5.2 2.6 2.6 0 0 1 0-5.2Z" />
+    </svg>
+  );
+}
+
+function AutoLayoutIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path d="M12 2.4 14.2 7l5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 7.7l5-.7L12 2.4Z" />
+      <path d="M5.5 18.5h13v2h-13v-2Z" />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path d="m6.7 5.3 12 12-1.4 1.4-12-12 1.4-1.4Z" />
+      <path d="m17.3 5.3 1.4 1.4-12 12-1.4-1.4 12-12Z" />
+    </svg>
+  );
+}
+
+function NavigateIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path d="M4 11h13.2l-4.1-4.1L14.5 5 21 11.5 14.5 18l-1.4-1.9 4.1-4.1H4v-1Z" />
+    </svg>
+  );
+}
+
+function NodeHelpIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path d="M12 4a4 4 0 0 1 3.86 3H20v2h-4.14A4 4 0 0 1 13 11.86V16h-2v-4.14A4 4 0 0 1 8.14 9H4V7h4.14A4 4 0 0 1 12 4Zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-1 12h2v2h-2v-2Z" />
+    </svg>
+  );
+}
+
+function LinkHelpIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path d="M7 7.5a3 3 0 1 1 2.83 4H7.9a4.98 4.98 0 0 0 0-2h1.93A1 1 0 1 0 9.83 8H5.5a1 1 0 0 0 0 2H6v2h-.5a3 3 0 0 1 0-6h4.33A3 3 0 0 1 7 7.5Z" />
+      <path d="M17 16.5a3 3 0 1 1-2.83-4h1.93a4.98 4.98 0 0 0 0 2h-1.93A1 1 0 1 0 14.17 16h4.33a1 1 0 1 0 0-2H18v-2h.5a3 3 0 0 1 0 6h-4.33A3 3 0 0 1 17 16.5Z" />
+      <path d="M8 11h8v2H8v-2Z" />
     </svg>
   );
 }
@@ -958,38 +1138,6 @@ function MinusIcon() {
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24">
       <path d="M5 11h14v2H5v-2Z" />
-    </svg>
-  );
-}
-
-function ModeIcon({ mode }) {
-  if (mode === 'style') return <HandIcon />;
-  if (mode === 'edit') return <EditIcon />;
-  return <BookIcon />;
-}
-
-function BookIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <path d="M5 4.5c2.4 0 4.4.5 6 1.6v13.4c-1.6-1-3.6-1.5-6-1.5a2 2 0 0 1-2-2V6.5a2 2 0 0 1 2-2Z" />
-      <path d="M19 4.5c-2.4 0-4.4.5-6 1.6v13.4c1.6-1 3.6-1.5 6-1.5a2 2 0 0 0 2-2V6.5a2 2 0 0 0-2-2Z" />
-    </svg>
-  );
-}
-
-function HandIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <path d="M8 11V5.8a1.3 1.3 0 0 1 2.6 0V11h1V4.8a1.3 1.3 0 0 1 2.6 0V11h1V6.3a1.3 1.3 0 0 1 2.6 0v6.5l.8-1.1a1.4 1.4 0 0 1 2.3 1.6l-3 5.1A5.2 5.2 0 0 1 14.4 21h-3.1A5.3 5.3 0 0 1 6 15.7V11a1 1 0 0 1 2 0Z" />
-    </svg>
-  );
-}
-
-function EditIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <path d="M4 17.7V21h3.3L18.8 9.5l-3.3-3.3L4 17.7Z" />
-      <path d="m17 4.7 1.2-1.2a1.6 1.6 0 0 1 2.3 0 1.6 1.6 0 0 1 0 2.3L19.3 7 17 4.7Z" />
     </svg>
   );
 }

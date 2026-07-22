@@ -22,6 +22,34 @@
   position: relative;
 }
 
+.graph-loading-state {
+  align-items: center;
+  color: var(--color-text-secondary);
+  display: grid;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-label);
+  gap: 12px;
+  height: 100%;
+  justify-items: center;
+  min-height: 0;
+  place-content: center;
+}
+
+.graph-loading-spinner {
+  animation: graph-loading-spin 820ms linear infinite;
+  border: 3px solid color-mix(in srgb, var(--color-text-secondary) 20%, transparent);
+  border-radius: 999px;
+  border-top-color: var(--color-accent);
+  height: 34px;
+  width: 34px;
+}
+
+@keyframes graph-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 860px) {
   .graph-page {
     height: calc(100vh - 82px);

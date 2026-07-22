@@ -19,6 +19,6 @@ if not exist "node_modules\.bin\vite.CMD" (
 )
 
 echo Starting Vite at http://localhost:5173
-call node_modules\.bin\vite.CMD --host 127.0.0.1
+call node_modules\.bin\vite.CMD --host localhost
 
 endlocal

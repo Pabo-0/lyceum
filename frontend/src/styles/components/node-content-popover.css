@@ -28,19 +28,28 @@
   border-bottom: 1px solid var(--color-border);
   display: grid;
   gap: 18px;
-  padding: 22px 28px 18px;
+  padding: 62px 28px 24px;
+  position: relative;
+}
+
+.node-reader-heading {
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+  min-width: 0;
 }
 
 .node-reader-header h2 {
   font-family: var(--font-heading);
-  font-size: var(--font-size-title-modal);
+  font-size: clamp(2rem, 4vw, 3.4rem);
   font-weight: var(--font-weight-title);
   letter-spacing: 0;
-  line-height: 1.12;
+  line-height: 1.05;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
-.node-reader-back {
+.node-reader-close {
   align-items: center;
   background: var(--button-secondary-bg);
   border: 1px solid var(--button-secondary-border);
@@ -50,9 +59,16 @@
   font-size: var(--font-size-button);
   font-weight: var(--font-weight-button);
   justify-content: center;
-  justify-self: start;
   min-height: 38px;
-  padding: 8px 12px;
+  min-width: 38px;
+  padding: 0;
+  position: absolute;
+  right: 28px;
+  top: 20px;
+}
+
+.node-reader-type-tag {
+  justify-self: start;
 }
 
 .node-reader-body {
@@ -62,15 +78,6 @@
   line-height: 1.75;
   overflow: auto;
   padding: 26px 28px 34px;
-}
-
-.node-reader-body p {
-  margin: 0;
-  max-width: 72ch;
-}
-
-.node-reader-body p + p {
-  margin-top: 1.15rem;
 }
 
 @media (max-width: 860px) {
@@ -86,7 +93,12 @@
 
   .node-reader-header {
     gap: 14px;
-    padding: 18px 18px 16px;
+    padding: 58px 18px 18px;
+  }
+
+  .node-reader-close {
+    right: 18px;
+    top: 16px;
   }
 
   .node-reader-body {

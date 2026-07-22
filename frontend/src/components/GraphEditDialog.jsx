@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import {
   NODE_STYLES,
@@ -9,8 +9,8 @@ import {
   getVisualRelationshipType,
 } from '../utils/graphModel.js';
 
-const CREATABLE_NODE_TYPES = ['Section', 'Chunk'];
-const EDITABLE_NODE_TYPES = ['Section', 'Chunk'];
+const CREATABLE_NODE_TYPES = ['Section', 'Content', 'Concept'];
+const EDITABLE_NODE_TYPES = ['Section', 'Chunk', 'Content', 'Concept'];
 const RELATIONSHIP_TYPES = Object.keys(RELATIONSHIP_STYLES);
 
 export default function GraphEditDialog({
@@ -23,7 +23,6 @@ export default function GraphEditDialog({
   onCreateRelationship,
   onUpdateRelationship,
   onDeleteRelationship,
-  onMergeNodes,
   onNodePositionChange,
 }) {
   const nodes = graph?.nodes || [];
@@ -56,7 +55,7 @@ export default function GraphEditDialog({
                 await onCreateRelationship({
                   source_id: action.sourceNodeId,
                   target_id: createdNodeId,
-                  relationship_type: 'DIRECTIONAL',
+                  relationship_type: 'CONTAINS',
                   properties: {
                     status: 'confirmed',
                     reason: 'Conexion creada desde el canvas',
@@ -72,27 +71,20 @@ export default function GraphEditDialog({
         {action.kind === 'node' && node ? (
           <NodeForm
             actionLabel="Guardar cambios"
-            initialContent={node.properties?.text || node.properties?.content || ''}
             initialTitle={getNodeTitle(node)}
             initialType={getPrimaryLabel(node)}
             isDocument={node.labels?.includes('Document')}
             mode="edit"
             node={node}
-            nodes={nodes}
             onClose={onClose}
             onDelete={async () => {
               await onDeleteNode(node.node_id);
-              onClose();
-            }}
-            onMerge={async (payload) => {
-              await onMergeNodes(payload);
               onClose();
             }}
             onSubmit={async (payload) => {
               await onUpdateNode(node.node_id, payload);
               onClose();
             }}
-            title="Editar nodo"
           />
         ) : null}
 
@@ -120,40 +112,47 @@ export default function GraphEditDialog({
 
 function NodeForm({
   actionLabel,
-  initialContent = '',
   initialTitle = '',
   initialType,
   isDocument = false,
   mode,
   node,
-  nodes = [],
   onClose,
   onDelete,
-  onMerge,
   onSubmit,
   title,
 }) {
   const [nodeType, setNodeType] = useState(initialType);
   const [nodeTitle, setNodeTitle] = useState(initialTitle);
-  const [content, setContent] = useState(initialContent);
-  const [mergeNodeId, setMergeNodeId] = useState('');
+  const [isTitleEditing, setIsTitleEditing] = useState(false);
+  const [isTypeMenuOpen, setIsTypeMenuOpen] = useState(false);
   const [status, setStatus] = useState('');
   const [error, setError] = useState('');
+  const titleInputRef = useRef(null);
   const nodeTypes = isDocument ? ['Document'] : mode === 'create' ? CREATABLE_NODE_TYPES : EDITABLE_NODE_TYPES;
-  const mergeCandidates = nodes.filter(
-    (candidate) =>
-      candidate.node_id !== node?.node_id &&
-      !candidate.labels?.includes('Document'),
-  );
+  const nodeTypeStyle = NODE_STYLES[nodeType] || NODE_STYLES.Content;
+  const visibleTitle = nodeTitle.trim() || nodeTypeStyle?.label || title || 'Nodo';
+  const isEditMode = mode === 'edit';
 
   useEffect(() => {
     setNodeType(initialType);
     setNodeTitle(initialTitle);
-    setContent(initialContent);
-    setMergeNodeId('');
+    setIsTitleEditing(false);
+    setIsTypeMenuOpen(false);
     setStatus('');
     setError('');
-  }, [initialContent, initialTitle, initialType]);
+  }, [initialTitle, initialType]);
+
+  useEffect(() => {
+    if (!isTitleEditing) return;
+    titleInputRef.current?.focus();
+    titleInputRef.current?.select();
+  }, [isTitleEditing]);
+
+  function finishTitleEditing() {
+    setNodeTitle((current) => current.trim() || initialTitle || nodeTypeStyle?.label || 'Nodo');
+    setIsTitleEditing(false);
+  }
 
   async function submit(event) {
     event.preventDefault();
@@ -163,31 +162,12 @@ function NodeForm({
       const payload = {
         properties: {
           title: nodeTitle.trim() || NODE_STYLES[nodeType]?.label || 'Nodo',
-          text: content,
         },
       };
       if (!isDocument) {
         payload.labels = [nodeType];
       }
       await onSubmit(payload);
-    } catch (err) {
-      setStatus('');
-      setError(err.message);
-    }
-  }
-
-  async function mergeNode() {
-    if (!onMerge || !mergeNodeId || !node) return;
-    try {
-      setError('');
-      setStatus('Fusionando...');
-      await onMerge({
-        target_node_id: node.node_id,
-        source_node_ids: [mergeNodeId],
-        properties: {
-          title: nodeTitle.trim() || getNodeTitle(node),
-        },
-      });
     } catch (err) {
       setStatus('');
       setError(err.message);
@@ -209,12 +189,83 @@ function NodeForm({
   return (
     <form className="graph-edit-form" onSubmit={submit}>
       <header className="graph-edit-header">
-        <button className="node-reader-back" onClick={onClose} type="button">
-          Volver al grafo
+        <button aria-label="Cerrar" className="node-reader-close" onClick={onClose} type="button">
+          X
         </button>
-        <div>
-          <p className="eyebrow">{mode === 'create' ? 'Crear' : 'Modificar'}</p>
-          <h2>{title}</h2>
+        <div className="graph-edit-node-heading">
+          {isEditMode && isTitleEditing ? (
+            <input
+              aria-label="Nombre del nodo"
+              className="graph-edit-title-input"
+              onBlur={finishTitleEditing}
+              onChange={(event) => setNodeTitle(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter') {
+                  event.preventDefault();
+                  finishTitleEditing();
+                }
+                if (event.key === 'Escape') {
+                  event.preventDefault();
+                  setNodeTitle(initialTitle);
+                  setIsTitleEditing(false);
+                }
+              }}
+              ref={titleInputRef}
+              value={nodeTitle}
+            />
+          ) : (
+            <h2
+              className={isEditMode ? 'graph-edit-node-title editable' : 'graph-edit-node-title'}
+              onDoubleClick={() => {
+                if (isEditMode) setIsTitleEditing(true);
+              }}
+              title={isEditMode ? 'Doble click para editar el nombre' : undefined}
+            >
+              {isEditMode ? visibleTitle : title}
+            </h2>
+          )}
+
+          {isEditMode ? (
+            <div className="node-type-picker">
+              <button
+                aria-expanded={isTypeMenuOpen}
+                className="node-type-tag"
+                disabled={isDocument}
+                onClick={() => setIsTypeMenuOpen((current) => !current)}
+                style={{ '--node-type-color': nodeTypeStyle.color }}
+                type="button"
+              >
+                <span className="node-type-dot" />
+                {nodeTypeStyle.label || nodeType}
+              </button>
+
+              {isTypeMenuOpen && !isDocument ? (
+                <div className="node-type-menu" role="menu">
+                  {nodeTypes.map((type) => {
+                    const style = NODE_STYLES[type] || NODE_STYLES.Content;
+                    return (
+                      <button
+                        className={type === nodeType ? 'node-type-option selected' : 'node-type-option'}
+                        key={type}
+                        onClick={() => {
+                          setNodeType(type);
+                          setIsTypeMenuOpen(false);
+                        }}
+                        role="menuitem"
+                        style={{ '--node-type-color': style.color }}
+                        type="button"
+                      >
+                        <span className="node-type-dot" />
+                        <span>{style.label || type}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              ) : null}
+            </div>
+          ) : (
+            <p className="eyebrow">Crear</p>
+          )}
         </div>
       </header>
 
@@ -222,68 +273,34 @@ function NodeForm({
         {status ? <p className="graph-edit-status">{status}</p> : null}
         {error ? <p className="graph-edit-error">{error}</p> : null}
 
-        <label>
-          Tipo
-          <select
-            disabled={isDocument}
-            onChange={(event) => setNodeType(event.target.value)}
-            value={nodeType}
-          >
-            {nodeTypes.map((type) => (
-              <option key={type} value={type}>
-                {NODE_STYLES[type]?.label || type}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <label>
-          Nombre
-          <input
-            onChange={(event) => setNodeTitle(event.target.value)}
-            placeholder="Nombre visible"
-            value={nodeTitle}
-          />
-        </label>
-
-        {!isDocument ? (
-          <label>
-            {nodeType === 'Chunk' ? 'Texto del parrafo' : 'Contenido'}
-            <textarea
-              onChange={(event) => setContent(event.target.value)}
-              placeholder="Escribe o modifica el contenido del nodo"
-              rows="10"
-              value={content}
-            />
-          </label>
-        ) : null}
-
-        {mode === 'edit' && !isDocument && mergeCandidates.length ? (
-          <section className="graph-edit-merge">
+        {!isEditMode ? (
+          <>
             <label>
-              Fusionar otro nodo en este
+              Tipo
               <select
-                onChange={(event) => setMergeNodeId(event.target.value)}
-                value={mergeNodeId}
+                disabled={isDocument}
+                onChange={(event) => setNodeType(event.target.value)}
+                value={nodeType}
               >
-                <option value="">Seleccionar nodo</option>
-                {mergeCandidates.map((candidate) => (
-                  <option key={candidate.node_id} value={candidate.node_id}>
-                    {getNodeTitle(candidate)}
+                {nodeTypes.map((type) => (
+                  <option key={type} value={type}>
+                    {NODE_STYLES[type]?.label || type}
                   </option>
                 ))}
               </select>
             </label>
-            <button
-              className="secondary-button"
-              disabled={!mergeNodeId}
-              onClick={mergeNode}
-              type="button"
-            >
-              Fusionar en este nodo
-            </button>
-          </section>
+
+            <label>
+              Nombre
+              <input
+                onChange={(event) => setNodeTitle(event.target.value)}
+                placeholder="Nombre visible"
+                value={nodeTitle}
+              />
+            </label>
+          </>
         ) : null}
+
       </div>
 
       <footer className="graph-edit-footer">
@@ -362,8 +379,8 @@ function RelationshipForm({
   return (
     <form className="graph-edit-form" onSubmit={submit}>
       <header className="graph-edit-header">
-        <button className="node-reader-back" onClick={onClose} type="button">
-          Volver al grafo
+        <button aria-label="Cerrar" className="node-reader-close" onClick={onClose} type="button">
+          X
         </button>
         <div>
           <p className="eyebrow">{getRelationshipLabel(relationship)}</p>

@@ -13,29 +13,29 @@ from document_processing.config import DEFAULT_DOCUMENTS_DIR
 from document_processing.neo4j_cypher import graph_to_cypher
 
 
-ALLOWED_NODE_LABELS = {"Document", "Section", "Chunk", "Concept"}
+ALLOWED_NODE_LABELS = {"Document", "Section", "Chunk", "Content", "Concept"}
 
 RELATIONSHIP_TYPE_ALIASES = {
-    "HAS_SECTION": "DIRECTIONAL",
-    "HAS_SUBSECTION": "DIRECTIONAL",
-    "HAS_CHUNK": "DIRECTIONAL",
-    "MENTIONS": "SEMANTIC",
-    "RELATED_TO": "SEMANTIC",
-    "PREREQUISITE_CANDIDATE": "DIRECTIONAL",
-    "SUPPORTS": "DIRECTIONAL",
-    "CONTRADICTS": "SEMANTIC",
-    "EXPLAINS": "DIRECTIONAL",
-    "DEPENDS_ON": "DIRECTIONAL",
-    "CUSTOM_RELATION": "SEMANTIC",
-    "DIRECTIONAL": "DIRECTIONAL",
-    "BIDIRECTIONAL": "BIDIRECTIONAL",
-    "SEMANTIC": "SEMANTIC",
+    "HAS_SECTION": "CONTAINS",
+    "HAS_SUBSECTION": "CONTAINS",
+    "HAS_CHUNK": "CONTAINS",
+    "MENTIONS": "RELATES",
+    "RELATED_TO": "RELATES",
+    "PREREQUISITE_CANDIDATE": "DEPENDS_ON",
+    "SUPPORTS": "RELATES",
+    "CONTRADICTS": "RELATES",
+    "EXPLAINS": "RELATES",
+    "DEPENDS_ON": "DEPENDS_ON",
+    "CUSTOM_RELATION": "RELATES",
+    "DIRECTIONAL": "RELATES",
+    "BIDIRECTIONAL": "RELATES",
+    "SEMANTIC": "RELATES",
 }
 
 STRUCTURAL_ROLES = {
-    "HAS_SECTION": "contains_section",
-    "HAS_SUBSECTION": "contains_subsection",
-    "HAS_CHUNK": "contains_chunk",
+    "HAS_SECTION": "section",
+    "HAS_SUBSECTION": "subsection",
+    "HAS_CHUNK": "chunk",
 }
 
 
@@ -82,7 +82,7 @@ def migrate_all_documents(documents_dir: Path | None = None) -> dict[str, int]:
 def _migrate_node(node: dict) -> dict:
     labels = []
     for label in node.get("labels", []):
-        next_label = "Concept" if label == "Note" else label
+        next_label = {"Note": "Content"}.get(label, label)
         if next_label in ALLOWED_NODE_LABELS and next_label not in labels:
             labels.append(next_label)
 
@@ -93,8 +93,10 @@ def _migrate_node(node: dict) -> dict:
 
 
 def _migrate_relationship(relationship: dict) -> dict:
-    current_type = relationship.get("relationship_type", "SEMANTIC")
-    next_type = RELATIONSHIP_TYPE_ALIASES.get(current_type, "SEMANTIC")
+    current_type = relationship.get("relationship_type", "RELATES")
+    next_type = RELATIONSHIP_TYPE_ALIASES.get(current_type, current_type)
+    if next_type not in {"CONTAINS", "RELATES", "DEPENDS_ON", "EVALUATES"}:
+        next_type = "RELATES"
     properties = dict(relationship.get("properties", {}))
 
     structural_role = STRUCTURAL_ROLES.get(current_type)
@@ -127,7 +129,7 @@ def _count_node_labels(nodes: list[dict]) -> dict[str, int]:
 
 def _count_relationship_types(relationships: list[dict]) -> dict[str, int]:
     counter = Counter(
-        relationship.get("relationship_type", "SEMANTIC")
+        relationship.get("relationship_type", "RELATES")
         for relationship in relationships
     )
     return dict(sorted(counter.items()))

@@ -7,12 +7,15 @@ export default function DocumentSidebar({
   isSettings,
   onDeleteDocument,
   onNewDocument,
+  onOpenAccount,
   onOpenSettings,
   onRenameDocument,
   selectedDocumentId,
   onSelectDocument,
+  session,
 }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const isGuest = Boolean(session?.isGuest);
 
   useEffect(() => {
     const query = window.matchMedia('(max-width: 860px)');
@@ -79,8 +82,8 @@ export default function DocumentSidebar({
             {documents.map((document) => (
               <DocumentButton
                 document={document}
-                isSelected={!isSettings && document.document_id === selectedDocumentId}
-                key={document.document_id}
+                isSelected={!isSettings && getSidebarDocumentId(document) === selectedDocumentId}
+                key={getSidebarDocumentId(document)}
                 onDeleteDocument={onDeleteDocument}
                 onRenameDocument={onRenameDocument}
                 onSelectDocument={onSelectDocument}
@@ -90,6 +93,28 @@ export default function DocumentSidebar({
         </section>
 
         <div className="sidebar-footer">
+          {isGuest ? (
+            <button
+              aria-label="Iniciar sesion"
+              className="account-entry-button"
+              onClick={onOpenAccount}
+              type="button"
+            >
+              <LoginIcon />
+              <span>
+                <strong>Iniciar sesion</strong>
+                <small>Usa tu propio workspace</small>
+              </span>
+            </button>
+          ) : (
+            <div className="workspace-summary">
+              <span className="workspace-avatar">{getInitial(session?.user?.username)}</span>
+              <span>
+                <strong>{session?.workspace?.name}</strong>
+                <small>{session?.user?.email}</small>
+              </span>
+            </div>
+          )}
           <button
             aria-label="Abrir ajustes"
             className={isSettings ? 'settings-button selected' : 'settings-button'}
@@ -143,6 +168,16 @@ function SettingsIcon() {
   );
 }
 
+function LoginIcon() {
+  return (
+    <svg aria-hidden="true" className="settings-icon" focusable="false" viewBox="0 0 24 24">
+      <path d="M14 7l5 5-5 5" />
+      <path d="M19 12H7" />
+      <path d="M3 3v18" />
+    </svg>
+  );
+}
+
 function DocumentButton({
   document,
   isSelected,
@@ -150,16 +185,18 @@ function DocumentButton({
   onRenameDocument,
   onSelectDocument,
 }) {
+  const documentId = getSidebarDocumentId(document);
+  const documentTitle = document.title || document.file_name || document.name || 'Documento';
   const inputRef = useRef(null);
   const isSavingRef = useRef(false);
   const isCancelingRef = useRef(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [titleDraft, setTitleDraft] = useState(document.title || '');
+  const [titleDraft, setTitleDraft] = useState(documentTitle);
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
-    setTitleDraft(document.title || '');
-  }, [document.title]);
+    setTitleDraft(documentTitle);
+  }, [documentTitle]);
 
   useEffect(() => {
     if (!isEditing) return;
@@ -170,8 +207,8 @@ function DocumentButton({
   async function saveTitle() {
     if (isSavingRef.current || isCancelingRef.current) return;
     const nextTitle = titleDraft.trim();
-    if (!nextTitle || nextTitle === document.title) {
-      setTitleDraft(document.title || '');
+    if (!nextTitle || nextTitle === documentTitle) {
+      setTitleDraft(documentTitle);
       setIsEditing(false);
       return;
     }
@@ -179,7 +216,7 @@ function DocumentButton({
     try {
       isSavingRef.current = true;
       setIsSaving(true);
-      await onRenameDocument(document.document_id, nextTitle);
+      await onRenameDocument(documentId, nextTitle);
       setIsEditing(false);
     } finally {
       isSavingRef.current = false;
@@ -189,7 +226,7 @@ function DocumentButton({
 
   function cancelEditing() {
     isCancelingRef.current = true;
-    setTitleDraft(document.title || '');
+    setTitleDraft(documentTitle);
     setIsEditing(false);
     window.setTimeout(() => {
       isCancelingRef.current = false;
@@ -207,7 +244,7 @@ function DocumentButton({
           }}
         >
           <input
-            aria-label={`Nuevo nombre para ${document.title}`}
+            aria-label={`Nuevo nombre para ${documentTitle}`}
             disabled={isSaving}
             onBlur={saveTitle}
             onChange={(event) => setTitleDraft(event.target.value)}
@@ -225,7 +262,7 @@ function DocumentButton({
       ) : (
         <button
           className="document-button"
-          onClick={() => onSelectDocument(document.document_id)}
+          onClick={() => onSelectDocument(documentId)}
           onDoubleClick={(event) => {
             event.preventDefault();
             event.stopPropagation();
@@ -234,11 +271,11 @@ function DocumentButton({
           title="Doble click para renombrar"
           type="button"
         >
-          <span>{document.title}</span>
+          <span>{documentTitle}</span>
         </button>
       )}
       <button
-        aria-label={`Borrar ${document.title}`}
+        aria-label={`Borrar ${documentTitle}`}
         className="document-delete-button"
         disabled={isEditing || isSaving}
         onClick={(event) => {
@@ -252,6 +289,20 @@ function DocumentButton({
       </button>
     </div>
   );
+}
+
+function getSidebarDocumentId(document) {
+  return (
+    document?.document_id ||
+    document?.id ||
+    document?.metadata?.document_id ||
+    document?.metadata?.id ||
+    ''
+  );
+}
+
+function getInitial(value = '') {
+  return value.trim().slice(0, 1).toUpperCase() || 'L';
 }
 
 function TrashIcon() {
