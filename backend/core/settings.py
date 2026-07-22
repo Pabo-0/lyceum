@@ -34,6 +34,19 @@ def runtime_tmp_path(name: str) -> Path:
     return Path(os.getenv("TMPDIR") or os.getenv("TEMP") or "/tmp") / name
 
 
+def runtime_writable_path(name: str, default: Path) -> Path:
+    path = env_path(name, default)
+    if not IS_VERCEL:
+        return path
+
+    try:
+        path.resolve(strict=False).relative_to(PROJECT_ROOT.resolve(strict=False))
+    except ValueError:
+        return path
+
+    return default
+
+
 def read_key_value_file(path: Path) -> dict[str, str]:
     if not path.exists():
         return {}
@@ -212,27 +225,27 @@ LYCEUM_SEED_STORAGE_DIR = env_path(
     "LYCEUM_SEED_STORAGE_DIR",
     PROJECT_ROOT / "data/storage",
 )
-LYCEUM_STORAGE_PATH = env_path(
+LYCEUM_STORAGE_PATH = runtime_writable_path(
     "LYCEUM_STORAGE_PATH",
     DEFAULT_RUNTIME_STORAGE_ROOT / "documents.json",
 )
-LYCEUM_DOCUMENTS_DIR = env_path(
+LYCEUM_DOCUMENTS_DIR = runtime_writable_path(
     "LYCEUM_DOCUMENTS_DIR",
     DEFAULT_RUNTIME_STORAGE_ROOT / "documents",
 )
-LYCEUM_ORIGINALS_DIR = env_path(
+LYCEUM_ORIGINALS_DIR = runtime_writable_path(
     "LYCEUM_ORIGINALS_DIR",
     DEFAULT_RUNTIME_STORAGE_ROOT / "originals",
 )
-LYCEUM_NORMALIZED_DIR = env_path(
+LYCEUM_NORMALIZED_DIR = runtime_writable_path(
     "LYCEUM_NORMALIZED_DIR",
     DEFAULT_RUNTIME_STORAGE_ROOT / "normalized",
 )
-LYCEUM_UPLOADS_DIR = env_path(
+LYCEUM_UPLOADS_DIR = runtime_writable_path(
     "LYCEUM_UPLOADS_DIR",
     DEFAULT_UPLOADS_DIR,
 )
-LYCEUM_NEO4J_EXPORT_DIR = env_path(
+LYCEUM_NEO4J_EXPORT_DIR = runtime_writable_path(
     "LYCEUM_NEO4J_EXPORT_DIR",
     DEFAULT_RUNTIME_STORAGE_ROOT / "neo4j",
 )
