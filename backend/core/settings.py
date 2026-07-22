@@ -107,7 +107,7 @@ for vercel_host in (
     if vercel_host and vercel_host not in DEFAULT_ALLOWED_HOSTS:
         DEFAULT_ALLOWED_HOSTS.append(vercel_host)
 
-ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS", DEFAULT_ALLOWED_HOSTS)
+ALLOWED_HOSTS = list(dict.fromkeys(DEFAULT_ALLOWED_HOSTS + env_list("DJANGO_ALLOWED_HOSTS")))
 CSRF_TRUSTED_ORIGINS = env_list("DJANGO_CSRF_TRUSTED_ORIGINS")
 
 
