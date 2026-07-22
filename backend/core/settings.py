@@ -97,6 +97,7 @@ if not SECRET_KEY:
     raise RuntimeError("DJANGO_SECRET_KEY must be set in backend/.env")
 
 DEBUG = env_bool("DJANGO_DEBUG", default=False)
+IS_VERCEL = env_bool("VERCEL", default=False)
 
 DEFAULT_ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".vercel.app"]
 for vercel_host in (
@@ -157,10 +158,16 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+DEFAULT_SQLITE_PATH = (
+    runtime_tmp_path("lyceum-db/db.sqlite3")
+    if IS_VERCEL
+    else BASE_DIR / "db.sqlite3"
+)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': env_path("DJANGO_SQLITE_NAME", BASE_DIR / "db.sqlite3"),
+        'NAME': env_path("DJANGO_SQLITE_NAME", DEFAULT_SQLITE_PATH),
     }
 }
 DATABASE_URL = os.getenv("DATABASE_URL", "").strip()
@@ -194,7 +201,6 @@ LYCEUM_GRAPH_BACKEND = os.getenv(
     "neo4j" if NEO4J["PASSWORD"] else "file",
 ).strip().lower()
 
-IS_VERCEL = env_bool("VERCEL", default=False)
 DEFAULT_RUNTIME_STORAGE_ROOT = (
     runtime_tmp_path("lyceum-storage")
     if IS_VERCEL
