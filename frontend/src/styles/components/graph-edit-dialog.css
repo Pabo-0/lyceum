@@ -24,6 +24,11 @@
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
   max-height: min(760px, calc(100vh - 84px));
+  position: relative;
+}
+
+.graph-edit-form.node-form-compact {
+  grid-template-rows: minmax(0, 1fr) auto;
 }
 
 .graph-edit-header {
@@ -37,21 +42,32 @@
 
 .graph-edit-header h2 {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-size: clamp(1.9rem, 3.7vw, 3.15rem);
   font-weight: var(--font-weight-title);
   line-height: 1.05;
   margin: 0;
+  max-width: 100%;
 }
 
 .graph-edit-node-heading {
   display: grid;
   gap: 14px;
   justify-items: start;
+  max-width: calc(100% - 72px);
   min-width: 0;
 }
 
 .graph-edit-node-title {
+  max-width: 100%;
   overflow-wrap: anywhere;
+}
+
+.graph-create-node-title {
+  font-size: clamp(1.65rem, 3vw, 2.55rem);
+}
+
+.graph-relationship-title {
+  font-size: clamp(1.65rem, 3vw, 2.55rem);
 }
 
 .graph-edit-node-title.editable {
@@ -65,7 +81,7 @@
   box-shadow: var(--shadow-focus);
   color: var(--color-text-main);
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-size: clamp(1.9rem, 3.7vw, 3.15rem);
   font-weight: var(--font-weight-title);
   line-height: 1.1;
   min-height: 64px;
@@ -73,6 +89,36 @@
   outline: 0;
   padding: 8px 10px;
   width: 100%;
+}
+
+.graph-edit-floating-close {
+  align-items: center;
+  background: var(--button-secondary-bg);
+  border: 1px solid var(--button-secondary-border);
+  border-radius: var(--radius-button);
+  color: var(--button-secondary-text);
+  display: inline-flex;
+  justify-content: center;
+  min-height: 38px;
+  min-width: 38px;
+  padding: 0;
+  position: absolute;
+  right: 28px;
+  top: 20px;
+  z-index: 3;
+}
+
+.graph-edit-floating-close:hover {
+  background: var(--button-secondary-hover-bg);
+  color: var(--button-secondary-hover-text);
+}
+
+.graph-edit-floating-close svg {
+  height: 18px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 2.4;
+  width: 18px;
 }
 
 .node-type-picker {
@@ -146,11 +192,19 @@
   border-color: color-mix(in srgb, var(--node-type-color) 50%, transparent);
 }
 
+.graph-attribute-type-picker {
+  justify-self: start;
+}
+
 .graph-edit-body {
   display: grid;
   gap: 14px;
   overflow: auto;
   padding: 24px 28px;
+}
+
+.node-form-compact .graph-edit-body {
+  padding-top: 72px;
 }
 
 .graph-edit-body label {
@@ -171,6 +225,11 @@
   font: inherit;
   min-height: 40px;
   padding: 9px 11px;
+}
+
+.graph-edit-body textarea {
+  max-height: 220px;
+  overflow: auto;
   resize: vertical;
 }
 
@@ -180,6 +239,51 @@
   border-color: var(--input-focus-border);
   box-shadow: var(--shadow-focus);
   outline: 0;
+}
+
+.graph-attribute-panel {
+  background: color-mix(in srgb, var(--color-surface-hover) 58%, transparent);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+}
+
+.graph-attribute-panel-header {
+  display: grid;
+  gap: 4px;
+}
+
+.graph-attribute-panel-header h3,
+.graph-attribute-panel-header p {
+  margin: 0;
+}
+
+.graph-attribute-panel-header h3 {
+  color: var(--color-text-main);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: var(--font-weight-title);
+}
+
+.graph-attribute-panel-header p {
+  color: var(--color-text-secondary);
+  font-size: 0.88rem;
+}
+
+.graph-attribute-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.graph-attribute-field.full {
+  grid-column: 1 / -1;
+}
+
+.graph-attribute-field textarea {
+  min-height: 92px;
 }
 
 .graph-edit-footer {
@@ -235,12 +339,30 @@
     padding: 58px 18px 18px;
   }
 
+  .graph-edit-floating-close {
+    right: 18px;
+    top: 18px;
+  }
+
+  .graph-edit-node-heading {
+    max-width: calc(100% - 56px);
+  }
+
   .graph-edit-body {
     padding: 18px;
+  }
+
+  .node-form-compact .graph-edit-body {
+    padding-top: 66px;
+  }
+
+  .graph-attribute-grid {
+    grid-template-columns: 1fr;
   }
 
   .graph-edit-footer {
     flex-direction: column;
     padding: 14px 18px 18px;
   }
+
 }

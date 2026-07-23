@@ -15,5 +15,22 @@
     "semantic_relationships_path": "D:/PABLO/Lyceum Project/lyceum/backend/../data/storage/documents/33d988781f46a940/semantic_relationships.json",
     "graph_path": "D:/PABLO/Lyceum Project/lyceum/backend/../data/storage/documents/33d988781f46a940/graph.json",
     "neo4j_cypher_path": "D:/PABLO/Lyceum Project/lyceum/backend/../data/storage/documents/33d988781f46a940/neo4j.cypher"
+  },
+  {
+    "document_id": "b341b37f9a7cc7b1",
+    "title": "Documento de prueba fase 2: fundamentos de Machine Learning",
+    "source_path": "D:/PABLO/Lyceum Project/lyceum/data/uploads/a066f125862943fc9cbd593850d1d7c2_documento_prueba_fase_2.md",
+    "source_extension": ".md",
+    "processing_status": "neo4j_export_ready",
+    "document_dir": "D:/PABLO/Lyceum Project/lyceum/backend/../data/storage/documents/b341b37f9a7cc7b1",
+    "metadata_path": "D:/PABLO/Lyceum Project/lyceum/backend/../data/storage/documents/b341b37f9a7cc7b1/metadata.json",
+    "structure_path": "D:/PABLO/Lyceum Project/lyceum/backend/../data/storage/documents/b341b37f9a7cc7b1/structure.json",
+    "concepts_path": "D:/PABLO/Lyceum Project/lyceum/backend/../data/storage/documents/b341b37f9a7cc7b1/concepts.json",
+    "concept_mentions_path": "D:/PABLO/Lyceum Project/lyceum/backend/../data/storage/documents/b341b37f9a7cc7b1/concept_mentions.json",
+    "canonical_concepts_path": "D:/PABLO/Lyceum Project/lyceum/backend/../data/storage/documents/b341b37f9a7cc7b1/canonical_concepts.json",
+    "normalized_concept_mentions_path": "D:/PABLO/Lyceum Project/lyceum/backend/../data/storage/documents/b341b37f9a7cc7b1/normalized_concept_mentions.json",
+    "semantic_relationships_path": "D:/PABLO/Lyceum Project/lyceum/backend/../data/storage/documents/b341b37f9a7cc7b1/semantic_relationships.json",
+    "graph_path": "D:/PABLO/Lyceum Project/lyceum/backend/../data/storage/documents/b341b37f9a7cc7b1/graph.json",
+    "neo4j_cypher_path": "D:/PABLO/Lyceum Project/lyceum/backend/../data/storage/documents/b341b37f9a7cc7b1/neo4j.cypher"
   }
 ]

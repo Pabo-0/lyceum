@@ -557,10 +557,11 @@ export default function App() {
 
   async function handleDeleteNode(nodeId) {
     const result = await deleteNode(nodeId, getApiContext(session));
-    setGraph(result.graph);
     setSelectedNodeId('');
     setContentNodeId('');
     setSelectedRelationshipId('');
+    setFocusNodeId('');
+    setGraph(result.graph);
     return result;
   }
 

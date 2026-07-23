@@ -277,6 +277,7 @@ class DocumentMetadata:
     character_count: int
     word_count: int
     paragraph_count: int
+    page_count: int
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

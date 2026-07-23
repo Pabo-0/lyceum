@@ -1,48 +1,26 @@
+import ConfirmDialog from './ConfirmDialog.jsx';
+
 export default function DocumentDeleteDialog({
   document,
-  isDeleting = false,
+  isDeleting,
   onCancel,
   onConfirm,
 }) {
   if (!document) return null;
 
-  const title = document.title || 'Documento sin titulo';
+  const title = document.title || document.file_name || document.name || 'este grafo';
 
   return (
-    <aside
-      aria-label="Confirmar borrado del grafo"
-      className="document-delete-overlay"
-      role="dialog"
-      aria-modal="true"
-    >
-      <article className="document-delete-dialog">
-        <header>
-          <h2>Borrar grafo</h2>
-          <p>
-            Se borrara "{title}" junto con su grafo, nodos, relaciones y archivos
-            procesados guardados en el backend.
-          </p>
-        </header>
-
-        <footer>
-          <button
-            className="secondary-button"
-            disabled={isDeleting}
-            onClick={onCancel}
-            type="button"
-          >
-            Cancelar
-          </button>
-          <button
-            className="danger-button"
-            disabled={isDeleting}
-            onClick={onConfirm}
-            type="button"
-          >
-            {isDeleting ? 'Borrando...' : 'Borrar definitivamente'}
-          </button>
-        </footer>
-      </article>
-    </aside>
+    <ConfirmDialog
+      ariaLabel="Confirmar borrado del grafo"
+      confirmLabel="Borrar definitivamente"
+      eyebrow="Borrar grafo"
+      isPending={isDeleting}
+      message={`Vas a borrar "${title}" de tu biblioteca. Se perdera el grafo, sus nodos, conexiones, contenido asociado y posiciones guardadas. Esta accion no se puede deshacer.`}
+      onCancel={onCancel}
+      onConfirm={onConfirm}
+      pendingLabel="Borrando..."
+      title="Confirmar eliminacion"
+    />
   );
 }

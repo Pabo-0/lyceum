@@ -34,19 +34,21 @@
 
 .node-reader-heading {
   display: grid;
-  gap: 14px;
+  gap: 20px;
   justify-items: start;
+  max-width: calc(100% - 72px);
   min-width: 0;
 }
 
 .node-reader-header h2 {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-size: clamp(1.55rem, 2.9vw, 2.55rem);
   font-weight: var(--font-weight-title);
   letter-spacing: 0;
-  line-height: 1.05;
+  line-height: 1.1;
   margin: 0;
   overflow-wrap: anywhere;
+  max-width: 100%;
 }
 
 .node-reader-close {
@@ -67,17 +69,78 @@
   top: 20px;
 }
 
+.node-reader-close svg {
+  fill: none;
+  height: 18px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 2.3;
+  width: 18px;
+}
+
 .node-reader-type-tag {
   justify-self: start;
 }
 
 .node-reader-body {
   color: var(--color-text-main);
-  font-family: var(--font-reading);
-  font-size: 1.08rem;
-  line-height: 1.75;
+  font-size: 0.98rem;
+  line-height: 1.5;
   overflow: auto;
   padding: 26px 28px 34px;
+}
+
+.node-info-sections {
+  display: grid;
+  gap: 18px;
+}
+
+.node-info-section {
+  border: 1px solid color-mix(in srgb, var(--color-border) 82%, transparent);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.node-info-section h3 {
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.node-info-section dl {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.node-info-row {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(140px, 0.44fr) 1fr;
+}
+
+.node-info-row dt {
+  color: var(--color-text-secondary);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.node-info-row dd {
+  color: var(--color-text-main);
+  font-size: 0.9rem;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.node-info-row a {
+  color: var(--color-accent);
+}
+
+.node-info-empty {
+  color: var(--color-text-secondary);
+  margin: 0;
 }
 
 @media (max-width: 860px) {
@@ -96,6 +159,10 @@
     padding: 58px 18px 18px;
   }
 
+  .node-reader-heading {
+    max-width: calc(100% - 56px);
+  }
+
   .node-reader-close {
     right: 18px;
     top: 16px;
@@ -104,5 +171,10 @@
   .node-reader-body {
     font-size: 1rem;
     padding: 20px 18px 26px;
+  }
+
+  .node-info-row {
+    gap: 4px;
+    grid-template-columns: 1fr;
   }
 }

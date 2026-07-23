@@ -13,19 +13,25 @@ export default function NodeContentPage({
   onUpdateNode,
 }) {
   const [content, setContent] = useState(getNodeContent(node));
+  const [titleDraft, setTitleDraft] = useState(getNodeTitle(node));
   const [isEditing, setIsEditing] = useState(false);
   const [status, setStatus] = useState('');
   const [error, setError] = useState('');
   const editorRef = useRef(null);
+  const titleRef = useRef(null);
   const lastSavedContentRef = useRef(getNodeContent(node));
+  const lastSavedTitleRef = useRef(getNodeTitle(node));
 
   const nodeType = getPrimaryLabel(node);
   const nodeTypeStyle = NODE_STYLES[nodeType] || NODE_STYLES.Content;
 
   useEffect(() => {
     const nextContent = getNodeContent(node);
+    const nextTitle = getNodeTitle(node);
     setContent(nextContent);
+    setTitleDraft(nextTitle);
     lastSavedContentRef.current = nextContent;
+    lastSavedTitleRef.current = nextTitle;
     setIsEditing(false);
     setStatus('');
     setError('');
@@ -34,14 +40,25 @@ export default function NodeContentPage({
   useEffect(() => {
     if (!isEditing) return;
     editorRef.current?.focus();
+    resizeContentEditor(editorRef.current);
   }, [isEditing]);
+
+  useEffect(() => {
+    if (!isEditing) return;
+    resizeTitleEditor(titleRef.current);
+  }, [isEditing, titleDraft]);
+
+  useEffect(() => {
+    if (!isEditing) return;
+    resizeContentEditor(editorRef.current);
+  }, [isEditing, content]);
 
   if (!node) {
     return (
       <section className="node-content-page" aria-label="Contenido del nodo">
         <div className="node-content-document">
-          <button className="secondary-button node-content-back" onClick={onBack} type="button">
-            Volver al grafo
+          <button aria-label="Volver al grafo" className="secondary-button node-content-back" onClick={onBack} title="Volver al grafo" type="button">
+            <BackIcon />
           </button>
           <p className="muted">No se encontro el nodo seleccionado.</p>
         </div>
@@ -49,9 +66,15 @@ export default function NodeContentPage({
     );
   }
 
-  async function saveContent(nextContent = content) {
+  async function saveContent(nextContent = content, nextTitle = titleDraft) {
     const contentMarkdown = String(nextContent || '');
-    if (contentMarkdown === lastSavedContentRef.current) return true;
+    const title = String(nextTitle || '').trim() || getNodeTitle(node);
+    if (
+      contentMarkdown === lastSavedContentRef.current &&
+      title === lastSavedTitleRef.current
+    ) {
+      return true;
+    }
 
     try {
       setError('');
@@ -59,6 +82,7 @@ export default function NodeContentPage({
       const contentText = markdownToPlainText(contentMarkdown);
       await onUpdateNode(node.node_id, {
         properties: {
+          title,
           text: contentText,
           content_json: markdownToContentDocument(contentMarkdown),
           content_markdown: contentMarkdown,
@@ -67,6 +91,8 @@ export default function NodeContentPage({
         },
       });
       lastSavedContentRef.current = contentMarkdown;
+      lastSavedTitleRef.current = title;
+      setTitleDraft(title);
       setStatus('Guardado.');
       return true;
     } catch (err) {
@@ -98,16 +124,34 @@ export default function NodeContentPage({
     <section className="node-content-page" aria-label="Contenido del nodo">
       <article className="node-content-document">
         <nav className="node-content-toolbar" aria-label="Navegacion del contenido">
-          <button className="secondary-button node-content-back" onClick={handleBack} type="button">
-            Volver al grafo
+          <button aria-label="Volver al grafo" className="secondary-button node-content-back" onClick={handleBack} title="Volver al grafo" type="button">
+            <BackIcon />
           </button>
-          <button className="secondary-button node-content-mode-button" onClick={toggleEditing} type="button">
-            {isEditing ? 'Leer' : 'Editar'}
+          <button
+            aria-label={isEditing ? 'Ver lectura' : 'Editar contenido'}
+            className="secondary-button node-content-mode-button"
+            onClick={toggleEditing}
+            title={isEditing ? 'Ver lectura' : 'Editar contenido'}
+            type="button"
+          >
+            {isEditing ? <ReadIcon /> : <PencilIcon />}
           </button>
         </nav>
 
         <header className="node-content-header">
-          <h1>{getNodeTitle(node)}</h1>
+          {isEditing ? (
+            <textarea
+              aria-label="Editar titulo del nodo"
+              className="node-content-title-input"
+              onBlur={() => saveContent(content, titleDraft)}
+              onChange={(event) => setTitleDraft(event.target.value)}
+              ref={titleRef}
+              rows={1}
+              value={titleDraft}
+            />
+          ) : (
+            <h1>{titleDraft || getNodeTitle(node)}</h1>
+          )}
           <span className="node-type-tag node-content-type-tag" style={{ '--node-type-color': nodeTypeStyle.color }}>
             <span className="node-type-dot" />
             {nodeTypeStyle.label || nodeType}
@@ -126,7 +170,7 @@ export default function NodeContentPage({
               onChange={(event) => setContent(event.target.value)}
               placeholder="Escribe Markdown: # Titulo, - punto, $$ formula $$..."
               ref={editorRef}
-              rows="24"
+              rows={1}
               value={content}
             />
           ) : (
@@ -137,5 +181,43 @@ export default function NodeContentPage({
         </main>
       </article>
     </section>
+  );
+}
+
+function resizeTitleEditor(element) {
+  if (!element) return;
+  element.style.height = 'auto';
+  element.style.height = `${element.scrollHeight}px`;
+}
+
+function resizeContentEditor(element) {
+  if (!element) return;
+  element.style.height = 'auto';
+  element.style.height = `${element.scrollHeight}px`;
+}
+
+function BackIcon() {
+  return (
+    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+      <path d="M15 6 9 12l6 6" />
+    </svg>
+  );
+}
+
+function PencilIcon() {
+  return (
+    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+      <path d="m15.5 5.5 3 3" />
+      <path d="M4 20l3.4-.7L18.5 8.2a2.1 2.1 0 0 0-3-3L4.4 16.3 4 20Z" />
+    </svg>
+  );
+}
+
+function ReadIcon() {
+  return (
+    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+      <path d="M4 6.5c2.8-1.2 5.4-1 8 .6 2.6-1.6 5.2-1.8 8-.6v12c-2.8-1.2-5.4-1-8 .6-2.6-1.6-5.2-1.8-8-.6v-12Z" />
+      <path d="M12 7.1v12" />
+    </svg>
   );
 }

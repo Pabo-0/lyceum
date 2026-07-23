@@ -1,0 +1,429 @@
+{
+  "concepts": [
+    {
+      "concept_id": "canonical-concept-dcaa8e5ecb8d",
+      "canonical_name": "machine learning",
+      "display_name": "machine learning",
+      "variant_terms": [
+        "machine learning"
+      ],
+      "raw_concept_ids": [
+        "concept-dcaa8e5ecb8d"
+      ],
+      "score": 6.530272,
+      "frequency": 154,
+      "mention_count": 50,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-f99706e3a006",
+      "canonical_name": "documento prueba fase",
+      "display_name": "documento prueba fase",
+      "variant_terms": [
+        "documento prueba fase"
+      ],
+      "raw_concept_ids": [
+        "concept-f99706e3a006"
+      ],
+      "score": 6.360979,
+      "frequency": 139,
+      "mention_count": 133,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-7ab1ea5aa400",
+      "canonical_name": "fundamento machine learning",
+      "display_name": "fundamentos machine learning",
+      "variant_terms": [
+        "fundamentos machine learning"
+      ],
+      "raw_concept_ids": [
+        "concept-c716f44592d5"
+      ],
+      "score": 6.272843,
+      "frequency": 138,
+      "mention_count": 125,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-edd95740e339",
+      "canonical_name": "learning",
+      "display_name": "learning",
+      "variant_terms": [
+        "learning"
+      ],
+      "raw_concept_ids": [
+        "concept-edd95740e339"
+      ],
+      "score": 5.678497,
+      "frequency": 154,
+      "mention_count": 14,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-bc020a35b7f9",
+      "canonical_name": "machine",
+      "display_name": "machine",
+      "variant_terms": [
+        "machine"
+      ],
+      "raw_concept_ids": [
+        "concept-bc020a35b7f9"
+      ],
+      "score": 5.678497,
+      "frequency": 154,
+      "mention_count": 14,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-cfb6240a3630",
+      "canonical_name": "documento prueba",
+      "display_name": "documento prueba",
+      "variant_terms": [
+        "documento prueba"
+      ],
+      "raw_concept_ids": [
+        "concept-cfb6240a3630"
+      ],
+      "score": 5.62702,
+      "frequency": 139,
+      "mention_count": 107,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-2647d837f0a7",
+      "canonical_name": "prueba fase",
+      "display_name": "prueba fase",
+      "variant_terms": [
+        "prueba fase"
+      ],
+      "raw_concept_ids": [
+        "concept-2647d837f0a7"
+      ],
+      "score": 5.62702,
+      "frequency": 139,
+      "mention_count": 14,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-e7e1f8bcc0b9",
+      "canonical_name": "fundamento machine",
+      "display_name": "fundamentos machine",
+      "variant_terms": [
+        "fundamentos machine"
+      ],
+      "raw_concept_ids": [
+        "concept-f9d5093255ad"
+      ],
+      "score": 5.549054,
+      "frequency": 138,
+      "mention_count": 77,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-655e786674d9",
+      "canonical_name": "prueba",
+      "display_name": "prueba",
+      "variant_terms": [
+        "prueba"
+      ],
+      "raw_concept_ids": [
+        "concept-655e786674d9"
+      ],
+      "score": 5.5216,
+      "frequency": 149,
+      "mention_count": 9,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-edc5f2cc3c95",
+      "canonical_name": "documento",
+      "display_name": "documento",
+      "variant_terms": [
+        "documento"
+      ],
+      "raw_concept_ids": [
+        "concept-edc5f2cc3c95"
+      ],
+      "score": 5.210321,
+      "frequency": 146,
+      "mention_count": 8,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-40686fbcc262",
+      "canonical_name": "fase",
+      "display_name": "fase",
+      "variant_terms": [
+        "fase"
+      ],
+      "raw_concept_ids": [
+        "concept-40686fbcc262"
+      ],
+      "score": 5.084852,
+      "frequency": 143,
+      "mention_count": 4,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-196a649d7b83",
+      "canonical_name": "fundamento",
+      "display_name": "fundamentos",
+      "variant_terms": [
+        "fundamentos"
+      ],
+      "raw_concept_ids": [
+        "concept-fbc9e70b318c"
+      ],
+      "score": 4.825264,
+      "frequency": 138,
+      "mention_count": 0,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-474e5dce48b2",
+      "canonical_name": "aprendizaje",
+      "display_name": "aprendizaje",
+      "variant_terms": [
+        "aprendizaje"
+      ],
+      "raw_concept_ids": [
+        "concept-474e5dce48b2"
+      ],
+      "score": 3.987685,
+      "frequency": 47,
+      "mention_count": 41,
+      "section_frequency": 16,
+      "chunk_frequency": 41,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-ba70ddc5159d",
+      "canonical_name": "dato",
+      "display_name": "datos",
+      "variant_terms": [
+        "datos"
+      ],
+      "raw_concept_ids": [
+        "concept-2477803baffb"
+      ],
+      "score": 3.922761,
+      "frequency": 54,
+      "mention_count": 37,
+      "section_frequency": 26,
+      "chunk_frequency": 38,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-6e57b8872e0b",
+      "canonical_name": "perdida",
+      "display_name": "perdida",
+      "variant_terms": [
+        "perdida"
+      ],
+      "raw_concept_ids": [
+        "concept-6e57b8872e0b"
+      ],
+      "score": 3.615653,
+      "frequency": 27,
+      "mention_count": 17,
+      "section_frequency": 10,
+      "chunk_frequency": 17,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-8cce676e2f83",
+      "canonical_name": "modelo",
+      "display_name": "modelo",
+      "variant_terms": [
+        "modelo"
+      ],
+      "raw_concept_ids": [
+        "concept-8cce676e2f83"
+      ],
+      "score": 3.228652,
+      "frequency": 41,
+      "mention_count": 32,
+      "section_frequency": 24,
+      "chunk_frequency": 32,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-812b3aea461c",
+      "canonical_name": "evaluacion",
+      "display_name": "evaluacion",
+      "variant_terms": [
+        "evaluacion"
+      ],
+      "raw_concept_ids": [
+        "concept-812b3aea461c"
+      ],
+      "score": 3.094568,
+      "frequency": 30,
+      "mention_count": 26,
+      "section_frequency": 14,
+      "chunk_frequency": 26,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-973e223542ff",
+      "canonical_name": "theta",
+      "display_name": "theta",
+      "variant_terms": [
+        "theta"
+      ],
+      "raw_concept_ids": [
+        "concept-973e223542ff"
+      ],
+      "score": 2.949695,
+      "frequency": 9,
+      "mention_count": 4,
+      "section_frequency": 2,
+      "chunk_frequency": 4,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-7f6d38533e09",
+      "canonical_name": "supervisado",
+      "display_name": "supervisado",
+      "variant_terms": [
+        "supervisado"
+      ],
+      "raw_concept_ids": [
+        "concept-7f6d38533e09"
+      ],
+      "score": 2.933445,
+      "frequency": 28,
+      "mention_count": 25,
+      "section_frequency": 9,
+      "chunk_frequency": 25,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-6ab03c93de35",
+      "canonical_name": "debe",
+      "display_name": "debe",
+      "variant_terms": [
+        "debe"
+      ],
+      "raw_concept_ids": [
+        "concept-6ab03c93de35"
+      ],
+      "score": 2.786822,
+      "frequency": 21,
+      "mention_count": 15,
+      "section_frequency": 15,
+      "chunk_frequency": 15,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-48c0008a5336",
+      "canonical_name": "metrica",
+      "display_name": "metricas",
+      "variant_terms": [
+        "metricas"
+      ],
+      "raw_concept_ids": [
+        "concept-2f5b7005a4ba"
+      ],
+      "score": 2.581207,
+      "frequency": 19,
+      "mention_count": 16,
+      "section_frequency": 8,
+      "chunk_frequency": 16,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-c621fb0dd868",
+      "canonical_name": "puede",
+      "display_name": "puede",
+      "variant_terms": [
+        "puede"
+      ],
+      "raw_concept_ids": [
+        "concept-c621fb0dd868"
+      ],
+      "score": 2.580698,
+      "frequency": 31,
+      "mention_count": 26,
+      "section_frequency": 20,
+      "chunk_frequency": 26,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-1da93f57b653",
+      "canonical_name": "aprendizaje supervisado",
+      "display_name": "aprendizaje supervisado",
+      "variant_terms": [
+        "aprendizaje supervisado"
+      ],
+      "raw_concept_ids": [
+        "concept-1da93f57b653"
+      ],
+      "score": 2.411786,
+      "frequency": 17,
+      "mention_count": 16,
+      "section_frequency": 6,
+      "chunk_frequency": 16,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-3c7984ab5af0",
+      "canonical_name": "explicacion",
+      "display_name": "explicaciones",
+      "variant_terms": [
+        "explicaciones"
+      ],
+      "raw_concept_ids": [
+        "concept-d7f2c9ccc500"
+      ],
+      "score": 2.292909,
+      "frequency": 11,
+      "mention_count": 7,
+      "section_frequency": 3,
+      "chunk_frequency": 7,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    },
+    {
+      "concept_id": "canonical-concept-19b6d495c217",
+      "canonical_name": "pueden",
+      "display_name": "pueden",
+      "variant_terms": [
+        "pueden"
+      ],
+      "raw_concept_ids": [
+        "concept-19b6d495c217"
+      ],
+      "score": 2.233978,
+      "frequency": 16,
+      "mention_count": 11,
+      "section_frequency": 11,
+      "chunk_frequency": 11,
+      "normalization_method": "lowercase_stopword_trim_simple_singular"
+    }
+  ]
+}

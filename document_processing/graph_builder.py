@@ -51,6 +51,7 @@ def build_initial_graph(
                 "character_count": metadata.character_count,
                 "word_count": metadata.word_count,
                 "paragraph_count": metadata.paragraph_count,
+                "page_count": metadata.page_count,
                 "reading_graph_compaction": reading_structure.compaction_method,
                 "visible_section_count": reading_structure.section_count,
                 "visible_chunk_count": reading_structure.chunk_count,

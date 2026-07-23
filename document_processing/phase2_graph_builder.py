@@ -140,14 +140,15 @@ def _node_properties(
     }
 
     if node_type == "document":
+        source_extension = str(
+            properties.get("source_extension") or metadata.get("source_extension") or ""
+        )[:16]
         phase2.update(
             {
                 "source_type": str(properties.get("source_type") or "upload")[:16],
                 "source_path": str(properties.get("source_path") or metadata.get("source_path") or ""),
                 "source_url": str(properties.get("source_url") or ""),
-                "source_extension": str(
-                    properties.get("source_extension") or metadata.get("source_extension") or ""
-                )[:16],
+                "source_extension": source_extension,
                 "processing_status": _processing_status(
                     properties.get("processing_status") or metadata.get("processing_status")
                 ),
@@ -156,7 +157,10 @@ def _node_properties(
                     or properties.get("visible_chunk_count")
                     or metadata.get("chunk_count")
                 ),
-                "page_count": _int_or_none(properties.get("page_count")) or 0,
+                "page_count": _page_count_for_document(
+                    _first_defined(properties.get("page_count"), metadata.get("page_count")),
+                    source_extension,
+                ),
                 "mime_type": _mime_type_from_filename(
                     str(properties.get("source_path") or metadata.get("source_path") or title)
                 ),
@@ -464,6 +468,22 @@ def _mime_type_from_filename(filename: str) -> str:
     if suffix == "txt":
         return "text/plain"
     return suffix or "application/octet-stream"
+
+
+def _page_count_for_document(value: Any, source_extension: str) -> int:
+    page_count = _int_or_none(value)
+    if page_count:
+        return page_count
+    if source_extension.lower() in {".md", ".txt"}:
+        return 1
+    return 0
+
+
+def _first_defined(*values: Any) -> Any:
+    for value in values:
+        if value not in (None, ""):
+            return value
+    return None
 
 
 def _list_value(value: Any) -> list[Any]:

@@ -723,13 +723,20 @@ function RelationshipLine({
       ? 'var(--graph-edge-opacity-connected)'
       : 'var(--graph-edge-opacity-weak)';
   const baseStrokeWidth = style.width || 1.25;
+  const isBidirectional =
+    relationship.properties?.bidirectional === true ||
+    relationship.properties?.bidirectional === 'true';
+  const markerMode =
+    relationship.relationship_type === 'RELATES' && isBidirectional
+      ? 'both'
+      : style.marker;
   const markerEnd =
-    style.marker === 'both'
+    markerMode === 'both'
       ? 'url(#arrow-both-end)'
-      : style.marker === 'end'
+      : markerMode === 'end'
         ? 'url(#arrow-end)'
         : undefined;
-  const markerStart = style.marker === 'both' ? 'url(#arrow-both-start)' : undefined;
+  const markerStart = markerMode === 'both' ? 'url(#arrow-both-start)' : undefined;
 
   return (
     <g className="relationship-group">

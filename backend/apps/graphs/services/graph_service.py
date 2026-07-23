@@ -97,20 +97,15 @@ class GraphService:
         labels: list[str] | None = None,
     ) -> dict[str, Any]:
         document_id, graph, node = self._find_node(node_id)
-        labels_changed = False
         if labels is not None:
-            if "Document" in node.get("labels", []):
-                raise ValueError("Document nodes cannot change type")
-            clean_labels = _clean_node_labels(labels)
-            labels_changed = clean_labels != node.get("labels", [])
-            node["labels"] = clean_labels
+            raise ValueError("Node type cannot be changed after creation")
         clean_properties = _sync_text_patch(_clean_patch_properties(properties))
         node["properties"].update(clean_properties)
         node["properties"] = _with_content_fields(node["properties"])
         node["properties"]["updated_at"] = _now_iso()
         self._persist_graph(document_id, graph)
         touch_graph_space(document_id)
-        neo4j_sync = self._sync_neo4j_graph(document_id, graph)
+        neo4j_sync = self._sync_neo4j_node_patch(node_id, node)
         return {"document_id": document_id, "graph": graph, "node": node, "neo4j_sync": neo4j_sync}
 
     def patch_relationship(
@@ -136,32 +131,47 @@ class GraphService:
             "neo4j_sync": neo4j_sync,
         }
 
-    def delete_node(self, node_id: str) -> dict[str, Any]:
+    def delete_node(self, node_id: str, workspace_id: str | None = None) -> dict[str, Any]:
         document_id, graph, node = self._find_node(node_id)
         if "Document" in node.get("labels", []):
             raise ValueError("Document nodes cannot be deleted")
+        deleted_node_ids = _node_ids_for_delete(graph, node_id)
+        deleted_node_id_set = set(deleted_node_ids)
+        deleted_nodes = [
+            current_node
+            for current_node in graph.get("nodes", [])
+            if current_node.get("node_id") in deleted_node_id_set
+        ]
         removed_relationships = [
             relationship
             for relationship in graph["relationships"]
-            if relationship["source_id"] == node_id or relationship["target_id"] == node_id
+            if (
+                relationship["source_id"] in deleted_node_id_set
+                or relationship["target_id"] in deleted_node_id_set
+            )
         ]
         graph["nodes"] = [
             current_node
             for current_node in graph["nodes"]
-            if current_node["node_id"] != node_id
+            if current_node["node_id"] not in deleted_node_id_set
         ]
         graph["relationships"] = [
             relationship
             for relationship in graph["relationships"]
-            if relationship["source_id"] != node_id and relationship["target_id"] != node_id
+            if (
+                relationship["source_id"] not in deleted_node_id_set
+                and relationship["target_id"] not in deleted_node_id_set
+            )
         ]
         self._persist_graph(document_id, graph)
         touch_graph_space(document_id)
-        neo4j_sync = self._sync_neo4j_graph(document_id, graph)
+        neo4j_sync = self._sync_neo4j_node_delete(deleted_node_ids)
         return {
             "document_id": document_id,
             "graph": graph,
             "deleted_node": node,
+            "deleted_nodes": deleted_nodes,
+            "deleted_node_count": len(deleted_node_ids),
             "deleted_relationship_count": len(removed_relationships),
             "neo4j_sync": neo4j_sync,
         }
@@ -310,6 +320,23 @@ class GraphService:
             _phase2_graph_context(graph_space),
         )
 
+    def _should_sync_neo4j_incrementally(self) -> bool:
+        return self.neo4j.sync_on_ingest() or self.neo4j.is_graph_backend()
+
+    def _sync_neo4j_node_patch(
+        self,
+        node_id: str,
+        node: dict[str, Any],
+    ) -> dict[str, Any]:
+        if not self._should_sync_neo4j_incrementally():
+            return {"enabled": False, "status": "skipped", "reason": "sync_disabled"}
+        return self.neo4j.patch_node(node_id, node.get("properties", {}))
+
+    def _sync_neo4j_node_delete(self, node_ids: list[str]) -> dict[str, Any]:
+        if not self._should_sync_neo4j_incrementally():
+            return {"enabled": False, "status": "skipped", "reason": "sync_disabled"}
+        return self.neo4j.delete_nodes(node_ids)
+
     def _document_for_phase2_sync(self, document_id: str, graph: dict[str, Any]) -> dict[str, Any]:
         try:
             document = self.store.load_document(document_id)
@@ -411,6 +438,8 @@ def _clean_node_labels(labels: list[str]) -> list[str]:
             raise ValueError(f"Unsupported node label: {label}")
         if label == "Document":
             raise ValueError("Document nodes are created by the ingest pipeline")
+        if label == "Section":
+            raise ValueError("Section nodes are created by the ingest pipeline")
         if label not in clean_labels:
             clean_labels.append(label)
     return clean_labels
@@ -511,6 +540,48 @@ def _require_node_in_graph(graph: dict[str, Any], node_id: str) -> dict[str, Any
         if node.get("node_id") == node_id:
             return node
     raise KeyError(f"Node not found in document graph: {node_id}")
+
+
+def _node_ids_for_delete(graph: dict[str, Any], node_id: str) -> list[str]:
+    node = _require_node_in_graph(graph, node_id)
+    if "Section" not in node.get("labels", []):
+        return [node_id]
+
+    node_by_id = {
+        current_node.get("node_id"): current_node
+        for current_node in graph.get("nodes", [])
+        if current_node.get("node_id")
+    }
+    deleted_ids: list[str] = []
+    queued_ids = [node_id]
+
+    while queued_ids:
+        current_id = queued_ids.pop(0)
+        if current_id in deleted_ids:
+            continue
+        deleted_ids.append(current_id)
+
+        for relationship in graph.get("relationships", []):
+            if not _is_child_content_relationship(relationship, current_id):
+                continue
+            child_id = relationship.get("target_id")
+            child_node = node_by_id.get(child_id)
+            if not _is_section_delete_child(child_node):
+                continue
+            queued_ids.append(child_id)
+
+    return deleted_ids
+
+
+def _is_child_content_relationship(relationship: dict[str, Any], source_id: str) -> bool:
+    if relationship.get("source_id") != source_id:
+        return False
+    return relationship.get("relationship_type") == "CONTAINS"
+
+
+def _is_section_delete_child(node: dict[str, Any] | None) -> bool:
+    labels = node.get("labels", []) if node else []
+    return "Section" in labels or "Chunk" in labels
 
 
 def _merged_node_properties(

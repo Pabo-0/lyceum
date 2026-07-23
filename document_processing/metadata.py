@@ -37,4 +37,9 @@ def build_metadata(
         character_count=len(normalized_content),
         word_count=len(tokens),
         paragraph_count=len(paragraphs),
+        page_count=page_count_for_extension(path.suffix),
     )
+
+
+def page_count_for_extension(extension: str) -> int:
+    return 1 if extension.lower() in {".md", ".txt"} else 0

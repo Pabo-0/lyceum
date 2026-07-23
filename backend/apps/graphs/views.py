@@ -220,10 +220,12 @@ def node_detail(request: HttpRequest, node_id: str) -> JsonResponse:
 
     if request.method == "DELETE":
         try:
-            result = service.delete_node(node_id)
+            result = service.delete_node(node_id, workspace_id_from_request(request))
             return json_response(result)
         except (KeyError, FileNotFoundError) as exc:
             return error_response(str(exc), status=404)
+        except ValueError as exc:
+            return error_response(str(exc), status=400)
 
     return method_not_allowed(["PATCH", "DELETE"])
 

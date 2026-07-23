@@ -349,16 +349,22 @@ class Neo4jGateway:
         return {"status": "synced"}
 
     def delete_node(self, node_id: str) -> dict[str, Any]:
+        return self.delete_nodes([node_id])
+
+    def delete_nodes(self, node_ids: list[str]) -> dict[str, Any]:
         if not self.is_configured():
             return {"status": "skipped", "reason": "neo4j_not_configured"}
+        clean_node_ids = [str(node_id) for node_id in node_ids if node_id]
+        if not clean_node_ids:
+            return {"status": "skipped", "reason": "empty_node_ids"}
         try:
             self._run_query(
-                "MATCH (n {node_id: $node_id}) DETACH DELETE n",
-                {"node_id": node_id},
+                "MATCH (n) WHERE n.node_id IN $node_ids DETACH DELETE n",
+                {"node_ids": clean_node_ids},
             )
         except Exception as exc:
             return {"status": "failed", "reason": str(exc)}
-        return {"status": "synced"}
+        return {"status": "synced", "deleted_node_count": len(clean_node_ids)}
 
     def delete_graph(self, graph: dict[str, Any]) -> dict[str, Any]:
         if not self.is_configured():

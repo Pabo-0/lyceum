@@ -1,0 +1,2321 @@
+{
+  "sections": [
+    {
+      "section_id": "section-1",
+      "parent_section_id": null,
+      "title": "Documento de prueba fase 2: fundamentos de Machine Learning",
+      "markdown": "# Documento de prueba fase 2: fundamentos de Machine Learning",
+      "level": 1,
+      "order": 1,
+      "heading_type": "markdown",
+      "numbering": null,
+      "start_line": 1,
+      "end_line": 1,
+      "chunks": []
+    },
+    {
+      "section_id": "section-2",
+      "parent_section_id": "section-1",
+      "title": "1. Proposito y contexto educativo",
+      "markdown": "## 1. Proposito y contexto educativo",
+      "level": 2,
+      "order": 2,
+      "heading_type": "markdown",
+      "numbering": "1",
+      "start_line": 3,
+      "end_line": 9,
+      "chunks": [
+        {
+          "chunk_id": "chunk-1",
+          "parent_section_id": "section-2",
+          "text": "Este documento es una muestra extensa para evaluar la fase 2 del sistema de interpretacion de documentos. El tema elegido es Machine Learning porque combina definiciones formales, razonamiento matematico, tablas comparativas, procedimientos tecnicos y criterios pedagogicos que aparecen con frecuencia en materiales educativos reales.",
+          "markdown": "Este documento es una muestra extensa para evaluar la fase 2 del sistema de interpretacion de documentos. El tema elegido es Machine Learning porque combina definiciones formales, razonamiento matematico, tablas comparativas, procedimientos tecnicos y criterios pedagogicos que aparecen con frecuencia en materiales educativos reales.",
+          "order": 1,
+          "start_line": 5,
+          "end_line": 5,
+          "word_count": 44,
+          "character_count": 334,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-2",
+          "parent_section_id": "section-2",
+          "text": "Machine Learning, o aprendizaje automatico, es una rama de la inteligencia artificial que estudia metodos capaces de mejorar su desempeno en una tarea a partir de datos. En lugar de programar reglas explicitas para cada caso, se define una familia de modelos, se proporciona evidencia en forma de ejemplos y se ajustan parametros para reducir una funcion de perdida.",
+          "markdown": "Machine Learning, o aprendizaje automatico, es una rama de la inteligencia artificial que estudia metodos capaces de mejorar su desempeno en una tarea a partir de datos. En lugar de programar reglas explicitas para cada caso, se define una familia de modelos, se proporciona evidencia en forma de ejemplos y se ajustan parametros para reducir una funcion de perdida.",
+          "order": 2,
+          "start_line": 7,
+          "end_line": 7,
+          "word_count": 59,
+          "character_count": 366,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-3",
+          "parent_section_id": "section-2",
+          "text": "En un curso introductorio, el objetivo no es memorizar algoritmos aislados, sino entender la estructura comun que comparten: un conjunto de datos, una representacion, una hipotesis, un criterio de evaluacion y un procedimiento de optimizacion. Esta estructura permite comparar modelos simples como regresion lineal con modelos mas flexibles como bosques aleatorios o redes neuronales.",
+          "markdown": "En un curso introductorio, el objetivo no es memorizar algoritmos aislados, sino entender la estructura comun que comparten: un conjunto de datos, una representacion, una hipotesis, un criterio de evaluacion y un procedimiento de optimizacion. Esta estructura permite comparar modelos simples como regresion lineal con modelos mas flexibles como bosques aleatorios o redes neuronales.",
+          "order": 3,
+          "start_line": 9,
+          "end_line": 9,
+          "word_count": 54,
+          "character_count": 384,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-3",
+      "parent_section_id": "section-2",
+      "title": "1.1 Objetivos de aprendizaje",
+      "markdown": "### 1.1 Objetivos de aprendizaje",
+      "level": 3,
+      "order": 3,
+      "heading_type": "markdown",
+      "numbering": "1.1",
+      "start_line": 11,
+      "end_line": 21,
+      "chunks": [
+        {
+          "chunk_id": "chunk-4",
+          "parent_section_id": "section-3",
+          "text": "Al estudiar este documento, una persona deberia poder reconocer los elementos centrales de un flujo de trabajo de Machine Learning y explicar por que cada etapa afecta el desempeno final del sistema. La separacion por secciones busca que el grafo resultante refleje una progresion pedagogica clara.",
+          "markdown": "Al estudiar este documento, una persona deberia poder reconocer los elementos centrales de un flujo de trabajo de Machine Learning y explicar por que cada etapa afecta el desempeno final del sistema. La separacion por secciones busca que el grafo resultante refleje una progresion pedagogica clara.",
+          "order": 4,
+          "start_line": 13,
+          "end_line": 13,
+          "word_count": 46,
+          "character_count": 298,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-5",
+          "parent_section_id": "section-3",
+          "text": "- Definir Machine Learning con precision conceptual. - Diferenciar aprendizaje supervisado, no supervisado y por refuerzo. - Interpretar funciones de perdida y metricas de evaluacion. - Reconocer riesgos como sobreajuste, fuga de informacion y sesgo de datos. - Comprender el papel de la validacion y la explicabilidad en entornos educativos.",
+          "markdown": "- Definir Machine Learning con precision conceptual.\n- Diferenciar aprendizaje supervisado, no supervisado y por refuerzo.\n- Interpretar funciones de perdida y metricas de evaluacion.\n- Reconocer riesgos como sobreajuste, fuga de informacion y sesgo de datos.\n- Comprender el papel de la validacion y la explicabilidad en entornos educativos.",
+          "order": 5,
+          "start_line": 15,
+          "end_line": 19,
+          "word_count": 45,
+          "character_count": 342,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-6",
+          "parent_section_id": "section-3",
+          "text": "El documento tambien incluye bloques Markdown que deben conservarse dentro de los chunks. La fase 2 debe mostrar tablas, formulas, listas, citas y codigo sin perder estructura visual.",
+          "markdown": "El documento tambien incluye bloques Markdown que deben conservarse dentro de los chunks. La fase 2 debe mostrar tablas, formulas, listas, citas y codigo sin perder estructura visual.",
+          "order": 6,
+          "start_line": 21,
+          "end_line": 21,
+          "word_count": 28,
+          "character_count": 183,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-4",
+      "parent_section_id": "section-1",
+      "title": "2. Definicion formal de Machine Learning",
+      "markdown": "## 2. Definicion formal de Machine Learning",
+      "level": 2,
+      "order": 4,
+      "heading_type": "markdown",
+      "numbering": "2",
+      "start_line": 23,
+      "end_line": 33,
+      "chunks": [
+        {
+          "chunk_id": "chunk-7",
+          "parent_section_id": "section-4",
+          "text": "Una definicion clasica sostiene que un programa aprende de la experiencia `E` con respecto a una clase de tareas `T` y una medida de desempeno `P` si su desempeno en `T`, medido por `P`, mejora con la experiencia `E`. Esta formulacion es util porque separa tres preguntas: que tarea se resuelve, que datos alimentan el proceso y como se decide si hubo mejora.",
+          "markdown": "Una definicion clasica sostiene que un programa aprende de la experiencia `E` con respecto a una clase de tareas `T` y una medida de desempeno `P` si su desempeno en `T`, medido por `P`, mejora con la experiencia `E`. Esta formulacion es util porque separa tres preguntas: que tarea se resuelve, que datos alimentan el proceso y como se decide si hubo mejora.",
+          "order": 7,
+          "start_line": 25,
+          "end_line": 25,
+          "word_count": 63,
+          "character_count": 359,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-8",
+          "parent_section_id": "section-4",
+          "text": "En la practica, una tarea puede ser clasificar correos como deseados o no deseados, estimar el precio de una vivienda, recomendar ejercicios a un estudiante o detectar patrones en senales medicas. La experiencia suele representarse como un conjunto de observaciones con atributos, etiquetas, relaciones temporales o interacciones.",
+          "markdown": "En la practica, una tarea puede ser clasificar correos como deseados o no deseados, estimar el precio de una vivienda, recomendar ejercicios a un estudiante o detectar patrones en senales medicas. La experiencia suele representarse como un conjunto de observaciones con atributos, etiquetas, relaciones temporales o interacciones.",
+          "order": 8,
+          "start_line": 27,
+          "end_line": 27,
+          "word_count": 47,
+          "character_count": 330,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-9",
+          "parent_section_id": "section-4",
+          "text": "$$ ML = (T, E, P) $$",
+          "markdown": "$$\nML = (T, E, P)\n$$",
+          "order": 9,
+          "start_line": 29,
+          "end_line": 31,
+          "word_count": 4,
+          "character_count": 20,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-10",
+          "parent_section_id": "section-4",
+          "text": "Donde `T` representa la tarea, `E` la experiencia disponible y `P` la medida de desempeno. Aunque la notacion es compacta, ayuda a evitar una confusion comun: un modelo no \"aprende\" de manera abstracta, aprende en relacion con una tarea concreta y una evaluacion definida.",
+          "markdown": "Donde `T` representa la tarea, `E` la experiencia disponible y `P` la medida de desempeno. Aunque la notacion es compacta, ayuda a evitar una confusion comun: un modelo no \"aprende\" de manera abstracta, aprende en relacion con una tarea concreta y una evaluacion definida.",
+          "order": 10,
+          "start_line": 33,
+          "end_line": 33,
+          "word_count": 44,
+          "character_count": 272,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-5",
+      "parent_section_id": "section-4",
+      "title": "2.1 Componentes de una tarea predictiva",
+      "markdown": "### 2.1 Componentes de una tarea predictiva",
+      "level": 3,
+      "order": 5,
+      "heading_type": "markdown",
+      "numbering": "2.1",
+      "start_line": 35,
+      "end_line": 47,
+      "chunks": [
+        {
+          "chunk_id": "chunk-11",
+          "parent_section_id": "section-5",
+          "text": "Una tarea predictiva supervisada se puede describir mediante entradas `x`, salidas esperadas `y` y una funcion aproximadora `f_theta`. El subindice `theta` representa los parametros del modelo. Durante el entrenamiento, se busca un valor de `theta` que produzca predicciones cercanas a las etiquetas observadas.",
+          "markdown": "Una tarea predictiva supervisada se puede describir mediante entradas `x`, salidas esperadas `y` y una funcion aproximadora `f_theta`. El subindice `theta` representa los parametros del modelo. Durante el entrenamiento, se busca un valor de `theta` que produzca predicciones cercanas a las etiquetas observadas.",
+          "order": 11,
+          "start_line": 37,
+          "end_line": 37,
+          "word_count": 44,
+          "character_count": 311,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-12",
+          "parent_section_id": "section-5",
+          "text": "| Componente | Simbolo comun | Pregunta educativa | Ejemplo | | --- | --- | --- | --- | | Entrada | `x` | Que informacion recibe el modelo | horas de estudio, asistencia, puntajes previos | | Etiqueta | `y` | Que se desea predecir | resultado aprobado o no aprobado | | Modelo | `f_theta` | Que familia de funciones se ajusta | regresion logistica | | Perdida | `L` | Como se penalizan errores | entropia cruzada | | Metrica | `M` | Como se reporta desempeno | exactitud o F1 |",
+          "markdown": "| Componente | Simbolo comun | Pregunta educativa | Ejemplo |\n| --- | --- | --- | --- |\n| Entrada | `x` | Que informacion recibe el modelo | horas de estudio, asistencia, puntajes previos |\n| Etiqueta | `y` | Que se desea predecir | resultado aprobado o no aprobado |\n| Modelo | `f_theta` | Que familia de funciones se ajusta | regresion logistica |\n| Perdida | `L` | Como se penalizan errores | entropia cruzada |\n| Metrica | `M` | Como se reporta desempeno | exactitud o F1 |",
+          "order": 12,
+          "start_line": 39,
+          "end_line": 45,
+          "word_count": 58,
+          "character_count": 477,
+          "chunk_type": "table"
+        },
+        {
+          "chunk_id": "chunk-13",
+          "parent_section_id": "section-5",
+          "text": "La tabla anterior debe permanecer como tabla Markdown. Si se aplana, se pierde la relacion entre simbolo, pregunta y ejemplo.",
+          "markdown": "La tabla anterior debe permanecer como tabla Markdown. Si se aplana, se pierde la relacion entre simbolo, pregunta y ejemplo.",
+          "order": 13,
+          "start_line": 47,
+          "end_line": 47,
+          "word_count": 20,
+          "character_count": 125,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-6",
+      "parent_section_id": "section-1",
+      "title": "3. Datos, representacion y calidad",
+      "markdown": "## 3. Datos, representacion y calidad",
+      "level": 2,
+      "order": 6,
+      "heading_type": "markdown",
+      "numbering": "3",
+      "start_line": 49,
+      "end_line": 53,
+      "chunks": [
+        {
+          "chunk_id": "chunk-14",
+          "parent_section_id": "section-6",
+          "text": "Los datos son la materia prima del aprendizaje automatico. Sin embargo, no basta con acumular muchos registros. La calidad de los datos depende de su pertinencia, cobertura, consistencia, temporalidad y relacion con la tarea. Un conjunto de datos grande pero sesgado puede producir un modelo convincente en apariencia y deficiente en situaciones reales.",
+          "markdown": "Los datos son la materia prima del aprendizaje automatico. Sin embargo, no basta con acumular muchos registros. La calidad de los datos depende de su pertinencia, cobertura, consistencia, temporalidad y relacion con la tarea. Un conjunto de datos grande pero sesgado puede producir un modelo convincente en apariencia y deficiente en situaciones reales.",
+          "order": 14,
+          "start_line": 51,
+          "end_line": 51,
+          "word_count": 53,
+          "character_count": 353,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-15",
+          "parent_section_id": "section-6",
+          "text": "En educacion, los datos pueden provenir de plataformas de aprendizaje, evaluaciones, interacciones con materiales, registros de asistencia o respuestas abiertas. Cada fuente introduce supuestos. Por ejemplo, el tiempo en pantalla no siempre significa atencion, y un puntaje bajo no siempre indica falta de comprension; puede reflejar ansiedad, ambiguedad en la pregunta o falta de acceso a recursos.",
+          "markdown": "En educacion, los datos pueden provenir de plataformas de aprendizaje, evaluaciones, interacciones con materiales, registros de asistencia o respuestas abiertas. Cada fuente introduce supuestos. Por ejemplo, el tiempo en pantalla no siempre significa atencion, y un puntaje bajo no siempre indica falta de comprension; puede reflejar ansiedad, ambiguedad en la pregunta o falta de acceso a recursos.",
+          "order": 15,
+          "start_line": 53,
+          "end_line": 53,
+          "word_count": 57,
+          "character_count": 399,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-7",
+      "parent_section_id": "section-6",
+      "title": "3.1 Tipos de variables",
+      "markdown": "### 3.1 Tipos de variables",
+      "level": 3,
+      "order": 7,
+      "heading_type": "markdown",
+      "numbering": "3.1",
+      "start_line": 55,
+      "end_line": 67,
+      "chunks": [
+        {
+          "chunk_id": "chunk-16",
+          "parent_section_id": "section-7",
+          "text": "La representacion transforma observaciones del mundo en variables que un algoritmo puede procesar. Algunas variables son numericas, otras categoricas, ordinales, textuales o temporales. El diseno de esta representacion influye de manera directa en lo que el modelo puede aprender.",
+          "markdown": "La representacion transforma observaciones del mundo en variables que un algoritmo puede procesar. Algunas variables son numericas, otras categoricas, ordinales, textuales o temporales. El diseno de esta representacion influye de manera directa en lo que el modelo puede aprender.",
+          "order": 16,
+          "start_line": 57,
+          "end_line": 57,
+          "word_count": 39,
+          "character_count": 280,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-17",
+          "parent_section_id": "section-7",
+          "text": "| Tipo de variable | Descripcion | Transformacion frecuente | Riesgo comun | | --- | --- | --- | --- | | Numerica continua | Valores medidos en escala | normalizacion o estandarizacion | unidades inconsistentes | | Categorica nominal | Clases sin orden natural | one-hot encoding | categorias raras o nuevas | | Ordinal | Categorias con orden | codificacion ordinal | asumir distancias falsas | | Texto | Secuencias de palabras | bolsa de palabras, embeddings | perdida de contexto | | Temporal | Eventos ordenados | ventanas, rezagos, tendencias | fuga de informacion futura |",
+          "markdown": "| Tipo de variable | Descripcion | Transformacion frecuente | Riesgo comun |\n| --- | --- | --- | --- |\n| Numerica continua | Valores medidos en escala | normalizacion o estandarizacion | unidades inconsistentes |\n| Categorica nominal | Clases sin orden natural | one-hot encoding | categorias raras o nuevas |\n| Ordinal | Categorias con orden | codificacion ordinal | asumir distancias falsas |\n| Texto | Secuencias de palabras | bolsa de palabras, embeddings | perdida de contexto |\n| Temporal | Eventos ordenados | ventanas, rezagos, tendencias | fuga de informacion futura |",
+          "order": 17,
+          "start_line": 59,
+          "end_line": 65,
+          "word_count": 61,
+          "character_count": 577,
+          "chunk_type": "table"
+        },
+        {
+          "chunk_id": "chunk-18",
+          "parent_section_id": "section-7",
+          "text": "Una representacion adecuada no solo mejora la precision; tambien facilita interpretar errores. Cuando las variables se documentan con claridad, un docente o analista puede entender por que un modelo falla en ciertos grupos o situaciones.",
+          "markdown": "Una representacion adecuada no solo mejora la precision; tambien facilita interpretar errores. Cuando las variables se documentan con claridad, un docente o analista puede entender por que un modelo falla en ciertos grupos o situaciones.",
+          "order": 18,
+          "start_line": 67,
+          "end_line": 67,
+          "word_count": 35,
+          "character_count": 237,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-8",
+      "parent_section_id": "section-6",
+      "title": "3.2 Limpieza y preparacion",
+      "markdown": "### 3.2 Limpieza y preparacion",
+      "level": 3,
+      "order": 8,
+      "heading_type": "markdown",
+      "numbering": "3.2",
+      "start_line": 69,
+      "end_line": 81,
+      "chunks": [
+        {
+          "chunk_id": "chunk-19",
+          "parent_section_id": "section-8",
+          "text": "La preparacion de datos incluye detectar valores faltantes, corregir formatos, eliminar duplicados, revisar outliers y separar conjuntos de entrenamiento, validacion y prueba. Esta etapa suele ocupar una gran parte del trabajo aplicado porque los modelos son sensibles a detalles aparentemente pequenos.",
+          "markdown": "La preparacion de datos incluye detectar valores faltantes, corregir formatos, eliminar duplicados, revisar outliers y separar conjuntos de entrenamiento, validacion y prueba. Esta etapa suele ocupar una gran parte del trabajo aplicado porque los modelos son sensibles a detalles aparentemente pequenos.",
+          "order": 19,
+          "start_line": 71,
+          "end_line": 71,
+          "word_count": 41,
+          "character_count": 303,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-20",
+          "parent_section_id": "section-8",
+          "text": "Puntos clave para una preparacion responsable:",
+          "markdown": "Puntos clave para una preparacion responsable:",
+          "order": 20,
+          "start_line": 73,
+          "end_line": 73,
+          "word_count": 6,
+          "character_count": 46,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-21",
+          "parent_section_id": "section-8",
+          "text": "- Registrar las reglas de limpieza usadas. - Evitar usar informacion del conjunto de prueba durante el entrenamiento. - Documentar variables eliminadas y la razon de eliminacion. - Conservar versiones de datos y codigo de preparacion. - Revisar si los datos representan adecuadamente a la poblacion objetivo.",
+          "markdown": "- Registrar las reglas de limpieza usadas.\n- Evitar usar informacion del conjunto de prueba durante el entrenamiento.\n- Documentar variables eliminadas y la razon de eliminacion.\n- Conservar versiones de datos y codigo de preparacion.\n- Revisar si los datos representan adecuadamente a la poblacion objetivo.",
+          "order": 21,
+          "start_line": 75,
+          "end_line": 79,
+          "word_count": 42,
+          "character_count": 308,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-22",
+          "parent_section_id": "section-8",
+          "text": "> En Machine Learning educativo, preparar datos no es una tarea mecanica. Es una decision pedagogica y etica porque determina que aspectos del aprendizaje se vuelven visibles para el modelo.",
+          "markdown": "> En Machine Learning educativo, preparar datos no es una tarea mecanica. Es una decision pedagogica y etica porque determina que aspectos del aprendizaje se vuelven visibles para el modelo.",
+          "order": 22,
+          "start_line": 81,
+          "end_line": 81,
+          "word_count": 29,
+          "character_count": 190,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-9",
+      "parent_section_id": "section-1",
+      "title": "4. Aprendizaje supervisado",
+      "markdown": "## 4. Aprendizaje supervisado",
+      "level": 2,
+      "order": 9,
+      "heading_type": "markdown",
+      "numbering": "4",
+      "start_line": 83,
+      "end_line": 87,
+      "chunks": [
+        {
+          "chunk_id": "chunk-23",
+          "parent_section_id": "section-9",
+          "text": "El aprendizaje supervisado utiliza ejemplos en los que se conoce la respuesta esperada. El algoritmo recibe pares `(x_i, y_i)` y busca una funcion que generalice a casos nuevos. Dos tareas supervisadas frecuentes son clasificacion y regresion.",
+          "markdown": "El aprendizaje supervisado utiliza ejemplos en los que se conoce la respuesta esperada. El algoritmo recibe pares `(x_i, y_i)` y busca una funcion que generalice a casos nuevos. Dos tareas supervisadas frecuentes son clasificacion y regresion.",
+          "order": 23,
+          "start_line": 85,
+          "end_line": 85,
+          "word_count": 38,
+          "character_count": 243,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-24",
+          "parent_section_id": "section-9",
+          "text": "En clasificacion, la salida pertenece a un conjunto discreto de clases. Por ejemplo, predecir si una respuesta escrita muestra comprension conceptual, error procedimental o ausencia de evidencia. En regresion, la salida es numerica, como estimar el tiempo necesario para completar una unidad o el puntaje esperado en una evaluacion.",
+          "markdown": "En clasificacion, la salida pertenece a un conjunto discreto de clases. Por ejemplo, predecir si una respuesta escrita muestra comprension conceptual, error procedimental o ausencia de evidencia. En regresion, la salida es numerica, como estimar el tiempo necesario para completar una unidad o el puntaje esperado en una evaluacion.",
+          "order": 24,
+          "start_line": 87,
+          "end_line": 87,
+          "word_count": 49,
+          "character_count": 332,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-10",
+      "parent_section_id": "section-9",
+      "title": "4.1 Regresion lineal",
+      "markdown": "### 4.1 Regresion lineal",
+      "level": 3,
+      "order": 10,
+      "heading_type": "markdown",
+      "numbering": "4.1",
+      "start_line": 89,
+      "end_line": 103,
+      "chunks": [
+        {
+          "chunk_id": "chunk-25",
+          "parent_section_id": "section-10",
+          "text": "La regresion lineal modela la relacion entre variables de entrada y una salida continua mediante una combinacion ponderada de atributos. Aunque es simple, sigue siendo importante porque ofrece una base conceptual para entender parametros, perdida y optimizacion.",
+          "markdown": "La regresion lineal modela la relacion entre variables de entrada y una salida continua mediante una combinacion ponderada de atributos. Aunque es simple, sigue siendo importante porque ofrece una base conceptual para entender parametros, perdida y optimizacion.",
+          "order": 25,
+          "start_line": 91,
+          "end_line": 91,
+          "word_count": 37,
+          "character_count": 262,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-26",
+          "parent_section_id": "section-10",
+          "text": "$$ \\hat{y} = w_0 + w_1x_1 + w_2x_2 + \\cdots + w_px_p $$",
+          "markdown": "$$\n\\hat{y} = w_0 + w_1x_1 + w_2x_2 + \\cdots + w_px_p\n$$",
+          "order": 26,
+          "start_line": 93,
+          "end_line": 95,
+          "word_count": 14,
+          "character_count": 55,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-27",
+          "parent_section_id": "section-10",
+          "text": "La prediccion `\\hat{y}` se obtiene sumando una interseccion `w_0` y productos entre pesos `w_j` y atributos `x_j`. Si el objetivo es minimizar error cuadratico medio, la perdida para `n` observaciones puede escribirse asi:",
+          "markdown": "La prediccion `\\hat{y}` se obtiene sumando una interseccion `w_0` y productos entre pesos `w_j` y atributos `x_j`. Si el objetivo es minimizar error cuadratico medio, la perdida para `n` observaciones puede escribirse asi:",
+          "order": 27,
+          "start_line": 97,
+          "end_line": 97,
+          "word_count": 37,
+          "character_count": 222,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-28",
+          "parent_section_id": "section-10",
+          "text": "$$ MSE = \\frac{1}{n}\\sum_{i=1}^{n}(y_i - \\hat{y}_i)^2 $$",
+          "markdown": "$$\nMSE = \\frac{1}{n}\\sum_{i=1}^{n}(y_i - \\hat{y}_i)^2\n$$",
+          "order": 28,
+          "start_line": 99,
+          "end_line": 101,
+          "word_count": 14,
+          "character_count": 56,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-29",
+          "parent_section_id": "section-10",
+          "text": "En el aula, esta formula permite discutir por que errores grandes pesan mas que errores pequenos. Tambien permite mostrar que una metrica aparentemente tecnica contiene una decision: penalizar de manera cuadratica.",
+          "markdown": "En el aula, esta formula permite discutir por que errores grandes pesan mas que errores pequenos. Tambien permite mostrar que una metrica aparentemente tecnica contiene una decision: penalizar de manera cuadratica.",
+          "order": 29,
+          "start_line": 103,
+          "end_line": 103,
+          "word_count": 31,
+          "character_count": 214,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-11",
+      "parent_section_id": "section-9",
+      "title": "4.2 Regresion logistica",
+      "markdown": "### 4.2 Regresion logistica",
+      "level": 3,
+      "order": 11,
+      "heading_type": "markdown",
+      "numbering": "4.2",
+      "start_line": 105,
+      "end_line": 113,
+      "chunks": [
+        {
+          "chunk_id": "chunk-30",
+          "parent_section_id": "section-11",
+          "text": "La regresion logistica se usa con frecuencia para clasificacion binaria. A pesar de su nombre, no predice una cantidad continua sin restricciones, sino una probabilidad entre 0 y 1. Esto se logra aplicando la funcion sigmoide a una combinacion lineal.",
+          "markdown": "La regresion logistica se usa con frecuencia para clasificacion binaria. A pesar de su nombre, no predice una cantidad continua sin restricciones, sino una probabilidad entre 0 y 1. Esto se logra aplicando la funcion sigmoide a una combinacion lineal.",
+          "order": 30,
+          "start_line": 107,
+          "end_line": 107,
+          "word_count": 40,
+          "character_count": 251,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-31",
+          "parent_section_id": "section-11",
+          "text": "$$ \\sigma(z) = \\frac{1}{1 + e^{-z}} $$",
+          "markdown": "$$\n\\sigma(z) = \\frac{1}{1 + e^{-z}}\n$$",
+          "order": 31,
+          "start_line": 109,
+          "end_line": 111,
+          "word_count": 7,
+          "character_count": 38,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-32",
+          "parent_section_id": "section-11",
+          "text": "La salida se interpreta como `P(y = 1 | x)`. En un contexto educativo, podria estimar la probabilidad de que un estudiante necesite apoyo adicional en un tema. Esa probabilidad no debe confundirse con una etiqueta definitiva. La decision final depende de un umbral, del costo de falsos positivos y falsos negativos, y de la intervencion disponible.",
+          "markdown": "La salida se interpreta como `P(y = 1 | x)`. En un contexto educativo, podria estimar la probabilidad de que un estudiante necesite apoyo adicional en un tema. Esa probabilidad no debe confundirse con una etiqueta definitiva. La decision final depende de un umbral, del costo de falsos positivos y falsos negativos, y de la intervencion disponible.",
+          "order": 32,
+          "start_line": 113,
+          "end_line": 113,
+          "word_count": 56,
+          "character_count": 348,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-12",
+      "parent_section_id": "section-9",
+      "title": "4.3 Arboles de decision",
+      "markdown": "### 4.3 Arboles de decision",
+      "level": 3,
+      "order": 12,
+      "heading_type": "markdown",
+      "numbering": "4.3",
+      "start_line": 115,
+      "end_line": 130,
+      "chunks": [
+        {
+          "chunk_id": "chunk-33",
+          "parent_section_id": "section-12",
+          "text": "Un arbol de decision divide el espacio de atributos mediante reglas simples. Cada nodo interno plantea una condicion y cada hoja produce una prediccion. Su atractivo pedagogico es que permite visualizar una secuencia de decisiones.",
+          "markdown": "Un arbol de decision divide el espacio de atributos mediante reglas simples. Cada nodo interno plantea una condicion y cada hoja produce una prediccion. Su atractivo pedagogico es que permite visualizar una secuencia de decisiones.",
+          "order": 33,
+          "start_line": 117,
+          "end_line": 117,
+          "word_count": 35,
+          "character_count": 231,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-34",
+          "parent_section_id": "section-12",
+          "text": "Ejemplo simplificado:",
+          "markdown": "Ejemplo simplificado:",
+          "order": 34,
+          "start_line": 119,
+          "end_line": 119,
+          "word_count": 2,
+          "character_count": 21,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-35",
+          "parent_section_id": "section-12",
+          "text": "```text si dominio_de_prerrequisitos < 0.50: recomendar repaso guiado si no, si practica_reciente < 3 sesiones: recomendar ejercicios graduados si no: recomendar desafio aplicado ```",
+          "markdown": "```text\nsi dominio_de_prerrequisitos < 0.50:\nrecomendar repaso guiado\nsi no, si practica_reciente < 3 sesiones:\nrecomendar ejercicios graduados\nsi no:\nrecomendar desafio aplicado\n```",
+          "order": 35,
+          "start_line": 121,
+          "end_line": 128,
+          "word_count": 25,
+          "character_count": 182,
+          "chunk_type": "code"
+        },
+        {
+          "chunk_id": "chunk-36",
+          "parent_section_id": "section-12",
+          "text": "Aunque los arboles son interpretables, pueden sobreajustarse si crecen sin restricciones. Por eso suelen limitarse con profundidad maxima, numero minimo de muestras por hoja o poda posterior.",
+          "markdown": "Aunque los arboles son interpretables, pueden sobreajustarse si crecen sin restricciones. Por eso suelen limitarse con profundidad maxima, numero minimo de muestras por hoja o poda posterior.",
+          "order": 36,
+          "start_line": 130,
+          "end_line": 130,
+          "word_count": 27,
+          "character_count": 191,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-13",
+      "parent_section_id": "section-1",
+      "title": "5. Aprendizaje no supervisado",
+      "markdown": "## 5. Aprendizaje no supervisado",
+      "level": 2,
+      "order": 13,
+      "heading_type": "markdown",
+      "numbering": "5",
+      "start_line": 132,
+      "end_line": 134,
+      "chunks": [
+        {
+          "chunk_id": "chunk-37",
+          "parent_section_id": "section-13",
+          "text": "El aprendizaje no supervisado busca estructura en datos sin etiquetas explicitas. No intenta predecir una respuesta conocida, sino descubrir agrupamientos, dimensiones latentes o patrones frecuentes. Esto es util cuando se quiere explorar una poblacion de estudiantes o materiales sin imponer categorias previas.",
+          "markdown": "El aprendizaje no supervisado busca estructura en datos sin etiquetas explicitas. No intenta predecir una respuesta conocida, sino descubrir agrupamientos, dimensiones latentes o patrones frecuentes. Esto es util cuando se quiere explorar una poblacion de estudiantes o materiales sin imponer categorias previas.",
+          "order": 37,
+          "start_line": 134,
+          "end_line": 134,
+          "word_count": 42,
+          "character_count": 312,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-14",
+      "parent_section_id": "section-13",
+      "title": "5.1 Agrupamiento",
+      "markdown": "### 5.1 Agrupamiento",
+      "level": 3,
+      "order": 14,
+      "heading_type": "markdown",
+      "numbering": "5.1",
+      "start_line": 136,
+      "end_line": 151,
+      "chunks": [
+        {
+          "chunk_id": "chunk-38",
+          "parent_section_id": "section-14",
+          "text": "El agrupamiento, o clustering, asigna observaciones a grupos segun similitud. Un ejemplo clasico es `k-means`, que busca `k` centroides y asigna cada punto al centro mas cercano.",
+          "markdown": "El agrupamiento, o clustering, asigna observaciones a grupos segun similitud. Un ejemplo clasico es `k-means`, que busca `k` centroides y asigna cada punto al centro mas cercano.",
+          "order": 38,
+          "start_line": 138,
+          "end_line": 138,
+          "word_count": 27,
+          "character_count": 178,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-39",
+          "parent_section_id": "section-14",
+          "text": "$$ J = \\sum_{i=1}^{n} \\min_{c \\in \\{1,\\dots,k\\}} ||x_i - \\mu_c||^2 $$",
+          "markdown": "$$\nJ = \\sum_{i=1}^{n} \\min_{c \\in \\{1,\\dots,k\\}} ||x_i - \\mu_c||^2\n$$",
+          "order": 39,
+          "start_line": 140,
+          "end_line": 142,
+          "word_count": 16,
+          "character_count": 69,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-40",
+          "parent_section_id": "section-14",
+          "text": "La formula expresa que se minimiza la distancia de cada punto al centroide de su grupo. En educacion, el agrupamiento puede revelar perfiles de interaccion, como estudiantes que consultan teoria antes de practicar, estudiantes que saltan directo a ejercicios o estudiantes que repiten intentos sin revisar retroalimentacion.",
+          "markdown": "La formula expresa que se minimiza la distancia de cada punto al centroide de su grupo. En educacion, el agrupamiento puede revelar perfiles de interaccion, como estudiantes que consultan teoria antes de practicar, estudiantes que saltan directo a ejercicios o estudiantes que repiten intentos sin revisar retroalimentacion.",
+          "order": 40,
+          "start_line": 144,
+          "end_line": 144,
+          "word_count": 47,
+          "character_count": 324,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-41",
+          "parent_section_id": "section-14",
+          "text": "| Metodo | Idea principal | Uso educativo posible | Precaucion | | --- | --- | --- | --- | | k-means | centroides y distancia euclidiana | perfiles de actividad | requiere elegir `k` | | clustering jerarquico | fusion progresiva de grupos | explorar niveles de similitud | puede ser costoso | | DBSCAN | regiones densas | detectar patrones no esfericos | sensible a parametros | | modelos de mezcla | grupos probabilisticos | incertidumbre de pertenencia | supuestos distribucionales |",
+          "markdown": "| Metodo | Idea principal | Uso educativo posible | Precaucion |\n| --- | --- | --- | --- |\n| k-means | centroides y distancia euclidiana | perfiles de actividad | requiere elegir `k` |\n| clustering jerarquico | fusion progresiva de grupos | explorar niveles de similitud | puede ser costoso |\n| DBSCAN | regiones densas | detectar patrones no esfericos | sensible a parametros |\n| modelos de mezcla | grupos probabilisticos | incertidumbre de pertenencia | supuestos distribucionales |",
+          "order": 41,
+          "start_line": 146,
+          "end_line": 151,
+          "word_count": 51,
+          "character_count": 485,
+          "chunk_type": "table"
+        }
+      ]
+    },
+    {
+      "section_id": "section-15",
+      "parent_section_id": "section-13",
+      "title": "5.2 Reduccion de dimensionalidad",
+      "markdown": "### 5.2 Reduccion de dimensionalidad",
+      "level": 3,
+      "order": 15,
+      "heading_type": "markdown",
+      "numbering": "5.2",
+      "start_line": 153,
+      "end_line": 163,
+      "chunks": [
+        {
+          "chunk_id": "chunk-42",
+          "parent_section_id": "section-15",
+          "text": "La reduccion de dimensionalidad transforma datos con muchos atributos en representaciones mas compactas. Esto puede ayudar a visualizar datos, eliminar ruido o preparar entradas para otros modelos. Tecnicas como PCA buscan direcciones de maxima varianza, mientras metodos no lineales capturan estructuras mas complejas.",
+          "markdown": "La reduccion de dimensionalidad transforma datos con muchos atributos en representaciones mas compactas. Esto puede ayudar a visualizar datos, eliminar ruido o preparar entradas para otros modelos. Tecnicas como PCA buscan direcciones de maxima varianza, mientras metodos no lineales capturan estructuras mas complejas.",
+          "order": 42,
+          "start_line": 155,
+          "end_line": 155,
+          "word_count": 43,
+          "character_count": 319,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-43",
+          "parent_section_id": "section-15",
+          "text": "PCA se puede presentar como un cambio de coordenadas:",
+          "markdown": "PCA se puede presentar como un cambio de coordenadas:",
+          "order": 43,
+          "start_line": 157,
+          "end_line": 157,
+          "word_count": 9,
+          "character_count": 53,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-44",
+          "parent_section_id": "section-15",
+          "text": "$$ Z = XW $$",
+          "markdown": "$$\nZ = XW\n$$",
+          "order": 44,
+          "start_line": 159,
+          "end_line": 161,
+          "word_count": 2,
+          "character_count": 12,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-45",
+          "parent_section_id": "section-15",
+          "text": "Donde `X` es la matriz de datos centrada, `W` contiene vectores principales y `Z` es la representacion proyectada. La interpretacion debe hacerse con cuidado: una proyeccion util para visualizar no siempre conserva todas las relaciones pedagogicamente relevantes.",
+          "markdown": "Donde `X` es la matriz de datos centrada, `W` contiene vectores principales y `Z` es la representacion proyectada. La interpretacion debe hacerse con cuidado: una proyeccion util para visualizar no siempre conserva todas las relaciones pedagogicamente relevantes.",
+          "order": 45,
+          "start_line": 163,
+          "end_line": 163,
+          "word_count": 37,
+          "character_count": 263,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-16",
+      "parent_section_id": "section-1",
+      "title": "6. Aprendizaje por refuerzo",
+      "markdown": "## 6. Aprendizaje por refuerzo",
+      "level": 2,
+      "order": 16,
+      "heading_type": "markdown",
+      "numbering": "6",
+      "start_line": 165,
+      "end_line": 183,
+      "chunks": [
+        {
+          "chunk_id": "chunk-46",
+          "parent_section_id": "section-16",
+          "text": "El aprendizaje por refuerzo estudia agentes que interactuan con un entorno mediante acciones. El agente recibe recompensas y aprende una politica para maximizar recompensa acumulada. A diferencia del aprendizaje supervisado, no se le entrega la respuesta correcta para cada estado; debe explorar consecuencias.",
+          "markdown": "El aprendizaje por refuerzo estudia agentes que interactuan con un entorno mediante acciones. El agente recibe recompensas y aprende una politica para maximizar recompensa acumulada. A diferencia del aprendizaje supervisado, no se le entrega la respuesta correcta para cada estado; debe explorar consecuencias.",
+          "order": 46,
+          "start_line": 167,
+          "end_line": 167,
+          "word_count": 43,
+          "character_count": 310,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-47",
+          "parent_section_id": "section-16",
+          "text": "Los elementos principales son:",
+          "markdown": "Los elementos principales son:",
+          "order": 47,
+          "start_line": 169,
+          "end_line": 169,
+          "word_count": 4,
+          "character_count": 30,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-48",
+          "parent_section_id": "section-16",
+          "text": "- Estado `s`: informacion disponible sobre la situacion actual. - Accion `a`: decision que toma el agente. - Recompensa `r`: senal de evaluacion inmediata. - Politica `\\pi(a|s)`: regla para elegir acciones. - Valor `V(s)`: estimacion de recompensa futura desde un estado.",
+          "markdown": "- Estado `s`: informacion disponible sobre la situacion actual.\n- Accion `a`: decision que toma el agente.\n- Recompensa `r`: senal de evaluacion inmediata.\n- Politica `\\pi(a|s)`: regla para elegir acciones.\n- Valor `V(s)`: estimacion de recompensa futura desde un estado.",
+          "order": 48,
+          "start_line": 171,
+          "end_line": 175,
+          "word_count": 39,
+          "character_count": 271,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-49",
+          "parent_section_id": "section-16",
+          "text": "La ecuacion de Bellman para una politica fija puede escribirse asi:",
+          "markdown": "La ecuacion de Bellman para una politica fija puede escribirse asi:",
+          "order": 49,
+          "start_line": 177,
+          "end_line": 177,
+          "word_count": 11,
+          "character_count": 67,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-50",
+          "parent_section_id": "section-16",
+          "text": "$$ V^\\pi(s) = \\mathbb{E}_\\pi \\left[ r_{t+1} + \\gamma V^\\pi(s_{t+1}) \\mid s_t = s \\right] $$",
+          "markdown": "$$\nV^\\pi(s) = \\mathbb{E}_\\pi \\left[ r_{t+1} + \\gamma V^\\pi(s_{t+1}) \\mid s_t = s \\right]\n$$",
+          "order": 50,
+          "start_line": 179,
+          "end_line": 181,
+          "word_count": 21,
+          "character_count": 91,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-51",
+          "parent_section_id": "section-16",
+          "text": "En contextos educativos, el aprendizaje por refuerzo puede inspirar sistemas adaptativos que deciden que actividad recomendar despues. Sin embargo, su aplicacion requiere cautela porque explorar acciones suboptimas con estudiantes reales puede tener costos formativos.",
+          "markdown": "En contextos educativos, el aprendizaje por refuerzo puede inspirar sistemas adaptativos que deciden que actividad recomendar despues. Sin embargo, su aplicacion requiere cautela porque explorar acciones suboptimas con estudiantes reales puede tener costos formativos.",
+          "order": 51,
+          "start_line": 183,
+          "end_line": 183,
+          "word_count": 34,
+          "character_count": 268,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-17",
+      "parent_section_id": "section-1",
+      "title": "7. Entrenamiento, perdida y optimizacion",
+      "markdown": "## 7. Entrenamiento, perdida y optimizacion",
+      "level": 2,
+      "order": 17,
+      "heading_type": "markdown",
+      "numbering": "7",
+      "start_line": 185,
+      "end_line": 193,
+      "chunks": [
+        {
+          "chunk_id": "chunk-52",
+          "parent_section_id": "section-17",
+          "text": "Entrenar un modelo significa ajustar parametros para reducir una funcion de perdida. El procedimiento exacto depende del modelo, pero muchas tecnicas modernas usan variantes de descenso por gradiente. La idea general es modificar parametros en la direccion que reduce la perdida.",
+          "markdown": "Entrenar un modelo significa ajustar parametros para reducir una funcion de perdida. El procedimiento exacto depende del modelo, pero muchas tecnicas modernas usan variantes de descenso por gradiente. La idea general es modificar parametros en la direccion que reduce la perdida.",
+          "order": 52,
+          "start_line": 187,
+          "end_line": 187,
+          "word_count": 41,
+          "character_count": 279,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-53",
+          "parent_section_id": "section-17",
+          "text": "$$ \\theta_{t+1} = \\theta_t - \\eta \\nabla_\\theta L(\\theta_t) $$",
+          "markdown": "$$\n\\theta_{t+1} = \\theta_t - \\eta \\nabla_\\theta L(\\theta_t)\n$$",
+          "order": 53,
+          "start_line": 189,
+          "end_line": 191,
+          "word_count": 11,
+          "character_count": 62,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-54",
+          "parent_section_id": "section-17",
+          "text": "Donde `\\eta` es la tasa de aprendizaje y `\\nabla_\\theta L` es el gradiente de la perdida respecto a los parametros. Si `\\eta` es demasiado grande, el entrenamiento puede oscilar; si es demasiado pequena, puede avanzar muy lento.",
+          "markdown": "Donde `\\eta` es la tasa de aprendizaje y `\\nabla_\\theta L` es el gradiente de la perdida respecto a los parametros. Si `\\eta` es demasiado grande, el entrenamiento puede oscilar; si es demasiado pequena, puede avanzar muy lento.",
+          "order": 54,
+          "start_line": 193,
+          "end_line": 193,
+          "word_count": 38,
+          "character_count": 228,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-18",
+      "parent_section_id": "section-17",
+      "title": "7.1 Funcion de perdida",
+      "markdown": "### 7.1 Funcion de perdida",
+      "level": 3,
+      "order": 18,
+      "heading_type": "markdown",
+      "numbering": "7.1",
+      "start_line": 195,
+      "end_line": 203,
+      "chunks": [
+        {
+          "chunk_id": "chunk-55",
+          "parent_section_id": "section-18",
+          "text": "La funcion de perdida define que significa equivocarse. Por eso no es un detalle tecnico menor. En clasificacion binaria, una perdida comun es la entropia cruzada:",
+          "markdown": "La funcion de perdida define que significa equivocarse. Por eso no es un detalle tecnico menor. En clasificacion binaria, una perdida comun es la entropia cruzada:",
+          "order": 55,
+          "start_line": 197,
+          "end_line": 197,
+          "word_count": 26,
+          "character_count": 163,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-56",
+          "parent_section_id": "section-18",
+          "text": "$$ L(y, \\hat{p}) = -y \\log(\\hat{p}) - (1-y)\\log(1-\\hat{p}) $$",
+          "markdown": "$$\nL(y, \\hat{p}) = -y \\log(\\hat{p}) - (1-y)\\log(1-\\hat{p})\n$$",
+          "order": 56,
+          "start_line": 199,
+          "end_line": 201,
+          "word_count": 13,
+          "character_count": 61,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-57",
+          "parent_section_id": "section-18",
+          "text": "Esta perdida penaliza fuertemente predicciones confiadas pero incorrectas. En tareas educativas, elegir la perdida adecuada puede depender del objetivo: no es lo mismo detectar riesgo academico, estimar dominio conceptual o recomendar materiales.",
+          "markdown": "Esta perdida penaliza fuertemente predicciones confiadas pero incorrectas. En tareas educativas, elegir la perdida adecuada puede depender del objetivo: no es lo mismo detectar riesgo academico, estimar dominio conceptual o recomendar materiales.",
+          "order": 57,
+          "start_line": 203,
+          "end_line": 203,
+          "word_count": 32,
+          "character_count": 246,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-19",
+      "parent_section_id": "section-17",
+      "title": "7.2 Regularizacion",
+      "markdown": "### 7.2 Regularizacion",
+      "level": 3,
+      "order": 19,
+      "heading_type": "markdown",
+      "numbering": "7.2",
+      "start_line": 205,
+      "end_line": 216,
+      "chunks": [
+        {
+          "chunk_id": "chunk-58",
+          "parent_section_id": "section-19",
+          "text": "La regularizacion agrega restricciones o penalizaciones para mejorar la generalizacion. En modelos lineales, dos penalizaciones frecuentes son L1 y L2.",
+          "markdown": "La regularizacion agrega restricciones o penalizaciones para mejorar la generalizacion. En modelos lineales, dos penalizaciones frecuentes son L1 y L2.",
+          "order": 58,
+          "start_line": 207,
+          "end_line": 207,
+          "word_count": 20,
+          "character_count": 151,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-59",
+          "parent_section_id": "section-19",
+          "text": "| Regularizacion | Penalizacion | Efecto usual | Interpretacion | | --- | --- | --- | --- | | L1 | `\\lambda \\sum_j |w_j|` | induce pesos cero | seleccion de variables | | L2 | `\\lambda \\sum_j w_j^2` | reduce magnitudes | estabilidad numerica | | Dropout | apaga unidades aleatorias | reduce coadaptacion | robustez en redes | | Early stopping | detiene entrenamiento | evita deterioro en validacion | control empirico |",
+          "markdown": "| Regularizacion | Penalizacion | Efecto usual | Interpretacion |\n| --- | --- | --- | --- |\n| L1 | `\\lambda \\sum_j |w_j|` | induce pesos cero | seleccion de variables |\n| L2 | `\\lambda \\sum_j w_j^2` | reduce magnitudes | estabilidad numerica |\n| Dropout | apaga unidades aleatorias | reduce coadaptacion | robustez en redes |\n| Early stopping | detiene entrenamiento | evita deterioro en validacion | control empirico |",
+          "order": 59,
+          "start_line": 209,
+          "end_line": 214,
+          "word_count": 47,
+          "character_count": 419,
+          "chunk_type": "table"
+        },
+        {
+          "chunk_id": "chunk-60",
+          "parent_section_id": "section-19",
+          "text": "La regularizacion no corrige datos mal definidos ni objetivos confusos. Solo controla la complejidad del modelo dentro de una formulacion dada.",
+          "markdown": "La regularizacion no corrige datos mal definidos ni objetivos confusos. Solo controla la complejidad del modelo dentro de una formulacion dada.",
+          "order": 60,
+          "start_line": 216,
+          "end_line": 216,
+          "word_count": 21,
+          "character_count": 143,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-20",
+      "parent_section_id": "section-1",
+      "title": "8. Generalizacion y sobreajuste",
+      "markdown": "## 8. Generalizacion y sobreajuste",
+      "level": 2,
+      "order": 20,
+      "heading_type": "markdown",
+      "numbering": "8",
+      "start_line": 218,
+      "end_line": 222,
+      "chunks": [
+        {
+          "chunk_id": "chunk-61",
+          "parent_section_id": "section-20",
+          "text": "La generalizacion es la capacidad de un modelo para funcionar en datos no vistos. Un modelo sobreajustado aprende detalles accidentales del conjunto de entrenamiento y falla al enfrentar nuevos casos. Un modelo subajustado, en cambio, es demasiado simple para capturar la estructura relevante.",
+          "markdown": "La generalizacion es la capacidad de un modelo para funcionar en datos no vistos. Un modelo sobreajustado aprende detalles accidentales del conjunto de entrenamiento y falla al enfrentar nuevos casos. Un modelo subajustado, en cambio, es demasiado simple para capturar la estructura relevante.",
+          "order": 61,
+          "start_line": 220,
+          "end_line": 220,
+          "word_count": 43,
+          "character_count": 293,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-62",
+          "parent_section_id": "section-20",
+          "text": "La tension entre sesgo y varianza suele presentarse como un equilibrio. Modelos simples tienen alto sesgo si no representan patrones importantes. Modelos muy flexibles pueden tener alta varianza si se adaptan demasiado a ruido.",
+          "markdown": "La tension entre sesgo y varianza suele presentarse como un equilibrio. Modelos simples tienen alto sesgo si no representan patrones importantes. Modelos muy flexibles pueden tener alta varianza si se adaptan demasiado a ruido.",
+          "order": 62,
+          "start_line": 222,
+          "end_line": 222,
+          "word_count": 34,
+          "character_count": 227,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-21",
+      "parent_section_id": "section-20",
+      "title": "8.1 Separacion de datos",
+      "markdown": "### 8.1 Separacion de datos",
+      "level": 3,
+      "order": 21,
+      "heading_type": "markdown",
+      "numbering": "8.1",
+      "start_line": 224,
+      "end_line": 232,
+      "chunks": [
+        {
+          "chunk_id": "chunk-63",
+          "parent_section_id": "section-21",
+          "text": "Una practica fundamental es separar los datos en entrenamiento, validacion y prueba. Cada particion tiene un papel distinto:",
+          "markdown": "Una practica fundamental es separar los datos en entrenamiento, validacion y prueba. Cada particion tiene un papel distinto:",
+          "order": 63,
+          "start_line": 226,
+          "end_line": 226,
+          "word_count": 18,
+          "character_count": 124,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-64",
+          "parent_section_id": "section-21",
+          "text": "- Entrenamiento: ajustar parametros. - Validacion: elegir hiperparametros y comparar variantes. - Prueba: estimar desempeno final en datos no usados durante decisiones.",
+          "markdown": "- Entrenamiento: ajustar parametros.\n- Validacion: elegir hiperparametros y comparar variantes.\n- Prueba: estimar desempeno final en datos no usados durante decisiones.",
+          "order": 64,
+          "start_line": 228,
+          "end_line": 230,
+          "word_count": 19,
+          "character_count": 168,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-65",
+          "parent_section_id": "section-21",
+          "text": "Si se usa el conjunto de prueba para tomar decisiones, deja de ser una prueba independiente. Este problema se llama fuga de informacion evaluativa.",
+          "markdown": "Si se usa el conjunto de prueba para tomar decisiones, deja de ser una prueba independiente. Este problema se llama fuga de informacion evaluativa.",
+          "order": 65,
+          "start_line": 232,
+          "end_line": 232,
+          "word_count": 24,
+          "character_count": 147,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-22",
+      "parent_section_id": "section-20",
+      "title": "8.2 Validacion cruzada",
+      "markdown": "### 8.2 Validacion cruzada",
+      "level": 3,
+      "order": 22,
+      "heading_type": "markdown",
+      "numbering": "8.2",
+      "start_line": 234,
+      "end_line": 245,
+      "chunks": [
+        {
+          "chunk_id": "chunk-66",
+          "parent_section_id": "section-22",
+          "text": "La validacion cruzada divide los datos en varios pliegues. El modelo se entrena varias veces, usando un pliegue como validacion y los demas como entrenamiento. Esto produce una estimacion mas estable cuando los datos son limitados.",
+          "markdown": "La validacion cruzada divide los datos en varios pliegues. El modelo se entrena varias veces, usando un pliegue como validacion y los demas como entrenamiento. Esto produce una estimacion mas estable cuando los datos son limitados.",
+          "order": 66,
+          "start_line": 236,
+          "end_line": 236,
+          "word_count": 36,
+          "character_count": 231,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-67",
+          "parent_section_id": "section-22",
+          "text": "| Variante | Descripcion | Ventaja | Desventaja | | --- | --- | --- | --- | | k-fold | divide en `k` partes | buen equilibrio | entrena `k` modelos | | estratificada | conserva proporciones de clase | util en clases desbalanceadas | requiere etiquetas | | leave-one-out | un caso por validacion | maximo uso de datos | costo alto | | temporal | respeta orden cronologico | evita mirar el futuro | menos aleatoria |",
+          "markdown": "| Variante | Descripcion | Ventaja | Desventaja |\n| --- | --- | --- | --- |\n| k-fold | divide en `k` partes | buen equilibrio | entrena `k` modelos |\n| estratificada | conserva proporciones de clase | util en clases desbalanceadas | requiere etiquetas |\n| leave-one-out | un caso por validacion | maximo uso de datos | costo alto |\n| temporal | respeta orden cronologico | evita mirar el futuro | menos aleatoria |",
+          "order": 67,
+          "start_line": 238,
+          "end_line": 243,
+          "word_count": 47,
+          "character_count": 414,
+          "chunk_type": "table"
+        },
+        {
+          "chunk_id": "chunk-68",
+          "parent_section_id": "section-22",
+          "text": "En datos educativos con dimension temporal, la particion debe respetar el orden de eventos. Entrenar con informacion posterior para predecir eventos anteriores produce resultados irreales.",
+          "markdown": "En datos educativos con dimension temporal, la particion debe respetar el orden de eventos. Entrenar con informacion posterior para predecir eventos anteriores produce resultados irreales.",
+          "order": 68,
+          "start_line": 245,
+          "end_line": 245,
+          "word_count": 25,
+          "character_count": 188,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-23",
+      "parent_section_id": "section-1",
+      "title": "9. Metricas de evaluacion",
+      "markdown": "## 9. Metricas de evaluacion",
+      "level": 2,
+      "order": 23,
+      "heading_type": "markdown",
+      "numbering": "9",
+      "start_line": 247,
+      "end_line": 249,
+      "chunks": [
+        {
+          "chunk_id": "chunk-69",
+          "parent_section_id": "section-23",
+          "text": "Las metricas traducen desempeno en numeros. Elegir una metrica implica decidir que errores importan mas. En clasificacion binaria, exactitud puede ser enganosa si las clases estan desbalanceadas. Por eso se usan precision, recall, F1, AUC y matrices de confusion.",
+          "markdown": "Las metricas traducen desempeno en numeros. Elegir una metrica implica decidir que errores importan mas. En clasificacion binaria, exactitud puede ser enganosa si las clases estan desbalanceadas. Por eso se usan precision, recall, F1, AUC y matrices de confusion.",
+          "order": 69,
+          "start_line": 249,
+          "end_line": 249,
+          "word_count": 39,
+          "character_count": 263,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-24",
+      "parent_section_id": "section-23",
+      "title": "9.1 Matriz de confusion",
+      "markdown": "### 9.1 Matriz de confusion",
+      "level": 3,
+      "order": 24,
+      "heading_type": "markdown",
+      "numbering": "9.1",
+      "start_line": 251,
+      "end_line": 274,
+      "chunks": [
+        {
+          "chunk_id": "chunk-70",
+          "parent_section_id": "section-24",
+          "text": "La matriz de confusion resume aciertos y errores segun clase real y clase predicha.",
+          "markdown": "La matriz de confusion resume aciertos y errores segun clase real y clase predicha.",
+          "order": 70,
+          "start_line": 253,
+          "end_line": 253,
+          "word_count": 14,
+          "character_count": 83,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-71",
+          "parent_section_id": "section-24",
+          "text": "| Real / Predicho | Positivo | Negativo | | --- | ---: | ---: | | Positivo | Verdadero positivo | Falso negativo | | Negativo | Falso positivo | Verdadero negativo |",
+          "markdown": "| Real / Predicho | Positivo | Negativo |\n| --- | ---: | ---: |\n| Positivo | Verdadero positivo | Falso negativo |\n| Negativo | Falso positivo | Verdadero negativo |",
+          "order": 71,
+          "start_line": 255,
+          "end_line": 258,
+          "word_count": 14,
+          "character_count": 165,
+          "chunk_type": "table"
+        },
+        {
+          "chunk_id": "chunk-72",
+          "parent_section_id": "section-24",
+          "text": "A partir de esta tabla se derivan varias metricas:",
+          "markdown": "A partir de esta tabla se derivan varias metricas:",
+          "order": 72,
+          "start_line": 260,
+          "end_line": 260,
+          "word_count": 9,
+          "character_count": 50,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-73",
+          "parent_section_id": "section-24",
+          "text": "$$ Precision = \\frac{TP}{TP + FP} $$",
+          "markdown": "$$\nPrecision = \\frac{TP}{TP + FP}\n$$",
+          "order": 73,
+          "start_line": 262,
+          "end_line": 264,
+          "word_count": 5,
+          "character_count": 36,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-74",
+          "parent_section_id": "section-24",
+          "text": "$$ Recall = \\frac{TP}{TP + FN} $$",
+          "markdown": "$$\nRecall = \\frac{TP}{TP + FN}\n$$",
+          "order": 74,
+          "start_line": 266,
+          "end_line": 268,
+          "word_count": 5,
+          "character_count": 33,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-75",
+          "parent_section_id": "section-24",
+          "text": "$$ F1 = 2 \\cdot \\frac{Precision \\cdot Recall}{Precision + Recall} $$",
+          "markdown": "$$\nF1 = 2 \\cdot \\frac{Precision \\cdot Recall}{Precision + Recall}\n$$",
+          "order": 75,
+          "start_line": 270,
+          "end_line": 272,
+          "word_count": 9,
+          "character_count": 68,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-76",
+          "parent_section_id": "section-24",
+          "text": "En un sistema de apoyo educativo, un falso negativo puede significar no detectar a un estudiante que necesita ayuda. Un falso positivo puede asignar apoyo innecesario. La importancia relativa depende de la intervencion.",
+          "markdown": "En un sistema de apoyo educativo, un falso negativo puede significar no detectar a un estudiante que necesita ayuda. Un falso positivo puede asignar apoyo innecesario. La importancia relativa depende de la intervencion.",
+          "order": 76,
+          "start_line": 274,
+          "end_line": 274,
+          "word_count": 33,
+          "character_count": 219,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-25",
+      "parent_section_id": "section-23",
+      "title": "9.2 Evaluacion en regresion",
+      "markdown": "### 9.2 Evaluacion en regresion",
+      "level": 3,
+      "order": 25,
+      "heading_type": "markdown",
+      "numbering": "9.2",
+      "start_line": 276,
+      "end_line": 287,
+      "chunks": [
+        {
+          "chunk_id": "chunk-77",
+          "parent_section_id": "section-25",
+          "text": "Para regresion se usan metricas como MAE, MSE y RMSE. MAE mide error absoluto promedio, mientras RMSE penaliza mas los errores grandes.",
+          "markdown": "Para regresion se usan metricas como MAE, MSE y RMSE. MAE mide error absoluto promedio, mientras RMSE penaliza mas los errores grandes.",
+          "order": 77,
+          "start_line": 278,
+          "end_line": 278,
+          "word_count": 22,
+          "character_count": 135,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-78",
+          "parent_section_id": "section-25",
+          "text": "| Metrica | Formula | Sensibilidad | Uso comun | | --- | --- | --- | --- | | MAE | `mean(|y - y_hat|)` | lineal | interpretacion directa | | MSE | `mean((y - y_hat)^2)` | alta a outliers | optimizacion matematica | | RMSE | `sqrt(MSE)` | alta a outliers | misma unidad que `y` | | R2 | proporcion de varianza explicada | depende del baseline | resumen global |",
+          "markdown": "| Metrica | Formula | Sensibilidad | Uso comun |\n| --- | --- | --- | --- |\n| MAE | `mean(|y - y_hat|)` | lineal | interpretacion directa |\n| MSE | `mean((y - y_hat)^2)` | alta a outliers | optimizacion matematica |\n| RMSE | `sqrt(MSE)` | alta a outliers | misma unidad que `y` |\n| R2 | proporcion de varianza explicada | depende del baseline | resumen global |",
+          "order": 78,
+          "start_line": 280,
+          "end_line": 285,
+          "word_count": 44,
+          "character_count": 360,
+          "chunk_type": "table"
+        },
+        {
+          "chunk_id": "chunk-79",
+          "parent_section_id": "section-25",
+          "text": "La evaluacion debe acompanarse con analisis de errores. Un promedio puede ocultar que el modelo funciona bien para un grupo y mal para otro.",
+          "markdown": "La evaluacion debe acompanarse con analisis de errores. Un promedio puede ocultar que el modelo funciona bien para un grupo y mal para otro.",
+          "order": 79,
+          "start_line": 287,
+          "end_line": 287,
+          "word_count": 24,
+          "character_count": 140,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-26",
+      "parent_section_id": "section-1",
+      "title": "10. Interpretabilidad y explicabilidad",
+      "markdown": "## 10. Interpretabilidad y explicabilidad",
+      "level": 2,
+      "order": 26,
+      "heading_type": "markdown",
+      "numbering": "10",
+      "start_line": 289,
+      "end_line": 293,
+      "chunks": [
+        {
+          "chunk_id": "chunk-80",
+          "parent_section_id": "section-26",
+          "text": "La interpretabilidad se refiere a la facilidad con que una persona entiende el funcionamiento de un modelo. La explicabilidad busca producir razones o aproximaciones que aclaren una prediccion. En educacion, estas propiedades son importantes porque las decisiones pueden afectar trayectorias de aprendizaje.",
+          "markdown": "La interpretabilidad se refiere a la facilidad con que una persona entiende el funcionamiento de un modelo. La explicabilidad busca producir razones o aproximaciones que aclaren una prediccion. En educacion, estas propiedades son importantes porque las decisiones pueden afectar trayectorias de aprendizaje.",
+          "order": 80,
+          "start_line": 291,
+          "end_line": 291,
+          "word_count": 42,
+          "character_count": 307,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-81",
+          "parent_section_id": "section-26",
+          "text": "Un modelo lineal con pocos atributos puede ser interpretable directamente. Una red neuronal profunda suele requerir metodos adicionales para explicar predicciones. Sin embargo, una explicacion aproximada no garantiza justicia ni validez pedagogica.",
+          "markdown": "Un modelo lineal con pocos atributos puede ser interpretable directamente. Una red neuronal profunda suele requerir metodos adicionales para explicar predicciones. Sin embargo, una explicacion aproximada no garantiza justicia ni validez pedagogica.",
+          "order": 81,
+          "start_line": 293,
+          "end_line": 293,
+          "word_count": 32,
+          "character_count": 248,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-27",
+      "parent_section_id": "section-26",
+      "title": "10.1 Explicaciones locales",
+      "markdown": "### 10.1 Explicaciones locales",
+      "level": 3,
+      "order": 27,
+      "heading_type": "markdown",
+      "numbering": "10.1",
+      "start_line": 295,
+      "end_line": 309,
+      "chunks": [
+        {
+          "chunk_id": "chunk-82",
+          "parent_section_id": "section-27",
+          "text": "Las explicaciones locales describen por que el modelo hizo una prediccion especifica. Pueden responder preguntas como: \"Que variables hicieron que el sistema recomendara repasar fracciones?\".",
+          "markdown": "Las explicaciones locales describen por que el modelo hizo una prediccion especifica. Pueden responder preguntas como: \"Que variables hicieron que el sistema recomendara repasar fracciones?\".",
+          "order": 82,
+          "start_line": 297,
+          "end_line": 297,
+          "word_count": 25,
+          "character_count": 191,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-83",
+          "parent_section_id": "section-27",
+          "text": "```text Prediccion: necesita repaso de fracciones Factores principales: - bajo desempeno en equivalencias - errores recientes en simplificacion - tiempo largo en ejercicios basicos Accion sugerida: - actividad guiada con retroalimentacion inmediata ```",
+          "markdown": "```text\nPrediccion: necesita repaso de fracciones\nFactores principales:\n- bajo desempeno en equivalencias\n- errores recientes en simplificacion\n- tiempo largo en ejercicios basicos\nAccion sugerida:\n- actividad guiada con retroalimentacion inmediata\n```",
+          "order": 83,
+          "start_line": 299,
+          "end_line": 307,
+          "word_count": 28,
+          "character_count": 252,
+          "chunk_type": "code"
+        },
+        {
+          "chunk_id": "chunk-84",
+          "parent_section_id": "section-27",
+          "text": "Este bloque debe conservar su formato, ya que la indentacion comunica una estructura de explicacion.",
+          "markdown": "Este bloque debe conservar su formato, ya que la indentacion comunica una estructura de explicacion.",
+          "order": 84,
+          "start_line": 309,
+          "end_line": 309,
+          "word_count": 15,
+          "character_count": 100,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-28",
+      "parent_section_id": "section-26",
+      "title": "10.2 Explicaciones globales",
+      "markdown": "### 10.2 Explicaciones globales",
+      "level": 3,
+      "order": 28,
+      "heading_type": "markdown",
+      "numbering": "10.2",
+      "start_line": 311,
+      "end_line": 321,
+      "chunks": [
+        {
+          "chunk_id": "chunk-85",
+          "parent_section_id": "section-28",
+          "text": "Las explicaciones globales describen patrones generales del modelo. Por ejemplo, pueden indicar que el dominio de prerrequisitos pesa mas que el tiempo total en plataforma. Estas explicaciones ayudan a revisar si el modelo coincide con conocimiento experto.",
+          "markdown": "Las explicaciones globales describen patrones generales del modelo. Por ejemplo, pueden indicar que el dominio de prerrequisitos pesa mas que el tiempo total en plataforma. Estas explicaciones ayudan a revisar si el modelo coincide con conocimiento experto.",
+          "order": 85,
+          "start_line": 313,
+          "end_line": 313,
+          "word_count": 37,
+          "character_count": 257,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-86",
+          "parent_section_id": "section-28",
+          "text": "Puntos clave para evaluar explicaciones:",
+          "markdown": "Puntos clave para evaluar explicaciones:",
+          "order": 86,
+          "start_line": 315,
+          "end_line": 315,
+          "word_count": 5,
+          "character_count": 40,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-87",
+          "parent_section_id": "section-28",
+          "text": "- Una explicacion debe ser comprensible para su audiencia. - Debe evitar presentar correlaciones como causalidad. - Debe indicar incertidumbre cuando sea relevante. - Debe poder contrastarse con casos reales. - Debe documentar limitaciones del metodo usado.",
+          "markdown": "- Una explicacion debe ser comprensible para su audiencia.\n- Debe evitar presentar correlaciones como causalidad.\n- Debe indicar incertidumbre cuando sea relevante.\n- Debe poder contrastarse con casos reales.\n- Debe documentar limitaciones del metodo usado.",
+          "order": 87,
+          "start_line": 317,
+          "end_line": 321,
+          "word_count": 32,
+          "character_count": 257,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-29",
+      "parent_section_id": "section-1",
+      "title": "11. Sesgo, equidad y responsabilidad",
+      "markdown": "## 11. Sesgo, equidad y responsabilidad",
+      "level": 2,
+      "order": 29,
+      "heading_type": "markdown",
+      "numbering": "11",
+      "start_line": 323,
+      "end_line": 327,
+      "chunks": [
+        {
+          "chunk_id": "chunk-88",
+          "parent_section_id": "section-29",
+          "text": "Un modelo puede reproducir sesgos presentes en datos historicos. Si ciertos estudiantes tuvieron menos acceso a recursos, sus registros pueden reflejar desigualdad estructural y no capacidad individual. Un sistema que aprende de esos datos sin analisis puede reforzar decisiones injustas.",
+          "markdown": "Un modelo puede reproducir sesgos presentes en datos historicos. Si ciertos estudiantes tuvieron menos acceso a recursos, sus registros pueden reflejar desigualdad estructural y no capacidad individual. Un sistema que aprende de esos datos sin analisis puede reforzar decisiones injustas.",
+          "order": 88,
+          "start_line": 325,
+          "end_line": 325,
+          "word_count": 40,
+          "character_count": 288,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-89",
+          "parent_section_id": "section-29",
+          "text": "La equidad en Machine Learning no se resuelve con una sola metrica. Requiere comprender contexto, grupos afectados, intervenciones disponibles y consecuencias. A veces mejorar una metrica global empeora resultados para un subgrupo.",
+          "markdown": "La equidad en Machine Learning no se resuelve con una sola metrica. Requiere comprender contexto, grupos afectados, intervenciones disponibles y consecuencias. A veces mejorar una metrica global empeora resultados para un subgrupo.",
+          "order": 89,
+          "start_line": 327,
+          "end_line": 327,
+          "word_count": 32,
+          "character_count": 231,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-30",
+      "parent_section_id": "section-29",
+      "title": "11.1 Fuentes de sesgo",
+      "markdown": "### 11.1 Fuentes de sesgo",
+      "level": 3,
+      "order": 30,
+      "heading_type": "markdown",
+      "numbering": "11.1",
+      "start_line": 329,
+      "end_line": 339,
+      "chunks": [
+        {
+          "chunk_id": "chunk-90",
+          "parent_section_id": "section-30",
+          "text": "| Fuente | Descripcion | Ejemplo educativo | Posible mitigacion | | --- | --- | --- | --- | | Muestreo | poblacion no representativa | datos solo de escuelas urbanas | ampliar cobertura | | Medicion | variable imperfecta | tiempo en pantalla como atencion | validar indicadores | | Etiquetado | etiquetas inconsistentes | rubricas aplicadas distinto | calibrar evaluadores | | Historico | desigualdad previa | acceso desigual a tutoria | auditar resultados | | Implementacion | uso fuera de contexto | modelo usado para castigar | gobernanza clara |",
+          "markdown": "| Fuente | Descripcion | Ejemplo educativo | Posible mitigacion |\n| --- | --- | --- | --- |\n| Muestreo | poblacion no representativa | datos solo de escuelas urbanas | ampliar cobertura |\n| Medicion | variable imperfecta | tiempo en pantalla como atencion | validar indicadores |\n| Etiquetado | etiquetas inconsistentes | rubricas aplicadas distinto | calibrar evaluadores |\n| Historico | desigualdad previa | acceso desigual a tutoria | auditar resultados |\n| Implementacion | uso fuera de contexto | modelo usado para castigar | gobernanza clara |",
+          "order": 90,
+          "start_line": 331,
+          "end_line": 337,
+          "word_count": 55,
+          "character_count": 549,
+          "chunk_type": "table"
+        },
+        {
+          "chunk_id": "chunk-91",
+          "parent_section_id": "section-30",
+          "text": "El analisis de sesgo debe formar parte del ciclo de vida del modelo. No debe agregarse al final como requisito cosmetico.",
+          "markdown": "El analisis de sesgo debe formar parte del ciclo de vida del modelo. No debe agregarse al final como requisito cosmetico.",
+          "order": 91,
+          "start_line": 339,
+          "end_line": 339,
+          "word_count": 21,
+          "character_count": 121,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-31",
+      "parent_section_id": "section-29",
+      "title": "11.2 Principios de uso responsable",
+      "markdown": "### 11.2 Principios de uso responsable",
+      "level": 3,
+      "order": 31,
+      "heading_type": "markdown",
+      "numbering": "11.2",
+      "start_line": 341,
+      "end_line": 352,
+      "chunks": [
+        {
+          "chunk_id": "chunk-92",
+          "parent_section_id": "section-31",
+          "text": "> Un sistema predictivo en educacion debe apoyar decisiones humanas, no reemplazar el juicio pedagogico ni reducir a los estudiantes a una puntuacion.",
+          "markdown": "> Un sistema predictivo en educacion debe apoyar decisiones humanas, no reemplazar el juicio pedagogico ni reducir a los estudiantes a una puntuacion.",
+          "order": 92,
+          "start_line": 343,
+          "end_line": 343,
+          "word_count": 22,
+          "character_count": 150,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-93",
+          "parent_section_id": "section-31",
+          "text": "Principios recomendados:",
+          "markdown": "Principios recomendados:",
+          "order": 93,
+          "start_line": 345,
+          "end_line": 345,
+          "word_count": 2,
+          "character_count": 24,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-94",
+          "parent_section_id": "section-31",
+          "text": "- Finalidad clara y comunicada. - Consentimiento y proteccion de datos. - Evaluacion por subgrupos relevantes. - Supervision humana en decisiones sensibles. - Mecanismos de apelacion o correccion. - Monitoreo continuo despues del despliegue.",
+          "markdown": "- Finalidad clara y comunicada.\n- Consentimiento y proteccion de datos.\n- Evaluacion por subgrupos relevantes.\n- Supervision humana en decisiones sensibles.\n- Mecanismos de apelacion o correccion.\n- Monitoreo continuo despues del despliegue.",
+          "order": 94,
+          "start_line": 347,
+          "end_line": 352,
+          "word_count": 28,
+          "character_count": 241,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-32",
+      "parent_section_id": "section-1",
+      "title": "12. Flujo de trabajo de un proyecto de ML",
+      "markdown": "## 12. Flujo de trabajo de un proyecto de ML",
+      "level": 2,
+      "order": 32,
+      "heading_type": "markdown",
+      "numbering": "12",
+      "start_line": 354,
+      "end_line": 356,
+      "chunks": [
+        {
+          "chunk_id": "chunk-95",
+          "parent_section_id": "section-32",
+          "text": "Un proyecto de Machine Learning no empieza con elegir un algoritmo. Empieza con una pregunta y con la definicion de un resultado util. Despues se exploran datos, se preparan variables, se entrena un baseline, se evalua, se interpreta y se decide si el modelo aporta valor.",
+          "markdown": "Un proyecto de Machine Learning no empieza con elegir un algoritmo. Empieza con una pregunta y con la definicion de un resultado util. Despues se exploran datos, se preparan variables, se entrena un baseline, se evalua, se interpreta y se decide si el modelo aporta valor.",
+          "order": 95,
+          "start_line": 356,
+          "end_line": 356,
+          "word_count": 46,
+          "character_count": 272,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-33",
+      "parent_section_id": "section-32",
+      "title": "12.1 Ciclo basico",
+      "markdown": "### 12.1 Ciclo basico",
+      "level": 3,
+      "order": 33,
+      "heading_type": "markdown",
+      "numbering": "12.1",
+      "start_line": 358,
+      "end_line": 371,
+      "chunks": [
+        {
+          "chunk_id": "chunk-96",
+          "parent_section_id": "section-33",
+          "text": "```python def flujo_ml(datos): problema = definir_pregunta(datos) particiones = separar_datos(datos) caracteristicas = preparar_variables(particiones.entrenamiento) modelo = entrenar_baseline(caracteristicas) resultados = evaluar(modelo, particiones.validacion) reporte = documentar(resultados) return reporte ```",
+          "markdown": "```python\ndef flujo_ml(datos):\nproblema = definir_pregunta(datos)\nparticiones = separar_datos(datos)\ncaracteristicas = preparar_variables(particiones.entrenamiento)\nmodelo = entrenar_baseline(caracteristicas)\nresultados = evaluar(modelo, particiones.validacion)\nreporte = documentar(resultados)\nreturn reporte\n```",
+          "order": 96,
+          "start_line": 360,
+          "end_line": 369,
+          "word_count": 32,
+          "character_count": 313,
+          "chunk_type": "code"
+        },
+        {
+          "chunk_id": "chunk-97",
+          "parent_section_id": "section-33",
+          "text": "El codigo anterior no pretende ejecutarse como implementacion final. Su funcion pedagogica es mostrar las etapas de un ciclo reproducible.",
+          "markdown": "El codigo anterior no pretende ejecutarse como implementacion final. Su funcion pedagogica es mostrar las etapas de un ciclo reproducible.",
+          "order": 97,
+          "start_line": 371,
+          "end_line": 371,
+          "word_count": 20,
+          "character_count": 138,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-34",
+      "parent_section_id": "section-32",
+      "title": "12.2 Checklist de proyecto",
+      "markdown": "### 12.2 Checklist de proyecto",
+      "level": 3,
+      "order": 34,
+      "heading_type": "markdown",
+      "numbering": "12.2",
+      "start_line": 373,
+      "end_line": 381,
+      "chunks": [
+        {
+          "chunk_id": "chunk-98",
+          "parent_section_id": "section-34",
+          "text": "- La pregunta predictiva esta escrita en lenguaje claro. - La variable objetivo esta definida antes de entrenar. - La particion de datos evita fuga temporal o institucional. - Hay un baseline simple para comparar. - Las metricas responden al uso educativo esperado. - Los errores se revisan cualitativamente. - El modelo se documenta con alcance y limitaciones.",
+          "markdown": "- La pregunta predictiva esta escrita en lenguaje claro.\n- La variable objetivo esta definida antes de entrenar.\n- La particion de datos evita fuga temporal o institucional.\n- Hay un baseline simple para comparar.\n- Las metricas responden al uso educativo esperado.\n- Los errores se revisan cualitativamente.\n- El modelo se documenta con alcance y limitaciones.",
+          "order": 98,
+          "start_line": 375,
+          "end_line": 381,
+          "word_count": 51,
+          "character_count": 361,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-35",
+      "parent_section_id": "section-1",
+      "title": "13. Caso aplicado: recomendacion de practica personalizada",
+      "markdown": "## 13. Caso aplicado: recomendacion de practica personalizada",
+      "level": 2,
+      "order": 35,
+      "heading_type": "markdown",
+      "numbering": "13",
+      "start_line": 383,
+      "end_line": 387,
+      "chunks": [
+        {
+          "chunk_id": "chunk-99",
+          "parent_section_id": "section-35",
+          "text": "Supongamos una plataforma que recomienda ejercicios de algebra. El objetivo no es maximizar clics, sino seleccionar actividades que ayuden al estudiante a consolidar prerrequisitos y avanzar con dificultad adecuada.",
+          "markdown": "Supongamos una plataforma que recomienda ejercicios de algebra. El objetivo no es maximizar clics, sino seleccionar actividades que ayuden al estudiante a consolidar prerrequisitos y avanzar con dificultad adecuada.",
+          "order": 99,
+          "start_line": 385,
+          "end_line": 385,
+          "word_count": 29,
+          "character_count": 215,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-100",
+          "parent_section_id": "section-35",
+          "text": "Las entradas podrian incluir desempeno por tema, historial de errores, tiempo desde la ultima practica, nivel de dificultad de ejercicios previos y secuencia curricular. La salida podria ser una recomendacion entre varias actividades disponibles.",
+          "markdown": "Las entradas podrian incluir desempeno por tema, historial de errores, tiempo desde la ultima practica, nivel de dificultad de ejercicios previos y secuencia curricular. La salida podria ser una recomendacion entre varias actividades disponibles.",
+          "order": 100,
+          "start_line": 387,
+          "end_line": 387,
+          "word_count": 34,
+          "character_count": 246,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-36",
+      "parent_section_id": "section-35",
+      "title": "13.1 Definicion del problema",
+      "markdown": "### 13.1 Definicion del problema",
+      "level": 3,
+      "order": 36,
+      "heading_type": "markdown",
+      "numbering": "13.1",
+      "start_line": 389,
+      "end_line": 400,
+      "chunks": [
+        {
+          "chunk_id": "chunk-101",
+          "parent_section_id": "section-36",
+          "text": "| Elemento | Decision del caso | | --- | --- | | Tarea | recomendar siguiente actividad | | Unidad de prediccion | estudiante-tema-sesion | | Objetivo | mejorar dominio conceptual | | Etiqueta posible | mejora posterior en evaluacion corta | | Restriccion | no repetir ejercicios ya dominados | | Riesgo | encerrar al estudiante en tareas faciles |",
+          "markdown": "| Elemento | Decision del caso |\n| --- | --- |\n| Tarea | recomendar siguiente actividad |\n| Unidad de prediccion | estudiante-tema-sesion |\n| Objetivo | mejorar dominio conceptual |\n| Etiqueta posible | mejora posterior en evaluacion corta |\n| Restriccion | no repetir ejercicios ya dominados |\n| Riesgo | encerrar al estudiante en tareas faciles |",
+          "order": 101,
+          "start_line": 391,
+          "end_line": 398,
+          "word_count": 37,
+          "character_count": 348,
+          "chunk_type": "table"
+        },
+        {
+          "chunk_id": "chunk-102",
+          "parent_section_id": "section-36",
+          "text": "Este caso muestra por que la definicion de etiqueta es dificil. Si se usa solo mejora inmediata, el sistema podria recomendar actividades faciles que producen ganancias rapidas pero superficiales.",
+          "markdown": "Este caso muestra por que la definicion de etiqueta es dificil. Si se usa solo mejora inmediata, el sistema podria recomendar actividades faciles que producen ganancias rapidas pero superficiales.",
+          "order": 102,
+          "start_line": 400,
+          "end_line": 400,
+          "word_count": 29,
+          "character_count": 196,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-37",
+      "parent_section_id": "section-35",
+      "title": "13.2 Funcion de utilidad",
+      "markdown": "### 13.2 Funcion de utilidad",
+      "level": 3,
+      "order": 37,
+      "heading_type": "markdown",
+      "numbering": "13.2",
+      "start_line": 402,
+      "end_line": 413,
+      "chunks": [
+        {
+          "chunk_id": "chunk-103",
+          "parent_section_id": "section-37",
+          "text": "Una funcion de utilidad educativa podria combinar aprendizaje esperado, diversidad y ajuste de dificultad.",
+          "markdown": "Una funcion de utilidad educativa podria combinar aprendizaje esperado, diversidad y ajuste de dificultad.",
+          "order": 103,
+          "start_line": 404,
+          "end_line": 404,
+          "word_count": 14,
+          "character_count": 106,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-104",
+          "parent_section_id": "section-37",
+          "text": "$$ U(a, s) = \\lambda_1 \\cdot aprendizaje\\_esperado(a, s) + \\lambda_2 \\cdot diversidad(a) - \\lambda_3 \\cdot frustracion\\_estimada(a, s) $$",
+          "markdown": "$$\nU(a, s) =\n\\lambda_1 \\cdot aprendizaje\\_esperado(a, s)\n+ \\lambda_2 \\cdot diversidad(a)\n- \\lambda_3 \\cdot frustracion\\_estimada(a, s)\n$$",
+          "order": 104,
+          "start_line": 406,
+          "end_line": 411,
+          "word_count": 22,
+          "character_count": 137,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-105",
+          "parent_section_id": "section-37",
+          "text": "La funcion anterior no es universal. Sirve para discutir que las recomendaciones no se optimizan solo por probabilidad de acierto.",
+          "markdown": "La funcion anterior no es universal. Sirve para discutir que las recomendaciones no se optimizan solo por probabilidad de acierto.",
+          "order": 105,
+          "start_line": 413,
+          "end_line": 413,
+          "word_count": 20,
+          "character_count": 130,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-38",
+      "parent_section_id": "section-1",
+      "title": "14. Redes neuronales y representaciones",
+      "markdown": "## 14. Redes neuronales y representaciones",
+      "level": 2,
+      "order": 38,
+      "heading_type": "markdown",
+      "numbering": "14",
+      "start_line": 415,
+      "end_line": 425,
+      "chunks": [
+        {
+          "chunk_id": "chunk-106",
+          "parent_section_id": "section-38",
+          "text": "Las redes neuronales son modelos compuestos por capas de transformaciones parametrizadas. Cada capa recibe una representacion y produce otra. La profundidad permite construir representaciones jerarquicas, aunque tambien aumenta complejidad de entrenamiento e interpretacion.",
+          "markdown": "Las redes neuronales son modelos compuestos por capas de transformaciones parametrizadas. Cada capa recibe una representacion y produce otra. La profundidad permite construir representaciones jerarquicas, aunque tambien aumenta complejidad de entrenamiento e interpretacion.",
+          "order": 106,
+          "start_line": 417,
+          "end_line": 417,
+          "word_count": 33,
+          "character_count": 274,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-107",
+          "parent_section_id": "section-38",
+          "text": "Una neurona artificial simple calcula una combinacion lineal seguida de una funcion de activacion:",
+          "markdown": "Una neurona artificial simple calcula una combinacion lineal seguida de una funcion de activacion:",
+          "order": 107,
+          "start_line": 419,
+          "end_line": 419,
+          "word_count": 14,
+          "character_count": 98,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-108",
+          "parent_section_id": "section-38",
+          "text": "$$ h = \\phi(w^Tx + b) $$",
+          "markdown": "$$\nh = \\phi(w^Tx + b)\n$$",
+          "order": 108,
+          "start_line": 421,
+          "end_line": 423,
+          "word_count": 5,
+          "character_count": 24,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-109",
+          "parent_section_id": "section-38",
+          "text": "Donde `\\phi` puede ser ReLU, sigmoide u otra funcion no lineal. Sin no linealidades, muchas capas lineales equivaldrian a una sola transformacion lineal.",
+          "markdown": "Donde `\\phi` puede ser ReLU, sigmoide u otra funcion no lineal. Sin no linealidades, muchas capas lineales equivaldrian a una sola transformacion lineal.",
+          "order": 109,
+          "start_line": 425,
+          "end_line": 425,
+          "word_count": 23,
+          "character_count": 153,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-39",
+      "parent_section_id": "section-38",
+      "title": "14.1 Embeddings",
+      "markdown": "### 14.1 Embeddings",
+      "level": 3,
+      "order": 39,
+      "heading_type": "markdown",
+      "numbering": "14.1",
+      "start_line": 427,
+      "end_line": 438,
+      "chunks": [
+        {
+          "chunk_id": "chunk-110",
+          "parent_section_id": "section-39",
+          "text": "Un embedding representa objetos discretos, como palabras, ejercicios o estudiantes, mediante vectores densos. En educacion, embeddings pueden capturar similitud entre conceptos o patrones de interaccion. Sin embargo, tambien pueden codificar sesgos si se entrenan sobre datos historicos no revisados.",
+          "markdown": "Un embedding representa objetos discretos, como palabras, ejercicios o estudiantes, mediante vectores densos. En educacion, embeddings pueden capturar similitud entre conceptos o patrones de interaccion. Sin embargo, tambien pueden codificar sesgos si se entrenan sobre datos historicos no revisados.",
+          "order": 110,
+          "start_line": 429,
+          "end_line": 429,
+          "word_count": 39,
+          "character_count": 300,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-111",
+          "parent_section_id": "section-39",
+          "text": "| Objeto | Representacion posible | Uso | | --- | --- | --- | | Palabra | vector semantico | analizar respuestas abiertas | | Ejercicio | vector de dificultad y tema | recomendar practica | | Concepto | vector curricular | conectar prerrequisitos | | Estudiante | vector de estado de aprendizaje | personalizar secuencia |",
+          "markdown": "| Objeto | Representacion posible | Uso |\n| --- | --- | --- |\n| Palabra | vector semantico | analizar respuestas abiertas |\n| Ejercicio | vector de dificultad y tema | recomendar practica |\n| Concepto | vector curricular | conectar prerrequisitos |\n| Estudiante | vector de estado de aprendizaje | personalizar secuencia |",
+          "order": 111,
+          "start_line": 431,
+          "end_line": 436,
+          "word_count": 31,
+          "character_count": 322,
+          "chunk_type": "table"
+        },
+        {
+          "chunk_id": "chunk-112",
+          "parent_section_id": "section-39",
+          "text": "Un embedding no es una explicacion por si mismo. Es una herramienta representacional que requiere interpretacion externa.",
+          "markdown": "Un embedding no es una explicacion por si mismo. Es una herramienta representacional que requiere interpretacion externa.",
+          "order": 112,
+          "start_line": 438,
+          "end_line": 438,
+          "word_count": 17,
+          "character_count": 121,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-40",
+      "parent_section_id": "section-1",
+      "title": "15. Modelos generativos y lenguaje",
+      "markdown": "## 15. Modelos generativos y lenguaje",
+      "level": 2,
+      "order": 40,
+      "heading_type": "markdown",
+      "numbering": "15",
+      "start_line": 440,
+      "end_line": 448,
+      "chunks": [
+        {
+          "chunk_id": "chunk-113",
+          "parent_section_id": "section-40",
+          "text": "Los modelos generativos aprenden distribuciones que permiten producir texto, imagenes, audio u otros datos. En lenguaje, un modelo generativo estima la probabilidad de una secuencia de tokens y puede generar continuaciones plausibles.",
+          "markdown": "Los modelos generativos aprenden distribuciones que permiten producir texto, imagenes, audio u otros datos. En lenguaje, un modelo generativo estima la probabilidad de una secuencia de tokens y puede generar continuaciones plausibles.",
+          "order": 113,
+          "start_line": 442,
+          "end_line": 442,
+          "word_count": 32,
+          "character_count": 234,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-114",
+          "parent_section_id": "section-40",
+          "text": "$$ P(x_1, x_2, \\dots, x_n) = \\prod_{t=1}^{n} P(x_t \\mid x_1, \\dots, x_{t-1}) $$",
+          "markdown": "$$\nP(x_1, x_2, \\dots, x_n) = \\prod_{t=1}^{n} P(x_t \\mid x_1, \\dots, x_{t-1})\n$$",
+          "order": 114,
+          "start_line": 444,
+          "end_line": 446,
+          "word_count": 21,
+          "character_count": 79,
+          "chunk_type": "formula"
+        },
+        {
+          "chunk_id": "chunk-115",
+          "parent_section_id": "section-40",
+          "text": "Esta descomposicion expresa que la probabilidad de una secuencia se construye token por token. En aplicaciones educativas, los modelos de lenguaje pueden apoyar explicaciones, retroalimentacion y generacion de ejercicios, pero requieren verificacion.",
+          "markdown": "Esta descomposicion expresa que la probabilidad de una secuencia se construye token por token. En aplicaciones educativas, los modelos de lenguaje pueden apoyar explicaciones, retroalimentacion y generacion de ejercicios, pero requieren verificacion.",
+          "order": 115,
+          "start_line": 448,
+          "end_line": 448,
+          "word_count": 32,
+          "character_count": 250,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-41",
+      "parent_section_id": "section-40",
+      "title": "15.1 Riesgos de modelos generativos",
+      "markdown": "### 15.1 Riesgos de modelos generativos",
+      "level": 3,
+      "order": 41,
+      "heading_type": "markdown",
+      "numbering": "15.1",
+      "start_line": 450,
+      "end_line": 458,
+      "chunks": [
+        {
+          "chunk_id": "chunk-116",
+          "parent_section_id": "section-41",
+          "text": "- Pueden producir respuestas fluidas pero incorrectas. - Pueden inventar fuentes o justificar errores. - Pueden reflejar sesgos del corpus de entrenamiento. - Pueden no distinguir entre ayuda pedagogica y solucion directa. - Pueden requerir guardrails para proteger datos personales.",
+          "markdown": "- Pueden producir respuestas fluidas pero incorrectas.\n- Pueden inventar fuentes o justificar errores.\n- Pueden reflejar sesgos del corpus de entrenamiento.\n- Pueden no distinguir entre ayuda pedagogica y solucion directa.\n- Pueden requerir guardrails para proteger datos personales.",
+          "order": 116,
+          "start_line": 452,
+          "end_line": 456,
+          "word_count": 35,
+          "character_count": 283,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-117",
+          "parent_section_id": "section-41",
+          "text": "El uso educativo responsable exige combinar generacion con evaluacion, trazabilidad y supervision humana.",
+          "markdown": "El uso educativo responsable exige combinar generacion con evaluacion, trazabilidad y supervision humana.",
+          "order": 117,
+          "start_line": 458,
+          "end_line": 458,
+          "word_count": 13,
+          "character_count": 105,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-42",
+      "parent_section_id": "section-1",
+      "title": "16. Documentacion del modelo",
+      "markdown": "## 16. Documentacion del modelo",
+      "level": 2,
+      "order": 42,
+      "heading_type": "markdown",
+      "numbering": "16",
+      "start_line": 460,
+      "end_line": 473,
+      "chunks": [
+        {
+          "chunk_id": "chunk-118",
+          "parent_section_id": "section-42",
+          "text": "La documentacion permite que otras personas entiendan para que sirve un modelo, como fue entrenado y bajo que condiciones no debe usarse. En proyectos educativos, la documentacion debe ser comprensible para perfiles tecnicos y pedagogicos.",
+          "markdown": "La documentacion permite que otras personas entiendan para que sirve un modelo, como fue entrenado y bajo que condiciones no debe usarse. En proyectos educativos, la documentacion debe ser comprensible para perfiles tecnicos y pedagogicos.",
+          "order": 118,
+          "start_line": 462,
+          "end_line": 462,
+          "word_count": 35,
+          "character_count": 239,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-119",
+          "parent_section_id": "section-42",
+          "text": "Una ficha minima de modelo puede incluir:",
+          "markdown": "Una ficha minima de modelo puede incluir:",
+          "order": 119,
+          "start_line": 464,
+          "end_line": 464,
+          "word_count": 7,
+          "character_count": 41,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-120",
+          "parent_section_id": "section-42",
+          "text": "| Campo | Pregunta | | --- | --- | | Proposito | Que decision apoya | | Datos | De donde provienen los ejemplos | | Poblacion | A quien representa | | Metricas | Como se evaluo | | Limitaciones | Donde puede fallar | | Monitoreo | Que se revisara despues |",
+          "markdown": "| Campo | Pregunta |\n| --- | --- |\n| Proposito | Que decision apoya |\n| Datos | De donde provienen los ejemplos |\n| Poblacion | A quien representa |\n| Metricas | Como se evaluo |\n| Limitaciones | Donde puede fallar |\n| Monitoreo | Que se revisara despues |",
+          "order": 120,
+          "start_line": 466,
+          "end_line": 473,
+          "word_count": 29,
+          "character_count": 256,
+          "chunk_type": "table"
+        }
+      ]
+    },
+    {
+      "section_id": "section-43",
+      "parent_section_id": "section-42",
+      "title": "16.1 Ejemplo de ficha breve",
+      "markdown": "### 16.1 Ejemplo de ficha breve",
+      "level": 3,
+      "order": 43,
+      "heading_type": "markdown",
+      "numbering": "16.1",
+      "start_line": 475,
+      "end_line": 495,
+      "chunks": [
+        {
+          "chunk_id": "chunk-121",
+          "parent_section_id": "section-43",
+          "text": "```yaml modelo: recomendador_practica_algebra version: 0.3 proposito: sugerir ejercicios de practica datos_entrenamiento: periodo: ciclo_2025_2026 fuentes: - resultados_por_tema - intentos_de_ejercicios - retroalimentacion_docente metricas: primaria: mejora_en_evaluacion_corta secundaria: tasa_de_abandono_de_actividad restricciones: - no usar para calificacion final - requiere revision docente en casos de riesgo ```",
+          "markdown": "```yaml\nmodelo: recomendador_practica_algebra\nversion: 0.3\nproposito: sugerir ejercicios de practica\ndatos_entrenamiento:\nperiodo: ciclo_2025_2026\nfuentes:\n- resultados_por_tema\n- intentos_de_ejercicios\n- retroalimentacion_docente\nmetricas:\nprimaria: mejora_en_evaluacion_corta\nsecundaria: tasa_de_abandono_de_actividad\nrestricciones:\n- no usar para calificacion final\n- requiere revision docente en casos de riesgo\n```",
+          "order": 121,
+          "start_line": 477,
+          "end_line": 493,
+          "word_count": 53,
+          "character_count": 419,
+          "chunk_type": "code"
+        },
+        {
+          "chunk_id": "chunk-122",
+          "parent_section_id": "section-43",
+          "text": "Este bloque YAML debe llegar como Markdown de codigo, no como texto plano. Si se conserva, el editor puede mostrarlo como bloque estructurado.",
+          "markdown": "Este bloque YAML debe llegar como Markdown de codigo, no como texto plano. Si se conserva, el editor puede mostrarlo como bloque estructurado.",
+          "order": 122,
+          "start_line": 495,
+          "end_line": 495,
+          "word_count": 23,
+          "character_count": 142,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-44",
+      "parent_section_id": "section-1",
+      "title": "17. Evaluacion cualitativa de errores",
+      "markdown": "## 17. Evaluacion cualitativa de errores",
+      "level": 2,
+      "order": 44,
+      "heading_type": "markdown",
+      "numbering": "17",
+      "start_line": 497,
+      "end_line": 509,
+      "chunks": [
+        {
+          "chunk_id": "chunk-123",
+          "parent_section_id": "section-44",
+          "text": "Las metricas cuantitativas deben complementarse con revision cualitativa. En educacion, un error puede revelar una concepcion alternativa, una instruccion ambigua o una falla del instrumento. Mirar solo el promedio impide aprender del comportamiento del modelo.",
+          "markdown": "Las metricas cuantitativas deben complementarse con revision cualitativa. En educacion, un error puede revelar una concepcion alternativa, una instruccion ambigua o una falla del instrumento. Mirar solo el promedio impide aprender del comportamiento del modelo.",
+          "order": 123,
+          "start_line": 499,
+          "end_line": 499,
+          "word_count": 35,
+          "character_count": 261,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-124",
+          "parent_section_id": "section-44",
+          "text": "Una estrategia simple consiste en seleccionar ejemplos representativos:",
+          "markdown": "Una estrategia simple consiste en seleccionar ejemplos representativos:",
+          "order": 124,
+          "start_line": 501,
+          "end_line": 501,
+          "word_count": 8,
+          "character_count": 71,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-125",
+          "parent_section_id": "section-44",
+          "text": "- Aciertos de alta confianza. - Errores de alta confianza. - Casos cercanos al umbral de decision. - Casos de subgrupos con menor desempeno. - Casos reportados por docentes como problematicos.",
+          "markdown": "- Aciertos de alta confianza.\n- Errores de alta confianza.\n- Casos cercanos al umbral de decision.\n- Casos de subgrupos con menor desempeno.\n- Casos reportados por docentes como problematicos.",
+          "order": 125,
+          "start_line": 503,
+          "end_line": 507,
+          "word_count": 26,
+          "character_count": 192,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-126",
+          "parent_section_id": "section-44",
+          "text": "Para cada caso se revisan entrada, prediccion, etiqueta, explicacion y decision pedagogica sugerida. Esta revision ayuda a corregir datos, redefinir objetivos o ajustar el uso del modelo.",
+          "markdown": "Para cada caso se revisan entrada, prediccion, etiqueta, explicacion y decision pedagogica sugerida. Esta revision ayuda a corregir datos, redefinir objetivos o ajustar el uso del modelo.",
+          "order": 126,
+          "start_line": 509,
+          "end_line": 509,
+          "word_count": 27,
+          "character_count": 187,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-45",
+      "parent_section_id": "section-1",
+      "title": "18. Sintesis conceptual",
+      "markdown": "## 18. Sintesis conceptual",
+      "level": 2,
+      "order": 45,
+      "heading_type": "markdown",
+      "numbering": "18",
+      "start_line": 511,
+      "end_line": 527,
+      "chunks": [
+        {
+          "chunk_id": "chunk-127",
+          "parent_section_id": "section-45",
+          "text": "Machine Learning es una disciplina tecnica, pero su aplicacion educativa exige juicio conceptual. No basta con entrenar modelos precisos. Es necesario preguntar que se esta midiendo, para quien funciona, que intervencion habilita y como se comunica la incertidumbre.",
+          "markdown": "Machine Learning es una disciplina tecnica, pero su aplicacion educativa exige juicio conceptual. No basta con entrenar modelos precisos. Es necesario preguntar que se esta midiendo, para quien funciona, que intervencion habilita y como se comunica la incertidumbre.",
+          "order": 127,
+          "start_line": 513,
+          "end_line": 513,
+          "word_count": 38,
+          "character_count": 266,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-128",
+          "parent_section_id": "section-45",
+          "text": "Los conceptos principales se pueden resumir asi:",
+          "markdown": "Los conceptos principales se pueden resumir asi:",
+          "order": 128,
+          "start_line": 515,
+          "end_line": 515,
+          "word_count": 7,
+          "character_count": 48,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-129",
+          "parent_section_id": "section-45",
+          "text": "| Concepto | Idea esencial | Pregunta de control | | --- | --- | --- | | Datos | evidencia disponible | representan el contexto real | | Modelo | funcion ajustable | captura patrones utiles | | Perdida | criterio de entrenamiento | penaliza lo que importa | | Metrica | reporte de desempeno | refleja el uso previsto | | Validacion | prueba de generalizacion | evita autoengano | | Explicabilidad | comprension de decisiones | ayuda a actuar mejor | | Responsabilidad | uso con consecuencias | protege a las personas |",
+          "markdown": "| Concepto | Idea esencial | Pregunta de control |\n| --- | --- | --- |\n| Datos | evidencia disponible | representan el contexto real |\n| Modelo | funcion ajustable | captura patrones utiles |\n| Perdida | criterio de entrenamiento | penaliza lo que importa |\n| Metrica | reporte de desempeno | refleja el uso previsto |\n| Validacion | prueba de generalizacion | evita autoengano |\n| Explicabilidad | comprension de decisiones | ayuda a actuar mejor |\n| Responsabilidad | uso con consecuencias | protege a las personas |",
+          "order": 129,
+          "start_line": 517,
+          "end_line": 525,
+          "word_count": 57,
+          "character_count": 518,
+          "chunk_type": "table"
+        },
+        {
+          "chunk_id": "chunk-130",
+          "parent_section_id": "section-45",
+          "text": "La fase 2 del sistema debe poder convertir este documento en un grafo que preserve la estructura de lectura y mantenga el Markdown dentro de los nodos. Ese resultado permitira revisar no solo si el contenido fue dividido, sino si la informacion visual y formal se conserva.",
+          "markdown": "La fase 2 del sistema debe poder convertir este documento en un grafo que preserve la estructura de lectura y mantenga el Markdown dentro de los nodos. Ese resultado permitira revisar no solo si el contenido fue dividido, sino si la informacion visual y formal se conserva.",
+          "order": 130,
+          "start_line": 527,
+          "end_line": 527,
+          "word_count": 47,
+          "character_count": 273,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-46",
+      "parent_section_id": "section-1",
+      "title": "19. Preguntas para revision",
+      "markdown": "## 19. Preguntas para revision",
+      "level": 2,
+      "order": 46,
+      "heading_type": "markdown",
+      "numbering": "19",
+      "start_line": 529,
+      "end_line": 539,
+      "chunks": [
+        {
+          "chunk_id": "chunk-131",
+          "parent_section_id": "section-46",
+          "text": "Estas preguntas sirven para evaluar si el lector comprendio la relacion entre los conceptos.",
+          "markdown": "Estas preguntas sirven para evaluar si el lector comprendio la relacion entre los conceptos.",
+          "order": 131,
+          "start_line": 531,
+          "end_line": 531,
+          "word_count": 14,
+          "character_count": 92,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-132",
+          "parent_section_id": "section-46",
+          "text": "- Por que una metrica alta no garantiza que un modelo sea pedagogicamente apropiado? - Que diferencia hay entre perdida de entrenamiento y metrica de evaluacion? - Como podria ocurrir fuga de informacion en datos de una plataforma educativa? - Por que una explicacion local no prueba causalidad? - Que riesgos aparecen al usar modelos generativos para retroalimentacion automatica?",
+          "markdown": "- Por que una metrica alta no garantiza que un modelo sea pedagogicamente apropiado?\n- Que diferencia hay entre perdida de entrenamiento y metrica de evaluacion?\n- Como podria ocurrir fuga de informacion en datos de una plataforma educativa?\n- Por que una explicacion local no prueba causalidad?\n- Que riesgos aparecen al usar modelos generativos para retroalimentacion automatica?",
+          "order": 132,
+          "start_line": 533,
+          "end_line": 537,
+          "word_count": 54,
+          "character_count": 381,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-133",
+          "parent_section_id": "section-46",
+          "text": "Las preguntas deben quedar como lista Markdown de revision. La agrupacion es relevante porque podria usarse para construir actividades o nodos de evaluacion.",
+          "markdown": "Las preguntas deben quedar como lista Markdown de revision. La agrupacion es relevante porque podria usarse para construir actividades o nodos de evaluacion.",
+          "order": 133,
+          "start_line": 539,
+          "end_line": 539,
+          "word_count": 23,
+          "character_count": 157,
+          "chunk_type": "paragraph"
+        }
+      ]
+    },
+    {
+      "section_id": "section-47",
+      "parent_section_id": "section-1",
+      "title": "20. Cierre operativo",
+      "markdown": "## 20. Cierre operativo",
+      "level": 2,
+      "order": 47,
+      "heading_type": "markdown",
+      "numbering": "20",
+      "start_line": 541,
+      "end_line": 556,
+      "chunks": [
+        {
+          "chunk_id": "chunk-134",
+          "parent_section_id": "section-47",
+          "text": "Este documento combina definiciones, formulas, tablas, listas, citas, codigo y texto formal. Su extension es intencionalmente superior a otros documentos de prueba para presionar la segmentacion, la compactacion de chunks y la persistencia de `content_markdown`.",
+          "markdown": "Este documento combina definiciones, formulas, tablas, listas, citas, codigo y texto formal. Su extension es intencionalmente superior a otros documentos de prueba para presionar la segmentacion, la compactacion de chunks y la persistencia de `content_markdown`.",
+          "order": 134,
+          "start_line": 543,
+          "end_line": 543,
+          "word_count": 36,
+          "character_count": 262,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-135",
+          "parent_section_id": "section-47",
+          "text": "El resultado esperado para fase 2 es un grafo con secciones ordenadas, chunks suficientemente informativos y contenido Markdown preservado. Si una tabla aparece como texto continuo, si una formula pierde delimitadores o si un bloque de codigo pierde indentacion, el documento habra servido para detectar una falla importante.",
+          "markdown": "El resultado esperado para fase 2 es un grafo con secciones ordenadas, chunks suficientemente informativos y contenido Markdown preservado. Si una tabla aparece como texto continuo, si una formula pierde delimitadores o si un bloque de codigo pierde indentacion, el documento habra servido para detectar una falla importante.",
+          "order": 135,
+          "start_line": 545,
+          "end_line": 545,
+          "word_count": 48,
+          "character_count": 325,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-136",
+          "parent_section_id": "section-47",
+          "text": "Puntos finales de verificacion:",
+          "markdown": "Puntos finales de verificacion:",
+          "order": 136,
+          "start_line": 547,
+          "end_line": 547,
+          "word_count": 4,
+          "character_count": 31,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-137",
+          "parent_section_id": "section-47",
+          "text": "- El titulo principal debe detectarse como documento o seccion raiz. - Las veinte secciones deben reflejar una secuencia pedagogica clara. - Los chunks con tablas deben conservar tuberias y divisores. - Los chunks con formulas deben conservar `$$`. - Los chunks con codigo deben conservar fences e indentacion. - Los chunks de texto puro deben llenar `content_markdown` con texto equivalente.",
+          "markdown": "- El titulo principal debe detectarse como documento o seccion raiz.\n- Las veinte secciones deben reflejar una secuencia pedagogica clara.\n- Los chunks con tablas deben conservar tuberias y divisores.\n- Los chunks con formulas deben conservar `$$`.\n- Los chunks con codigo deben conservar fences e indentacion.\n- Los chunks de texto puro deben llenar `content_markdown` con texto equivalente.",
+          "order": 137,
+          "start_line": 549,
+          "end_line": 554,
+          "word_count": 55,
+          "character_count": 392,
+          "chunk_type": "paragraph"
+        },
+        {
+          "chunk_id": "chunk-138",
+          "parent_section_id": "section-47",
+          "text": "Con estas condiciones, `documento_prueba_fase_2.md` funciona como un caso cercano a materiales educativos reales de Machine Learning y como una prueba exigente para la nueva generacion de grafo.",
+          "markdown": "Con estas condiciones, `documento_prueba_fase_2.md` funciona como un caso cercano a materiales educativos reales de Machine Learning y como una prueba exigente para la nueva generacion de grafo.",
+          "order": 138,
+          "start_line": 556,
+          "end_line": 556,
+          "word_count": 31,
+          "character_count": 194,
+          "chunk_type": "paragraph"
+        }
+      ]
+    }
+  ],
+  "orphan_chunks": [],
+  "section_count": 47,
+  "subsection_count": 46,
+  "chunk_count": 138
+}

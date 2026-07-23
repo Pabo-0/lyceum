@@ -1,0 +1,279 @@
+{
+  "concepts": [
+    {
+      "concept_id": "concept-dcaa8e5ecb8d",
+      "name": "machine learning",
+      "normalized_name": "machine learning",
+      "score": 6.530272,
+      "frequency": 154,
+      "document_frequency": 138,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-f99706e3a006",
+      "name": "documento prueba fase",
+      "normalized_name": "documento prueba fase",
+      "score": 6.360979,
+      "frequency": 139,
+      "document_frequency": 138,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-c716f44592d5",
+      "name": "fundamentos machine learning",
+      "normalized_name": "fundamentos machine learning",
+      "score": 6.272843,
+      "frequency": 138,
+      "document_frequency": 138,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-edd95740e339",
+      "name": "learning",
+      "normalized_name": "learning",
+      "score": 5.678497,
+      "frequency": 154,
+      "document_frequency": 138,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-bc020a35b7f9",
+      "name": "machine",
+      "normalized_name": "machine",
+      "score": 5.678497,
+      "frequency": 154,
+      "document_frequency": 138,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-cfb6240a3630",
+      "name": "documento prueba",
+      "normalized_name": "documento prueba",
+      "score": 5.62702,
+      "frequency": 139,
+      "document_frequency": 138,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-2647d837f0a7",
+      "name": "prueba fase",
+      "normalized_name": "prueba fase",
+      "score": 5.62702,
+      "frequency": 139,
+      "document_frequency": 138,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-f9d5093255ad",
+      "name": "fundamentos machine",
+      "normalized_name": "fundamentos machine",
+      "score": 5.549054,
+      "frequency": 138,
+      "document_frequency": 138,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-655e786674d9",
+      "name": "prueba",
+      "normalized_name": "prueba",
+      "score": 5.5216,
+      "frequency": 149,
+      "document_frequency": 138,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-edc5f2cc3c95",
+      "name": "documento",
+      "normalized_name": "documento",
+      "score": 5.210321,
+      "frequency": 146,
+      "document_frequency": 138,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-40686fbcc262",
+      "name": "fase",
+      "normalized_name": "fase",
+      "score": 5.084852,
+      "frequency": 143,
+      "document_frequency": 138,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-fbc9e70b318c",
+      "name": "fundamentos",
+      "normalized_name": "fundamentos",
+      "score": 4.825264,
+      "frequency": 138,
+      "document_frequency": 138,
+      "section_frequency": 46,
+      "chunk_frequency": 138,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-474e5dce48b2",
+      "name": "aprendizaje",
+      "normalized_name": "aprendizaje",
+      "score": 3.987685,
+      "frequency": 47,
+      "document_frequency": 41,
+      "section_frequency": 16,
+      "chunk_frequency": 41,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-2477803baffb",
+      "name": "datos",
+      "normalized_name": "datos",
+      "score": 3.922761,
+      "frequency": 54,
+      "document_frequency": 38,
+      "section_frequency": 26,
+      "chunk_frequency": 38,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-6e57b8872e0b",
+      "name": "perdida",
+      "normalized_name": "perdida",
+      "score": 3.615653,
+      "frequency": 27,
+      "document_frequency": 17,
+      "section_frequency": 10,
+      "chunk_frequency": 17,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-8cce676e2f83",
+      "name": "modelo",
+      "normalized_name": "modelo",
+      "score": 3.228652,
+      "frequency": 41,
+      "document_frequency": 32,
+      "section_frequency": 24,
+      "chunk_frequency": 32,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-812b3aea461c",
+      "name": "evaluacion",
+      "normalized_name": "evaluacion",
+      "score": 3.094568,
+      "frequency": 30,
+      "document_frequency": 26,
+      "section_frequency": 14,
+      "chunk_frequency": 26,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-973e223542ff",
+      "name": "theta",
+      "normalized_name": "theta",
+      "score": 2.949695,
+      "frequency": 9,
+      "document_frequency": 4,
+      "section_frequency": 2,
+      "chunk_frequency": 4,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-7f6d38533e09",
+      "name": "supervisado",
+      "normalized_name": "supervisado",
+      "score": 2.933445,
+      "frequency": 28,
+      "document_frequency": 25,
+      "section_frequency": 9,
+      "chunk_frequency": 25,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-6ab03c93de35",
+      "name": "debe",
+      "normalized_name": "debe",
+      "score": 2.786822,
+      "frequency": 21,
+      "document_frequency": 15,
+      "section_frequency": 15,
+      "chunk_frequency": 15,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-2f5b7005a4ba",
+      "name": "metricas",
+      "normalized_name": "metricas",
+      "score": 2.581207,
+      "frequency": 19,
+      "document_frequency": 16,
+      "section_frequency": 8,
+      "chunk_frequency": 16,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-c621fb0dd868",
+      "name": "puede",
+      "normalized_name": "puede",
+      "score": 2.580698,
+      "frequency": 31,
+      "document_frequency": 26,
+      "section_frequency": 20,
+      "chunk_frequency": 26,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-1da93f57b653",
+      "name": "aprendizaje supervisado",
+      "normalized_name": "aprendizaje supervisado",
+      "score": 2.411786,
+      "frequency": 17,
+      "document_frequency": 16,
+      "section_frequency": 6,
+      "chunk_frequency": 16,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-d7f2c9ccc500",
+      "name": "explicaciones",
+      "normalized_name": "explicaciones",
+      "score": 2.292909,
+      "frequency": 11,
+      "document_frequency": 7,
+      "section_frequency": 3,
+      "chunk_frequency": 7,
+      "extraction_method": "tfidf_frequency_ngram"
+    },
+    {
+      "concept_id": "concept-19b6d495c217",
+      "name": "pueden",
+      "normalized_name": "pueden",
+      "score": 2.233978,
+      "frequency": 16,
+      "document_frequency": 11,
+      "section_frequency": 11,
+      "chunk_frequency": 11,
+      "extraction_method": "tfidf_frequency_ngram"
+    }
+  ]
+}

@@ -49,9 +49,15 @@ export default function GraphPage({
   }
 
   function handleOpenNodeEditor(nodeId) {
-    onSelectNode(nodeId);
+    onSelectNode('');
     onSelectRelationship(null);
     setEditDialog({ kind: 'node', nodeId });
+  }
+
+  function handleOpenRelationshipEditor(relationshipId) {
+    onSelectNode('');
+    onSelectRelationship(null);
+    setEditDialog({ kind: 'relationship', relationshipId });
   }
 
   return (
@@ -77,9 +83,7 @@ export default function GraphPage({
                 })
               }
               onOpenNodeEditor={handleOpenNodeEditor}
-              onOpenRelationshipEditor={(relationshipId) =>
-                setEditDialog({ kind: 'relationship', relationshipId })
-              }
+              onOpenRelationshipEditor={handleOpenRelationshipEditor}
               onSelectNode={handleSelectNode}
               onSelectRelationship={onSelectRelationship}
               selectedNodeId={selectedNodeId}

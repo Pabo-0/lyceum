@@ -1,24 +1,39 @@
 .app-shell {
+  height: 100vh;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .workspace {
   display: grid;
+  height: 100vh;
   grid-template-columns: auto minmax(0, 1fr);
-  min-height: 100vh;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .content-shell {
+  min-height: 0;
   min-width: 0;
+  overflow: hidden;
   padding: 18px;
 }
 
 @media (max-width: 860px) {
+  .app-shell {
+    height: auto;
+    overflow: auto;
+  }
+
   .workspace {
     grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
   }
 
   .content-shell {
+    overflow: visible;
     padding: 12px;
   }
 }

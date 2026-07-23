@@ -97,60 +97,6 @@
   margin: 0;
 }
 
-.logout-confirm-overlay {
-  align-items: center;
-  background: var(--color-overlay);
-  display: grid;
-  inset: 0;
-  padding: 24px;
-  place-items: center;
-  position: fixed;
-  z-index: 20;
-}
-
-.logout-confirm-dialog {
-  background: var(--modal-bg);
-  border: 1px solid var(--modal-border);
-  border-radius: var(--radius-modal);
-  box-shadow: var(--shadow-modal);
-  max-width: min(420px, 100%);
-  overflow: hidden;
-  width: 100%;
-}
-
-.logout-confirm-dialog header {
-  display: grid;
-  gap: 10px;
-  padding: 24px 26px 18px;
-}
-
-.logout-confirm-dialog h2 {
-  font-family: var(--font-heading);
-  font-size: 1.28rem;
-  line-height: 1.15;
-  margin: 0;
-}
-
-.logout-confirm-dialog p {
-  color: var(--color-text-secondary);
-  line-height: 1.5;
-  margin: 0;
-}
-
-.logout-confirm-dialog footer {
-  background: var(--modal-footer-bg);
-  border-top: 1px solid var(--color-border);
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  padding: 16px 26px 20px;
-}
-
-.logout-confirm-dialog footer button {
-  margin: 0;
-  min-width: 120px;
-}
-
 @media (max-width: 860px) {
   .settings-page {
     min-height: calc(100vh - 82px);
@@ -171,11 +117,4 @@
     justify-content: flex-end;
   }
 
-  .logout-confirm-dialog footer {
-    display: grid;
-  }
-
-  .logout-confirm-dialog footer button {
-    width: 100%;
-  }
 }

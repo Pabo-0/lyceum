@@ -144,6 +144,104 @@ class ApiEndpointTests(TestCase):
             "Nodo visible",
         )
 
+        document_delete = self.client.delete(f"/documents/{document_id}/")
+        self.assertEqual(document_delete.status_code, 200)
+
+        detail_after_delete = self.client.get(f"/documents/{document_id}/")
+        self.assertEqual(detail_after_delete.status_code, 404)
+
+    def test_document_nodes_cannot_be_deleted(self) -> None:
+        created = self.client.post(
+            "/documents/",
+            data=json.dumps(
+                {
+                    "filename": "redes.md",
+                    "content": (
+                        "# Redes neuronales\n\n"
+                        "## 1. Capas\n\n"
+                        "Una red conecta capas con pesos entrenables.\n"
+                    ),
+                }
+            ),
+            content_type="application/json",
+        )
+        self.assertEqual(created.status_code, 201)
+        body = created.json()
+        document_id = body["document"]["metadata"]["document_id"]
+        document_node = next(
+            node
+            for node in body["document"]["graph"]["nodes"]
+            if "Document" in node["labels"]
+        )
+
+        deleted = self.client.delete(f"/nodes/{quote(document_node['node_id'], safe='')}/")
+
+        self.assertEqual(deleted.status_code, 400)
+        self.assertEqual(deleted.json()["error"], "Document nodes cannot be deleted")
+
+        detail = self.client.get(f"/documents/{document_id}/")
+        self.assertEqual(detail.status_code, 200)
+
+    def test_deleting_section_removes_child_sections_and_chunks(self) -> None:
+        created = self.client.post(
+            "/documents/",
+            data=json.dumps(
+                {
+                    "filename": "secciones.md",
+                    "content": (
+                        "# Documento con secciones\n\n"
+                        "## 1. Primera seccion\n\n"
+                        "La primera seccion tiene contenido suficiente para crear chunks.\n\n"
+                        "## 2. Segunda seccion\n\n"
+                        "La segunda seccion debe conservarse despues del borrado.\n"
+                    ),
+                }
+            ),
+            content_type="application/json",
+        )
+        self.assertEqual(created.status_code, 201)
+        graph = created.json()["document"]["graph"]
+        document_id = created.json()["document"]["metadata"]["document_id"]
+        node_by_id = {node["node_id"]: node for node in graph["nodes"]}
+        section_id = next(
+            node["node_id"]
+            for node in graph["nodes"]
+            if "Section" in node["labels"]
+            and node["properties"].get("title") == "1. Primera seccion"
+        )
+        other_section_id = next(
+            node["node_id"]
+            for node in graph["nodes"]
+            if "Section" in node["labels"]
+            and node["properties"].get("title") == "2. Segunda seccion"
+        )
+        child_ids = {
+            relationship["target_id"]
+            for relationship in graph["relationships"]
+            if relationship["source_id"] == section_id
+            and relationship["relationship_type"] == "CONTAINS"
+            and relationship.get("properties", {}).get("role") in {"subsection", "chunk"}
+            and (
+                "Section" in node_by_id[relationship["target_id"]]["labels"]
+                or "Chunk" in node_by_id[relationship["target_id"]]["labels"]
+            )
+        }
+        self.assertGreater(len(child_ids), 0)
+
+        deleted = self.client.delete(f"/nodes/{quote(section_id, safe='')}/")
+
+        self.assertEqual(deleted.status_code, 200)
+        deleted_node_ids = {node["node_id"] for node in deleted.json()["deleted_nodes"]}
+        self.assertEqual(deleted_node_ids, {section_id, *child_ids})
+        updated_graph = deleted.json()["graph"]
+        remaining_node_ids = {node["node_id"] for node in updated_graph["nodes"]}
+        self.assertNotIn(section_id, remaining_node_ids)
+        self.assertTrue(child_ids.isdisjoint(remaining_node_ids))
+        self.assertIn(other_section_id, remaining_node_ids)
+        for relationship in updated_graph["relationships"]:
+            self.assertNotIn(relationship["source_id"], deleted_node_ids)
+            self.assertNotIn(relationship["target_id"], deleted_node_ids)
+
     def test_signup_and_document_upload_persist_general_database_rows(self) -> None:
         signup = self.client.post(
             "/api/users/signup/",
@@ -209,6 +307,22 @@ class ApiEndpointTests(TestCase):
         self.assertEqual(saved_manual_node["labels"], ["Content"])
         self.assertTrue(saved_manual_node["properties"]["manual"])
         self.assertEqual(saved_manual_node["properties"]["content_version"], 1)
+
+        manual_section = self.client.post(
+            f"/documents/{document_id}/nodes/",
+            data=json.dumps(
+                {
+                    "labels": ["Section"],
+                    "properties": {
+                        "title": "Seccion manual",
+                    },
+                }
+            ),
+            content_type="application/json",
+            HTTP_X_LYCEUM_WORKSPACE_ID=workspace_id,
+        )
+        self.assertEqual(manual_section.status_code, 400)
+        self.assertIn("Section nodes are created", manual_section.json()["error"])
 
         position = self.client.post(
             f"/documents/{document_id}/node-positions/",
@@ -432,16 +546,14 @@ class ApiEndpointTests(TestCase):
             ),
             content_type="application/json",
         )
-        self.assertEqual(relabeled_node.status_code, 200)
-        self.assertEqual(relabeled_node.json()["node"]["labels"], ["Content"])
-        self.assertEqual(
-            relabeled_node.json()["node"]["properties"]["content_text"],
-            "Texto convertido en contenido.",
+        self.assertEqual(relabeled_node.status_code, 400)
+        self.assertIn("Node type cannot be changed", relabeled_node.json()["error"])
+        unchanged_graph = self.client.get(f"/documents/{document_id}/graph/")
+        unchanged_node = next(
+            node for node in unchanged_graph.json()["graph"]["nodes"] if node["node_id"] == relabel_id
         )
-        self.assertEqual(
-            relabeled_node.json()["node"]["properties"]["title"],
-            "Contenido manual",
-        )
+        self.assertEqual(unchanged_node["labels"], ["Concept"])
+        self.assertEqual(unchanged_node["properties"]["title"], "Temporal")
 
         second_node = self.client.post(
             f"/documents/{document_id}/nodes/",
@@ -501,7 +613,7 @@ class ApiEndpointTests(TestCase):
             "Mas notas.",
             merged.json()["node"]["properties"]["content_text"],
         )
-        self.assertEqual(merged.json()["graph"]["node_counts_by_label"]["Concept"], 1)
+        self.assertEqual(merged.json()["graph"]["node_counts_by_label"]["Concept"], 2)
 
     def test_uploads_document_file(self) -> None:
         uploaded_file = SimpleUploadedFile(
